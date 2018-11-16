@@ -1,0 +1,26 @@
+<Project>
+  <!--导入版本信息-->
+  <Import Project="build.version.props" />
+
+  <!--语言版本和视为错误的编译警告-->
+  <PropertyGroup>
+    <CodePage>65001</CodePage>
+    <!-- https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7-3 -->
+    <LangVersion>7.3</LangVersion>
+    <WarningLevel>4</WarningLevel>
+    <WarningsAsErrors>CS0078;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS0219;CS0429;CS0467;CS0472;CS0618;CS0628;CS0649;CS0659;CS0660;CS0661;CS1058;CS1060;CS1570;CS1571;CS1572;CS1573;CS1587;CS1591;CS1712;CS1956;CS3007;CS4014;NU1605;xUnit1013;xUnit1026;xUnit2000;xUnit2003;</WarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectCapability Include="DynamicDependentFile" />
+    <ProjectCapability Include="DynamicFileNesting" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
+  </ItemGroup>
+
+</Project>

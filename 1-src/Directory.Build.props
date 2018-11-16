@@ -1,0 +1,18 @@
+<Project>
+  <!--适用于当前文件夹下的所有项目-->
+  <Import Project="../0-build/build.props" />
+
+  <!--nuget打包的共同配置-->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <Authors>lnh</Authors>
+    <Company>lnh</Company>
+    <Copyright>Copyright © lnh 2018</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/linianhui/network</RepositoryUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+</Project>

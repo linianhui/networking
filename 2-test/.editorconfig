@@ -1,0 +1,9 @@
+# C# 命名规则
+[*.cs]
+## 测试方法: is_true
+dotnet_naming_rule.pascal_case_rule.symbols                             = test_method_symbol
+dotnet_naming_rule.pascal_case_rule.style                               = test_method_style
+dotnet_naming_rule.pascal_case_rule.severity                            = error
+dotnet_naming_symbols.test_method_symbol.applicable_kinds               = method
+dotnet_naming_style.test_method_style.capitalization                    = all_lower
+dotnet_naming_style.test_method_style.word_separator                    = _

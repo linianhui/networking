@@ -22,17 +22,17 @@ namespace Networking.Model.DataLink
             /// <summary>
             /// 目标MAC地址-起始位置
             /// </summary>
-            public static readonly Int32 TargetMACAddressBegin = 0;
+            public static readonly Int32 DestinationMACAddressBegin = 0;
 
             /// <summary>
             /// 目标MAC地址-结束位置
             /// </summary>
-            public static readonly Int32 TargetMACAddressEnd = TargetMACAddressBegin + MACAddressLength;
+            public static readonly Int32 DestinationMACAddressEnd = DestinationMACAddressBegin + MACAddressLength;
 
             /// <summary>
             /// 源MAC地址-起始位置
             /// </summary>
-            public static readonly Int32 SourceMACAddressBegin = TargetMACAddressEnd;
+            public static readonly Int32 SourceMACAddressBegin = DestinationMACAddressEnd;
 
             /// <summary>
             /// 源MAC地址-结束位置

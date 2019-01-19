@@ -11,18 +11,18 @@ namespace Networking.Model.DataLink
         /// <summary>
         /// 目标MAC地址
         /// </summary>
-        public MACAddress TargetMACAddress
+        public MACAddress DestinationMACAddress
         {
             get
             {
                 return new MACAddress
                 {
-                    Bytes = Read(Structure.TargetMACAddressBegin, Structure.MACAddressLength)
+                    Bytes = Read(Structure.DestinationMACAddressBegin, Structure.MACAddressLength)
                 };
             }
             set
             {
-                Write(Structure.TargetMACAddressBegin, Structure.MACAddressLength, value.Bytes);
+                Write(Structure.DestinationMACAddressBegin, Structure.MACAddressLength, value.Bytes);
             }
         }
 

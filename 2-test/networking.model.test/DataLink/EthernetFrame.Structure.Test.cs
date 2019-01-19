@@ -11,8 +11,8 @@ namespace Networking.Model.Test.DataLink
         {
             EthernetFrame.Structure.MACAddressLength.Should().Be(6);
 
-            EthernetFrame.Structure.TargetMACAddressBegin.Should().Be(0);
-            EthernetFrame.Structure.TargetMACAddressEnd.Should().Be(6);
+            EthernetFrame.Structure.DestinationMACAddressBegin.Should().Be(0);
+            EthernetFrame.Structure.DestinationMACAddressEnd.Should().Be(6);
 
             EthernetFrame.Structure.SourceMACAddressBegin.Should().Be(6);
             EthernetFrame.Structure.SourceMACAddressEnd.Should().Be(12);

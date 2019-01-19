@@ -15,7 +15,7 @@ namespace Networking.Model.DataLink
             };
 
             ethernetFrame.ToString().Should().Be("12-34-56-78-9A-BC");
-            ethernetFrame.DestinationMACAddress.ToString().Should().Be("12-34-56-78-9A-BC");
+            ethernetFrame.DestinationMACAddress.ToString().Should().Be("12:34:56:78:9A:BC");
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace Networking.Model.DataLink
             };
 
             ethernetFrame.ToString().Should().Be("21-43-65-87-A9-CB");
-            ethernetFrame.DestinationMACAddress.ToString().Should().Be("21-43-65-87-A9-CB");
+            ethernetFrame.DestinationMACAddress.ToString().Should().Be("21:43:65:87:A9:CB");
         }
 
         [Fact]
@@ -44,7 +44,7 @@ namespace Networking.Model.DataLink
             };
 
             ethernetFrame.ToString().Should().Be("FF-FF-FF-FF-FF-FF-12-34-56-78-9A-BC");
-            ethernetFrame.SourceMACAddress.ToString().Should().Be("12-34-56-78-9A-BC");
+            ethernetFrame.SourceMACAddress.ToString().Should().Be("12:34:56:78:9A:BC");
         }
 
         [Fact]
@@ -61,8 +61,8 @@ namespace Networking.Model.DataLink
             };
 
             ethernetFrame.ToString().Should().Be("FF-FF-FF-FF-FF-FF-21-43-65-87-A9-CB");
-            ethernetFrame.DestinationMACAddress.ToString().Should().Be("FF-FF-FF-FF-FF-FF");
-            ethernetFrame.SourceMACAddress.ToString().Should().Be("21-43-65-87-A9-CB");
+            ethernetFrame.DestinationMACAddress.ToString().Should().Be("FF:FF:FF:FF:FF:FF");
+            ethernetFrame.SourceMACAddress.ToString().Should().Be("21:43:65:87:A9:CB");
         }
 
     }

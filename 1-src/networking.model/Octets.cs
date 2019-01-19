@@ -49,7 +49,7 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 
+        /// 12-34-56-78-89-AB-CD-EF
         /// </summary>
         /// <returns></returns>
         public override String ToString()

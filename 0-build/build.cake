@@ -9,7 +9,7 @@ var srcPath      = rootPath + "1-src/";
 var testPath     = rootPath + "2-test/";
 var distPath     = rootPath + "3-dist/";
 
-var solution     = rootPath + "network.sln";
+var solution     = rootPath + "networking.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
 

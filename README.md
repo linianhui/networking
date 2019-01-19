@@ -1,2 +1,2 @@
-# network
-network capture
+# networking
+networking capture

@@ -1,6 +1,6 @@
 <Project>
   <!--Nuget Pack的版本信息-->
   <PropertyGroup>
-    <Network_Model_Version>2018.11.16</Network_Model_Version>
+    <Networking_Model_Version>2019.01.19</Networking_Model_Version>
   </PropertyGroup>
 </Project>

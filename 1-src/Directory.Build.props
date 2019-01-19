@@ -11,7 +11,7 @@
     <Company>lnh</Company>
     <Copyright>Copyright © lnh 2018</Copyright>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/linianhui/network</RepositoryUrl>
+    <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>

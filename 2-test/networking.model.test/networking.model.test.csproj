@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Networking.Model.Test</AssemblyName>
+    <RootNamespace>Networking.Model.Test</RootNamespace>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1-src\networking.model\networking.model.csproj" />
+  </ItemGroup>
+
+</Project>

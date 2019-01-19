@@ -2,6 +2,30 @@ using System;
 
 namespace Networking.Model.DataLink
 {
+    /*
+     |              Ethernet II (DIX) Frame                          |
+     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
+     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
+     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
+     |           Destination MAC Address (6 octets)                  |
+     |                               +- - - - - - - -+- - - - - - - -| 
+     |                               |                               |
+     |- - - - - - - -+- - - - - - - -+                               | 
+     |           Source MAC Address (6 octets)                       |
+     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
+     |        Type (2 octets)        |                               |
+     |- - - - - - - -+- - - - - - - -+                               |
+     |                                                               |
+     |               Payload (46-1500 octets)                        |
+     |                                                               |
+     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
+     |                        CRC (4 octets)                         |
+     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
+
+     min = 6+6+2+4+46   = 64 octets
+     max = 6+6+2+4+1500 = 1518 octets
+     */
+
     public partial class EthernetFrame
     {
         /// <summary>

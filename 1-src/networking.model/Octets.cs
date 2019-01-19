@@ -18,6 +18,17 @@ namespace Networking.Model
         /// 读取或写入
         /// </summary>
         /// <param name="index">索引</param>
+        /// <returns></returns>
+        public Byte this[Int32 index]
+        {
+            get { return Bytes.Span[index]; }
+            set { Bytes.Span[index] = value; }
+        }
+
+        /// <summary>
+        /// 读取或写入
+        /// </summary>
+        /// <param name="index">索引</param>
         /// <param name="length">长度</param>
         /// <returns></returns>
         public Memory<Byte> this[Int32 index, Int32 length]

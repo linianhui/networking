@@ -7,10 +7,8 @@ namespace Networking.Model.Test.DataLink
     public class EthernetFrameLayoutTest
     {
         [Fact]
-        public void Structure_is_right()
+        public void layout_is_right()
         {
-            EthernetFrame.Layout.MACAddressLength.Should().Be(6);
-
             EthernetFrame.Layout.DestinationMACAddressBegin.Should().Be(0);
             EthernetFrame.Layout.DestinationMACAddressEnd.Should().Be(6);
 

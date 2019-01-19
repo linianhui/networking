@@ -34,47 +34,42 @@ namespace Networking.Model.DataLink
         public class Layout
         {
             /// <summary>
-            /// MAC地址长度
-            /// </summary>
-            public static readonly Int32 MACAddressLength = 6;
-
-            /// <summary>
-            /// 类型长度
+            /// 类型长度=2
             /// </summary>
             public static readonly Int32 TypeLength = 2;
 
             /// <summary>
-            /// 目标MAC地址-起始位置
+            /// 目标MAC地址-起始位置=0
             /// </summary>
             public static readonly Int32 DestinationMACAddressBegin = 0;
 
             /// <summary>
-            /// 目标MAC地址-结束位置
+            /// 目标MAC地址-结束位置=6
             /// </summary>
-            public static readonly Int32 DestinationMACAddressEnd = DestinationMACAddressBegin + MACAddressLength;
+            public static readonly Int32 DestinationMACAddressEnd = DestinationMACAddressBegin + MACAddress.Layout.Length;
 
             /// <summary>
-            /// 源MAC地址-起始位置
+            /// 源MAC地址-起始位置=6
             /// </summary>
             public static readonly Int32 SourceMACAddressBegin = DestinationMACAddressEnd;
 
             /// <summary>
-            /// 源MAC地址-结束位置
+            /// 源MAC地址-结束位置=12
             /// </summary>
-            public static readonly Int32 SourceMACAddressEnd = SourceMACAddressBegin + MACAddressLength;
+            public static readonly Int32 SourceMACAddressEnd = SourceMACAddressBegin + MACAddress.Layout.Length;
 
             /// <summary>
-            /// 类型-起始位置
+            /// 类型-起始位置=12
             /// </summary>
             public static readonly Int32 TypeBegin = SourceMACAddressEnd;
 
             /// <summary>
-            /// 类型-结束位置
+            /// 类型-结束位置=14
             /// </summary>
             public static readonly Int32 TypeEnd = TypeBegin + TypeLength;
 
             /// <summary>
-            /// 头部信息-长度
+            /// 头部信息-长度=14
             /// </summary>
             public static readonly Int32 HeaderLength = TypeEnd;
         }

@@ -15,12 +15,12 @@ namespace Networking.Model.DataLink
             {
                 return new MACAddress
                 {
-                    Bytes = base[Layout.DestinationMACAddressBegin, Layout.MACAddressLength]
+                    Bytes = base[Layout.DestinationMACAddressBegin, MACAddress.Layout.Length]
                 };
             }
             set
             {
-                base[Layout.DestinationMACAddressBegin, Layout.MACAddressLength] = value.Bytes;
+                base[Layout.DestinationMACAddressBegin, MACAddress.Layout.Length] = value.Bytes;
             }
         }
 
@@ -33,12 +33,12 @@ namespace Networking.Model.DataLink
             {
                 return new MACAddress
                 {
-                    Bytes = base[Layout.SourceMACAddressBegin, Layout.MACAddressLength]
+                    Bytes = base[Layout.SourceMACAddressBegin, MACAddress.Layout.Length]
                 };
             }
             set
             {
-                base[Layout.SourceMACAddressBegin, Layout.MACAddressLength] = value.Bytes;
+                base[Layout.SourceMACAddressBegin, MACAddress.Layout.Length] = value.Bytes;
             }
         }
 

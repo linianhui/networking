@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model.Test
+namespace Networking.Model
 {
     public class XunitTest
     {

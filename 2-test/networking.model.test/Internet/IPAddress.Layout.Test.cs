@@ -1,8 +1,7 @@
 using FluentAssertions;
-using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Test.Internet
+namespace Networking.Model.Internet
 {
     public class IPAddressLayoutTest
     {

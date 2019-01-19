@@ -1,9 +1,8 @@
-using FluentAssertions;
-using Networking.Model.DataLink;
-using Xunit;
 using System;
+using FluentAssertions;
+using Xunit;
 
-namespace Networking.Model.Test.DataLink
+namespace Networking.Model.DataLink
 {
     public class EthernetFrameTest
     {

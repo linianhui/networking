@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Test.DataLink
+namespace Networking.Model.DataLink
 {
     public class EthernetFrameTypeTest
     {

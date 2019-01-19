@@ -5,7 +5,7 @@ namespace Networking.Model.DataLink
     public partial class EthernetFrame
     {
         /// <summary>
-        /// 结构信息
+        /// <see cref="EthernetFrame"/>的结构信息
         /// </summary>
         public class Structure
         {

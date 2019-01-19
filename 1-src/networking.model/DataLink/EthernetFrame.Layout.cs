@@ -31,7 +31,7 @@ namespace Networking.Model.DataLink
         /// <summary>
         /// <see cref="EthernetFrame"/>的结构信息
         /// </summary>
-        public class Structure
+        public class Layout
         {
             /// <summary>
             /// MAC地址长度

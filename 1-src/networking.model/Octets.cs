@@ -27,11 +27,11 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 读取<see cref="UInt16"/>[BigEndian]
+        /// 读取为<see cref="UInt16"/>[BigEndian]
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt16 ReadUInt16BigEndian(Int32 index)
+        public UInt16 ReadAsUInt16FromBigEndian(Int32 index)
         {
             var span = this[index, 2].Span;
             return BinaryPrimitives.ReadUInt16BigEndian(span);

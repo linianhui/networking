@@ -70,14 +70,15 @@ namespace Networking.Model.Test
         }
 
         [Fact]
-        public void ReadUInt16BigEndian()
+        public void ReadAsUInt16FromBigEndian()
         {
             var octets = new Octets
             {
-                Bytes = new Byte[] { 0x00, 0x08, 0x06 }
+                Bytes = new Byte[] { 0x08, 0x00, 0x08, 0x06 }
             };
 
-            octets.ReadUInt16BigEndian(1).Should().Be(2054);
+            octets.ReadAsUInt16FromBigEndian(0).Should().Be(2048);
+            octets.ReadAsUInt16FromBigEndian(2).Should().Be(2054);
         }
     }
 }

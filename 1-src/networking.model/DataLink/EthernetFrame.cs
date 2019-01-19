@@ -49,7 +49,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (EthernetFrameType)ReadUInt16BigEndian(Structure.TypeBegin);
+                return (EthernetFrameType)ReadAsUInt16FromBigEndian(Structure.TypeBegin);
             }
         }
     }

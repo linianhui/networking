@@ -117,9 +117,9 @@ dotnet_style_qualification_for_event                       = false : error
 
 # 基元类型
 ## IDE0012
-dotnet_style_predefined_type_for_locals_parameters_members = true : error
+dotnet_style_predefined_type_for_locals_parameters_members = false : error
 ## IDE0013
-dotnet_style_predefined_type_for_member_access             = true : error
+dotnet_style_predefined_type_for_member_access             = false : error
 
 # 修饰符
 ## IDE0040

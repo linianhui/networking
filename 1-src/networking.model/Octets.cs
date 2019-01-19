@@ -11,13 +11,13 @@ namespace Networking.Model
         /// <summary>
         /// 字节数据
         /// </summary>
-        public Memory<byte> Bytes { get; set; }
+        public Memory<Byte> Bytes { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public override String ToString()
         {
             return BitConverter.ToString(Bytes.ToArray());
         }

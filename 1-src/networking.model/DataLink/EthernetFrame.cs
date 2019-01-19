@@ -1,5 +1,3 @@
-using System;
-
 namespace Networking.Model.DataLink
 {
     /// <summary>
@@ -49,12 +47,7 @@ namespace Networking.Model.DataLink
         /// </summary>
         public EthernetFrameType Type
         {
-            get
-            {
-                var array = Read(Structure.TypeBegin, Structure.TypeLength).ToArray();
-                Array.Reverse(array);
-                return (EthernetFrameType)BitConverter.ToUInt16(array, 0);
-            }
+            get { return (EthernetFrameType)ReadUInt16BigEndian(Structure.TypeBegin); }
         }
     }
 }

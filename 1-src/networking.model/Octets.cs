@@ -1,4 +1,5 @@
 using System;
+using System.Buffers.Binary;
 
 namespace Networking.Model
 {
@@ -13,28 +14,38 @@ namespace Networking.Model
         /// </summary>
         public Memory<Byte> Bytes { get; set; }
 
-
         /// <summary>
-        /// 
+        /// 读取
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="length"></param>
+        /// <param name="index">索引</param>
+        /// <param name="length">长度</param>
         /// <returns></returns>
-        public Memory<Byte> Read(Int32 start, Int32 length)
+        public Memory<Byte> Read(Int32 index, Int32 length)
         {
-            return Bytes.Slice(start, length);
+            return Bytes.Slice(index, length);
         }
 
         /// <summary>
-        /// 
+        /// 写入
         /// </summary>
-        /// <param name="start"></param>
-        /// <param name="length"></param>
-        /// <param name="value"></param>
+        /// <param name="index">索引</param>
+        /// <param name="length">长度</param>
+        /// <param name="value">值</param>
         /// <returns></returns>
-        public void Write(Int32 start, Int32 length, Memory<Byte> value)
+        public void Write(Int32 index, Int32 length, Memory<Byte> value)
         {
-            value.CopyTo(Read(start, length));
+            value.CopyTo(Read(index, length));
+        }
+
+        /// <summary>
+        /// 读取<see cref="UInt16"/>[BigEndian]
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public UInt16 ReadUInt16BigEndian(Int32 index)
+        {
+            var span = Read(index, 2).Span;
+            return BinaryPrimitives.ReadUInt16BigEndian(span);
         }
 
         /// <summary>

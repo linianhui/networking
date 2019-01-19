@@ -7,7 +7,7 @@ namespace Networking.Model.Test.DataLink
     public class EthernetFrameStructureTest
     {
         [Fact]
-        public void structure()
+        public void Structure_is_right()
         {
             EthernetFrame.Structure.MACAddressLength.Should().Be(6);
 

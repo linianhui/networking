@@ -8,7 +8,7 @@ namespace Networking.Model.Test.DataLink
     public class EthernetFrameTest
     {
         [Fact]
-        public void target_mac_address_get()
+        public void TargetMACAddress_Get()
         {
             var ethernetFrame = new EthernetFrame
             {
@@ -20,7 +20,7 @@ namespace Networking.Model.Test.DataLink
         }
 
         [Fact]
-        public void target_mac_address_set()
+        public void TargetMACAddress_Set()
         {
             var ethernetFrame = new EthernetFrame
             {
@@ -37,7 +37,7 @@ namespace Networking.Model.Test.DataLink
         }
 
         [Fact]
-        public void source_mac_address_get()
+        public void SourceMACAddress_Get()
         {
             var ethernetFrame = new EthernetFrame
             {
@@ -49,7 +49,7 @@ namespace Networking.Model.Test.DataLink
         }
 
         [Fact]
-        public void source_mac_address_set()
+        public void SourceMACAddress_Set()
         {
             var ethernetFrame = new EthernetFrame
             {

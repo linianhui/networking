@@ -15,12 +15,12 @@ namespace Networking.Model.DataLink
             {
                 return new MACAddress
                 {
-                    Bytes = Read(Structure.DestinationMACAddressBegin, Structure.MACAddressLength)
+                    Bytes = base[Structure.DestinationMACAddressBegin, Structure.MACAddressLength]
                 };
             }
             set
             {
-                Write(Structure.DestinationMACAddressBegin, Structure.MACAddressLength, value.Bytes);
+                base[Structure.DestinationMACAddressBegin, Structure.MACAddressLength] = value.Bytes;
             }
         }
 
@@ -33,12 +33,12 @@ namespace Networking.Model.DataLink
             {
                 return new MACAddress
                 {
-                    Bytes = Read(Structure.SourceMACAddressBegin, Structure.MACAddressLength)
+                    Bytes = base[Structure.SourceMACAddressBegin, Structure.MACAddressLength]
                 };
             }
             set
             {
-                Write(Structure.SourceMACAddressBegin, Structure.MACAddressLength, value.Bytes);
+                base[Structure.SourceMACAddressBegin, Structure.MACAddressLength] = value.Bytes;
             }
         }
 
@@ -47,7 +47,10 @@ namespace Networking.Model.DataLink
         /// </summary>
         public EthernetFrameType Type
         {
-            get { return (EthernetFrameType)ReadUInt16BigEndian(Structure.TypeBegin); }
+            get
+            {
+                return (EthernetFrameType)ReadUInt16BigEndian(Structure.TypeBegin);
+            }
         }
     }
 }

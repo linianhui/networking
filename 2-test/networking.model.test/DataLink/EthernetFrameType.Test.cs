@@ -26,7 +26,7 @@ namespace Networking.Model.Test.DataLink
             };
             if (bytes != null)
             {
-                ethernetFrame.Write(12, 2, bytes);
+                ethernetFrame[12, 2] = bytes;
             }
 
             ethernetFrame.Type.Should().Be(type);

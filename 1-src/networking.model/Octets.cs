@@ -15,26 +15,15 @@ namespace Networking.Model
         public Memory<Byte> Bytes { get; set; }
 
         /// <summary>
-        /// 读取
+        /// 读取或写入
         /// </summary>
         /// <param name="index">索引</param>
         /// <param name="length">长度</param>
         /// <returns></returns>
-        public Memory<Byte> Read(Int32 index, Int32 length)
+        public Memory<Byte> this[Int32 index, Int32 length]
         {
-            return Bytes.Slice(index, length);
-        }
-
-        /// <summary>
-        /// 写入
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="length">长度</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void Write(Int32 index, Int32 length, Memory<Byte> value)
-        {
-            value.CopyTo(Read(index, length));
+            get { return Bytes.Slice(index, length); }
+            set { value.CopyTo(Bytes.Slice(index, length)); }
         }
 
         /// <summary>
@@ -44,7 +33,7 @@ namespace Networking.Model
         /// <returns></returns>
         public UInt16 ReadUInt16BigEndian(Int32 index)
         {
-            var span = Read(index, 2).Span;
+            var span = this[index, 2].Span;
             return BinaryPrimitives.ReadUInt16BigEndian(span);
         }
 

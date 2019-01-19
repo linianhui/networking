@@ -1,0 +1,5 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+build: off
+test_script:
+- ps: ./cake.ps1 -target=test

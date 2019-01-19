@@ -13,6 +13,30 @@ namespace Networking.Model
         /// </summary>
         public Memory<Byte> Bytes { get; set; }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public Memory<Byte> Read(Int32 start, Int32 length)
+        {
+            return Bytes.Slice(start, length);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="length"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public void Write(Int32 start, Int32 length, Memory<Byte> value)
+        {
+            value.CopyTo(Read(start, length));
+        }
+
         /// <summary>
         /// 
         /// </summary>

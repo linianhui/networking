@@ -1,3 +1,5 @@
+using System;
+
 namespace Networking.Model.DataLink
 {
     /// <summary>
@@ -6,5 +8,40 @@ namespace Networking.Model.DataLink
     /// </summary>
     public partial class EthernetFrame : DataLinkFrame
     {
+        /// <summary>
+        /// 目标MAC地址
+        /// </summary>
+        public MACAddress TargetMACAddress
+        {
+            get
+            {
+                return new MACAddress
+                {
+                    Bytes = Read(Structure.TargetMACAddressBegin, Structure.MACAddressLength)
+                };
+            }
+            set
+            {
+                Write(Structure.TargetMACAddressBegin, Structure.MACAddressLength, value.Bytes);
+            }
+        }
+
+        /// <summary>
+        /// 源MAC地址
+        /// </summary>
+        public MACAddress SourceMACAddress
+        {
+            get
+            {
+                return new MACAddress
+                {
+                    Bytes = Read(Structure.SourceMACAddressBegin, Structure.MACAddressLength)
+                };
+            }
+            set
+            {
+                Write(Structure.SourceMACAddressBegin, Structure.MACAddressLength, value.Bytes);
+            }
+        }
     }
 }

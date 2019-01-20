@@ -53,6 +53,10 @@ namespace Networking.Model.DataLink
             {
                 return (EthernetFrameType)ReadAsUInt16FromBigEndian(Layout.TypeBegin);
             }
+            set
+            {
+                WriteUInt16ToBigEndian(Layout.TypeBegin, (UInt16)value);
+            }
         }
 
         /// <summary>

@@ -28,5 +28,21 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.OperationCode.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(ARPOperationCode.Request)]
+        [InlineData(ARPOperationCode.Response)]
+        public void Set(ARPOperationCode input)
+        {
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
+
+            arpFrame.OperationCode = input;
+
+
+            arpFrame.OperationCode.Should().Be(input);
+        }
     }
 }

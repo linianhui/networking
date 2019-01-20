@@ -29,5 +29,20 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.ProtocolType.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(EthernetFrameType.IPv4)]
+        public void Set(EthernetFrameType input)
+        {
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
+
+            arpFrame.ProtocolType = input;
+
+
+            arpFrame.ProtocolType.Should().Be(input);
+        }
     }
 }

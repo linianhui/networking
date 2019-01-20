@@ -29,5 +29,22 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 
             ethernetFrame.Type.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(EthernetFrameType.Unknown)]
+        [InlineData(EthernetFrameType.IPv4)]
+        [InlineData(EthernetFrameType.ARP)]
+        [InlineData(EthernetFrameType.IPv6)]
+        public void Set(EthernetFrameType input)
+        {
+            var ethernetFrame = new EthernetFrame
+            {
+                Bytes = new Byte[14]
+            };
+
+            ethernetFrame.Type = input;
+
+            ethernetFrame.Type.Should().Be(input);
+        }
     }
 }

@@ -30,5 +30,22 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.HardwareType.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData(HardwareType.Unknown)]
+        [InlineData(HardwareType.Ethernet)]
+        [InlineData(HardwareType.IEEE802)]
+        public void Set(HardwareType input)
+        {
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
+
+            arpFrame.HardwareType = input;
+
+
+            arpFrame.HardwareType.Should().Be(input);
+        }
     }
 }

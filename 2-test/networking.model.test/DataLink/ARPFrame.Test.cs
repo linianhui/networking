@@ -21,9 +21,9 @@ namespace Networking.Model.DataLink
             arpFrame.ProtocolAddressLength.Should().Be(4);
             arpFrame.OperationCode.Should().Be(ARPOperationCode.Request);
             arpFrame.SenderMACAddress.ToString().Should().Be("12:34:56:78:9A:BC");
-            arpFrame.SenderIPAddress.ToString().Should().Be("C0-A8-01-02");
+            arpFrame.SenderIPAddress.ToString().Should().Be("192.168.1.2");
             arpFrame.TargetMACAddress.ToString().Should().Be("00:00:00:00:00:00");
-            arpFrame.TargetIPAddress.ToString().Should().Be("C0-A8-01-01");
+            arpFrame.TargetIPAddress.ToString().Should().Be("192.168.1.1");
         }
 
         private Byte[] buildARPBytes()

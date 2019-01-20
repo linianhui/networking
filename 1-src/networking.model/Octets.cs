@@ -38,6 +38,17 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 读取
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public Memory<Byte> Read(Int32 index)
+        {
+            Int32 length = Bytes.Length - index;
+            return this[index, length];
+        }
+
+        /// <summary>
         /// 读取为<see cref="UInt16"/>[BigEndian]
         /// </summary>
         /// <param name="index">索引</param>

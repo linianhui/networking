@@ -1,3 +1,5 @@
+using System;
+
 namespace Networking.Model.DataLink
 {
     /// <summary>
@@ -50,6 +52,28 @@ namespace Networking.Model.DataLink
             get
             {
                 return (EthernetFrameType)ReadAsUInt16FromBigEndian(Layout.TypeBegin);
+            }
+        }
+
+        /// <summary>
+        /// 负载信息
+        /// </summary>
+        public Octets Payload
+        {
+            get
+            {
+                if (Type == EthernetFrameType.ARP)
+                {
+                    return new ARPFrame
+                    {
+                        Bytes = Read(Layout.HeaderLength)
+                    };
+                }
+
+                return new Octets
+                {
+                    Bytes = Read(Layout.HeaderLength)
+                };
             }
         }
     }

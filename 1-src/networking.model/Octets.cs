@@ -59,6 +59,18 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 写入[BigEndian]
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public void WriteUInt16ToBigEndian(Int32 index, UInt16 value)
+        {
+            var span = this[index, 2].Span;
+            BinaryPrimitives.WriteUInt16BigEndian(span, value);
+        }
+
+        /// <summary>
         /// 12-34-56-78-89-AB-CD-EF
         /// </summary>
         /// <returns></returns>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model", "1-src\n
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{9310880F-0CA6-468E-B045-6094A9B3D96D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model.test", "2-test\networking.model.test\networking.model.test.csproj", "{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model.tests", "2-test\networking.model.tests\networking.model.tests.csproj", "{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,9 @@
 using System;
 using FluentAssertions;
+using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 {
     public class ARPFrameTest
     {

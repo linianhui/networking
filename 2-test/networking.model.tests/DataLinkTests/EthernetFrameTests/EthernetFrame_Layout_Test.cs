@@ -1,12 +1,13 @@
 using FluentAssertions;
+using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 {
-    public class EthernetFrameLayoutTest
+    public class EthernetFrame_Layout_Test
     {
         [Fact]
-        public void layout_is_right()
+        public void Layout()
         {
             EthernetFrame.Layout.DestinationMACAddressBegin.Should().Be(0);
             EthernetFrame.Layout.DestinationMACAddressEnd.Should().Be(6);

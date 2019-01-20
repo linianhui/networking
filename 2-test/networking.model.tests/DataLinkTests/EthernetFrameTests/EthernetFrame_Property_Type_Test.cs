@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 {
-    public class EthernetFrameTypeTest
+    public class EthernetFrame_Property_Type_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {

@@ -1,12 +1,13 @@
 using FluentAssertions;
+using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Internet
+namespace Networking.Model.Tests.InternetTests.IPAddressTests
 {
-    public class IPAddressLayoutTest
+    public class IPAddress_Layout_Test
     {
         [Fact]
-        public void layout_is_right()
+        public void Layout()
         {
             IPAddress.Layout.V4Length.Should().Be(4);
             IPAddress.Layout.V6Length.Should().Be(16);

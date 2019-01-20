@@ -2,7 +2,7 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model
+namespace Networking.Model.Tests.OctetsTests
 {
     public class OctetsTest
     {

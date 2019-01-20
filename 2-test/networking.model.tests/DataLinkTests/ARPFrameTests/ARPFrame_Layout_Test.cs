@@ -1,12 +1,13 @@
 using FluentAssertions;
+using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 {
-    public class ARPFrameLayoutTest
+    public class ARPFrame_Layout_Test
     {
         [Fact]
-        public void layout_is_right()
+        public void Layout()
         {
             ARPFrame.Layout.HardwareTypeBegin.Should().Be(0);
             ARPFrame.Layout.HardwareTypeEnd.Should().Be(2);

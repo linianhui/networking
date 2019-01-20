@@ -66,13 +66,13 @@ namespace Networking.Model.DataLink
                 {
                     return new ARPFrame
                     {
-                        Bytes = Read(Layout.HeaderLength)
+                        Bytes = Slice(Layout.HeaderLength)
                     };
                 }
 
                 return new Octets
                 {
-                    Bytes = Read(Layout.HeaderLength)
+                    Bytes = Slice(Layout.HeaderLength)
                 };
             }
         }

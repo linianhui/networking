@@ -42,10 +42,9 @@ namespace Networking.Model
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public Memory<Byte> Read(Int32 index)
+        public Memory<Byte> Slice(Int32 index)
         {
-            Int32 length = Bytes.Length - index;
-            return this[index, length];
+            return Bytes.Slice(index);
         }
 
         /// <summary>

@@ -18,18 +18,16 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void type(Byte[] bytes, EthernetFrameType type)
+        public void Get(Byte[] input, EthernetFrameType expected)
         {
             var ethernetFrame = new EthernetFrame
             {
                 Bytes = new Byte[14]
             };
-            if (bytes != null)
-            {
-                ethernetFrame[12, 2] = bytes;
-            }
 
-            ethernetFrame.Type.Should().Be(type);
+            ethernetFrame[12, 2] = input;
+
+            ethernetFrame.Type.Should().Be(expected);
         }
     }
 }

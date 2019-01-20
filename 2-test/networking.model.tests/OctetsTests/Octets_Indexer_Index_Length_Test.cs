@@ -4,10 +4,10 @@ using Xunit;
 
 namespace Networking.Model.Tests.OctetsTests
 {
-    public class OctetsTest
+    public class Octets_Indexer_Index_Length_Test
     {
         [Fact]
-        public void read()
+        public void Get()
         {
             var octets = new Octets
             {
@@ -20,7 +20,7 @@ namespace Networking.Model.Tests.OctetsTests
         }
 
         [Fact]
-        public void read_out_of_range_should_throw_ArgumentOutOfRangeException()
+        public void Get_out_of_range_should_throw_ArgumentOutOfRangeException()
         {
             var octets = new Octets
             {
@@ -31,7 +31,7 @@ namespace Networking.Model.Tests.OctetsTests
         }
 
         [Fact]
-        public void write()
+        public void Set()
         {
             var octets = new Octets
             {
@@ -47,7 +47,7 @@ namespace Networking.Model.Tests.OctetsTests
         }
 
         [Fact]
-        public void write_part()
+        public void Set_part()
         {
             var octets = new Octets
             {
@@ -59,7 +59,7 @@ namespace Networking.Model.Tests.OctetsTests
         }
 
         [Fact]
-        public void write_out_of_target_range_should_throw_ArgumentException()
+        public void Set_out_of_target_range_should_throw_ArgumentException()
         {
             var octets = new Octets
             {
@@ -67,18 +67,6 @@ namespace Networking.Model.Tests.OctetsTests
             };
 
             Assert.Throws<ArgumentException>(() => octets[0, 1] = new Byte[] { 0xCD, 0xEF });
-        }
-
-        [Fact]
-        public void ReadAsUInt16FromBigEndian()
-        {
-            var octets = new Octets
-            {
-                Bytes = new Byte[] { 0x08, 0x00, 0x08, 0x06 }
-            };
-
-            octets.ReadAsUInt16FromBigEndian(0).Should().Be(2048);
-            octets.ReadAsUInt16FromBigEndian(2).Should().Be(2054);
         }
     }
 }

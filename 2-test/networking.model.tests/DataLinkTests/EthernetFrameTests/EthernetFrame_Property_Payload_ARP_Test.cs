@@ -3,17 +3,19 @@ using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
+namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 {
-    public class ARPFrameTest
+    public class EthernetFrame_Property_Payload_ARP_Test
     {
         [Fact]
-        public void arp_request_frame()
+        public void Get()
         {
-            var arpFrame = new ARPFrame
+            var ethernetFrame = new EthernetFrame
             {
-                Bytes = buildARPBytes()
+                Bytes = buildARPFrameBytes()
             };
+
+            var arpFrame = ethernetFrame.Payload as ARPFrame;
 
 
             arpFrame.HardwareType.Should().Be(HardwareType.Ethernet);
@@ -27,10 +29,13 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             arpFrame.TargetIPAddress.ToString().Should().Be("192.168.1.1");
         }
 
-        private Byte[] buildARPBytes()
+        private Byte[] buildARPFrameBytes()
         {
             return new Byte[]
             {
+                0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+                0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC,
+                0x08, 0x06,
                 0x00, 0x01,
                 0x08, 0x00,
                 0x06,

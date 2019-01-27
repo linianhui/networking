@@ -90,19 +90,19 @@ namespace Networking.Model.Internet
             public static readonly Int32 TypeEnd = TypeBegin + 1;
 
             /// <summary>
-            /// 校验和-起始位置=10
+            /// 头部校验和-起始位置=10
             /// </summary>
-            public static readonly Int32 ChecksumBegin = TypeEnd;
+            public static readonly Int32 HeaderChecksumBegin = TypeEnd;
 
             /// <summary>
-            /// 校验和-结束位置=12
+            /// 头部校验和-结束位置=12
             /// </summary>
-            public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
+            public static readonly Int32 HeaderChecksumEnd = HeaderChecksumBegin + 2;
 
             /// <summary>
             /// 源IP-起始位置=12
             /// </summary>
-            public static readonly Int32 SourceIPAddressBegin = ChecksumEnd;
+            public static readonly Int32 SourceIPAddressBegin = HeaderChecksumEnd;
 
             /// <summary>
             /// 源IP-结束位置=16

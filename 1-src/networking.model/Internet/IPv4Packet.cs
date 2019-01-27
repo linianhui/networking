@@ -83,17 +83,17 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
-        /// 校验和
+        /// 头部校验和
         /// </summary>
-        public UInt16 Checksum
+        public UInt16 HeaderChecksum
         {
             get
             {
-                return ReadAsUInt16FromBigEndian(Layout.ChecksumBegin);
+                return ReadAsUInt16FromBigEndian(Layout.HeaderChecksumBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.ChecksumBegin, value);
+                WriteUInt16ToBigEndian(Layout.HeaderChecksumBegin, value);
             }
         }
 

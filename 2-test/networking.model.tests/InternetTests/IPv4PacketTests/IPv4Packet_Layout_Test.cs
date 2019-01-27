@@ -21,8 +21,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             IPv4Packet.Layout.TypeBegin.Should().Be(9);
             IPv4Packet.Layout.TypeEnd.Should().Be(10);
 
-            IPv4Packet.Layout.ChecksumBegin.Should().Be(10);
-            IPv4Packet.Layout.ChecksumEnd.Should().Be(12);
+            IPv4Packet.Layout.HeaderChecksumBegin.Should().Be(10);
+            IPv4Packet.Layout.HeaderChecksumEnd.Should().Be(12);
 
             IPv4Packet.Layout.SourceIPAddressBegin.Should().Be(12);
             IPv4Packet.Layout.SourceIPAddressEnd.Should().Be(16);

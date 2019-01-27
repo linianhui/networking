@@ -4,7 +4,7 @@ namespace Networking.Model.Internet
     /// 网络层[Packet]
     /// <see href="https://en.wikipedia.org/wiki/internet_layer"/>
     /// </summary>
-    public class InternetPacket
+    public class InternetPacket : Octets
     {
     }
 }

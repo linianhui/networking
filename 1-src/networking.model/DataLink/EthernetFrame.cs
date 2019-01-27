@@ -1,4 +1,5 @@
 using System;
+using Networking.Model.Internet;
 
 namespace Networking.Model.DataLink
 {
@@ -66,18 +67,25 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                if (Type == EthernetFrameType.ARP)
+                switch (Type)
                 {
-                    return new ARPFrame
-                    {
-                        Bytes = Slice(Layout.HeaderLength)
-                    };
-                }
 
-                return new Octets
-                {
-                    Bytes = Slice(Layout.HeaderLength)
-                };
+                    case EthernetFrameType.IPv4:
+                        return new IPv4Packet
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
+                    case EthernetFrameType.ARP:
+                        return new ARPFrame
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
+                    default:
+                        return new Octets
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
+                }
             }
         }
     }

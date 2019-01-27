@@ -82,17 +82,17 @@ namespace Networking.Model.Internet
             /// <summary>
             /// Protocol-起始位置=9
             /// </summary>
-            public static readonly Int32 ProtocolBegin = TTLEnd;
+            public static readonly Int32 TypeBegin = TTLEnd;
 
             /// <summary>
             /// Protocol-结束位置=10
             /// </summary>
-            public static readonly Int32 ProtocolEnd = ProtocolBegin + 1;
+            public static readonly Int32 TypeEnd = TypeBegin + 1;
 
             /// <summary>
             /// HeaderChecksum-起始位置=10
             /// </summary>
-            public static readonly Int32 HeaderChecksumBegin = ProtocolEnd;
+            public static readonly Int32 HeaderChecksumBegin = TypeEnd;
 
             /// <summary>
             /// HeaderChecksum-结束位置=12

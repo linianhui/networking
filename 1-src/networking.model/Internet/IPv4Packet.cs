@@ -1,4 +1,5 @@
 using System;
+using Networking.Model.Transport;
 
 namespace Networking.Model.Internet
 {
@@ -75,10 +76,10 @@ namespace Networking.Model.Internet
         /// <summary>
         /// 协议类型
         /// </summary>
-        public IPPacketType PacketType
+        public IPPacketType Type
         {
-            get { return (IPPacketType)base[Layout.ProtocolBegin]; }
-            set { base[Layout.ProtocolBegin] = (Byte)value; }
+            get { return (IPPacketType)base[Layout.TypeBegin]; }
+            set { base[Layout.TypeBegin] = (Byte)value; }
         }
 
         /// <summary>
@@ -133,6 +134,30 @@ namespace Networking.Model.Internet
             }
         }
 
+
+        /// <summary>
+        /// 负载信息
+        /// </summary>
+        public Octets Payload
+        {
+            get
+            {
+                switch (Type)
+                {
+
+                    case IPPacketType.UDP:
+                        return new UDPSegment
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
+                    default:
+                        return new Octets
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
+                }
+            }
+        }
 
     }
 }

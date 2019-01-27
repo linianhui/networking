@@ -18,8 +18,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             IPv4Packet.Layout.TTLBegin.Should().Be(8);
             IPv4Packet.Layout.TTLEnd.Should().Be(9);
 
-            IPv4Packet.Layout.ProtocolBegin.Should().Be(9);
-            IPv4Packet.Layout.ProtocolEnd.Should().Be(10);
+            IPv4Packet.Layout.TypeBegin.Should().Be(9);
+            IPv4Packet.Layout.TypeEnd.Should().Be(10);
 
             IPv4Packet.Layout.HeaderChecksumBegin.Should().Be(10);
             IPv4Packet.Layout.HeaderChecksumEnd.Should().Be(12);

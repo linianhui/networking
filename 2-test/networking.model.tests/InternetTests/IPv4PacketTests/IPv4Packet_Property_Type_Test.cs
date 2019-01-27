@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
 {
-    public class IPv4Packet_Property_PacketType_Test
+    public class IPv4Packet_Property_Type_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -27,7 +27,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
 
             ipv4Packet[9] = input;
 
-            ipv4Packet.PacketType.Should().Be(expected);
+            ipv4Packet.Type.Should().Be(expected);
         }
 
         [Theory]
@@ -42,8 +42,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            ipv4Packet.PacketType = input;
-            ipv4Packet.PacketType.Should().Be(input);
+            ipv4Packet.Type = input;
+            ipv4Packet.Type.Should().Be(input);
         }
     }
 }

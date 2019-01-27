@@ -31,7 +31,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             ipv4Packet.Id.Should().Be(59336);
             ipv4Packet.TTL.Should().Be(1);
             ipv4Packet.Type.Should().Be(IPPacketType.IGMP);
-            ipv4Packet.HeaderChecksum.Should().Be(0x99A4);
+            ipv4Packet.Checksum.Should().Be(0x99A4);
             ipv4Packet.SourceIPAddress.ToString().Should().Be("192.168.2.1");
             ipv4Packet.DestinationIPAddress.ToString().Should().Be("224.0.0.1");
         }

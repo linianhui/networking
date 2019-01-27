@@ -69,15 +69,15 @@ namespace Networking.Model.Transport
         }
 
         /// <summary>
-        /// 数据偏移
+        /// 头部长度，单位4 octets
         /// </summary>
-        public Byte DataOffset
+        public Byte HeaderLength
         {
-            get { return (Byte)(base[Layout.DataOffsetBegin] >> 4); }
+            get { return (Byte)(base[Layout.HeaderLengthBegin] >> 4); }
             set
             {
-                var old = base[Layout.DataOffsetBegin];
-                base[Layout.DataOffsetBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
+                var old = base[Layout.HeaderLengthBegin];
+                base[Layout.HeaderLengthBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
             }
         }
 
@@ -135,7 +135,7 @@ namespace Networking.Model.Transport
             {
                 return new Octets
                 {
-                    Bytes = Slice(DataOffset * 4)
+                    Bytes = Slice(HeaderLength * 4)
                 };
 
             }

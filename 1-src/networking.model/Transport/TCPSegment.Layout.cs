@@ -73,9 +73,9 @@ namespace Networking.Model.Transport
             public static readonly Int32 ACKEnd = ACKBegin + 4;
 
             /// <summary>
-            /// 数据偏移-起始位置=12
+            /// 头部长度-起始位置=12
             /// </summary>
-            public static readonly Int32 DataOffsetBegin = ACKEnd;
+            public static readonly Int32 HeaderLengthBegin = ACKEnd;
 
             /// <summary>
             /// 窗口大小-起始位置=14

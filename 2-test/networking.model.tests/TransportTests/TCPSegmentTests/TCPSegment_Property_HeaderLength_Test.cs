@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 {
-    public class TCPSegment_Property_DataOffset_Test
+    public class TCPSegment_Property_HeaderLength_Test
     {
         [Fact]
         public void Get()
@@ -16,7 +16,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             };
             tcpSegment[12] = 0x66;
 
-            tcpSegment.DataOffset.Should().Be(6);
+            tcpSegment.HeaderLength.Should().Be(6);
         }
 
         [Theory]
@@ -39,8 +39,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             };
             tcpSegment[12] = 0x05;
 
-            tcpSegment.DataOffset = input;
-            tcpSegment.DataOffset.Should().Be(input);
+            tcpSegment.HeaderLength = input;
+            tcpSegment.HeaderLength.Should().Be(input);
             tcpSegment[12].Should().Be((Byte)(input << 4 | (0x45 & 0x0F)));
         }
     }

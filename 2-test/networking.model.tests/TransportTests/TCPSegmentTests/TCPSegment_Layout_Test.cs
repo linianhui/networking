@@ -21,7 +21,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             TCPSegment.Layout.ACKBegin.Should().Be(8);
             TCPSegment.Layout.ACKEnd.Should().Be(12);
 
-            TCPSegment.Layout.DataOffsetBegin.Should().Be(12);
+            TCPSegment.Layout.HeaderLengthBegin.Should().Be(12);
 
             TCPSegment.Layout.WindowsSizeBegin.Should().Be(14);
             TCPSegment.Layout.WindowsSizeEnd.Should().Be(16);

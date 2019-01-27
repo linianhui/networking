@@ -31,7 +31,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             tcpSegment.DestinationPort.Should().Be(56906);
             //tcpSegment.Sequence.Should().Be(4575);
             //tcpSegment.ACK.Should().Be(1299);
-            tcpSegment.DataOffset.Should().Be(5);
+            tcpSegment.HeaderLength.Should().Be(5);
             tcpSegment.WindowsSize.Should().Be(28556);
             tcpSegment.Checksum.Should().Be(0x5a4c);
             tcpSegment.UrgentPointer.Should().Be(0);

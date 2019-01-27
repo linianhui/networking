@@ -40,6 +40,16 @@ namespace Networking.Model.Internet
         public class Layout
         {
             /// <summary>
+            /// Version-起始位置=0
+            /// </summary>
+            public static readonly Int32 VersionBegin = 0;
+
+            /// <summary>
+            /// IHL-起始位置=0
+            /// </summary>
+            public static readonly Int32 HeaderLengthBegin = 0;
+
+            /// <summary>
             /// 总长度-起始位置=2
             /// </summary>
             public static readonly Int32 TotalLengthBegin = 2;

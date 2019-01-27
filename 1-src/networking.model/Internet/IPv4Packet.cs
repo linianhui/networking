@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Networking.Model.Internet
 {
@@ -9,6 +7,32 @@ namespace Networking.Model.Internet
     /// </summary>
     public partial class IPv4Packet : InternetPacket
     {
+        /// <summary>
+        /// 版本
+        /// </summary>
+        public IPVersion Version
+        {
+            get { return (IPVersion)(base[Layout.VersionBegin] >> 4); }
+            set
+            {
+                var old = base[Layout.HeaderLengthBegin];
+                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
+            }
+        }
+
+        /// <summary>
+        /// 头部长度，单位4 octets
+        /// </summary>
+        public Byte HeaderLength
+        {
+            get { return (Byte)(base[Layout.HeaderLengthBegin] & 0x0F); }
+            set
+            {
+                var old = base[Layout.HeaderLengthBegin];
+                base[Layout.HeaderLengthBegin] = (Byte)(old & 0xF0 | value & 0x0F);
+            }
+        }
+
         /// <summary>
         /// 总长度
         /// </summary>

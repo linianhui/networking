@@ -67,5 +67,19 @@ namespace Networking.Model.Transport
                 WriteUInt16ToBigEndian(Layout.ChecksumBegin, value);
             }
         }
+
+        /// <summary>
+        /// 负载信息
+        /// </summary>
+        public Octets Payload
+        {
+            get
+            {
+                return new Octets
+                {
+                    Bytes = Slice(8)
+                };
+            }
+        }
     }
 }

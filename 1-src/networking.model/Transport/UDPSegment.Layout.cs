@@ -33,7 +33,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 SourcePortBegin = 0;
 
             /// <summary>
-            /// 源端口-起始位置=2
+            /// 源端口-结束位置=2
             /// </summary>
             public static readonly Int32 SourcePortEnd = SourcePortBegin + 2;
 
@@ -43,7 +43,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 DestinationPortBegin = SourcePortEnd;
 
             /// <summary>
-            /// 目标端口-起始位置=4
+            /// 目标端口-结束位置=4
             /// </summary>
             public static readonly Int32 DestinationPortEnd = DestinationPortBegin + 2;
 
@@ -53,7 +53,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 TotalLengthBegin = DestinationPortEnd;
 
             /// <summary>
-            /// 总长度-起始位置=6
+            /// 总长度-结束位置=6
             /// </summary>
             public static readonly Int32 TotalLengthEnd = TotalLengthBegin + 2;
 
@@ -63,7 +63,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 ChecksumBegin = TotalLengthEnd;
 
             /// <summary>
-            /// 校验和-起始位置=8
+            /// 校验和-结束位置=8
             /// </summary>
             public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
 

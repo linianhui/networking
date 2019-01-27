@@ -12,12 +12,12 @@ namespace Networking.Model.Internet
             /// <summary>
             /// V4地址长度=4
             /// </summary>
-            public static readonly Int32 V4Length = 4;
+            public const Int32 V4Length = 4;
 
             /// <summary>
             /// V6地址长度=16
             /// </summary>
-            public static readonly Int32 V6Length = 16;
+            public const Int32 V6Length = 16;
         }
     }
 }

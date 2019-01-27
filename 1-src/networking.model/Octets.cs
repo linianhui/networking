@@ -15,6 +15,14 @@ namespace Networking.Model
         public Memory<Byte> Bytes { get; set; }
 
         /// <summary>
+        /// 长度
+        /// </summary>
+        public Int32 Length
+        {
+            get { return Bytes.Length; }
+        }
+
+        /// <summary>
         /// 读取或写入
         /// </summary>
         /// <param name="index">索引</param>

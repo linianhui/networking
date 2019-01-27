@@ -145,6 +145,11 @@ namespace Networking.Model.Internet
                 switch (Type)
                 {
 
+                    case IPPacketType.TCP:
+                        return new TCPSegment
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                     case IPPacketType.UDP:
                         return new UDPSegment
                         {

@@ -26,7 +26,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
 
             icmpv6.Version.Should().Be(IPVersion.IPv6);
             icmpv6.PayloadLength.Should().Be(16);
-            icmpv6.Type.Should().Be(IPPacketType.ICMPV6);
+            icmpv6.NextHeader.Should().Be(58);
             icmpv6.HopLimit.Should().Be(255);
             icmpv6.SourceIPAddress.ToString().Should().Be("FE:80:00:00:00:00:00:00:02:15:5D:FF:FE:02:02:45");
             icmpv6.DestinationIPAddress.ToString().Should().Be("FF:02:00:00:00:00:00:00:00:00:00:00:00:00:00:02");

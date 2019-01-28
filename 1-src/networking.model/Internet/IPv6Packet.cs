@@ -37,12 +37,12 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
-        /// 协议类型
+        /// 下一个首部
         /// </summary>
-        public IPPacketType Type
+        public Byte NextHeader
         {
-            get { return (IPPacketType)base[Layout.NextHeaderBegin]; }
-            set { base[Layout.NextHeaderBegin] = (Byte)value; }
+            get { return base[Layout.NextHeaderBegin]; }
+            set { base[Layout.NextHeaderBegin] = value; }
         }
 
         /// <summary>

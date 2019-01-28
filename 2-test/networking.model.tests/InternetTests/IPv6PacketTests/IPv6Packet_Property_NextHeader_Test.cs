@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
 {
-    public class IPv6Packet_Property_Type_Test
+    public class IPv6Packet_Property_NextHeader_Test
     {
         [Fact]
         public void Get()
@@ -14,9 +14,9 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[40]
             };
-            ipv6Packet[6] = 0x3a;
+            ipv6Packet[6] = 0x00;
 
-            ipv6Packet.Type.Should().Be(IPPacketType.ICMPV6);
+            ipv6Packet.NextHeader.Should().Be(0);
         }
 
         [Fact]
@@ -27,9 +27,9 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
                 Bytes = new Byte[40]
             };
 
-            ipv6Packet.Type = IPPacketType.ICMPV6;
+            ipv6Packet.NextHeader = 0;
 
-            ipv6Packet.Type.Should().Be(IPPacketType.ICMPV6);
+            ipv6Packet.NextHeader.Should().Be(0);
         }
     }
 }

@@ -25,6 +25,11 @@ namespace Networking.Model.Internet
         /// <summary>
         /// User Datagram Protocol
         /// </summary>
-        UDP = 17
+        UDP = 17,
+
+        /// <summary>
+        /// Internet Control Message Protocol V6.
+        /// </summary>
+        ICMPV6 = 58
     }
 }

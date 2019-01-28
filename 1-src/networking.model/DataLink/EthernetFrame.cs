@@ -75,6 +75,11 @@ namespace Networking.Model.DataLink
                         {
                             Bytes = Slice(Layout.HeaderLength)
                         };
+                    case EthernetFrameType.IPv6:
+                        return new IPv6Packet
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
                     case EthernetFrameType.ARP:
                         return new ARPFrame
                         {

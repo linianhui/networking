@@ -16,7 +16,7 @@ namespace Networking.Model.Internet
             get { return (IPVersion)(base[Layout.VersionBegin] >> 4); }
             set
             {
-                var old = base[Layout.HeaderLengthBegin];
+                var old = base[Layout.VersionBegin];
                 base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
             }
         }

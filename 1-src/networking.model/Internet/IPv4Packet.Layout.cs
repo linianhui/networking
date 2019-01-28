@@ -90,12 +90,12 @@ namespace Networking.Model.Internet
             public static readonly Int32 TypeEnd = TypeBegin + 1;
 
             /// <summary>
-            /// 头部校验和-起始位置=10
+            /// 首部校验和-起始位置=10
             /// </summary>
             public static readonly Int32 HeaderChecksumBegin = TypeEnd;
 
             /// <summary>
-            /// 头部校验和-结束位置=12
+            /// 首部校验和-结束位置=12
             /// </summary>
             public static readonly Int32 HeaderChecksumEnd = HeaderChecksumBegin + 2;
 

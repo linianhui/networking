@@ -68,7 +68,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
 
             /// <summary>
-            /// 头部长度
+            /// 首部长度
             /// </summary>
             public static readonly Int32 HeaderLength = ChecksumEnd;
         }

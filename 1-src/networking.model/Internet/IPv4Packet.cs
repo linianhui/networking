@@ -22,7 +22,7 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
-        /// 头部长度，单位4 octets
+        /// 首部长度，单位4 octets
         /// </summary>
         public Byte HeaderLength
         {
@@ -83,7 +83,7 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
-        /// 头部校验和
+        /// 首部校验和
         /// </summary>
         public UInt16 HeaderChecksum
         {

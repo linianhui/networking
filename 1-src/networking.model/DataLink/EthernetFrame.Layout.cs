@@ -69,7 +69,7 @@ namespace Networking.Model.DataLink
             public static readonly Int32 TypeEnd = TypeBegin + TypeLength;
 
             /// <summary>
-            /// 头部信息-长度=14
+            /// 首部信息-长度=14
             /// </summary>
             public static readonly Int32 HeaderLength = TypeEnd;
         }

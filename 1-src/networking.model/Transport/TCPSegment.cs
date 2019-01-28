@@ -69,7 +69,7 @@ namespace Networking.Model.Transport
         }
 
         /// <summary>
-        /// 头部长度，单位4 octets
+        /// 首部长度，单位4 octets
         /// </summary>
         public Byte HeaderLength
         {

@@ -90,7 +90,7 @@ namespace Networking.Model.Internet
             public static readonly Int32 DestinationIPAddressEnd = DestinationIPAddressBegin + 16;
 
             /// <summary>
-            /// 头部长度
+            /// 首部长度
             /// </summary>
             public static readonly Int32 HeaderLength = DestinationIPAddressEnd;
         }

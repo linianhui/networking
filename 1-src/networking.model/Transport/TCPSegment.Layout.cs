@@ -73,7 +73,7 @@ namespace Networking.Model.Transport
             public static readonly Int32 ACKEnd = ACKBegin + 4;
 
             /// <summary>
-            /// 头部长度-起始位置=12
+            /// 首部长度-起始位置=12
             /// </summary>
             public static readonly Int32 HeaderLengthBegin = ACKEnd;
 

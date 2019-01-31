@@ -34,7 +34,7 @@ namespace Networking.Model.Internet
     public partial class IPv4Packet
     {
         /// <summary>
-        /// 布局信息
+        /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/ipv4#packet_structure"/>
         /// </summary>
         public class Layout

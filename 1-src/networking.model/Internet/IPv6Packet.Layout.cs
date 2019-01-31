@@ -29,7 +29,7 @@ namespace Networking.Model.Internet
     public partial class IPv6Packet
     {
         /// <summary>
-        /// 布局信息
+        /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/ipv6_packet"/>
         /// </summary>
         public class Layout

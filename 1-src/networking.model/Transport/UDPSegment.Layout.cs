@@ -23,7 +23,7 @@ namespace Networking.Model.Transport
     public partial class UDPSegment
     {
         /// <summary>
-        /// 布局信息
+        /// 首部-布局信息
         /// </summary>
         public class Layout
         {

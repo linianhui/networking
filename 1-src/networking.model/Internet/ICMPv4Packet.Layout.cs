@@ -20,7 +20,7 @@ namespace Networking.Model.Internet
     public partial class ICMPv4Packet
     {
         /// <summary>
-        /// 布局信息
+        /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/internet_control_message_protocol#datagram_structure"/>
         /// </summary>
         public class Layout

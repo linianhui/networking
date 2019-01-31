@@ -5,7 +5,7 @@ namespace Networking.Model.Internet
     public partial class IPAddress
     {
         /// <summary>
-        /// 布局信息
+        /// 首部-布局信息
         /// </summary>
         public class Layout
         {

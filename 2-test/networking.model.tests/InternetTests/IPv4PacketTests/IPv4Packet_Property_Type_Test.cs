@@ -10,10 +10,11 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] {(Byte)0x01, IPPacketType.ICMP},
-            new Object[] {(Byte)0x02, IPPacketType.IGMP},
-            new Object[] {(Byte)0x06, IPPacketType.TCP},
-            new Object[] {(Byte)0x11, IPPacketType.UDP}
+            new Object[] { (Byte)0x01, IPPacketType.ICMPv4 },
+            new Object[] { (Byte)0x02, IPPacketType.IGMP },
+            new Object[] { (Byte)0x06, IPPacketType.TCP },
+            new Object[] { (Byte)0x11, IPPacketType.UDP },
+            new Object[] { (Byte)0x3a, IPPacketType.ICMPV6 },
         };
 
         [Theory]

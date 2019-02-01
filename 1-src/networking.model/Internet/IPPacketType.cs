@@ -10,7 +10,7 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Internet Control Message Protocol
         /// </summary>
-        ICMP = 1,
+        ICMPv4 = 1,
 
         /// <summary>
         /// Internet Group Management Protocol

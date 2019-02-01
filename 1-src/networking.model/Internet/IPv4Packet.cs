@@ -145,6 +145,11 @@ namespace Networking.Model.Internet
                 switch (Type)
                 {
 
+                    case IPPacketType.ICMPv4:
+                        return new ICMPv4Packet
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                     case IPPacketType.TCP:
                         return new TCPSegment
                         {

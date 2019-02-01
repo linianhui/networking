@@ -36,6 +36,12 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
             new Object[] { new Byte[]{ 0x0B, 0x01 }, ICMPv4TypeCode.TimeExceededOfFragmentReassemblyTimeExceeded },
             new Object[] { new Byte[]{ 0x0D, 0x00 }, ICMPv4TypeCode.TimestampRequest },
             new Object[] { new Byte[]{ 0x0E, 0x00 }, ICMPv4TypeCode.TimestampResponse },
+            new Object[] { new Byte[]{ 0x2A, 0x00 }, ICMPv4TypeCode.ExtendedEchoRequest },
+            new Object[] { new Byte[]{ 0x2B, 0x00 }, ICMPv4TypeCode.ExtendedEchoResponseOfNoError },
+            new Object[] { new Byte[]{ 0x2B, 0x01 }, ICMPv4TypeCode.ExtendedEchoResponseOfMalformedQuery },
+            new Object[] { new Byte[]{ 0x2B, 0x02 }, ICMPv4TypeCode.ExtendedEchoResponseOfNoSuchInterface },
+            new Object[] { new Byte[]{ 0x2B, 0x03 }, ICMPv4TypeCode.ExtendedEchoResponseOfNoSuchTableEntry },
+            new Object[] { new Byte[]{ 0x2B, 0x04 }, ICMPv4TypeCode.ExtendedEchoResponseOfMultipleInterfacesSatisfyQuery },
         };
 
         [Theory]

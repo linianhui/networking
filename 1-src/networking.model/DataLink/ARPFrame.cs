@@ -5,7 +5,7 @@ namespace Networking.Model.DataLink
     /// <summary>
     /// ARP Frame
     /// </summary>
-    public partial class ARPFrame : DataLinkFrame
+    public partial class ARPFrame : Octets
     {
         /// <summary>
         /// 硬件地址长度

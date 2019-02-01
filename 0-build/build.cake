@@ -53,6 +53,9 @@ Task("test")
     .Does(() =>
 {
     var testSetting = new DotNetCoreTestSettings{
+        ArgumentCustomization = _ => _.Append("--verbosity normal")
+                                      .Append("--logger trx")
+                                      .Append("--results-directory " + MakeAbsolute(Directory(distPath))),
         NoRestore = true,
         NoBuild = true
     };

@@ -107,5 +107,29 @@ namespace Networking.Model.Internet
         DestinationUnreachableOfPrecedenceCutoffInEffect = 0x030F,
 
         #endregion
+
+        #region Redirect Message
+
+        /// <summary>
+        /// Redirect Datagram for the Network
+        /// </summary>
+        RedirectMessageOfNetwork = 0x0500,
+
+        /// <summary>
+        /// Redirect Datagram for the Host
+        /// </summary>
+        RedirectMessageOfHost = 0x0501,
+
+        /// <summary>
+        /// Redirect Datagram for the ToS and Network 
+        /// </summary>
+        RedirectMessageOfTosAndNetwork = 0x0502,
+
+        /// <summary>
+        /// Redirect Datagram for the ToS and Host
+        /// </summary>
+        RedirectMessageOfTosAndHost = 0x0503,
+
+        #endregion
     }
 }

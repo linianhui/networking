@@ -28,6 +28,10 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
             new Object[] { new Byte[]{ 0x03, 0x0D }, ICMPv4TypeCode.DestinationUnreachableOfCommunicationAdministrativelyProhibited },
             new Object[] { new Byte[]{ 0x03, 0x0E }, ICMPv4TypeCode.DestinationUnreachableOfHostPrecedenceViolation },
             new Object[] { new Byte[]{ 0x03, 0x0F }, ICMPv4TypeCode.DestinationUnreachableOfPrecedenceCutoffInEffect },
+            new Object[] { new Byte[]{ 0x05, 0x00 }, ICMPv4TypeCode.RedirectMessageOfNetwork },
+            new Object[] { new Byte[]{ 0x05, 0x01 }, ICMPv4TypeCode.RedirectMessageOfHost },
+            new Object[] { new Byte[]{ 0x05, 0x02 }, ICMPv4TypeCode.RedirectMessageOfTosAndNetwork },
+            new Object[] { new Byte[]{ 0x05, 0x03 }, ICMPv4TypeCode.RedirectMessageOfTosAndHost },
         };
 
         [Theory]

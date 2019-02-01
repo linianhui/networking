@@ -131,5 +131,22 @@ namespace Networking.Model.Internet
         RedirectMessageOfTosAndHost = 0x0503,
 
         #endregion
+ 
+
+        #region Time Exceeded
+
+        /// <summary>
+        /// TTL expired in transit
+        /// </summary>
+        TimeExceededOfTTLExpiredInTransit = 0x0B00,
+
+        /// <summary>
+        /// Fragment reassembly time exceeded
+        /// </summary>
+        TimeExceededOfFragmentReassemblyTimeExceeded  = 0x0B01,
+
+        #endregion
+
+
     }
 }

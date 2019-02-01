@@ -32,6 +32,8 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
             new Object[] { new Byte[]{ 0x05, 0x01 }, ICMPv4TypeCode.RedirectMessageOfHost },
             new Object[] { new Byte[]{ 0x05, 0x02 }, ICMPv4TypeCode.RedirectMessageOfTosAndNetwork },
             new Object[] { new Byte[]{ 0x05, 0x03 }, ICMPv4TypeCode.RedirectMessageOfTosAndHost },
+            new Object[] { new Byte[]{ 0x0B, 0x00 }, ICMPv4TypeCode.TimeExceededOfTTLExpiredInTransit },
+            new Object[] { new Byte[]{ 0x0B, 0x01 }, ICMPv4TypeCode.TimeExceededOfFragmentReassemblyTimeExceeded },
         };
 
         [Theory]

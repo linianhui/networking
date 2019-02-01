@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SCRIPT='0-build/build.cake'
-CAKE_VERSION='0.30.0'
+CAKE_VERSION='0.32.1'
 
 # nuget server config
 export NUGET_REPOSITORY_API_URL='http://nuget-server.test/nuget'

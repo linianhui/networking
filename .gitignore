@@ -328,3 +328,8 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+0-build/tools/
+
+3-dist/
+!3-dist/.gitkeep

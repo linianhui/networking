@@ -26,6 +26,9 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
 
             icmpv4.TypeCode.Should().Be(ICMPv4TypeCode.EchoRequest);
             icmpv4.Checksum.Should().Be(19786);
+            icmpv4.Id.Should().Be(1);
+            icmpv4.Sequence.Should().Be(17);
+
         }
     }
 }

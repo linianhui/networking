@@ -40,5 +40,34 @@ namespace Networking.Model.Internet
             }
         }
 
+        /// <summary>
+        /// Id
+        /// </summary>
+        public UInt16 Id
+        {
+            get
+            {
+                return ReadAsUInt16FromBigEndian(Layout.IdBegin);
+            }
+            set
+            {
+                WriteUInt16ToBigEndian(Layout.IdBegin, value);
+            }
+        }
+
+        /// <summary>
+        /// 序列号
+        /// </summary>
+        public UInt16 Sequence
+        {
+            get
+            {
+                return ReadAsUInt16FromBigEndian(Layout.SequenceBegin);
+            }
+            set
+            {
+                WriteUInt16ToBigEndian(Layout.SequenceBegin, value);
+            }
+        }
     }
 }

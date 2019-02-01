@@ -44,6 +44,26 @@ namespace Networking.Model.Internet
             /// 校验和-结束位置=4
             /// </summary>
             public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
+
+            /// <summary>
+            /// Id-起始位置=4
+            /// </summary>
+            public static readonly Int32 IdBegin = ChecksumEnd;
+
+            /// <summary>
+            /// Id-结束位置=6
+            /// </summary>
+            public static readonly Int32 IdEnd = IdBegin + 2;
+
+            /// <summary>
+            /// 序列号-起始位置=6
+            /// </summary>
+            public static readonly Int32 SequenceBegin = IdEnd;
+
+            /// <summary>
+            /// 序列号-结束位置=8
+            /// </summary>
+            public static readonly Int32 SequenceEnd = SequenceBegin + 2;
         }
     }
 }

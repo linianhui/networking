@@ -14,6 +14,12 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
 
             ICMPv4Packet.Layout.ChecksumBegin.Should().Be(2);
             ICMPv4Packet.Layout.ChecksumEnd.Should().Be(4);
+
+            ICMPv4Packet.Layout.IdBegin.Should().Be(4);
+            ICMPv4Packet.Layout.IdEnd.Should().Be(6);
+
+            ICMPv4Packet.Layout.SequenceBegin.Should().Be(6);
+            ICMPv4Packet.Layout.SequenceEnd.Should().Be(8);
         }
     }
 }

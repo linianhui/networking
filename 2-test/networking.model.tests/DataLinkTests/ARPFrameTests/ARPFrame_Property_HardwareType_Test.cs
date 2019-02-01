@@ -32,10 +32,8 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         }
 
         [Theory]
-        [InlineData(HardwareType.Unknown)]
-        [InlineData(HardwareType.Ethernet)]
-        [InlineData(HardwareType.IEEE802)]
-        public void Set(HardwareType input)
+        [MemberData(nameof(Data))]
+        public void Set(Byte[] expected, HardwareType input)
         {
             var arpFrame = new ARPFrame
             {
@@ -44,7 +42,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.HardwareType = input;
 
-
+            arpFrame[0, 2].ToArray().Should().Equal(expected);
             arpFrame.HardwareType.Should().Be(input);
         }
     }

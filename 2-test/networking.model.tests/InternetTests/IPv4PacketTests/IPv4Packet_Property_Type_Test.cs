@@ -31,11 +31,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         }
 
         [Theory]
-        [InlineData(IPPacketType.ICMP)]
-        [InlineData(IPPacketType.IGMP)]
-        [InlineData(IPPacketType.TCP)]
-        [InlineData(IPPacketType.UDP)]
-        public void Set(IPPacketType input)
+        [MemberData(nameof(Data))]
+        public void Set(Byte expected, IPPacketType input)
         {
             var ipv4Packet = new IPv4Packet
             {
@@ -43,6 +40,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             };
 
             ipv4Packet.Type = input;
+
+            ipv4Packet[9].Should().Be(expected);
             ipv4Packet.Type.Should().Be(input);
         }
     }

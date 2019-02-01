@@ -30,7 +30,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void Set(Byte input, Byte expected)
+        public void Set(Byte expected, Byte input)
         {
             var arpFrame = new ARPFrame
             {
@@ -38,7 +38,8 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             };
 
             arpFrame.HardwareAddressLength = input;
-
+            
+            arpFrame[4].Should().Be(expected);
             arpFrame.HardwareAddressLength.Should().Be(expected);
         }
     }

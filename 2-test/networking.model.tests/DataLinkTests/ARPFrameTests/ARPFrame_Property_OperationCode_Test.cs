@@ -30,9 +30,8 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         }
 
         [Theory]
-        [InlineData(ARPOperationCode.Request)]
-        [InlineData(ARPOperationCode.Response)]
-        public void Set(ARPOperationCode input)
+        [MemberData(nameof(Data))]
+        public void Set(Byte[] expected, ARPOperationCode input)
         {
             var arpFrame = new ARPFrame
             {
@@ -41,7 +40,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.OperationCode = input;
 
-
+            arpFrame[6, 2].ToArray().Should().Equal(expected);
             arpFrame.OperationCode.Should().Be(input);
         }
     }

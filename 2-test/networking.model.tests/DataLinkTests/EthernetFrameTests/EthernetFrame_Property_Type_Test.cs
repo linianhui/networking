@@ -31,11 +31,8 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
         }
 
         [Theory]
-        [InlineData(EthernetFrameType.Unknown)]
-        [InlineData(EthernetFrameType.IPv4)]
-        [InlineData(EthernetFrameType.ARP)]
-        [InlineData(EthernetFrameType.IPv6)]
-        public void Set(EthernetFrameType input)
+        [MemberData(nameof(Data))]
+        public void Set(Byte[] expected, EthernetFrameType input)
         {
             var ethernetFrame = new EthernetFrame
             {
@@ -44,6 +41,7 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 
             ethernetFrame.Type = input;
 
+            ethernetFrame[12, 2].ToArray().Should().Equal(expected);
             ethernetFrame.Type.Should().Be(input);
         }
     }

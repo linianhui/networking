@@ -31,8 +31,8 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         }
 
         [Theory]
-        [InlineData(EthernetFrameType.IPv4)]
-        public void Set(EthernetFrameType input)
+        [MemberData(nameof(Data))]
+        public void Set(Byte[] expected, EthernetFrameType input)
         {
             var arpFrame = new ARPFrame
             {
@@ -41,7 +41,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.ProtocolType = input;
 
-
+            arpFrame[2, 2].ToArray().Should().Equal(expected);
             arpFrame.ProtocolType.Should().Be(input);
         }
     }

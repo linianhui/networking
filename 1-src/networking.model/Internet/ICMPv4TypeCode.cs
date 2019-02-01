@@ -148,5 +148,20 @@ namespace Networking.Model.Internet
         #endregion
 
 
+        #region Timestamp
+
+        /// <summary>
+        /// Timestamp Request
+        /// </summary>
+        TimestampRequest = 0x0D00,
+
+        /// <summary>
+        /// Timestamp Response
+        /// </summary>
+        TimestampResponse = 0x0E00,
+
+        #endregion
+
+
     }
 }

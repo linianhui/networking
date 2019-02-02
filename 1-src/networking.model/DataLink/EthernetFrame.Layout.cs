@@ -29,7 +29,8 @@ namespace Networking.Model.DataLink
     public partial class EthernetFrame
     {
         /// <summary>
-        /// <see cref="EthernetFrame"/>的结构信息
+        /// <see cref="EthernetFrame"/>的首部-布局信息
+        /// <see href="https://en.wikipedia.org/wiki/ethertype"/>
         /// </summary>
         public class Layout
         {

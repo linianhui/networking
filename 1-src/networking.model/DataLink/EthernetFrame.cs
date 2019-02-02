@@ -85,6 +85,12 @@ namespace Networking.Model.DataLink
                         {
                             Bytes = Slice(Layout.HeaderLength)
                         };
+                    case EthernetFrameType.PPPoEDiscoveryStage:
+                    case EthernetFrameType.PPPoESessionStage:
+                        return new PPPoEFrame
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
                     default:
                         return new Octets
                         {

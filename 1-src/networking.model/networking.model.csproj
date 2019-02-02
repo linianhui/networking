@@ -6,4 +6,9 @@
     <RootNamespace>Networking.Model</RootNamespace>
   </PropertyGroup>
 
+ <PropertyGroup>
+    <PackageId>Networking.Model</PackageId>
+    <Version>$(Networking_Model_Version)</Version>
+  </PropertyGroup>
+
 </Project>

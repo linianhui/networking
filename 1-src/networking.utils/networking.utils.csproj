@@ -6,6 +6,11 @@
     <RootNamespace>Networking.Utils</RootNamespace>
   </PropertyGroup>
 
+ <PropertyGroup>
+    <PackageId>Networking.Utils</PackageId>
+    <Version>$(Networking_Utils_Version)</Version>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\networking.model\networking.model.csproj" />
   </ItemGroup>

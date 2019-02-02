@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Networking.Model.DataLink;
 using Networking.Utils.Pcap;
 using Xunit;
 
@@ -19,11 +20,19 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
             pcapFile.Header.Type.Should().Be(DataLinkType.Ethernet);
 
             Packet packet = null;
-            Int32 i = -1;
+            Int32 i = 0;
             do
             {
                 packet = pcapFile.ReadNextPacket();
-                i++;
+                if (packet != null)
+                {
+                    EthernetFrame ethernetFrame = new EthernetFrame
+                    {
+                        Bytes = packet.Data
+                    };
+                    ethernetFrame.Length.Should().BeGreaterThan(0);
+                    i++;
+                }
             }
             while (packet != null);
 

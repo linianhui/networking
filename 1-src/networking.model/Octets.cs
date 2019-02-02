@@ -67,6 +67,17 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 读取为<see cref="UInt16"/>[LittleEndian]
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public UInt16 ReadAsUInt16FromLittleEndian(Int32 index)
+        {
+            var span = this[index, 2].Span;
+            return BinaryPrimitives.ReadUInt16LittleEndian(span);
+        }
+
+        /// <summary>
         /// 读取为<see cref="UInt32"/>[BigEndian]
         /// </summary>
         /// <param name="index">索引</param>
@@ -75,6 +86,17 @@ namespace Networking.Model
         {
             var span = this[index, 4].Span;
             return BinaryPrimitives.ReadUInt32BigEndian(span);
+        }
+
+        /// <summary>
+        /// 读取为<see cref="UInt32"/>[LittleEndian]
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public UInt32 ReadAsUInt32FromLittleEndian(Int32 index)
+        {
+            var span = this[index, 4].Span;
+            return BinaryPrimitives.ReadUInt32LittleEndian(span);
         }
 
         /// <summary>

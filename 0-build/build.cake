@@ -19,6 +19,7 @@ Task("clean")
     .Description("清理项目缓存")
     .Does(() =>
 {
+    DeleteFiles(distPath + "*.trx");
     DeleteFiles(distPath + "*.nupkg");
     CleanDirectories(srcPath + "**/bin");
     CleanDirectories(srcPath + "**/obj");

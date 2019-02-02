@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Networking.Utils</AssemblyName>
+    <RootNamespace>Networking.Utils</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\networking.model\networking.model.csproj" />
+  </ItemGroup>
+
+</Project>

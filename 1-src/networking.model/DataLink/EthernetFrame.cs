@@ -52,11 +52,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (EthernetFrameType)ReadUInt16BigEndian(Layout.TypeBegin);
+                return (EthernetFrameType)ReadUInt16(Layout.TypeBegin, Endian.Big);
             }
             set
             {
-                WriteUInt16BigEndian(Layout.TypeBegin, (UInt16)value);
+                WriteUInt16(Layout.TypeBegin, (UInt16)value, Endian.Big);
             }
         }
 

@@ -56,26 +56,6 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 读取为<see cref="UInt16"/>[BigEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public UInt16 ReadUInt16BigEndian(Int32 index)
-        {
-            return ReadUInt16(index, Endian.Big);
-        }
-
-        /// <summary>
-        /// 读取为<see cref="UInt16"/>[LittleEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public UInt16 ReadUInt16LittleEndian(Int32 index)
-        {
-            return ReadUInt16(index, Endian.Little);
-        }
-
-        /// <summary>
         /// 读取<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>
@@ -89,27 +69,6 @@ namespace Networking.Model
                 return BinaryPrimitives.ReadUInt16LittleEndian(span);
             }
             return BinaryPrimitives.ReadUInt16BigEndian(span);
-        }
-
-
-        /// <summary>
-        /// 读取为<see cref="UInt32"/>[BigEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public UInt32 ReadUInt32BigEndian(Int32 index)
-        {
-            return ReadUInt32(index, Endian.Big);
-        }
-
-        /// <summary>
-        /// 读取为<see cref="UInt32"/>[LittleEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public UInt32 ReadUInt32LittleEndian(Int32 index)
-        {
-            return ReadUInt32(index, Endian.Little);
         }
 
         /// <summary>
@@ -129,17 +88,6 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 写入[BigEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void WriteUInt16BigEndian(Int32 index, UInt16 value)
-        {
-            WriteUInt16(index, value, Endian.Big);
-        }
-
-        /// <summary>
         /// 写入<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>
@@ -155,17 +103,6 @@ namespace Networking.Model
                 return;
             }
             BinaryPrimitives.WriteUInt16BigEndian(span, value);
-        }
-
-        /// <summary>
-        /// 写入[BigEndian]
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void WriteUInt32BigEndian(Int32 index, UInt32 value)
-        {
-            WriteUInt32(index, value, Endian.Big);
         }
 
         /// <summary>

@@ -62,8 +62,7 @@ namespace Networking.Model
         /// <returns></returns>
         public UInt16 ReadUInt16BigEndian(Int32 index)
         {
-            var span = this[index, 2].Span;
-            return BinaryPrimitives.ReadUInt16BigEndian(span);
+            return ReadUInt16(index, Endian.Big);
         }
 
         /// <summary>
@@ -73,9 +72,25 @@ namespace Networking.Model
         /// <returns></returns>
         public UInt16 ReadUInt16LittleEndian(Int32 index)
         {
-            var span = this[index, 2].Span;
-            return BinaryPrimitives.ReadUInt16LittleEndian(span);
+            return ReadUInt16(index, Endian.Little);
         }
+
+        /// <summary>
+        /// 读取<see cref="UInt16"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="endian">字节序</param>
+        /// <returns></returns>
+        public UInt16 ReadUInt16(Int32 index, Endian endian)
+        {
+            var span = this[index, 2].Span;
+            if (endian == Endian.Little)
+            {
+                return BinaryPrimitives.ReadUInt16LittleEndian(span);
+            }
+            return BinaryPrimitives.ReadUInt16BigEndian(span);
+        }
+
 
         /// <summary>
         /// 读取为<see cref="UInt32"/>[BigEndian]
@@ -84,8 +99,7 @@ namespace Networking.Model
         /// <returns></returns>
         public UInt32 ReadUInt32BigEndian(Int32 index)
         {
-            var span = this[index, 4].Span;
-            return BinaryPrimitives.ReadUInt32BigEndian(span);
+            return ReadUInt32(index, Endian.Big);
         }
 
         /// <summary>
@@ -95,8 +109,23 @@ namespace Networking.Model
         /// <returns></returns>
         public UInt32 ReadUInt32LittleEndian(Int32 index)
         {
+            return ReadUInt32(index, Endian.Little);
+        }
+
+        /// <summary>
+        /// 读取<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="endian">字节序</param>
+        /// <returns></returns>
+        public UInt32 ReadUInt32(Int32 index, Endian endian)
+        {
             var span = this[index, 4].Span;
-            return BinaryPrimitives.ReadUInt32LittleEndian(span);
+            if (endian == Endian.Little)
+            {
+                return BinaryPrimitives.ReadUInt32LittleEndian(span);
+            }
+            return BinaryPrimitives.ReadUInt32BigEndian(span);
         }
 
         /// <summary>
@@ -107,7 +136,24 @@ namespace Networking.Model
         /// <returns></returns>
         public void WriteUInt16BigEndian(Int32 index, UInt16 value)
         {
+            WriteUInt16(index, value, Endian.Big);
+        }
+
+        /// <summary>
+        /// 写入<see cref="UInt16"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <param name="endian">字节序</param>
+        /// <returns></returns>
+        public void WriteUInt16(Int32 index, UInt16 value, Endian endian)
+        {
             var span = this[index, 2].Span;
+            if (endian == Endian.Little)
+            {
+                BinaryPrimitives.WriteUInt16LittleEndian(span, value);
+                return;
+            }
             BinaryPrimitives.WriteUInt16BigEndian(span, value);
         }
 
@@ -119,7 +165,24 @@ namespace Networking.Model
         /// <returns></returns>
         public void WriteUInt32BigEndian(Int32 index, UInt32 value)
         {
+            WriteUInt32(index, value, Endian.Big);
+        }
+
+        /// <summary>
+        /// 写入<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <param name="endian">字节序</param>
+        /// <returns></returns>
+        public void WriteUInt32(Int32 index, UInt32 value, Endian endian)
+        {
             var span = this[index, 4].Span;
+            if (endian == Endian.Little)
+            {
+                BinaryPrimitives.WriteUInt32LittleEndian(span, value);
+                return;
+            }
             BinaryPrimitives.WriteUInt32BigEndian(span, value);
         }
 

@@ -4,6 +4,7 @@ namespace Networking.Utils.Pcap
 {
     /// <summary>
     /// Packet (Record)
+    /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
     /// </summary>
     public class Packet
     {

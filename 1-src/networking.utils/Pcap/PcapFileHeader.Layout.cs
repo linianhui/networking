@@ -2,23 +2,22 @@ using System;
 
 namespace Networking.Utils.Pcap
 {
-    /*
-    typedef struct pcap_hdr_s {
-        guint32 magic_number;   // magic number
-        guint16 version_major;  // major version number
-        guint16 version_minor;  // minor version number
-        gint32  thiszone;       // GMT to local correction
-        guint32 sigfigs;        // accuracy of timestamps
-        guint32 snaplen;        // max length of captured packets, in octets
-        guint32 network;        // data link type
-    } pcap_hdr_t;
-    */
-
     public partial class PcapFileHeader
     {
         /// <summary>
         /// 首部-布局信息
         /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
+        /// <para></para>
+        /// <para>typedef struct pcap_hdr_s {                                               </para>
+        /// <para>    guint32 magic_number;   // magic number                               </para>
+        /// <para>    guint16 version_major;  // major version number                       </para>
+        /// <para>    guint16 version_minor;  // minor version number                       </para>  
+        /// <para>    gint32  thiszone;       // GMT to local correction                    </para>
+        /// <para>    guint32 sigfigs;        // accuracy of timestamps                     </para> 
+        /// <para>    guint32 snaplen;        // max length of captured packets, in octets  </para>
+        /// <para>    guint32 network;        // data link type                             </para>
+        /// <para>} pcap_hdr_t;                                                             </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

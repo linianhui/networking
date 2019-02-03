@@ -2,20 +2,19 @@ using System;
 
 namespace Networking.Utils.Pcap
 {
-    /*
-     typedef struct pcaprec_hdr_s {
-        guint32 ts_sec;         // timestamp seconds 
-        guint32 ts_usec;        // timestamp microseconds
-        guint32 incl_len;       // number of octets of packet saved in file
-        guint32 orig_len;       // actual length of packet
-    } pcaprec_hdr_t;
-    */
-
     public partial class PacketHeader
     {
         /// <summary>
         /// 首部-布局信息
         /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
+        /// <para></para>
+        /// <para>typedef struct pcaprec_hdr_s {                                     </para>
+        /// <para>    guint32 ts_sec;   // timestamp seconds                         </para>
+        /// <para>    guint32 ts_usec;  // timestamp microseconds                    </para>
+        /// <para>    guint32 incl_len; // number of octets of packet saved in file  </para>
+        /// <para>    guint32 orig_len; // actual length of packet                   </para>
+        /// <para>} pcaprec_hdr_t;                                                   </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

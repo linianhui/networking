@@ -2,33 +2,31 @@ using System;
 
 namespace Networking.Model.Transport
 {
-
-    /*
-     |                          TCP Segment                          |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |     Source Port (2 octets)    |  Destination Port (2 octets)  |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                Sequence number (4 octets)                     | 
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |           Acknowledgment number (if ACK set)                  | 
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |offset |    todo               |   Windows Size (2 octets)     |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |    Checksum                   |  Urgent pointer (if URG set)  |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     | Options (if data offset > 5)                                  |
-     | Padded at the end with "0" bytes if necessary.)               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     fixed = 2+2+4+4+2+2+2+2 = 20 octets
-     */
-
     public partial class TCPSegment
     {
         /// <summary>
         /// 首部-布局信息
+        /// <see href="https://en.wikipedia.org/wiki/transmission_control_protocol"/>
+        /// <para></para>
+        /// <para>|                          TCP Segment                          |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|     Source Port (2 octets)    |  Destination Port (2 octets)  |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                Sequence number (4 octets)                     |</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Acknowledgment number (if ACK set)                  |</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|offset |    todo               |   Windows Size (2 octets)     |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|    Checksum                   |  Urgent pointer (if URG set)  |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>| Options (if data offset > 5)                                  |</para>
+        /// <para>| Padded at the end with "0" bytes if necessary.)               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed = 2+2+4+4+2+2+2+2 = 20 octets                              </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

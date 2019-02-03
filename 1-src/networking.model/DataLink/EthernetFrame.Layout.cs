@@ -2,35 +2,33 @@ using System;
 
 namespace Networking.Model.DataLink
 {
-    /*
-     |              Ethernet II (DIX) Frame                          |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |           Destination MAC Address (6 octets)                  |
-     |                               +- - - - - - - -+- - - - - - - -| 
-     |                               |                               |
-     |- - - - - - - -+- - - - - - - -+                               | 
-     |           Source MAC Address (6 octets)                       |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |        Type (2 octets)        |                               |
-     |- - - - - - - -+- - - - - - - -+                               |
-     |                                                               |
-     |               Payload (46-1500 octets)                        |
-     |                                                               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                        CRC (4 octets)                         |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     min = 6+6+2+4+46   = 64 octets
-     max = 6+6+2+4+1500 = 1518 octets
-     */
-
     public partial class EthernetFrame
     {
         /// <summary>
         /// <see cref="EthernetFrame"/>的首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/ethertype"/>
+        /// <see href="https://en.wikipedia.org/wiki/ethernet_frame"/>
+        /// <para></para>
+        /// <para>|              Ethernet II (DIX) Frame                          |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|           Destination MAC Address (6 octets)                  |</para>
+        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|                               |                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para> 
+        /// <para>|           Source MAC Address (6 octets)                       |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|        Type (2 octets)        |                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|               Payload (46-1500 octets)                        |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                        CRC (4 octets)                         |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>min = 6+6+2+4+46   = 64 octets                                   </para>
+        /// <para>max = 6+6+2+4+1500 = 1518 octets                                 </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

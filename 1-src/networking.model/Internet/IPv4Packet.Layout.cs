@@ -2,40 +2,37 @@ using System;
 
 namespace Networking.Model.Internet
 {
-
-    /*
-     |                          IPv4 Packet                          |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |Version|  IHL  |   DSCP    |ECN|     Total Length              |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |      Identification           |Flags|    Fragment Offset      |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |      TTL      |    Type       |          Checksum             |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |           Source IP Address (4 octets)                        |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |           Destination IP Address (4 octets)                   |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                                                               |
-     |                                                               |
-     |                   Options (if IHL > 5)                        |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     IHL = Internet Header Length
-     DSCP= Differentiated Services Code Point
-     ECN = Explicit Congestion Notification
-     TTL = Time to Live
-     fixed-header                = 4*5 = 20 octets
-     fixed-header+options-header = 20 + ?
-     */
-
     public partial class IPv4Packet
     {
         /// <summary>
         /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/ipv4#packet_structure"/>
+        /// <para></para>
+        /// <para>|                          IPv4 Packet                          |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|Version|  IHL  |   DSCP    |ECN|     Total Length              |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|      Identification           |Flags|    Fragment Offset      |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|      TTL      |    Type       |          Checksum             |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Source IP Address (4 octets)                        |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Destination IP Address (4 octets)                   |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                                                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|                   Options (if IHL > 5)                        |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>IHL = Internet Header Length                                     </para>
+        /// <para>DSCP= Differentiated Services Code Point                         </para>
+        /// <para>ECN = Explicit Congestion Notification                           </para>
+        /// <para>TTL = Time to Live                                               </para>
+        /// <para>fixed-header                = 4*5 = 20 octets                    </para>
+        /// <para>fixed-header+options-header = 20 + ?                             </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

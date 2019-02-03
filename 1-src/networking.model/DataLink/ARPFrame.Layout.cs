@@ -2,34 +2,32 @@ using System;
 
 namespace Networking.Model.DataLink
 {
-    /*
-     |                          ARP Frame                            |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |    Hardware Type (2 octets)   |    Protocol Type (2 octets)   |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |Hardware Length|Protocol Length|   Operation Code              |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |           Sender Hardware Address (6 octets)                  |
-     |                               +- - - - - - - -+- - - - - - - -| 
-     |                               | Sender IP Address (1~2 octets)|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     | Sender IP Address (3~4 octets)|                               |
-     |- - - - - - - -+- - - - - - - -+                               |
-     |           Target Hardware Address (6 octets)                  |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |           Target IP Address (4 octets)                        |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     fixed = 2+2+1+1+2+6+4+6+4 = 28 octets
-     */
-
     public partial class ARPFrame
     {
         /// <summary>
         /// <see cref="ARPFrame"/>的结构信息
         /// <see href="https://en.wikipedia.org/wiki/address_resolution_protocol"/>
+        /// <para></para>
+        /// <para>|                          ARP Frame                            |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|    Hardware Type (2 octets)   |    Protocol Type (2 octets)   |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|Hardware Length|Protocol Length|   Operation Code              |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Sender Hardware Address (6 octets)                  |</para>
+        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|                               | Sender IP Address (1~2 octets)|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>| Sender IP Address (3~4 octets)|                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para>
+        /// <para>|           Target Hardware Address (6 octets)                  |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Target IP Address (4 octets)                        |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed = 2+2+1+1+2+6+4+6+4 = 28 octets                            </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

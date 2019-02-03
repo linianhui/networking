@@ -2,28 +2,26 @@ using System;
 
 namespace Networking.Model.Transport
 {
-
-    /*
-     |                          UDP Segment                          |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |     Source Port (2 octets)    |  Destination Port (2 octets)  |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     | Total Length (header+payload) |      Checksum  (2 octets)     |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                                                               |
-     |                                                               |
-     |                   Payload (Length octets)                     |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     fixed = 2+2+2+2 = 8 octets
-     */
-
     public partial class UDPSegment
     {
         /// <summary>
         /// 首部-布局信息
+        /// <see href="https://en.wikipedia.org/wiki/user_datagram_protocol"/>
+        /// <para></para>
+        /// <para>|                          UDP Segment                          |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|     Source Port (2 octets)    |  Destination Port (2 octets)  |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>| Total Length (header+payload) |      Checksum  (2 octets)     |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                                                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|                   Payload (Length octets)                     |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed = 2+2+2+2 = 8 octets                                       </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

@@ -4,6 +4,7 @@ namespace Networking.Model.DataLink
 {
     /// <summary>
     /// ARP Frame
+    /// <see href="https://en.wikipedia.org/wiki/address_resolution_protocol"/>
     /// </summary>
     public partial class ARPFrame : Octets
     {

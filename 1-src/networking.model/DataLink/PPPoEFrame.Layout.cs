@@ -2,29 +2,27 @@ using System;
 
 namespace Networking.Model.DataLink
 {
-    /*
-     |        PPPoE (Point to Point over Ethernet) Frame             |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |Version| Type  |   Code        |       Session Id              |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |  Payload Length               |                               |
-     |- - - - - - - -+- - - - - - - -+                               |
-     |                                                               |
-     |               Payload (46-1500 octets)                        |
-     |                                                               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     fixed-header = 1+1+2+2 = 6 octets
-     */
-
     public partial class PPPoEFrame
     {
         /// <summary>
         /// <see cref="PPPoEFrame"/>的首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/point-to-point_protocol_over_ethernet"/>
         /// <see href="https://tools.ietf.org/html/rfc2516"/>
+        /// <para></para>
+        /// <para>|        PPPoE (Point to Point over Ethernet) Frame             |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|Version| Type  |   Code        |       Session Id              |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|  Payload Length               |                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|               Payload (46-1500 octets)                        |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed-header = 1+1+2+2 = 6 octets                                </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

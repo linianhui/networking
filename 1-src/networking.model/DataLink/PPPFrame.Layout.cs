@@ -2,25 +2,24 @@ using System;
 
 namespace Networking.Model.DataLink
 {
-    /*
-     |              PPP (Point to Point) Frame                       |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |        Type (2 octets)        |                               |
-     |- - - - - - - -+- - - - - - - -+                               |
-     |                                                               |
-     |               Payload (46-1500 octets)                        |
-     |                                                               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     
-     fixed-header = 2 octets
-     */
-
     public partial class PPPFrame
     {
         /// <summary>
         /// <see cref="PPPFrame"/>的结构信息
+        /// <see href="http://en.wikipedia.org/wiki/point-to-point_protocol"/>
+        /// <para></para>
+        /// <para>|              PPP (Point to Point) Frame                       |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|        Type (2 octets)        |                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|               Payload (46-1500 octets)                        |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed-header = 2 octets                                          </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

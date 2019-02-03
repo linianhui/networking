@@ -2,35 +2,32 @@ using System;
 
 namespace Networking.Model.Internet
 {
-
-    /*
-     |                          IPv6 Packet                          |
-     |- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|
-     |0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |Version| Traffic Class |            Flow Label                 |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -| 
-     |      Payload Length           | Next Header   | Hop Limit     |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                                                               |
-     |                                                               |
-     |           Source IP Address (16 octets)                       |
-     |                                                               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-     |                                                               | 
-     |                                                               |
-     |           Destination IP Address (16 octets)                  |
-     |                                                               |
-     |- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|
-
-     fixed-header= 4+2+1+1+16+16 = 40 
-     */
-
     public partial class IPv6Packet
     {
         /// <summary>
         /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/ipv6_packet"/>
+        /// <para></para>
+        /// <para>|                          IPv6 Packet                          |</para>
+        /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
+        /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|Version| Traffic Class |            Flow Label                 |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|      Payload Length           | Next Header   | Hop Limit     |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                                                               |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|           Source IP Address (16 octets)                       |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|                                                               |</para> 
+        /// <para>|                                                               |</para>
+        /// <para>|           Destination IP Address (16 octets)                  |</para>
+        /// <para>|                                                               |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>fixed-header= 4+2+1+1+16+16 = 40                                 </para>
+        /// <para></para>
         /// </summary>
         public class Layout
         {

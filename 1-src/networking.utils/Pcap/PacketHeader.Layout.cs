@@ -31,12 +31,12 @@ namespace Networking.Utils.Pcap
 
 
             /// <summary>
-            /// 时间戳-毫秒-起始位置
+            /// 时间戳-微妙-起始位置
             /// </summary>
             public static readonly Int32 TimestampMicrosecondsBegin = TimestampSecondsEnd;
 
             /// <summary>
-            /// 时间戳-毫秒-结束位置
+            /// 时间戳-微妙-结束位置
             /// </summary>
             public static readonly Int32 TimestampMicrosecondsEnd = TimestampMicrosecondsBegin + 4;
 

@@ -5,6 +5,7 @@ namespace Networking.Utils.Pcap
 {
     /// <summary>
     /// *.pcap文件
+    /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
     /// </summary>
     public class PcapFile
     {

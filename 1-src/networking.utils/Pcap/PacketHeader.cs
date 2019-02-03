@@ -20,7 +20,7 @@ namespace Networking.Utils.Pcap
         }
 
         /// <summary>
-        /// 时间戳-毫秒
+        /// 时间戳的微妙部分
         /// </summary>
         public UInt32 TimestampMicroseconds
         {

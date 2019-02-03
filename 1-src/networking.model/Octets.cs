@@ -60,7 +60,7 @@ namespace Networking.Model
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt16 ReadAsUInt16FromBigEndian(Int32 index)
+        public UInt16 ReadUInt16BigEndian(Int32 index)
         {
             var span = this[index, 2].Span;
             return BinaryPrimitives.ReadUInt16BigEndian(span);
@@ -71,7 +71,7 @@ namespace Networking.Model
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt16 ReadAsUInt16FromLittleEndian(Int32 index)
+        public UInt16 ReadUInt16LittleEndian(Int32 index)
         {
             var span = this[index, 2].Span;
             return BinaryPrimitives.ReadUInt16LittleEndian(span);
@@ -82,7 +82,7 @@ namespace Networking.Model
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt32 ReadAsUInt32FromBigEndian(Int32 index)
+        public UInt32 ReadUInt32BigEndian(Int32 index)
         {
             var span = this[index, 4].Span;
             return BinaryPrimitives.ReadUInt32BigEndian(span);
@@ -93,7 +93,7 @@ namespace Networking.Model
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt32 ReadAsUInt32FromLittleEndian(Int32 index)
+        public UInt32 ReadUInt32LittleEndian(Int32 index)
         {
             var span = this[index, 4].Span;
             return BinaryPrimitives.ReadUInt32LittleEndian(span);
@@ -105,7 +105,7 @@ namespace Networking.Model
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void WriteUInt16ToBigEndian(Int32 index, UInt16 value)
+        public void WriteUInt16BigEndian(Int32 index, UInt16 value)
         {
             var span = this[index, 2].Span;
             BinaryPrimitives.WriteUInt16BigEndian(span, value);
@@ -117,7 +117,7 @@ namespace Networking.Model
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void WriteUInt32ToBigEndian(Int32 index, UInt32 value)
+        public void WriteUInt32BigEndian(Int32 index, UInt32 value)
         {
             var span = this[index, 4].Span;
             BinaryPrimitives.WriteUInt32BigEndian(span, value);

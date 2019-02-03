@@ -105,11 +105,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (EthernetFrameType)ReadAsUInt16FromBigEndian(Layout.ProtocolTypeBegin);
+                return (EthernetFrameType)ReadUInt16BigEndian(Layout.ProtocolTypeBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.ProtocolTypeBegin, (UInt16)value);
+                WriteUInt16BigEndian(Layout.ProtocolTypeBegin, (UInt16)value);
             }
         }
 
@@ -120,11 +120,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (HardwareType)ReadAsUInt16FromBigEndian(Layout.HardwareTypeBegin);
+                return (HardwareType)ReadUInt16BigEndian(Layout.HardwareTypeBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.HardwareTypeBegin, (UInt16)value);
+                WriteUInt16BigEndian(Layout.HardwareTypeBegin, (UInt16)value);
             }
         }
 
@@ -135,11 +135,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (ARPOperationCode)ReadAsUInt16FromBigEndian(Layout.OperationCodeBegin);
+                return (ARPOperationCode)ReadUInt16BigEndian(Layout.OperationCodeBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.OperationCodeBegin, (UInt16)value);
+                WriteUInt16BigEndian(Layout.OperationCodeBegin, (UInt16)value);
             }
         }
 

@@ -4,11 +4,11 @@ using Xunit;
 
 namespace Networking.Model.Tests.OctetsTests
 {
-    public class Octets_Method_ReadAsUInt16FromBigEndian_Test
+    public class Octets_Method_ReadUInt16LittleEndian_Test
     {
 
         [Fact]
-        public void ReadAsUInt16FromBigEndian()
+        public void ReadUInt16LittleEndian()
         {
             var octets = new Octets
             {
@@ -18,8 +18,8 @@ namespace Networking.Model.Tests.OctetsTests
                 }
             };
 
-            octets.ReadAsUInt16FromBigEndian(0).Should().Be(2048);
-            octets.ReadAsUInt16FromBigEndian(2).Should().Be(2054);
+            octets.ReadUInt16LittleEndian(0).Should().Be(8);
+            octets.ReadUInt16LittleEndian(2).Should().Be(1544);
         }
     }
 }

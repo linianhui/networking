@@ -17,11 +17,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (PPPFrameType)ReadAsUInt16FromBigEndian(Layout.TypeBegin);
+                return (PPPFrameType)ReadUInt16BigEndian(Layout.TypeBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.TypeBegin, (UInt16)value);
+                WriteUInt16BigEndian(Layout.TypeBegin, (UInt16)value);
             }
         }
 

@@ -15,7 +15,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadAsUInt32FromLittleEndian(Layout.TimestampSecondsBegin);
+                return ReadUInt32LittleEndian(Layout.TimestampSecondsBegin);
             }
         }
 
@@ -26,7 +26,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadAsUInt32FromLittleEndian(Layout.TimestampMicrosecondsBegin);
+                return ReadUInt32LittleEndian(Layout.TimestampMicrosecondsBegin);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadAsUInt32FromLittleEndian(Layout.SavedLengthBegin);
+                return ReadUInt32LittleEndian(Layout.SavedLengthBegin);
             }
         }
 
@@ -48,7 +48,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadAsUInt32FromLittleEndian(Layout.OriginalLengthBegin);
+                return ReadUInt32LittleEndian(Layout.OriginalLengthBegin);
             }
         }
     }

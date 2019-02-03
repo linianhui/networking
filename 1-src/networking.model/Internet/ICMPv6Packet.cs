@@ -48,11 +48,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return (ICMPv6TypeCode)ReadAsUInt16FromBigEndian(Layout.TypeCodeBegin);
+                return (ICMPv6TypeCode)ReadUInt16BigEndian(Layout.TypeCodeBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.TypeCodeBegin, (UInt16)value);
+                WriteUInt16BigEndian(Layout.TypeCodeBegin, (UInt16)value);
             }
         }
 
@@ -63,11 +63,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadAsUInt16FromBigEndian(Layout.ChecksumBegin);
+                return ReadUInt16BigEndian(Layout.ChecksumBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.ChecksumBegin, value);
+                WriteUInt16BigEndian(Layout.ChecksumBegin, value);
             }
         }
 
@@ -78,11 +78,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadAsUInt16FromBigEndian(Layout.IdBegin);
+                return ReadUInt16BigEndian(Layout.IdBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.IdBegin, value);
+                WriteUInt16BigEndian(Layout.IdBegin, value);
             }
         }
 
@@ -93,11 +93,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadAsUInt16FromBigEndian(Layout.SequenceBegin);
+                return ReadUInt16BigEndian(Layout.SequenceBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.SequenceBegin, value);
+                WriteUInt16BigEndian(Layout.SequenceBegin, value);
             }
         }
     }

@@ -28,11 +28,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadAsUInt16FromBigEndian(Layout.PayloadLengthBegin);
+                return ReadUInt16BigEndian(Layout.PayloadLengthBegin);
             }
             set
             {
-                WriteUInt16ToBigEndian(Layout.PayloadLengthBegin, value);
+                WriteUInt16BigEndian(Layout.PayloadLengthBegin, value);
             }
         }
 

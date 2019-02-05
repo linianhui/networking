@@ -21,7 +21,7 @@ namespace Networking.Model.Tests.OctetsTests
             octets.ReadUInt16(0).Should().Be(256);
             octets.ReadUInt16(2).Should().Be(1);
 
-            octets.Endian=Endian.Little;       
+            octets.IsLittleEndian = true;
             octets.ReadUInt16(0).Should().Be(1);
             octets.ReadUInt16(2).Should().Be(256);
         }

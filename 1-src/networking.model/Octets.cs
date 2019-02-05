@@ -10,9 +10,20 @@ namespace Networking.Model
     public class Octets
     {
         /// <summary>
-        /// 字节序
+        /// 是否小端字节序
+        /// <para></para>
+        /// <para>       0xA1B2C3D4                                              </para>
+        /// <para>|  -  + 4 octets  +     |                                      </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>|  0     1     2     3  | 内存增长方向                          </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>| 0xA1  0xB2  0xC3  0xD4| 大端模式/网络字节序[高位字节存储在低位] </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>| 0xD4  0xC3  0xB2  0xA1| 小端模式/主机字节序[高位字节存储在高位] </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para></para>
         /// </summary>
-        public Endian Endian { get; set; } = Endian.Big;
+        public Boolean IsLittleEndian { get; set; } = false;
 
         /// <summary>
         /// 字节数据
@@ -68,7 +79,7 @@ namespace Networking.Model
         public UInt16 ReadUInt16(Int32 index)
         {
             var span = this[index, 2].Span;
-            if (Endian == Endian.Little)
+            if (IsLittleEndian)
             {
                 return BinaryPrimitives.ReadUInt16LittleEndian(span);
             }
@@ -83,7 +94,7 @@ namespace Networking.Model
         public UInt32 ReadUInt32(Int32 index)
         {
             var span = this[index, 4].Span;
-            if (Endian == Endian.Little)
+            if (IsLittleEndian)
             {
                 return BinaryPrimitives.ReadUInt32LittleEndian(span);
             }
@@ -99,7 +110,7 @@ namespace Networking.Model
         public void WriteUInt16(Int32 index, UInt16 value)
         {
             var span = this[index, 2].Span;
-            if (Endian == Endian.Little)
+            if (IsLittleEndian)
             {
                 BinaryPrimitives.WriteUInt16LittleEndian(span, value);
                 return;
@@ -116,7 +127,7 @@ namespace Networking.Model
         public void WriteUInt32(Int32 index, UInt32 value)
         {
             var span = this[index, 4].Span;
-            if (Endian == Endian.Little)
+            if (IsLittleEndian)
             {
                 BinaryPrimitives.WriteUInt32LittleEndian(span, value);
                 return;

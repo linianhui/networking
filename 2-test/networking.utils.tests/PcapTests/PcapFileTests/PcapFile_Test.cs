@@ -14,7 +14,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
         {
             PcapFile pcapFile = new PcapFile(AppContext.BaseDirectory + "PcapTests/PcapFileTests/test.pcap");
 
-            pcapFile.Header.Endian.Should().Be(Endian.Little);
+            pcapFile.Header.IsLittleEndian.Should().Be(true);
             pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);
             pcapFile.Header.VersionMajor.Should().Be(2);
             pcapFile.Header.VersionMinor.Should().Be(4);
@@ -28,13 +28,13 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
                 packet = pcapFile.ReadNextPacket();
                 if (packet != null)
                 {
-                    packet.FileHeader.Endian.Should().Be(Endian.Little);
-                    packet.Header.Endian.Should().Be(Endian.Little);
+                    packet.FileHeader.IsLittleEndian.Should().Be(true);
+                    packet.Header.IsLittleEndian.Should().Be(true);
                     EthernetFrame ethernetFrame = new EthernetFrame
                     {
                         Bytes = packet.Data
                     };
-                    ethernetFrame.Endian.Should().Be(Endian.Big);
+                    ethernetFrame.IsLittleEndian.Should().Be(false);
                     ethernetFrame.Length.Should().BeGreaterThan(0);
                     i++;
                 }

@@ -19,7 +19,7 @@ namespace Networking.Model.Tests.OctetsTests
             octets.ReadUInt32(0).Should().Be(1);
             octets[0, 4].ToArray().Should().Equal(0x00, 0x00, 0x00, 0x01);
 
-            octets.Endian = Endian.Little;
+            octets.IsLittleEndian = true;
             octets.WriteUInt32(4, 1);
             octets.ReadUInt32(4).Should().Be(1);
             octets[4, 4].ToArray().Should().Equal(0x01, 0x00, 0x00, 0x00);

@@ -13,7 +13,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileHeaderTests
         {
             PcapFileHeader pcapFileHeader = new PcapFileHeader
             {
-                Endian = Endian.Little,
+                IsLittleEndian = true,
                 Bytes = new Byte[] {
                     0xD4, 0xC3, 0xB2, 0xA1,
                     0x02, 0x00,
@@ -25,7 +25,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileHeaderTests
                 }
             };
 
-            pcapFileHeader.Endian.Should().Be(Endian.Little);
+            pcapFileHeader.IsLittleEndian.Should().Be(true);
             pcapFileHeader.MagicNumber.Should().Be(0xA1B2C3D4);
             pcapFileHeader.VersionMajor.Should().Be(2);
             pcapFileHeader.VersionMinor.Should().Be(4);

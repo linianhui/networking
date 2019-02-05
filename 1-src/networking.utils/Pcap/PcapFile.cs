@@ -14,9 +14,9 @@ namespace Networking.Utils.Pcap
         private Int32 _offset;
 
         /// <summary>
-        /// 字节序
+        /// 是否小端字节序
         /// </summary>
-        public Endian Endian { get; private set; }
+        public Boolean IsLittleEndian { get; private set; }
 
         /// <summary>
         /// 文件首部
@@ -54,16 +54,16 @@ namespace Networking.Utils.Pcap
         {
             if (ReadBytes(0, 1)[0] == 0xA1)
             {
-                this.Endian = Endian.Big;
+                this.IsLittleEndian = false;
             }
             else
             {
-                this.Endian = Endian.Little;
+                this.IsLittleEndian = true;
             }
 
             this.Header = new PcapFileHeader
             {
-                Endian = Endian,
+                IsLittleEndian = IsLittleEndian,
                 Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
             };
 
@@ -100,7 +100,7 @@ namespace Networking.Utils.Pcap
 
             return new PacketHeader
             {
-                Endian = Endian,
+                IsLittleEndian = IsLittleEndian,
                 Bytes = packetHeaderBytes
             };
         }

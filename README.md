@@ -1,4 +1,3 @@
-# CI
 | CI Service | Build Platform | Stauts                          |
 | ---------- | -------------- | ------------------------------- |
 | AppVeyor   | Windows        | [![AppVeyor-Img]][AppVeyor-Url] |
@@ -36,18 +35,18 @@ PDU : https://en.wikipedia.org/wiki/protocol_data_unit
 
 
 
-[Transport]:/1-src/networking.model/transport/
-[TCP]:/1-src/networking.model/transport/tcpsegment.cs
-[UDP]:/1-src/networking.model/transport/udpsegment.cs
+[Transport]:/1-src/networking.model/Transport/
+[TCP]:/1-src/networking.model/Transport/TCPSegment.cs
+[UDP]:/1-src/networking.model/Transport/UDPSegment.cs
 
-[Internet]:/1-src/networking.model/internet/
-[IPv4]:/1-src/networking.model/internet/ipv4packet.cs
-[ICMPv4]:/1-src/networking.model/internet/icmpv4packet.cs
-[IPv6]:/1-src/networking.model/internet/ipv6packet.cs
-[ICMPv6]:/1-src/networking.model/internet/icmpv6packet.cs
+[Internet]:/1-src/networking.model/Internet/
+[IPv4]:/1-src/networking.model/Internet/IPv4Packet.cs
+[ICMPv4]:/1-src/networking.model/Internet/ICMPv4Packet.cs
+[IPv6]:/1-src/networking.model/Internet/IPv6Packet.cs
+[ICMPv6]:/1-src/networking.model/Internet/ICMPv6Packet.cs
 
-[DataLink]:/1-src/networking.model/datalink/
-[ARP]:/1-src/networking.model/datalink/arpframe.cs
-[Ethernet]:/1-src/networking.model/datalink/ethernetframe.cs
-[PPP]:/1-src/networking.model/datalink/pppframe.cs
-[PPPoE]:/1-src/networking.model/datalink/pppoeframe.cs
+[DataLink]:/1-src/networking.model/DataLink/
+[ARP]:/1-src/networking.model/DataLink/ARPFrame.cs
+[Ethernet]:/1-src/networking.model/DataLink/EthernetFrame.cs
+[PPP]:/1-src/networking.model/DataLink/PPPFrame.cs
+[PPPoE]:/1-src/networking.model/DataLink/PPPoEFrame.cs

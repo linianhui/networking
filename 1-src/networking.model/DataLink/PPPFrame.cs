@@ -7,7 +7,7 @@ namespace Networking.Model.DataLink
     /// PPP = Point to Point
     /// <see href="http://en.wikipedia.org/wiki/point-to-point_protocol"/>
     /// </summary>
-    public partial class PPPFrame : DataLinkFrame
+    public partial class PPPFrame : DataLinkPDU
     {
 
         /// <summary>

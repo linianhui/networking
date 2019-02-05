@@ -7,7 +7,7 @@ namespace Networking.Model.DataLink
     /// Ethernet II(DIX) Frame
     /// <see href="https://en.wikipedia.org/wiki/ethernet_frame"/>
     /// </summary>
-    public partial class EthernetFrame : DataLinkFrame
+    public partial class EthernetFrame : DataLinkPDU
     {
         /// <summary>
         /// 目标MAC地址

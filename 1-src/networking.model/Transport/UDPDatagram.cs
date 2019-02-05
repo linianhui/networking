@@ -6,7 +6,7 @@ namespace Networking.Model.Transport
     /// 用户数据报协议
     /// <see href="https://en.wikipedia.org/wiki/user_datagram_protocol"/>
     /// </summary>
-    public partial class UDPDatagram : TransportSegment
+    public partial class UDPDatagram : TransportPDU
     {
         /// <summary>
         /// 源端口

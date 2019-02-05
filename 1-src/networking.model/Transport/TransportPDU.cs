@@ -4,7 +4,7 @@ namespace Networking.Model.Transport
     /// 传输层[Segment]
     /// <see href="https://en.wikipedia.org/wiki/transport_layer"/>
     /// </summary>
-    public class TransportSegment : Octets
+    public class TransportPDU : Octets
     {
     }
 }

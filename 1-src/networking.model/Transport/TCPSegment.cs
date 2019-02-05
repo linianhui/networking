@@ -6,7 +6,7 @@ namespace Networking.Model.Transport
     /// 传输控制协议
     /// <see href="https://en.wikipedia.org/wiki/transmission_control_protocol"/>
     /// </summary>
-    public partial class TCPSegment : TransportSegment
+    public partial class TCPSegment : TransportPDU
     {
         /// <summary>
         /// 源端口

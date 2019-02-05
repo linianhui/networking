@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Networking.Model;
 
 namespace Networking.Utils.Pcap
 {
@@ -11,25 +12,16 @@ namespace Networking.Utils.Pcap
     {
         private Stream _stream;
         private Int32 _offset;
-        private PcapFileHeader _header;
+
+        /// <summary>
+        /// 字节序
+        /// </summary>
+        public Endian Endian { get; private set; }
 
         /// <summary>
         /// 文件首部
         /// </summary>
-        public PcapFileHeader Header
-        {
-            get
-            {
-                if (this._header == null)
-                {
-                    this._header = new PcapFileHeader
-                    {
-                        Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
-                    };
-                }
-                return this._header;
-            }
-        }
+        public PcapFileHeader Header { get; private set; }
 
         /// <summary>
         /// 构造函数
@@ -37,7 +29,7 @@ namespace Networking.Utils.Pcap
         public PcapFile(String file)
         {
             this._stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-            this._offset = PcapFileHeader.Layout.HeaderLength;
+            this.Init();
         }
 
         /// <summary>
@@ -46,7 +38,7 @@ namespace Networking.Utils.Pcap
         public PcapFile(Stream stream)
         {
             this._stream = stream;
-            this._offset = PcapFileHeader.Layout.HeaderLength;
+            this.Init();
         }
 
         /// <summary>
@@ -55,6 +47,26 @@ namespace Networking.Utils.Pcap
         public PcapFile(Byte[] bytes)
         {
             this._stream = new MemoryStream(bytes);
+            this.Init();
+        }
+
+        private void Init()
+        {
+            if (ReadBytes(0, 1)[0] == 0xA1)
+            {
+                this.Endian = Endian.Big;
+            }
+            else
+            {
+                this.Endian = Endian.Little;
+            }
+
+            this.Header = new PcapFileHeader
+            {
+                Endian = Endian,
+                Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
+            };
+
             this._offset = PcapFileHeader.Layout.HeaderLength;
         }
 
@@ -88,7 +100,7 @@ namespace Networking.Utils.Pcap
 
             return new PacketHeader
             {
-                Endian = Header.Endian,
+                Endian = Endian,
                 Bytes = packetHeaderBytes
             };
         }

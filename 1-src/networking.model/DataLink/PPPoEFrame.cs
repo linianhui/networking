@@ -58,11 +58,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return ReadUInt16(Layout.SessionIdBegin, Endian.Big);
+                return ReadUInt16(Layout.SessionIdBegin);
             }
             set
             {
-                WriteUInt16(Layout.SessionIdBegin, value, Endian.Big);
+                WriteUInt16(Layout.SessionIdBegin, value);
             }
         }
 
@@ -73,11 +73,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return ReadUInt16(Layout.PayloadLengthBegin, Endian.Big);
+                return ReadUInt16(Layout.PayloadLengthBegin);
             }
             set
             {
-                WriteUInt16(Layout.PayloadLengthBegin, value, Endian.Big);
+                WriteUInt16(Layout.PayloadLengthBegin, value);
             }
         }
 

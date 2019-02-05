@@ -15,11 +15,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.SourcePortBegin, Endian.Big);
+                return ReadUInt16(Layout.SourcePortBegin);
             }
             set
             {
-                WriteUInt16(Layout.SourcePortBegin, value, Endian.Big);
+                WriteUInt16(Layout.SourcePortBegin, value);
             }
         }
 
@@ -30,11 +30,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.DestinationPortBegin, Endian.Big);
+                return ReadUInt16(Layout.DestinationPortBegin);
             }
             set
             {
-                WriteUInt16(Layout.DestinationPortBegin, value, Endian.Big);
+                WriteUInt16(Layout.DestinationPortBegin, value);
             }
         }
 
@@ -45,11 +45,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt32(Layout.SequenceBegin, Endian.Big);
+                return ReadUInt32(Layout.SequenceBegin);
             }
             set
             {
-                WriteUInt32(Layout.SequenceBegin, value, Endian.Big);
+                WriteUInt32(Layout.SequenceBegin, value);
             }
         }
 
@@ -60,11 +60,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt32(Layout.ACKBegin, Endian.Big);
+                return ReadUInt32(Layout.ACKBegin);
             }
             set
             {
-                WriteUInt32(Layout.ACKBegin, value, Endian.Big);
+                WriteUInt32(Layout.ACKBegin, value);
             }
         }
 
@@ -88,11 +88,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.WindowsSizeBegin, Endian.Big);
+                return ReadUInt16(Layout.WindowsSizeBegin);
             }
             set
             {
-                WriteUInt16(Layout.WindowsSizeBegin, value, Endian.Big);
+                WriteUInt16(Layout.WindowsSizeBegin, value);
             }
         }
 
@@ -103,11 +103,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.ChecksumBegin, Endian.Big);
+                return ReadUInt16(Layout.ChecksumBegin);
             }
             set
             {
-                WriteUInt16(Layout.ChecksumBegin, value, Endian.Big);
+                WriteUInt16(Layout.ChecksumBegin, value);
             }
         }
 
@@ -118,11 +118,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.UrgentPointerBegin, Endian.Big);
+                return ReadUInt16(Layout.UrgentPointerBegin);
             }
             set
             {
-                WriteUInt16(Layout.UrgentPointerBegin, value, Endian.Big);
+                WriteUInt16(Layout.UrgentPointerBegin, value);
             }
         }
 

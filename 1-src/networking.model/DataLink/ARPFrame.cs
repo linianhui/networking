@@ -106,11 +106,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (EthernetFrameType)ReadUInt16(Layout.ProtocolTypeBegin, Endian.Big);
+                return (EthernetFrameType)ReadUInt16(Layout.ProtocolTypeBegin);
             }
             set
             {
-                WriteUInt16(Layout.ProtocolTypeBegin, (UInt16)value, Endian.Big);
+                WriteUInt16(Layout.ProtocolTypeBegin, (UInt16)value);
             }
         }
 
@@ -121,11 +121,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (HardwareType)ReadUInt16(Layout.HardwareTypeBegin, Endian.Big);
+                return (HardwareType)ReadUInt16(Layout.HardwareTypeBegin);
             }
             set
             {
-                WriteUInt16(Layout.HardwareTypeBegin, (UInt16)value, Endian.Big);
+                WriteUInt16(Layout.HardwareTypeBegin, (UInt16)value);
             }
         }
 
@@ -136,11 +136,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (ARPOperationCode)ReadUInt16(Layout.OperationCodeBegin, Endian.Big);
+                return (ARPOperationCode)ReadUInt16(Layout.OperationCodeBegin);
             }
             set
             {
-                WriteUInt16(Layout.OperationCodeBegin, (UInt16)value, Endian.Big);
+                WriteUInt16(Layout.OperationCodeBegin, (UInt16)value);
             }
         }
 

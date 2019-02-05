@@ -13,6 +13,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileHeaderTests
         {
             PcapFileHeader pcapFileHeader = new PcapFileHeader
             {
+                Endian = Endian.Little,
                 Bytes = new Byte[] {
                     0xD4, 0xC3, 0xB2, 0xA1,
                     0x02, 0x00,

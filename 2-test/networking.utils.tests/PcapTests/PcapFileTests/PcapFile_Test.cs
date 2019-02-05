@@ -28,10 +28,13 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
                 packet = pcapFile.ReadNextPacket();
                 if (packet != null)
                 {
+                    packet.FileHeader.Endian.Should().Be(Endian.Little);
+                    packet.Header.Endian.Should().Be(Endian.Little);
                     EthernetFrame ethernetFrame = new EthernetFrame
                     {
                         Bytes = packet.Data
                     };
+                    ethernetFrame.Endian.Should().Be(Endian.Big);
                     ethernetFrame.Length.Should().BeGreaterThan(0);
                     i++;
                 }

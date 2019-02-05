@@ -18,11 +18,12 @@ namespace Networking.Model.Tests.OctetsTests
                 }
             };
 
-            octets.ReadUInt16(0, Endian.Big).Should().Be(256);
-            octets.ReadUInt16(0, Endian.Little).Should().Be(1);
+            octets.ReadUInt16(0).Should().Be(256);
+            octets.ReadUInt16(2).Should().Be(1);
 
-            octets.ReadUInt16(2, Endian.Big).Should().Be(1);
-            octets.ReadUInt16(2, Endian.Little).Should().Be(256);
+            octets.Endian=Endian.Little;       
+            octets.ReadUInt16(0).Should().Be(1);
+            octets.ReadUInt16(2).Should().Be(256);
         }
     }
 }

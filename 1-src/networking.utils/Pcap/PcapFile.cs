@@ -88,21 +88,22 @@ namespace Networking.Utils.Pcap
 
             return new PacketHeader
             {
+                Endian = Header.Endian,
                 Bytes = packetHeaderBytes
             };
         }
 
         private Byte[] ReadNextPacketDataBytes(PacketHeader packetHeader)
         {
-            Int32 dataActualLength = ComputeDataActualLength(Header, packetHeader);
+            Int32 dataActualLength = ComputeDataActualLength(packetHeader);
             return ReadNextBytes(dataActualLength);
         }
 
-        private Int32 ComputeDataActualLength(PcapFileHeader fileHeader, PacketHeader packetHeader)
+        private Int32 ComputeDataActualLength(PacketHeader packetHeader)
         {
-            if (packetHeader.SavedLength > fileHeader.PacketMaxLength)
+            if (packetHeader.SavedLength > Header.PacketMaxLength)
             {
-                return (Int32)fileHeader.PacketMaxLength;
+                return (Int32)Header.PacketMaxLength;
             }
             return (Int32)packetHeader.SavedLength;
         }

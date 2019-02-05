@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Networking.Model;
 using Networking.Utils.Pcap;
 using Xunit;
 
@@ -12,6 +13,7 @@ namespace Networking.Utils.Tests.PcapTests.PacketHeaderTests
         {
             PacketHeader packetHeader = new PacketHeader
             {
+                Endian = Endian.Little,
                 Bytes = new Byte[] {
                     0xBE, 0x8B, 0x55, 0x5C,
                     0xD7, 0x50, 0x0C, 0x00,

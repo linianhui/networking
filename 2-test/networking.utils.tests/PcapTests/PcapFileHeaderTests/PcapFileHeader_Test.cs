@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Networking.Model;
 using Networking.Utils.Pcap;
 using Xunit;
 
@@ -23,6 +24,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileHeaderTests
                 }
             };
 
+            pcapFileHeader.Endian.Should().Be(Endian.Little);
             pcapFileHeader.MagicNumber.Should().Be(0xA1B2C3D4);
             pcapFileHeader.VersionMajor.Should().Be(2);
             pcapFileHeader.VersionMinor.Should().Be(4);

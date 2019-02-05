@@ -10,13 +10,28 @@ namespace Networking.Utils.Pcap
     public partial class PcapFileHeader : Octets
     {
         /// <summary>
+        /// 字节序
+        /// </summary>
+        public Endian Endian
+        {
+            get
+            {
+                if (base[0] == 0xA1)
+                {
+                    return Endian.Big;
+                }
+                return Endian.Little;
+            }
+        }
+
+        /// <summary>
         /// Magic Number
         /// </summary>
         public UInt32 MagicNumber
         {
             get
             {
-                return ReadUInt32(Layout.MagicNumberBegin, Endian.Little);
+                return ReadUInt32(Layout.MagicNumberBegin, Endian);
             }
         }
 
@@ -27,7 +42,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.VersionMajorBegin, Endian.Little);
+                return ReadUInt16(Layout.VersionMajorBegin, Endian);
             }
         }
 
@@ -38,7 +53,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.VersionMinorBegin, Endian.Little);
+                return ReadUInt16(Layout.VersionMinorBegin, Endian);
             }
         }
 
@@ -49,7 +64,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.PacketMaxLengthBegin, Endian.Little);
+                return ReadUInt16(Layout.PacketMaxLengthBegin, Endian);
             }
         }
 
@@ -60,7 +75,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return (DataLinkType)ReadUInt32(Layout.DataLinkTypeBegin, Endian.Little);
+                return (DataLinkType)ReadUInt32(Layout.DataLinkTypeBegin, Endian);
             }
         }
     }

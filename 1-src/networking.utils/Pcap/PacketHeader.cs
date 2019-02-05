@@ -10,13 +10,18 @@ namespace Networking.Utils.Pcap
     public partial class PacketHeader : Octets
     {
         /// <summary>
+        /// 字节序
+        /// </summary>
+        public Endian Endian { get; set; }
+
+        /// <summary>
         /// 时间戳
         /// </summary>
         public UInt32 TimestampSeconds
         {
             get
             {
-                return ReadUInt32(Layout.TimestampSecondsBegin, Endian.Little);
+                return ReadUInt32(Layout.TimestampSecondsBegin, Endian);
             }
         }
 
@@ -27,7 +32,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.TimestampMicrosecondsBegin, Endian.Little);
+                return ReadUInt32(Layout.TimestampMicrosecondsBegin, Endian);
             }
         }
 
@@ -38,7 +43,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.SavedLengthBegin, Endian.Little);
+                return ReadUInt32(Layout.SavedLengthBegin, Endian);
             }
         }
 
@@ -49,7 +54,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.OriginalLengthBegin, Endian.Little);
+                return ReadUInt32(Layout.OriginalLengthBegin, Endian);
             }
         }
     }

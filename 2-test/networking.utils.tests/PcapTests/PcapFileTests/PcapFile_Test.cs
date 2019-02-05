@@ -1,5 +1,6 @@
 using System;
 using FluentAssertions;
+using Networking.Model;
 using Networking.Model.DataLink;
 using Networking.Utils.Pcap;
 using Xunit;
@@ -13,6 +14,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
         {
             PcapFile pcapFile = new PcapFile(AppContext.BaseDirectory + "PcapTests/PcapFileTests/test.pcap");
 
+            pcapFile.Header.Endian.Should().Be(Endian.Little);
             pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);
             pcapFile.Header.VersionMajor.Should().Be(2);
             pcapFile.Header.VersionMinor.Should().Be(4);

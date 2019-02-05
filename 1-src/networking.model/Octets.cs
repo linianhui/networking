@@ -113,9 +113,11 @@ namespace Networking.Model
             if (IsLittleEndian)
             {
                 BinaryPrimitives.WriteUInt16LittleEndian(span, value);
-                return;
             }
-            BinaryPrimitives.WriteUInt16BigEndian(span, value);
+            else
+            {
+                BinaryPrimitives.WriteUInt16BigEndian(span, value);
+            }
         }
 
         /// <summary>
@@ -130,9 +132,11 @@ namespace Networking.Model
             if (IsLittleEndian)
             {
                 BinaryPrimitives.WriteUInt32LittleEndian(span, value);
-                return;
             }
-            BinaryPrimitives.WriteUInt32BigEndian(span, value);
+            else
+            {
+                BinaryPrimitives.WriteUInt32BigEndian(span, value);
+            }
         }
 
         /// <summary>

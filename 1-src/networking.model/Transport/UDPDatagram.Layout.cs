@@ -2,13 +2,13 @@ using System;
 
 namespace Networking.Model.Transport
 {
-    public partial class UDPSegment
+    public partial class UDPDatagram
     {
         /// <summary>
         /// 首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/user_datagram_protocol"/>
         /// <para></para>
-        /// <para>|                          UDP Segment                          |</para>
+        /// <para>|                          UDP Datagram                         |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 

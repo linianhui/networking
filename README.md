@@ -1,17 +1,17 @@
 # Networking [PDU] analysis 
 
-| Layer       | Protocol   | [PDU]   |
-| ----------- | ---------- | ------- |
-| [Transport] | [TCP]      | Segment |
-|             | [UDP]      |         |
-| [Internet]  | [IPv4]     | Packet  |
-|             | [ICMPv4]   |         |
-|             | [IPv6]     |         |
-|             | [ICMPv6]   |         |
-| [DataLink]  | [Ethernet] | Frame   |
-|             | [ARP]      |         |
-|             | [PPP]      |         |
-|             | [PPPoE]    |         |
+| Layer       | Protocol   | [PDU]    |
+| ----------- | ---------- | -------- |
+| [Transport] | [TCP]      | Segment  |
+|             | [UDP]      | Datagram |
+| [Internet]  | [IPv4]     | Packet   |
+|             | [ICMPv4]   | Packet   |
+|             | [IPv6]     | Packet   |
+|             | [ICMPv6]   | Packet   |
+| [DataLink]  | [Ethernet] | Frame    |
+|             | [ARP]      | Frame    |
+|             | [PPP]      | Frame    |
+|             | [PPPoE]    | Frame    |
 
 # CI
 
@@ -39,7 +39,7 @@
 
 [Transport]:/1-src/networking.model/Transport/
 [TCP]:/1-src/networking.model/Transport/TCPSegment.cs
-[UDP]:/1-src/networking.model/Transport/UDPSegment.cs
+[UDP]:/1-src/networking.model/Transport/UDPDatagram.cs
 
 [Internet]:/1-src/networking.model/Internet/
 [IPv4]:/1-src/networking.model/Internet/IPv4Packet.cs

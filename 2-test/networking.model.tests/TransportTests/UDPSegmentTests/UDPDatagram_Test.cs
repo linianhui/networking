@@ -4,14 +4,14 @@ using Networking.Model.Internet;
 using Networking.Model.Transport;
 using Xunit;
 
-namespace Networking.Model.Tests.TransportTests.UDPSegmentTests
+namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
 {
-    public class UDPSegment_Test
+    public class UDPDatagram_Test
     {
         [Fact]
         public void DHCP()
         {
-            var udpSegment = new UDPSegment
+            var udpDatagram = new UDPDatagram
             {
                 Bytes = new Byte[]
                 {
@@ -22,10 +22,10 @@ namespace Networking.Model.Tests.TransportTests.UDPSegmentTests
                 }
             };
 
-            udpSegment.SourcePort.Should().Be(68);
-            udpSegment.DestinationPort.Should().Be(67);
-            udpSegment.TotalLength.Should().Be(556);
-            udpSegment.Checksum.Should().Be(0);
+            udpDatagram.SourcePort.Should().Be(68);
+            udpDatagram.DestinationPort.Should().Be(67);
+            udpDatagram.TotalLength.Should().Be(556);
+            udpDatagram.Checksum.Should().Be(0);
         }
     }
 }

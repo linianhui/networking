@@ -157,7 +157,7 @@ namespace Networking.Model.Internet
                             Bytes = Slice(HeaderLength * 4)
                         };
                     case IPPacketType.UDP:
-                        return new UDPSegment
+                        return new UDPDatagram
                         {
                             Bytes = Slice(HeaderLength * 4)
                         };

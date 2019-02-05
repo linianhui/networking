@@ -10,16 +10,20 @@ namespace Networking.Model.DataLink
     public partial class EthernetFrame : DataLinkPDU
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public EthernetFrame(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 目标MAC地址
         /// </summary>
         public MACAddress DestinationMACAddress
         {
             get
             {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.DestinationMACAddressBegin, MACAddress.Layout.Length]
-                };
+                return new MACAddress(base[Layout.DestinationMACAddressBegin, MACAddress.Layout.Length]);
             }
             set
             {
@@ -34,10 +38,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.SourceMACAddressBegin, MACAddress.Layout.Length]
-                };
+                return new MACAddress(base[Layout.SourceMACAddressBegin, MACAddress.Layout.Length]);
             }
             set
             {
@@ -67,35 +68,20 @@ namespace Networking.Model.DataLink
         {
             get
             {
+                Memory<byte> payloadBytes = Slice(Layout.HeaderLength);
                 switch (Type)
                 {
-
                     case EthernetFrameType.IPv4:
-                        return new IPv4Packet
-                        {
-                            Bytes = Slice(Layout.HeaderLength)
-                        };
+                        return new IPv4Packet(payloadBytes);
                     case EthernetFrameType.IPv6:
-                        return new IPv6Packet
-                        {
-                            Bytes = Slice(Layout.HeaderLength)
-                        };
+                        return new IPv6Packet(payloadBytes);
                     case EthernetFrameType.ARP:
-                        return new ARPFrame
-                        {
-                            Bytes = Slice(Layout.HeaderLength)
-                        };
+                        return new ARPFrame(payloadBytes);
                     case EthernetFrameType.PPPoEDiscoveryStage:
                     case EthernetFrameType.PPPoESessionStage:
-                        return new PPPoEFrame
-                        {
-                            Bytes = Slice(Layout.HeaderLength)
-                        };
+                        return new PPPoEFrame(payloadBytes);
                     default:
-                        return new Octets
-                        {
-                            Bytes = Slice(Layout.HeaderLength)
-                        };
+                        return new Octets(payloadBytes);
                 }
             }
         }

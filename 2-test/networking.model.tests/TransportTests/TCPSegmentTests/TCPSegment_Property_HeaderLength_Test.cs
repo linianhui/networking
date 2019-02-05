@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [Fact]
         public void Get()
         {
-            var tcpSegment = new TCPSegment
-            {
-                Bytes = new Byte[32]
-            };
+           var tcpSegment = new TCPSegment(new Byte[32]);
             tcpSegment[12] = 0x66;
 
             tcpSegment.HeaderLength.Should().Be(6);
@@ -33,10 +30,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [InlineData(0x0F)]
         public void Set(Byte input)
         {
-            var tcpSegment = new TCPSegment
-            {
-                Bytes = new Byte[32]
-            };
+            var tcpSegment = new TCPSegment(new Byte[32]);
             tcpSegment[12] = 0x05;
 
             tcpSegment.HeaderLength = input;

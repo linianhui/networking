@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Get()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[60]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
             ipv6Packet[4, 2] = new Byte[] { 0x00, 0x10 };
 
             ipv6Packet.PayloadLength.Should().Be(16);
@@ -22,10 +19,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Set()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[60]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
 
             ipv6Packet.PayloadLength = 16;
 

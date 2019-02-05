@@ -10,10 +10,9 @@ namespace Networking.Model.Tests.OctetsTests
         public void Length()
         {
             var octets = new Octets
-            {
-                Bytes = new Byte[] { 0x12, 0x34, 0x56 }
-            };
-
+            (
+                new Byte[] { 0x12, 0x34, 0x56 }
+            );
 
             octets.Length.Should().Be(3);
         }

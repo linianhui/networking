@@ -8,6 +8,13 @@ namespace Networking.Model.DataLink
     public partial class MACAddress : Octets
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public MACAddress(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 12:34:56:67:89:AB
         /// </summary>
         public override String ToString()

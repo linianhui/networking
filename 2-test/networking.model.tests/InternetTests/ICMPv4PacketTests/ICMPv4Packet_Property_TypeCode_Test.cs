@@ -48,10 +48,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, ICMPv4TypeCode expected)
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
             icmpv4Packet[0, 2] = input;
 
@@ -62,10 +59,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, ICMPv4TypeCode input)
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
             icmpv4Packet.TypeCode = input;
             icmpv4Packet[0, 2].ToArray().Should().Equal(expected);

@@ -21,10 +21,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [MemberData(nameof(Data))]
         public void Get(Byte input, IPPacketType expected)
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
 
             ipv4Packet[9] = input;
 
@@ -35,10 +32,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [MemberData(nameof(Data))]
         public void Set(Byte expected, IPPacketType input)
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
 
             ipv4Packet.Type = input;
 

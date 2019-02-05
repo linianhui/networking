@@ -20,10 +20,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte input, PPPoEFrameCode expected)
         {
-            var pppoeFrame = new PPPoEFrame
-            {
-                Bytes = new Byte[14]
-            };
+            var pppoeFrame = new PPPoEFrame(new Byte[14]);
 
             pppoeFrame[1] = input;
 
@@ -34,10 +31,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
         [MemberData(nameof(Data))]
         public void Set(Byte expected, PPPoEFrameCode input)
         {
-            var pppoeFrame = new PPPoEFrame
-            {
-                Bytes = new Byte[14]
-            };
+            var pppoeFrame = new PPPoEFrame(new Byte[14]);
 
             pppoeFrame.Code = input;
 

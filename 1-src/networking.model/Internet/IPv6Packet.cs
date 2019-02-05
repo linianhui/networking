@@ -9,6 +9,13 @@ namespace Networking.Model.Internet
     public partial class IPv6Packet : InternetPDU
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public IPv6Packet(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 版本
         /// </summary>
         public IPVersion Version
@@ -61,10 +68,7 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.SourceIPAddressBegin, IPAddress.Layout.V6Length]
-                };
+                return new IPAddress(base[Layout.SourceIPAddressBegin, IPAddress.Layout.V6Length]);
             }
             set
             {
@@ -80,10 +84,7 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V6Length]
-                };
+                return new IPAddress(base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V6Length]);
             }
             set
             {
@@ -99,12 +100,7 @@ namespace Networking.Model.Internet
         {
             get
             {
-
-                return new Octets
-                {
-                    Bytes = Slice(Layout.HeaderLength)
-                };
-
+                return new Octets(Slice(Layout.HeaderLength));
             }
         }
 

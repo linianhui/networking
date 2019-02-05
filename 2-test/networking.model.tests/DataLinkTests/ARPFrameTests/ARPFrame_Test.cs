@@ -10,11 +10,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [Fact]
         public void arp_request_frame()
         {
-            var arpFrame = new ARPFrame
-            {
-                Bytes = buildARPBytes()
-            };
-
+            var arpFrame = new ARPFrame(buildARPBytes());
 
             arpFrame.HardwareType.Should().Be(HardwareType.Ethernet);
             arpFrame.ProtocolType.Should().Be(EthernetFrameType.IPv4);

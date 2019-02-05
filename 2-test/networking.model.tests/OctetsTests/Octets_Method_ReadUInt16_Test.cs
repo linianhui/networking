@@ -8,20 +8,32 @@ namespace Networking.Model.Tests.OctetsTests
     {
 
         [Fact]
-        public void ReadUInt16()
+        public void ReadUInt16_BigEndian()
         {
             var octets = new Octets
-            {
-                Bytes = new Byte[] {
+            (
+                new Byte[] {
                     0x01, 0x00,
                     0x00, 0x01
                 }
-            };
+            );
 
             octets.ReadUInt16(0).Should().Be(256);
             octets.ReadUInt16(2).Should().Be(1);
+        }
 
-            octets.IsLittleEndian = true;
+        [Fact]
+        public void ReadUInt16_LittleEndian()
+        {
+            var octets = new Octets
+            (
+                new Byte[] {
+                    0x01, 0x00,
+                    0x00, 0x01
+                },
+                true
+            );
+
             octets.ReadUInt16(0).Should().Be(1);
             octets.ReadUInt16(2).Should().Be(256);
         }

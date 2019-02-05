@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Get()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[40]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
             ipv6Packet[24, 16] = new Byte[]
             {
                 0xff, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02
@@ -25,18 +22,15 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Set()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[40]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
 
             ipv6Packet.DestinationIPAddress = new IPAddress
-            {
-                Bytes = new Byte[]
+            (
+                new Byte[]
                 {
                     0xff, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02
                 }
-            };
+            );
 
             ipv6Packet.DestinationIPAddress.ToString().Should().Be("FF:02:00:00:00:00:00:00:00:00:00:00:00:00:00:02");
         }

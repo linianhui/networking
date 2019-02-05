@@ -9,6 +9,12 @@ namespace Networking.Model.Internet
     /// </summary>
     public partial class ICMPv4Packet : Octets
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ICMPv4Packet(Memory<byte> bytes) : base(bytes)
+        {
+        }
 
         /// <summary>
         /// 类型编号

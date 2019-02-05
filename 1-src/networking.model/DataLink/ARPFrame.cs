@@ -9,6 +9,13 @@ namespace Networking.Model.DataLink
     public partial class ARPFrame : Octets
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public ARPFrame(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 硬件地址长度
         /// </summary>
         public Byte HardwareAddressLength
@@ -33,10 +40,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.SenderHardwareAddressBegin, MACAddress.Layout.Length]
-                };
+                return new MACAddress(base[Layout.SenderHardwareAddressBegin, MACAddress.Layout.Length]);
             }
             set
             {
@@ -51,10 +55,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.SenderProtocolAddressBegin, IPAddress.Layout.V4Length]
-                };
+                return new IPAddress(base[Layout.SenderProtocolAddressBegin, IPAddress.Layout.V4Length]);
             }
             set
             {
@@ -69,10 +70,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.TargetHardwareAddressBegin, MACAddress.Layout.Length]
-                };
+                return new MACAddress(base[Layout.TargetHardwareAddressBegin, MACAddress.Layout.Length]);
             }
             set
             {
@@ -88,10 +86,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.TargetProtocolAddressBegin, IPAddress.Layout.V4Length]
-                };
+                return new IPAddress(base[Layout.TargetProtocolAddressBegin, IPAddress.Layout.V4Length]);
             }
             set
             {

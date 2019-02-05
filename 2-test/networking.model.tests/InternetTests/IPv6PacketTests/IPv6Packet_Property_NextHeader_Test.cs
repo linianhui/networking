@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Get()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[40]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
             ipv6Packet[6] = 0x00;
 
             ipv6Packet.NextHeader.Should().Be(0);
@@ -22,10 +19,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Set()
         {
-            var ipv6Packet = new IPv6Packet
-            {
-                Bytes = new Byte[40]
-            };
+            var ipv6Packet = new IPv6Packet(new Byte[40]);
 
             ipv6Packet.NextHeader = 0;
 

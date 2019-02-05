@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [Fact]
         public void Get()
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
             ipv4Packet[10, 2] = new Byte[] {0x99, 0xA4};
 
             ipv4Packet.HeaderChecksum.Should().Be(39332);
@@ -22,10 +19,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [Fact]
         public void Set()
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
 
             ipv4Packet.HeaderChecksum = 0x99A4;
 

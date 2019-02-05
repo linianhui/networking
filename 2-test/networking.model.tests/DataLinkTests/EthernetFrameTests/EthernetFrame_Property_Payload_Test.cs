@@ -22,10 +22,7 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
         [MemberData(nameof(Data))]
         public void Get(EthernetFrameType input, Type excepted)
         {
-            var ethernetFrame = new EthernetFrame
-            {
-                Bytes = new Byte[64]
-            };
+            var ethernetFrame = new EthernetFrame(new Byte[64]);
 
             ethernetFrame.Type = input;
 

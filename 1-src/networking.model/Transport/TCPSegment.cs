@@ -9,6 +9,13 @@ namespace Networking.Model.Transport
     public partial class TCPSegment : TransportPDU
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public TCPSegment(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 源端口
         /// </summary>
         public UInt16 SourcePort
@@ -133,11 +140,7 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return new Octets
-                {
-                    Bytes = Slice(HeaderLength * 4)
-                };
-
+                return new Octets(Slice(HeaderLength * 4));
             }
         }
     }

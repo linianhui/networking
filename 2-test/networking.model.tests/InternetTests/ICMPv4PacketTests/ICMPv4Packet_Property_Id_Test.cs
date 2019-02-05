@@ -11,10 +11,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [Fact]
         public void Get()
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
             icmpv4Packet[4, 2] = new Byte[] { 0x00, 0x01};
 
@@ -24,10 +21,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [Fact]
         public void Set()
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
             icmpv4Packet.Id = 1;
 

@@ -10,9 +10,9 @@ namespace Networking.Model.Tests.OctetsTests
         public void Slice()
         {
             var octets = new Octets
-            {
-                Bytes = new Byte[] { 0x12, 0x34, 0x56 }
-            };
+            (
+                new Byte[] { 0x12, 0x34, 0x56 }
+            );
 
             octets.Slice(0).ToArray().Should().Equal(0x12, 0x34, 0x56);
             octets.Slice(1).ToArray().Should().Equal(0x34, 0x56);

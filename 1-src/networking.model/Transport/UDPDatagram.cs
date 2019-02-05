@@ -9,6 +9,13 @@ namespace Networking.Model.Transport
     public partial class UDPDatagram : TransportPDU
     {
         /// <summary>
+        /// 构造函数
+        /// </summary>
+        public UDPDatagram(Memory<byte> bytes) : base(bytes)
+        {
+        }
+
+        /// <summary>
         /// 源端口
         /// </summary>
         public UInt16 SourcePort
@@ -75,10 +82,7 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return new Octets
-                {
-                    Bytes = Slice(8)
-                };
+                return new Octets(Slice(Layout.HeaderLength));
             }
         }
     }

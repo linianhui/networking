@@ -11,12 +11,9 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [Fact]
         public void Get()
         {
-            var icmpv6Packet = new ICMPv6Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
 
-            icmpv6Packet[2, 2] = new Byte[] { 0x4d, 0x4a};
+            icmpv6Packet[2, 2] = new Byte[] { 0x4d, 0x4a };
 
             icmpv6Packet.Checksum.Should().Be(19786);
         }
@@ -24,10 +21,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [Fact]
         public void Set()
         {
-            var icmpv6Packet = new ICMPv6Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
 
             icmpv6Packet.Checksum = 19786;
 

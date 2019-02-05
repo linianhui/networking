@@ -1,3 +1,5 @@
+using System;
+
 namespace Networking.Model.Transport
 {
     /// <summary>
@@ -7,5 +9,11 @@ namespace Networking.Model.Transport
     /// </summary>
     public class TransportPDU : Octets
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public TransportPDU(Memory<byte> bytes) : base(bytes)
+        {
+        }
     }
 }

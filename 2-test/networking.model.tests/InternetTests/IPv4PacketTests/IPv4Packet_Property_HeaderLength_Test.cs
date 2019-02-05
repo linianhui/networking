@@ -10,10 +10,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [Fact]
         public void Get()
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
             ipv4Packet[0] = 0x45;
 
             ipv4Packet.Version.Should().Be(IPVersion.IPv4);
@@ -39,10 +36,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [InlineData(0xF6)]
         public void Set(Byte input)
         {
-            var ipv4Packet = new IPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var ipv4Packet = new IPv4Packet(new Byte[32]);
             ipv4Packet[0] = 0x40;
 
             ipv4Packet.HeaderLength = input;

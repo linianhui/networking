@@ -30,10 +30,7 @@ namespace Networking.Utils.Tests.PcapTests.PcapFileTests
                 {
                     packet.FileHeader.IsLittleEndian.Should().Be(true);
                     packet.Header.IsLittleEndian.Should().Be(true);
-                    EthernetFrame ethernetFrame = new EthernetFrame
-                    {
-                        Bytes = packet.Data
-                    };
+                    EthernetFrame ethernetFrame = new EthernetFrame(packet.Data);
                     ethernetFrame.IsLittleEndian.Should().Be(false);
                     ethernetFrame.Length.Should().BeGreaterThan(0);
                     i++;

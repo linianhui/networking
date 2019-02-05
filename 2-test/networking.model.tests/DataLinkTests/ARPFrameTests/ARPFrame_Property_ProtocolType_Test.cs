@@ -18,10 +18,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, EthernetFrameType expected)
         {
-            var arpFrame = new ARPFrame
-            {
-                Bytes = new Byte[28]
-            };
+            var arpFrame = new ARPFrame(new Byte[28]);
 
 
             arpFrame[2, 2] = input;
@@ -34,10 +31,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, EthernetFrameType input)
         {
-            var arpFrame = new ARPFrame
-            {
-                Bytes = new Byte[28]
-            };
+            var arpFrame = new ARPFrame(new Byte[28]);
 
             arpFrame.ProtocolType = input;
 

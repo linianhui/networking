@@ -23,12 +23,26 @@ namespace Networking.Model
         /// <para>|  -  +  -  +  -  +  -  |                                      </para>
         /// <para></para>
         /// </summary>
-        public Boolean IsLittleEndian { get; set; } = false;
+        public Boolean IsLittleEndian { get; }
 
         /// <summary>
         /// 字节数据
         /// </summary>
-        public Memory<Byte> Bytes { get; set; }
+        public Memory<Byte> Bytes { get; }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public Octets(Memory<Byte> bytes) : this(bytes, false) { }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public Octets(Memory<Byte> bytes, Boolean isLittleEndian)
+        {
+            Bytes = bytes;
+            IsLittleEndian = isLittleEndian;
+        }
 
         /// <summary>
         /// 长度

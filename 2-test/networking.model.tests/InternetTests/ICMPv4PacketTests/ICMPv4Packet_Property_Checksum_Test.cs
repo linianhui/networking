@@ -11,12 +11,9 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [Fact]
         public void Get()
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
-            icmpv4Packet[2, 2] = new Byte[] { 0x4d, 0x4a};
+            icmpv4Packet[2, 2] = new Byte[] { 0x4d, 0x4a };
 
             icmpv4Packet.Checksum.Should().Be(19786);
         }
@@ -24,10 +21,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
         [Fact]
         public void Set()
         {
-            var icmpv4Packet = new ICMPv4Packet
-            {
-                Bytes = new Byte[32]
-            };
+            var icmpv4Packet = new ICMPv4Packet(new Byte[32]);
 
             icmpv4Packet.Checksum = 19786;
 

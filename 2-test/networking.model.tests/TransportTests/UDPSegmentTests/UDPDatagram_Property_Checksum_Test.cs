@@ -10,11 +10,8 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Get()
         {
-            var udpDatagram = new UDPDatagram
-            {
-                Bytes = new Byte[32]
-            };
-            udpDatagram[6, 2] = new Byte[] {0x12, 0x34};
+            var udpDatagram = new UDPDatagram(new Byte[32]);
+            udpDatagram[6, 2] = new Byte[] { 0x12, 0x34 };
 
             udpDatagram.Checksum.Should().Be(4660);
         }
@@ -22,10 +19,7 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Set()
         {
-            var udpDatagram = new UDPDatagram
-            {
-                Bytes = new Byte[32]
-            };
+            var udpDatagram = new UDPDatagram(new Byte[32]);
 
             udpDatagram.Checksum = 3232;
 

@@ -19,10 +19,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, PPPFrameType expected)
         {
-            var pppFrame = new PPPFrame
-            {
-                Bytes = new Byte[14]
-            };
+            var pppFrame = new PPPFrame(new Byte[14]);
 
             pppFrame[0, 2] = input;
 
@@ -33,10 +30,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPFrameTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, PPPFrameType input)
         {
-            var pppFrame = new PPPFrame
-            {
-                Bytes = new Byte[14]
-            };
+            var pppFrame = new PPPFrame(new Byte[14]);
 
             pppFrame.Type = input;
 

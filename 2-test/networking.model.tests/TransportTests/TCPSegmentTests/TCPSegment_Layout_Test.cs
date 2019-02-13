@@ -22,6 +22,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             TCPSegment.Layout.ACKNumberEnd.Should().Be(12);
 
             TCPSegment.Layout.HeaderLengthBegin.Should().Be(12);
+            TCPSegment.Layout.HeaderLengthEnd.Should().Be(13);
+
+            TCPSegment.Layout.FlagsBegin.Should().Be(13);
+            TCPSegment.Layout.FlagsEnd.Should().Be(14);
 
             TCPSegment.Layout.WindowsSizeBegin.Should().Be(14);
             TCPSegment.Layout.WindowsSizeEnd.Should().Be(16);

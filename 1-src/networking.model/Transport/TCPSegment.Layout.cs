@@ -18,7 +18,9 @@ namespace Networking.Model.Transport
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Acknowledgment number (if ACK set)                  |</para> 
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
-        /// <para>|offset |    todo               |   Windows Size (2 octets)     |</para>
+        /// <para>| data  |     |N|C|E|U|A|P|R|S|F|                               |</para>
+        /// <para>|offset |     |S|W|C|R|C|S|S|Y|I|   Windows Size (2 octets)     |</para>
+        /// <para>|(4 bit)|     | |R|E|G|K|H|T|N|N|                               |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|    Checksum                   |  Urgent pointer (if URG set)  |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
@@ -76,9 +78,24 @@ namespace Networking.Model.Transport
             public static readonly Int32 HeaderLengthBegin = ACKNumberEnd;
 
             /// <summary>
+            /// 首部长度-起始位置=13
+            /// </summary>
+            public static readonly Int32 HeaderLengthEnd = HeaderLengthBegin + 1;
+
+            /// <summary>
+            /// 标志位-起始位置=13
+            /// </summary>
+            public static readonly Int32 FlagsBegin = HeaderLengthEnd;
+
+            /// <summary>
+            /// 标志位-起始位置=14
+            /// </summary>
+            public static readonly Int32 FlagsEnd = FlagsBegin + 1;
+
+            /// <summary>
             /// 窗口大小-起始位置=14
             /// </summary>
-            public static readonly Int32 WindowsSizeBegin = 14;
+            public static readonly Int32 WindowsSizeBegin = FlagsEnd;
 
             /// <summary>
             /// 窗口大小-结束位置=16

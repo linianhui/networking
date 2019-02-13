@@ -9,7 +9,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
     public class TCPSegment_Test
     {
         [Fact]
-        public void ACK()
+        public void FIN()
         {
             var tcpSegment = new TCPSegment
             {
@@ -29,8 +29,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 
             tcpSegment.SourcePort.Should().Be(80);
             tcpSegment.DestinationPort.Should().Be(56906);
-            //tcpSegment.SYNNumber.Should().Be(4575);
-            //tcpSegment.ACKNumber.Should().Be(1299);
+            tcpSegment.SYNNumber.Should().Be(907006549);
+            tcpSegment.ACKNumber.Should().Be(1222036081);
+            tcpSegment.ACK.Should().Be(true);
+            tcpSegment.FIN.Should().Be(true);
             tcpSegment.HeaderLength.Should().Be(5);
             tcpSegment.WindowsSize.Should().Be(28556);
             tcpSegment.Checksum.Should().Be(0x5a4c);

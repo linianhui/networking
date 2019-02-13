@@ -82,6 +82,78 @@ namespace Networking.Model.Transport
         }
 
         /// <summary>
+        /// ECN-nonce
+        /// </summary>
+        public Boolean NS
+        {
+            get { return (base[Layout.HeaderLengthBegin] & 0b_0000_0001) == 0b_0000_0001; }
+        }
+
+        /// <summary>
+        /// Congestion Window Reduced
+        /// </summary>
+        public Boolean CWR
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_1000_0000) == 0b_1000_0000; }
+        }
+
+        /// <summary>
+        /// ECE-Echo
+        /// </summary>
+        public Boolean ECE
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0100_0000) == 0b_0100_0000; }
+        }
+
+        /// <summary>
+        /// Urgent pointer
+        /// </summary>
+        public Boolean URG
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0010_0000) == 0b_0010_0000; }
+        }
+
+        /// <summary>
+        /// Acknowledgment
+        /// </summary>
+        public Boolean ACK
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0001_0000) == 0b_0001_0000; }
+        }
+
+        /// <summary>
+        /// Push function
+        /// </summary>
+        public Boolean PSH
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0000_1000) == 0b_0000_1000; }
+        }
+
+        /// <summary>
+        /// Reset the connection
+        /// </summary>
+        public Boolean RST
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0000_0100) == 0b_0000_0100; }
+        }
+
+        /// <summary>
+        /// Synchronize sequence number
+        /// </summary>
+        public Boolean SYN
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0000_0010) == 0b_0000_0010; }
+        }
+
+        /// <summary>
+        /// Last packet from sender
+        /// </summary>
+        public Boolean FIN
+        {
+            get { return (base[Layout.FlagsBegin] & 0b_0000_0001) == 0b_0000_0001; }
+        }
+
+        /// <summary>
         /// 窗口大小
         /// </summary>
         public UInt16 WindowsSize

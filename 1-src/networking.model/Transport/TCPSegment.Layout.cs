@@ -53,27 +53,27 @@ namespace Networking.Model.Transport
             /// <summary>
             /// 序列号-起始位置=4
             /// </summary>
-            public static readonly Int32 SequenceBegin = DestinationPortEnd;
+            public static readonly Int32 SYNNumberBegin = DestinationPortEnd;
 
             /// <summary>
             /// 序列号-结束位置=8
             /// </summary>
-            public static readonly Int32 SequenceEnd = SequenceBegin + 4;
+            public static readonly Int32 SYNNumberEnd = SYNNumberBegin + 4;
 
             /// <summary>
-            /// ACK-起始位置=8
+            /// ACKNumber-起始位置=8
             /// </summary>
-            public static readonly Int32 ACKBegin = SequenceEnd;
+            public static readonly Int32 ACKNumberBegin = SYNNumberEnd;
 
             /// <summary>
-            /// ACK-结束位置=12
+            /// ACKNumber-结束位置=12
             /// </summary>
-            public static readonly Int32 ACKEnd = ACKBegin + 4;
+            public static readonly Int32 ACKNumberEnd = ACKNumberBegin + 4;
 
             /// <summary>
             /// 首部长度-起始位置=12
             /// </summary>
-            public static readonly Int32 HeaderLengthBegin = ACKEnd;
+            public static readonly Int32 HeaderLengthBegin = ACKNumberEnd;
 
             /// <summary>
             /// 窗口大小-起始位置=14

@@ -41,30 +41,30 @@ namespace Networking.Model.Transport
         /// <summary>
         /// 序列号
         /// </summary>
-        public UInt32 Sequence
+        public UInt32 SYNNumber
         {
             get
             {
-                return ReadUInt32(Layout.SequenceBegin);
+                return ReadUInt32(Layout.SYNNumberBegin);
             }
             set
             {
-                WriteUInt32(Layout.SequenceBegin, value);
+                WriteUInt32(Layout.SYNNumberBegin, value);
             }
         }
 
         /// <summary>
         /// 确认号
         /// </summary>
-        public UInt32 ACK
+        public UInt32 ACKNumber
         {
             get
             {
-                return ReadUInt32(Layout.ACKBegin);
+                return ReadUInt32(Layout.ACKNumberBegin);
             }
             set
             {
-                WriteUInt32(Layout.ACKBegin, value);
+                WriteUInt32(Layout.ACKNumberBegin, value);
             }
         }
 

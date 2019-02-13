@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 {
-    public class TCPSegment_Property_Sequence_Test
+    public class TCPSegment_Property_ACKNumber_Test
     {
         [Fact]
         public void Get()
@@ -14,9 +14,9 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[4, 4] = new Byte[] { 0x01, 0x23, 0x45, 0x67 };
+            tcpSegment[8, 4] = new Byte[] { 0x01, 0x23, 0x45, 0x67 };
 
-            tcpSegment.Sequence.Should().Be(19088743);
+            tcpSegment.ACKNumber.Should().Be(19088743);
         }
 
         [Fact]
@@ -27,10 +27,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
                 Bytes = new Byte[32]
             };
 
-            tcpSegment.Sequence = 19088743;
+            tcpSegment.ACKNumber = 19088743;
 
-            tcpSegment.Sequence.Should().Be(19088743);
-            tcpSegment[4, 4].ToArray().Should().Equal(0x01, 0x23, 0x45, 0x67);
+            tcpSegment.ACKNumber.Should().Be(19088743);
+            tcpSegment[8, 4].ToArray().Should().Equal(0x01, 0x23, 0x45, 0x67);
         }
     }
 }

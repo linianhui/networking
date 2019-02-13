@@ -15,11 +15,11 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             TCPSegment.Layout.DestinationPortBegin.Should().Be(2);
             TCPSegment.Layout.DestinationPortEnd.Should().Be(4);
 
-            TCPSegment.Layout.SequenceBegin.Should().Be(4);
-            TCPSegment.Layout.SequenceEnd.Should().Be(8);
+            TCPSegment.Layout.SYNNumberBegin.Should().Be(4);
+            TCPSegment.Layout.SYNNumberEnd.Should().Be(8);
 
-            TCPSegment.Layout.ACKBegin.Should().Be(8);
-            TCPSegment.Layout.ACKEnd.Should().Be(12);
+            TCPSegment.Layout.ACKNumberBegin.Should().Be(8);
+            TCPSegment.Layout.ACKNumberEnd.Should().Be(12);
 
             TCPSegment.Layout.HeaderLengthBegin.Should().Be(12);
 

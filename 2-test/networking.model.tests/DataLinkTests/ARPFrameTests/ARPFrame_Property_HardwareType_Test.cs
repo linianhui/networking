@@ -20,9 +20,13 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, HardwareType expected)
         {
-            var arpFrame = new ARPFrame(new Byte[28]);
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
 
             arpFrame[0, 2] = input;
+
 
             arpFrame.HardwareType.Should().Be(expected);
         }
@@ -31,7 +35,10 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, HardwareType input)
         {
-            var arpFrame = new ARPFrame(new Byte[28]);
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
 
             arpFrame.HardwareType = input;
 

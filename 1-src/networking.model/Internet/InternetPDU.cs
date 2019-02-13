@@ -1,5 +1,3 @@
-using System;
-
 namespace Networking.Model.Internet
 {
     /// <summary>
@@ -9,12 +7,5 @@ namespace Networking.Model.Internet
     /// </summary>
     public class InternetPDU : Octets
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public InternetPDU(Memory<byte> bytes) : base(bytes)
-        {
-        }
-
     }
 }

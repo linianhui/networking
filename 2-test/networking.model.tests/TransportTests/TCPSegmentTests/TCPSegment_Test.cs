@@ -12,8 +12,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         public void ACK()
         {
             var tcpSegment = new TCPSegment
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                    0x00, 0x50,
                    0xde, 0x4a,
@@ -25,7 +25,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
                    0x00, 0x00,
                    0x01, 0x23, 0x45, 0x67
                 }
-            );
+            };
 
             tcpSegment.SourcePort.Should().Be(80);
             tcpSegment.DestinationPort.Should().Be(56906);

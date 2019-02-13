@@ -8,20 +8,18 @@ namespace Networking.Model.Tests.OctetsTests
     {
 
         [Fact]
-        public void WriteUInt32_BigEndian()
+        public void WriteUInt32()
         {
-            var octets = new Octets(new Byte[8]);
+            var octets = new Octets
+            {
+                Bytes = new Byte[8]
+            };
 
             octets.WriteUInt32(0, 1);
             octets.ReadUInt32(0).Should().Be(1);
             octets[0, 4].ToArray().Should().Equal(0x00, 0x00, 0x00, 0x01);
-        }
 
-        [Fact]
-        public void WriteUInt32_LittleEndian()
-        {
-            var octets = new Octets(new Byte[8], true);
-
+            octets.IsLittleEndian = true;
             octets.WriteUInt32(4, 1);
             octets.ReadUInt32(4).Should().Be(1);
             octets[4, 4].ToArray().Should().Equal(0x01, 0x00, 0x00, 0x00);

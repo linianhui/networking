@@ -8,13 +8,6 @@ namespace Networking.Model.Internet
     public partial class IPAddress : Octets
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public IPAddress(Memory<byte> bytes) : base(bytes)
-        {
-        }
-
-        /// <summary>
         /// 获取版本
         /// </summary>
         public IPVersion Version

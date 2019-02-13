@@ -11,8 +11,8 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         public void echo_request()
         {
             var icmpv6 = new ICMPv6Packet
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                     0x80, 0x00,
                     0x4d, 0x4a,
@@ -22,7 +22,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
                     0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x61,
                     0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69
                 }
-            );
+            };
 
             icmpv6.Type.Should().Be(ICMPv6Type.EchoRequest);
             icmpv6.Code.Should().Be(0);

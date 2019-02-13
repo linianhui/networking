@@ -10,13 +10,6 @@ namespace Networking.Utils.Pcap
     public partial class PcapFileHeader : Octets
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PcapFileHeader(Memory<byte> bytes, Boolean isLittleEndian) : base(bytes, isLittleEndian)
-        {
-        }
-
-        /// <summary>
         /// Magic Number
         /// </summary>
         public UInt32 MagicNumber

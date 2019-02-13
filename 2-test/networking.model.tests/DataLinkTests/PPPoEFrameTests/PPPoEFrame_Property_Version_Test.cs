@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.InternetTests.PPPoEFrameTests
         [Fact]
         public void Get()
         {
-            var pppoeFrame = new PPPoEFrame(new Byte[14]);
+            var pppoeFrame = new PPPoEFrame
+            {
+                Bytes = new Byte[32]
+            };
             pppoeFrame[0] = 0x12;
 
             pppoeFrame.Version.Should().Be(1);
@@ -36,7 +39,10 @@ namespace Networking.Model.Tests.InternetTests.PPPoEFrameTests
         [InlineData(0xF2)]
         public void Set(Byte input)
         {
-            var pppoeFrame = new PPPoEFrame(new Byte[14]);
+            var pppoeFrame = new PPPoEFrame
+            {
+                Bytes = new Byte[32]
+            };
             pppoeFrame[0] = 0x01;
 
             pppoeFrame.Version =input;

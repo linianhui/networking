@@ -11,13 +11,6 @@ namespace Networking.Model.Internet
     {
 
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public ICMPv6Packet(Memory<byte> bytes) : base(bytes)
-        {
-        }
-
-        /// <summary>
         /// 编号
         /// </summary>
         public ICMPv6Type Type

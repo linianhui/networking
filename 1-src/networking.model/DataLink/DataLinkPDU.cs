@@ -1,5 +1,3 @@
-using System;
-
 namespace Networking.Model.DataLink
 {
     /// <summary>
@@ -9,11 +7,5 @@ namespace Networking.Model.DataLink
     /// </summary>
     public class DataLinkPDU : Octets
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public DataLinkPDU(Memory<byte> bytes) : base(bytes)
-        {
-        }
     }
 }

@@ -61,10 +61,11 @@ namespace Networking.Utils.Pcap
                 this.IsLittleEndian = true;
             }
 
-            this.Header = new PcapFileHeader(
-                ReadBytes(0, PcapFileHeader.Layout.HeaderLength),
-                IsLittleEndian
-            );
+            this.Header = new PcapFileHeader
+            {
+                IsLittleEndian = IsLittleEndian,
+                Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
+            };
 
             this._offset = PcapFileHeader.Layout.HeaderLength;
         }
@@ -97,10 +98,11 @@ namespace Networking.Utils.Pcap
                 return null;
             }
 
-            return new PacketHeader(
-                packetHeaderBytes,
-                IsLittleEndian
-            );
+            return new PacketHeader
+            {
+                IsLittleEndian = IsLittleEndian,
+                Bytes = packetHeaderBytes
+            };
         }
 
         private Byte[] ReadNextPacketDataBytes(PacketHeader packetHeader)

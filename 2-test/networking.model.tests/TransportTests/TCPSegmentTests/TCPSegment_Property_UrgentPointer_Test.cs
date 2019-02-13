@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [Fact]
         public void Get()
         {
-            var tcpSegment = new TCPSegment(new Byte[32]);
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
             tcpSegment[18, 2] = new Byte[] {0x12, 0x34};
 
             tcpSegment.UrgentPointer.Should().Be(4660);
@@ -19,7 +22,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [Fact]
         public void Set()
         {
-            var tcpSegment = new TCPSegment(new Byte[32]);
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
 
             tcpSegment.UrgentPointer = 3232;
 

@@ -10,13 +10,6 @@ namespace Networking.Utils.Pcap
     public partial class PacketHeader : Octets
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PacketHeader(Memory<byte> bytes, Boolean isLittleEndian) : base(bytes, isLittleEndian)
-        {
-        }
-
-        /// <summary>
         /// 时间戳
         /// </summary>
         public UInt32 TimestampSeconds

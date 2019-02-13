@@ -10,14 +10,14 @@ namespace Networking.Model.Tests.OctetsTests
         public void Get()
         {
             var octets = new Octets
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                     0x12,
                     0x34,
                     0x56
                 }
-            );
+            };
 
             octets[0].Should().Be(0x12);
             octets[1].Should().Be(0x34);
@@ -28,15 +28,14 @@ namespace Networking.Model.Tests.OctetsTests
         public void Set()
         {
             var octets = new Octets
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                     0x12,
                     0x34,
                     0x56
                 }
-            );
-            
+            };
             octets[0].Should().Be(0x12);
             octets[1].Should().Be(0x34);
             octets[2].Should().Be(0x56);

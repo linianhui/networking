@@ -11,13 +11,6 @@ namespace Networking.Model.DataLink
     {
 
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PPPFrame(Memory<byte> bytes) : base(bytes)
-        {
-        }
-
-        /// <summary>
         /// 类型
         /// </summary>
         public PPPFrameType Type
@@ -39,16 +32,24 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                Memory<byte> payloadBytes = Slice(Layout.HeaderLength);
                 switch (Type)
                 {
 
                     case PPPFrameType.IPv4:
-                        return new IPv4Packet(payloadBytes);
+                        return new IPv4Packet
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
                     case PPPFrameType.IPv6:
-                        return new IPv6Packet(payloadBytes);
+                        return new IPv6Packet
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
                     default:
-                        return new Octets(payloadBytes);
+                        return new Octets
+                        {
+                            Bytes = Slice(Layout.HeaderLength)
+                        };
                 }
             }
         }

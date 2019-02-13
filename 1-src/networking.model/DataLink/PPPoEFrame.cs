@@ -9,12 +9,6 @@ namespace Networking.Model.DataLink
     /// </summary>
     public partial class PPPoEFrame : Octets
     {
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PPPoEFrame(Memory<byte> bytes) : base(bytes)
-        {
-        }
 
         /// <summary>
         /// 版本
@@ -94,7 +88,10 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return new PPPFrame(Slice(Layout.HeaderLength));
+                return new PPPFrame
+                {
+                    Bytes = Slice(Layout.HeaderLength)
+                };
             }
         }
     }

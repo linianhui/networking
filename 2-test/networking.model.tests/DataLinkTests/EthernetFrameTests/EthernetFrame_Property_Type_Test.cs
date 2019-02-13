@@ -20,7 +20,10 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, EthernetFrameType expected)
         {
-            var ethernetFrame = new EthernetFrame(new Byte[14]);
+            var ethernetFrame = new EthernetFrame
+            {
+                Bytes = new Byte[14]
+            };
 
             ethernetFrame[12, 2] = input;
 
@@ -31,7 +34,10 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, EthernetFrameType input)
         {
-            var ethernetFrame = new EthernetFrame(new Byte[14]);
+            var ethernetFrame = new EthernetFrame
+            {
+                Bytes = new Byte[14]
+            };
 
             ethernetFrame.Type = input;
 

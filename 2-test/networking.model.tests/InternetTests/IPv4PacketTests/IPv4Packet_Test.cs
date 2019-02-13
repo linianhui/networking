@@ -11,8 +11,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         public void IGMP()
         {
             var ipv4Packet = new IPv4Packet
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                     0x46, 0xc0, 0x00, 0x20,
                     0xe7, 0xc8, 0x00, 0x00,
@@ -23,7 +23,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
                     0x11, 0x64, 0xee, 0x9b,
                     0x00, 0x00, 0x00, 0x00
                 }
-            );
+            };
 
             ipv4Packet.Version.Should().Be(IPVersion.IPv4);
             ipv4Packet.HeaderLength.Should().Be(6);

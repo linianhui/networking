@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Get()
         {
-            var udpDatagram = new UDPDatagram(new Byte[32]);
+            var udpDatagram = new UDPDatagram
+            {
+                Bytes = new Byte[32]
+            };
             udpDatagram[4, 2] = new Byte[] {0x00, 0x20};
 
             udpDatagram.TotalLength.Should().Be(32);
@@ -19,7 +22,10 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Set()
         {
-            var udpDatagram = new UDPDatagram(new Byte[32]);
+            var udpDatagram = new UDPDatagram
+            {
+                Bytes = new Byte[32]
+            };
 
             udpDatagram.TotalLength = 32;
 

@@ -11,7 +11,10 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [Fact]
         public void Get()
         {
-            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
+            var icmpv6Packet = new ICMPv6Packet
+            {
+                Bytes = new Byte[32]
+            };
 
             icmpv6Packet[1] = 1;
 
@@ -21,7 +24,10 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [Fact]
         public void Set()
         {
-            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
+            var icmpv6Packet = new ICMPv6Packet
+            {
+                Bytes = new Byte[32]
+            };
 
             icmpv6Packet.Code = 1;
 

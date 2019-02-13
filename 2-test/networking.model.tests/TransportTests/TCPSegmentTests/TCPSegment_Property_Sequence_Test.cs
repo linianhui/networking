@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [Fact]
         public void Get()
         {
-            var tcpSegment = new TCPSegment(new Byte[32]);
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
             tcpSegment[4, 4] = new Byte[] { 0x01, 0x23, 0x45, 0x67 };
 
             tcpSegment.Sequence.Should().Be(19088743);
@@ -19,7 +22,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
         [Fact]
         public void Set()
         {
-            var tcpSegment = new TCPSegment(new Byte[32]);
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
 
             tcpSegment.Sequence = 19088743;
 

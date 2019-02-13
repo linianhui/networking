@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.OctetsTests
         [Fact]
         public void IsLittleEndian()
         {
-            var octets = new Octets(new Byte[0]);
+            var octets = new Octets
+            {
+                Bytes = new Byte[0]
+            };
 
             octets.IsLittleEndian.Should().Be(false);
         }

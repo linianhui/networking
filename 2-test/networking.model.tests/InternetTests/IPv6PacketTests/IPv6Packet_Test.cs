@@ -11,8 +11,8 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         public void ICMPV6()
         {
             var icmpv6 = new IPv6Packet
-            (
-                new Byte[]
+            {
+                Bytes = new Byte[]
                 {
                     0x60, 0x0d, 0xf6, 0x06,
                     0x00, 0x10,
@@ -22,7 +22,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
                     0xff, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02,
                     0x85, 0x00, 0xbc, 0x75, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0x15, 0x5d, 0x02, 0x02, 0x45
                 }
-            );
+            };
 
             icmpv6.Version.Should().Be(IPVersion.IPv6);
             icmpv6.PayloadLength.Should().Be(16);

@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [Fact]
         public void Get()
         {
-            var ipv4Packet = new IPv4Packet(new Byte[32]);
+            var ipv4Packet = new IPv4Packet
+            {
+                Bytes = new Byte[32]
+            };
             ipv4Packet[8] = 0x7B;
 
             ipv4Packet.TTL.Should().Be(123);
@@ -19,7 +22,10 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
         [Fact]
         public void Set()
         {
-            var ipv4Packet = new IPv4Packet(new Byte[32]);
+            var ipv4Packet = new IPv4Packet
+            {
+                Bytes = new Byte[32]
+            };
 
             ipv4Packet.TTL = 123;
 

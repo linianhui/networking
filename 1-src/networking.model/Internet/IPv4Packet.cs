@@ -10,13 +10,6 @@ namespace Networking.Model.Internet
     public partial class IPv4Packet : InternetPDU
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public IPv4Packet(Memory<byte> bytes) : base(bytes)
-        {
-        }
-
-        /// <summary>
         /// 版本
         /// </summary>
         public IPVersion Version
@@ -112,7 +105,10 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return new IPAddress(base[Layout.SourceIPAddressBegin, IPAddress.Layout.V4Length]);
+                return new IPAddress
+                {
+                    Bytes = base[Layout.SourceIPAddressBegin, IPAddress.Layout.V4Length]
+                };
             }
             set
             {
@@ -128,7 +124,10 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return new IPAddress(base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V4Length]);
+                return new IPAddress
+                {
+                    Bytes = base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V4Length]
+                };
             }
             set
             {
@@ -144,18 +143,29 @@ namespace Networking.Model.Internet
         {
             get
             {
-                Memory<byte> payloadBytes = Slice(HeaderLength * 4);
                 switch (Type)
                 {
 
                     case IPPacketType.ICMPv4:
-                        return new ICMPv4Packet(payloadBytes);
+                        return new ICMPv4Packet
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                     case IPPacketType.TCP:
-                        return new TCPSegment(payloadBytes);
+                        return new TCPSegment
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                     case IPPacketType.UDP:
-                        return new UDPDatagram(payloadBytes);
+                        return new UDPDatagram
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                     default:
-                        return new Octets(payloadBytes);
+                        return new Octets
+                        {
+                            Bytes = Slice(HeaderLength * 4)
+                        };
                 }
             }
         }

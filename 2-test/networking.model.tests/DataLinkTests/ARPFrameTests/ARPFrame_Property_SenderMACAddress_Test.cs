@@ -11,7 +11,10 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [Fact]
         public void Get()
         {
-            var arpFrame = new ARPFrame(new Byte[28]);
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
             arpFrame[8, 6] = new Byte[] { 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC };
 
 
@@ -21,12 +24,15 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
         [Fact]
         public void Set()
         {
-            var arpFrame = new ARPFrame(new Byte[28]);
+            var arpFrame = new ARPFrame
+            {
+                Bytes = new Byte[28]
+            };
 
             arpFrame.SenderMACAddress = new MACAddress
-            (
-                new Byte[] { 0x21, 0x43, 0x65, 0x87, 0xA9, 0xCB }
-            );
+            {
+                Bytes = new Byte[] { 0x21, 0x43, 0x65, 0x87, 0xA9, 0xCB }
+            };
 
             arpFrame.SenderMACAddress.ToString().Should().Be("21:43:65:87:A9:CB");
         }

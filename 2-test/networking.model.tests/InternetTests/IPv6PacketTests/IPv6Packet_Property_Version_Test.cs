@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [Fact]
         public void Get()
         {
-            var ipv6Packet = new IPv6Packet(new Byte[40]);
+            var ipv6Packet = new IPv6Packet
+            {
+                Bytes = new Byte[60]
+            };
             ipv6Packet[0] = 0x65;
 
             ipv6Packet.Version.Should().Be(IPVersion.IPv6);
@@ -35,7 +38,10 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         [InlineData(0xF6)]
         public void Set(Byte input)
         {
-            var ipv6Packet = new IPv6Packet(new Byte[40]);
+            var ipv6Packet = new IPv6Packet
+            {
+                Bytes = new Byte[40]
+            };
             ipv6Packet[0] = 0x05;
 
             ipv6Packet.Version = (IPVersion)input;

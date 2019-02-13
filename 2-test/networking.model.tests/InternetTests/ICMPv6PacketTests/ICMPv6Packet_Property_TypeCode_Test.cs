@@ -19,7 +19,10 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, ICMPv6TypeCode expected)
         {
-            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
+            var icmpv6Packet = new ICMPv6Packet
+            {
+                Bytes = new Byte[32]
+            };
 
             icmpv6Packet[0, 2] = input;
 
@@ -32,7 +35,10 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, ICMPv6TypeCode input)
         {
-            var icmpv6Packet = new ICMPv6Packet(new Byte[32]);
+            var icmpv6Packet = new ICMPv6Packet
+            {
+                Bytes = new Byte[32]
+            };
 
             icmpv6Packet.TypeCode = input;
             icmpv6Packet[0, 2].ToArray().Should().Equal(expected);

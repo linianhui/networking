@@ -11,7 +11,10 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
         [Fact]
         public void Get()
         {
-            var pppoeFrame = new PPPoEFrame(new Byte[14]);
+            var pppoeFrame = new PPPoEFrame
+            {
+                Bytes = new Byte[14]
+            };
 
             pppoeFrame.Payload.GetType().Should().Be(typeof(PPPFrame));
         }

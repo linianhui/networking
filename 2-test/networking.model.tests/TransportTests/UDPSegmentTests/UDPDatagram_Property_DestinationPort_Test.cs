@@ -10,7 +10,10 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Get()
         {
-            var udpDatagram = new UDPDatagram(new Byte[32]);
+            var udpDatagram = new UDPDatagram
+            {
+                Bytes = new Byte[32]
+            };
             udpDatagram[2, 2] = new Byte[] {0x00, 0x50};
 
             udpDatagram.DestinationPort.Should().Be(80);
@@ -19,7 +22,10 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
         [Fact]
         public void Set()
         {
-            var udpDatagram = new UDPDatagram(new Byte[32]);
+            var udpDatagram = new UDPDatagram
+            {
+                Bytes = new Byte[32]
+            };
 
             udpDatagram.DestinationPort = 80;
 

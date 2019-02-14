@@ -26,6 +26,15 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 
             TCPSegment.Layout.FlagsBegin.Should().Be(13);
             TCPSegment.Layout.FlagsEnd.Should().Be(14);
+            TCPSegment.Layout.FlagsNSBitIndex.Should().Be(7);
+            TCPSegment.Layout.FlagsCWRBitIndex.Should().Be(0);
+            TCPSegment.Layout.FlagsECEBitIndex.Should().Be(1);
+            TCPSegment.Layout.FlagsURGBitIndex.Should().Be(2);
+            TCPSegment.Layout.FlagsACKBitIndex.Should().Be(3);
+            TCPSegment.Layout.FlagsPSHBitIndex.Should().Be(4);
+            TCPSegment.Layout.FlagsRSTBitIndex.Should().Be(5);
+            TCPSegment.Layout.FlagsSYNBitIndex.Should().Be(6);
+            TCPSegment.Layout.FlagsFINBitIndex.Should().Be(7);
 
             TCPSegment.Layout.WindowsSizeBegin.Should().Be(14);
             TCPSegment.Layout.WindowsSizeEnd.Should().Be(16);

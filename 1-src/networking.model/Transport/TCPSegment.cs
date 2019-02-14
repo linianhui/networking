@@ -86,8 +86,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean NS
         {
-            get { return base[Layout.HeaderLengthBegin].GetBit(7); }
-            set { base[Layout.HeaderLengthBegin] = base[Layout.HeaderLengthBegin].SetBit(7, value); }
+            get { return base.GetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex); }
+            set { base.SetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex, value); }
         }
 
         /// <summary>
@@ -95,8 +95,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean CWR
         {
-            get { return base[Layout.FlagsBegin].GetBit(0); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(0, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex, value); }
         }
 
         /// <summary>
@@ -104,8 +104,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean ECE
         {
-            get { return base[Layout.FlagsBegin].GetBit(1); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(1, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex, value); }
         }
 
         /// <summary>
@@ -113,8 +113,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean URG
         {
-            get { return base[Layout.FlagsBegin].GetBit(2); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(2, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex, value); }
         }
 
         /// <summary>
@@ -122,8 +122,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean ACK
         {
-            get { return base[Layout.FlagsBegin].GetBit(3); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(3, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex, value); }
         }
 
         /// <summary>
@@ -131,8 +131,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean PSH
         {
-            get { return base[Layout.FlagsBegin].GetBit(4); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(4, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex, value); }
         }
 
         /// <summary>
@@ -140,8 +140,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean RST
         {
-            get { return base[Layout.FlagsBegin].GetBit(5); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(5, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex, value); }
         }
 
         /// <summary>
@@ -149,8 +149,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean SYN
         {
-            get { return base[Layout.FlagsBegin].GetBit(6); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(6, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex, value); }
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FIN
         {
-            get { return base[Layout.FlagsBegin].GetBit(7); }
-            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(7, value); }
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex, value); }
         }
 
         /// <summary>

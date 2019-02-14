@@ -84,7 +84,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// ECN-nonce
         /// </summary>
-        public Boolean NS
+        public Boolean FlagNS
         {
             get { return base.GetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex); }
             set { base.SetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex, value); }
@@ -93,7 +93,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Congestion Window Reduced
         /// </summary>
-        public Boolean CWR
+        public Boolean FlagCWR
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex, value); }
@@ -102,7 +102,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// ECE-Echo
         /// </summary>
-        public Boolean ECE
+        public Boolean FlagECE
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex, value); }
@@ -111,7 +111,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Urgent pointer
         /// </summary>
-        public Boolean URG
+        public Boolean FlagURG
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex, value); }
@@ -120,7 +120,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Acknowledgment
         /// </summary>
-        public Boolean ACK
+        public Boolean FlagACK
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex, value); }
@@ -129,7 +129,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Push function
         /// </summary>
-        public Boolean PSH
+        public Boolean FlagPSH
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex, value); }
@@ -138,7 +138,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Reset the connection
         /// </summary>
-        public Boolean RST
+        public Boolean FlagRST
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex, value); }
@@ -147,7 +147,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Synchronize sequence number
         /// </summary>
-        public Boolean SYN
+        public Boolean FlagSYN
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex, value); }
@@ -156,7 +156,7 @@ namespace Networking.Model.Transport
         /// <summary>
         /// Last packet from sender
         /// </summary>
-        public Boolean FIN
+        public Boolean FlagFIN
         {
             get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex); }
             set { base.SetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex, value); }

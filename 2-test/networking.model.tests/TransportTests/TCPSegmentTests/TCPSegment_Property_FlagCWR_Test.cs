@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 {
-    public class TCPSegment_Property_ACK_Test
+    public class TCPSegment_Property_FlagCWR_Test
     {
         [Fact]
         public void Get()
@@ -14,9 +14,9 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[13] = 0b_0001_0000;
+            tcpSegment[13] = 0b_1000_0000;
 
-            tcpSegment.ACK.Should().Be(true);
+            tcpSegment.FlagCWR.Should().Be(true);
         }
 
         [Fact]
@@ -27,10 +27,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
                 Bytes = new Byte[32]
             };
 
-            tcpSegment.ACK = true;
-            tcpSegment[13].Should().Be(0b_0001_0000);
+            tcpSegment.FlagCWR = true;
+            tcpSegment[13].Should().Be(0b_1000_0000);
 
-            tcpSegment.ACK = false;
+            tcpSegment.FlagCWR = false;
             tcpSegment[13].Should().Be(0b_0000_0000);
         }
     }

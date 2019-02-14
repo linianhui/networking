@@ -30,8 +30,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             tcpSegment.DestinationPort.Should().Be(56906);
             tcpSegment.SYNNumber.Should().Be(907006549);
             tcpSegment.ACKNumber.Should().Be(1222036081);
-            tcpSegment.ACK.Should().Be(true);
-            tcpSegment.FIN.Should().Be(true);
+            tcpSegment.FlagACK.Should().Be(true);
+            tcpSegment.FlagFIN.Should().Be(true);
             tcpSegment.HeaderLength.Should().Be(5);
             tcpSegment.WindowsSize.Should().Be(28556);
             tcpSegment.Checksum.Should().Be(0x5a4c);

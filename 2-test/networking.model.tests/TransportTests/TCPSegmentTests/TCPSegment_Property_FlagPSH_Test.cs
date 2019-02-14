@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 {
-    public class TCPSegment_Property_RST_Test
+    public class TCPSegment_Property_FlagPSH_Test
     {
         [Fact]
         public void Get()
@@ -14,9 +14,9 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[13] = 0b_0000_0100;
+            tcpSegment[13] = 0b_0000_1000;
 
-            tcpSegment.RST.Should().Be(true);
+            tcpSegment.FlagPSH.Should().Be(true);
         }
 
         [Fact]
@@ -27,10 +27,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
                 Bytes = new Byte[32]
             };
 
-            tcpSegment.RST = true;
-            tcpSegment[13].Should().Be(0b_0000_0100);
+            tcpSegment.FlagPSH = true;
+            tcpSegment[13].Should().Be(0b_0000_1000);
 
-            tcpSegment.RST = false;
+            tcpSegment.FlagPSH = false;
             tcpSegment[13].Should().Be(0b_0000_0000);
         }
     }

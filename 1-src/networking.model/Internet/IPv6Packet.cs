@@ -28,11 +28,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadUInt16(Layout.PayloadLengthBegin);
+                return GetUInt16(Layout.PayloadLengthBegin);
             }
             set
             {
-                WriteUInt16(Layout.PayloadLengthBegin, value);
+                SetUInt16(Layout.PayloadLengthBegin, value);
             }
         }
 

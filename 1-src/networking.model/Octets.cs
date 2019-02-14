@@ -12,15 +12,15 @@ namespace Networking.Model
         /// <summary>
         /// 是否小端字节序
         /// <para></para>
-        /// <para>       0xA1B2C3D4                                              </para>
-        /// <para>|  -  + 4 octets  +     |                                      </para>
-        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
-        /// <para>|  0     1     2     3  | 内存增长方向                          </para>
-        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>       0xA1B2C3D4                                           </para>
+        /// <para>|  -  + 4 octets  +     |                                   </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                   </para>
+        /// <para>|  0     1     2     3  | 内存增长方向                        </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                   </para>
         /// <para>| 0xA1  0xB2  0xC3  0xD4| 大端模式/网络字节序[高位字节存储在低位] </para>
-        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                   </para>
         /// <para>| 0xD4  0xC3  0xB2  0xA1| 小端模式/主机字节序[高位字节存储在高位] </para>
-        /// <para>|  -  +  -  +  -  +  -  |                                      </para>
+        /// <para>|  -  +  -  +  -  +  -  |                                   </para>
         /// <para></para>
         /// </summary>
         public Boolean IsLittleEndian { get; set; } = false;
@@ -61,11 +61,11 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 读取<see cref="UInt16"/>
+        /// 获取<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt16 ReadUInt16(Int32 index)
+        public UInt16 GetUInt16(Int32 index)
         {
             var span = this[index, 2].Span;
             if (IsLittleEndian)
@@ -76,11 +76,11 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 读取<see cref="UInt32"/>
+        /// 获取<see cref="UInt32"/>
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
-        public UInt32 ReadUInt32(Int32 index)
+        public UInt32 GetUInt32(Int32 index)
         {
             var span = this[index, 4].Span;
             if (IsLittleEndian)
@@ -91,12 +91,12 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 写入<see cref="UInt16"/>
+        /// 设置<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void WriteUInt16(Int32 index, UInt16 value)
+        public void SetUInt16(Int32 index, UInt16 value)
         {
             var span = this[index, 2].Span;
             if (IsLittleEndian)
@@ -110,12 +110,12 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 写入<see cref="UInt32"/>
+        /// 设置<see cref="UInt32"/>
         /// </summary>
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void WriteUInt32(Int32 index, UInt32 value)
+        public void SetUInt32(Int32 index, UInt32 value)
         {
             var span = this[index, 4].Span;
             if (IsLittleEndian)
@@ -129,7 +129,7 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 获取Byte
+        /// 获取<see cref="Byte"/>
         /// </summary>
         /// <param name="byteIndex">byte的索引</param>
         /// <returns></returns>
@@ -139,7 +139,7 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 获取Byte
+        /// 获取<see cref="Byte"/>
         /// </summary>
         /// <param name="byteIndex">byte的索引</param>
         /// <param name="bitIndex">bit的索引</param>
@@ -151,7 +151,7 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 获取Byte
+        /// 设置<see cref="Byte"/>
         /// </summary>
         /// <param name="byteIndex">byte的索引</param>
         /// <param name="byteValue">byte的值</param>

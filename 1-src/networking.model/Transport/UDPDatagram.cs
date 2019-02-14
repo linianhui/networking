@@ -15,11 +15,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.SourcePortBegin);
+                return GetUInt16(Layout.SourcePortBegin);
             }
             set
             {
-                WriteUInt16(Layout.SourcePortBegin, value);
+                SetUInt16(Layout.SourcePortBegin, value);
             }
         }
 
@@ -30,11 +30,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.DestinationPortBegin);
+                return GetUInt16(Layout.DestinationPortBegin);
             }
             set
             {
-                WriteUInt16(Layout.DestinationPortBegin, value);
+                SetUInt16(Layout.DestinationPortBegin, value);
             }
         }
 
@@ -45,11 +45,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.TotalLengthBegin);
+                return GetUInt16(Layout.TotalLengthBegin);
             }
             set
             {
-                WriteUInt16(Layout.TotalLengthBegin, value);
+                SetUInt16(Layout.TotalLengthBegin, value);
             }
         }
 
@@ -60,11 +60,11 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return ReadUInt16(Layout.ChecksumBegin);
+                return GetUInt16(Layout.ChecksumBegin);
             }
             set
             {
-                WriteUInt16(Layout.ChecksumBegin, value);
+                SetUInt16(Layout.ChecksumBegin, value);
             }
         }
 

@@ -16,7 +16,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.TimestampSecondsBegin);
+                return GetUInt32(Layout.TimestampSecondsBegin);
             }
         }
 
@@ -27,7 +27,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.TimestampMicrosecondsBegin);
+                return GetUInt32(Layout.TimestampMicrosecondsBegin);
             }
         }
 
@@ -38,7 +38,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.SavedLengthBegin);
+                return GetUInt32(Layout.SavedLengthBegin);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.OriginalLengthBegin);
+                return GetUInt32(Layout.OriginalLengthBegin);
             }
         }
     }

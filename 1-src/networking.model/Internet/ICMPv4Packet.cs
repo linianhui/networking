@@ -16,11 +16,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return (ICMPv4TypeCode)ReadUInt16(Layout.TypeCodeBegin);
+                return (ICMPv4TypeCode)GetUInt16(Layout.TypeCodeBegin);
             }
             set
             {
-                WriteUInt16(Layout.TypeCodeBegin, (UInt16)value);
+                SetUInt16(Layout.TypeCodeBegin, (UInt16)value);
             }
         }
 
@@ -31,11 +31,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadUInt16(Layout.ChecksumBegin);
+                return GetUInt16(Layout.ChecksumBegin);
             }
             set
             {
-                WriteUInt16(Layout.ChecksumBegin, value);
+                SetUInt16(Layout.ChecksumBegin, value);
             }
         }
 
@@ -46,11 +46,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadUInt16(Layout.IdBegin);
+                return GetUInt16(Layout.IdBegin);
             }
             set
             {
-                WriteUInt16(Layout.IdBegin, value);
+                SetUInt16(Layout.IdBegin, value);
             }
         }
 
@@ -61,11 +61,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return ReadUInt16(Layout.SequenceBegin);
+                return GetUInt16(Layout.SequenceBegin);
             }
             set
             {
-                WriteUInt16(Layout.SequenceBegin, value);
+                SetUInt16(Layout.SequenceBegin, value);
             }
         }
     }

@@ -52,11 +52,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (EthernetFrameType)ReadUInt16(Layout.TypeBegin);
+                return (EthernetFrameType)GetUInt16(Layout.TypeBegin);
             }
             set
             {
-                WriteUInt16(Layout.TypeBegin, (UInt16)value);
+                SetUInt16(Layout.TypeBegin, (UInt16)value);
             }
         }
 

@@ -4,11 +4,11 @@ using Xunit;
 
 namespace Networking.Model.Tests.OctetsTests
 {
-    public class Octets_Method_ReadUInt32_Test
+    public class Octets_Method_GetUInt32_Test
     {
 
         [Fact]
-        public void ReadUInt32()
+        public void GetUInt32()
         {
             var octets = new Octets
             {
@@ -18,12 +18,12 @@ namespace Networking.Model.Tests.OctetsTests
                 }
             };
 
-            octets.ReadUInt32(0).Should().Be(19088743);
-            octets.ReadUInt32(4).Should().Be(2309737967);
+            octets.GetUInt32(0).Should().Be(19088743);
+            octets.GetUInt32(4).Should().Be(2309737967);
 
             octets.IsLittleEndian = true;
-            octets.ReadUInt32(0).Should().Be(1732584193);
-            octets.ReadUInt32(4).Should().Be(4023233417);
+            octets.GetUInt32(0).Should().Be(1732584193);
+            octets.GetUInt32(4).Should().Be(4023233417);
         }
     }
 }

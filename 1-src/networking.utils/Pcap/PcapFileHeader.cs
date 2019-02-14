@@ -16,7 +16,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt32(Layout.MagicNumberBegin);
+                return GetUInt32(Layout.MagicNumberBegin);
             }
         }
 
@@ -27,7 +27,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.VersionMajorBegin);
+                return GetUInt16(Layout.VersionMajorBegin);
             }
         }
 
@@ -38,7 +38,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.VersionMinorBegin);
+                return GetUInt16(Layout.VersionMinorBegin);
             }
         }
 
@@ -49,7 +49,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return ReadUInt16(Layout.PacketMaxLengthBegin);
+                return GetUInt16(Layout.PacketMaxLengthBegin);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Networking.Utils.Pcap
         {
             get
             {
-                return (DataLinkType)ReadUInt32(Layout.DataLinkTypeBegin);
+                return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin);
             }
         }
     }

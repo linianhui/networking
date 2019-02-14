@@ -13,7 +13,7 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPVersion Version
         {
-            get { return (IPVersion)base.GetByte(Layout.VersionBegin).GetRange(0, 4); }
+            get { return (IPVersion)base.GetByte(Layout.VersionBegin, 0, 4); }
             set
             {
                 var old = base.GetByte(Layout.VersionBegin);

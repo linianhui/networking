@@ -56,7 +56,7 @@ namespace Networking.Model
             {
                 return (Byte)(@this | byteValue);
             }
-            return (Byte)~(~@this | byteValue);
+            return (Byte)(~((~@this) | byteValue));
         }
     }
 }

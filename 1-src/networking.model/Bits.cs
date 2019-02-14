@@ -30,12 +30,9 @@ namespace Networking.Model
         /// <returns></returns>
         public static Boolean GetBit(this Byte @this, Byte index)
         {
-            if (index > 7)
-            {
-                throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
-            }
-            var byteValue = B_1000_0000 >> index;
-            return (@this & byteValue) == byteValue;
+            CheckIndex(index);
+            var bits = B_1000_0000 >> index;
+            return (@this & bits) == bits;
         }
 
         /// <summary>
@@ -47,16 +44,22 @@ namespace Networking.Model
         /// <returns></returns>
         public static Byte SetBit(this Byte @this, Byte index, Boolean value)
         {
+            CheckIndex(index);
+            var bits = B_1000_0000 >> index;
+            if (value)
+            {
+                return (Byte)(@this | bits);
+            }
+            return (Byte)(~((~@this) | bits));
+        }
+
+
+        private static void CheckIndex(Byte index)
+        {
             if (index > 7)
             {
                 throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
             }
-            var byteValue = B_1000_0000 >> index;
-            if (value)
-            {
-                return (Byte)(@this | byteValue);
-            }
-            return (Byte)(~((~@this) | byteValue));
         }
     }
 }

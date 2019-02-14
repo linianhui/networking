@@ -9,7 +9,7 @@ namespace Networking.Utils.Pcap
     /// </summary>
     public class PcapFile
     {
-        private Stream _stream;
+        private readonly Stream _stream;
         private Int32 _offset;
 
         /// <summary>

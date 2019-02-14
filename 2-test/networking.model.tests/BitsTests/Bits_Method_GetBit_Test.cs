@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using Networking.Model.DataLink;
 using Xunit;
 
 namespace Networking.Model.Tests.BitsTests

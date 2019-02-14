@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using Networking.Model;
 using Networking.Model.DataLink;
 using Networking.Utils.Pcap;
 using Xunit;

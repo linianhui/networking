@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using Networking.Model.Internet;
 using Networking.Model.Transport;
 using Xunit;
 

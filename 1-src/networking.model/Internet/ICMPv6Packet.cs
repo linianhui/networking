@@ -1,5 +1,4 @@
 using System;
-using Networking.Model.Transport;
 
 namespace Networking.Model.Internet
 {

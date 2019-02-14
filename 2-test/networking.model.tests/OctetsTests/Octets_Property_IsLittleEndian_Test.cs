@@ -1,7 +1,6 @@
 using System;
 using FluentAssertions;
 using Xunit;
-using Networking.Model;
 
 namespace Networking.Model.Tests.OctetsTests
 {

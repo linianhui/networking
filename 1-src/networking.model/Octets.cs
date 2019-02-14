@@ -140,6 +140,31 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 获取指定位置的bit[1=true,0=false]
+        /// </summary>
+        /// <param name="byteIndex">Byte的索引</param>
+        /// <param name="bitIndex">bit的索引[0-7]</param>
+        /// <returns></returns>
+        public Boolean GetBit(Int32 byteIndex, Byte bitIndex)
+        {
+            return this[byteIndex].GetBit(bitIndex);
+        }
+
+        /// <summary>
+        /// 设置指定位置的bit[1=true,0=false]
+        /// </summary>
+        /// <param name="byteIndex">Byte的索引</param>
+        /// <param name="bitIndex">bit的索引[0-7]</param>
+        /// <param name="bitValue">bit的值</param>
+        /// <returns></returns>
+        public Byte SetBit(Int32 byteIndex, Byte bitIndex, Boolean bitValue)
+        {
+            var value = this[byteIndex].SetBit(bitIndex, bitValue);
+            this[byteIndex] = value;
+            return value;
+        }
+
+        /// <summary>
         /// 12-34-56-78-89-AB-CD-EF
         /// </summary>
         /// <returns></returns>

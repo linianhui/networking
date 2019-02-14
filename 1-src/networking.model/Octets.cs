@@ -142,6 +142,18 @@ namespace Networking.Model
         /// 获取Byte
         /// </summary>
         /// <param name="byteIndex">byte的索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <returns></returns>
+        public Byte GetByte(Int32 byteIndex, Byte bitIndex, Byte bitLength)
+        {
+            return GetByte(byteIndex).GetRange(bitIndex, bitLength);
+        }
+
+        /// <summary>
+        /// 获取Byte
+        /// </summary>
+        /// <param name="byteIndex">byte的索引</param>
         /// <param name="byteValue">byte的值</param>
         /// <returns></returns>
         public void SetByte(Int32 byteIndex, Byte byteValue)

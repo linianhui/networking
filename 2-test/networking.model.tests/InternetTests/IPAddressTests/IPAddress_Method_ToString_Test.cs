@@ -17,7 +17,7 @@ namespace Networking.Model.Tests.InternetTests.IPAddressTests
 
             ipAddress.ToString().Should().Be("192.168.1.1");
 
-            ipAddress[3] = 0xAB;
+            ipAddress.SetByte(3, 0xAB);
             ipAddress.ToString().Should().Be("192.168.1.171");
         }
 

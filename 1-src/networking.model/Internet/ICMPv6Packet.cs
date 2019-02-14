@@ -16,11 +16,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return (ICMPv6Type)base[Layout.TypeBegin];
+                return (ICMPv6Type)base.GetByte(Layout.TypeBegin);
             }
             set
             {
-                base[Layout.TypeBegin] = (Byte)value;
+                base.SetByte(Layout.TypeBegin, (Byte)value);
             }
         }
 
@@ -32,11 +32,11 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return base[Layout.CodeBegin];
+                return base.GetByte(Layout.CodeBegin);
             }
             set
             {
-                base[Layout.CodeBegin] = value;
+                base.SetByte(Layout.CodeBegin, value);
             }
         }
 

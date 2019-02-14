@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             {
                 Bytes = new Byte[32]
             };
-            ipv4Packet[0] = 0x45;
+            ipv4Packet.SetByte(0, 0x45);
 
             ipv4Packet.Version.Should().Be(IPVersion.IPv4);
             ipv4Packet.HeaderLength.Should().Be(5);
@@ -43,11 +43,11 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             {
                 Bytes = new Byte[32]
             };
-            ipv4Packet[0] = 0x40;
+            ipv4Packet.SetByte(0, 0x40);
 
             ipv4Packet.HeaderLength = input;
 
-            ipv4Packet[0].Should().Be(0x46);
+            ipv4Packet.GetByte(0).Should().Be(0x46);
             ipv4Packet.Version.Should().Be(IPVersion.IPv4);
             ipv4Packet.HeaderLength.Should().Be(6);
         }

@@ -25,7 +25,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv6Packet[0] = input;
+            icmpv6Packet.SetByte(0, input);
 
             icmpv6Packet.Type.Should().Be(expected);
         }
@@ -41,7 +41,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
 
             icmpv6Packet.Type = input;
 
-            icmpv6Packet[0].Should().Be(expected);
+            icmpv6Packet.GetByte(0).Should().Be(expected);
             icmpv6Packet.Type.Should().Be(input);
         }
     }

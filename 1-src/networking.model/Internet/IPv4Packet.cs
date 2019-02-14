@@ -14,11 +14,11 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPVersion Version
         {
-            get { return (IPVersion)base[Layout.VersionBegin].GetRange(0, 4); }
+            get { return (IPVersion)base.GetByte(Layout.VersionBegin).GetRange(0, 4); }
             set
             {
-                var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111);
+                var old = base.GetByte(Layout.VersionBegin);
+                base.SetByte(Layout.VersionBegin, (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111));
             }
         }
 
@@ -27,11 +27,11 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HeaderLength
         {
-            get { return base[Layout.HeaderLengthBegin].GetRange(4, 4); }
+            get { return base.GetByte(Layout.HeaderLengthBegin).GetRange(4, 4); }
             set
             {
-                var old = base[Layout.HeaderLengthBegin];
-                base[Layout.HeaderLengthBegin] = (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111);
+                var old = base.GetByte(Layout.HeaderLengthBegin);
+                base.SetByte(Layout.HeaderLengthBegin, (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111));
             }
         }
 
@@ -70,8 +70,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte TTL
         {
-            get { return base[Layout.TTLBegin]; }
-            set { base[Layout.TTLBegin] = value; }
+            get { return base.GetByte(Layout.TTLBegin); }
+            set { base.SetByte(Layout.TTLBegin, value); }
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPPacketType Type
         {
-            get { return (IPPacketType)base[Layout.TypeBegin]; }
-            set { base[Layout.TypeBegin] = (Byte)value; }
+            get { return (IPPacketType)base.GetByte(Layout.TypeBegin); }
+            set { base.SetByte(Layout.TypeBegin, (Byte)value); }
         }
 
         /// <summary>

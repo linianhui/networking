@@ -14,11 +14,11 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Version
         {
-            get { return base[Layout.VersionBegin].GetRange(0, 4); }
+            get { return base.GetByte(Layout.VersionBegin).GetRange(0, 4); }
             set
             {
-                var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)((value) << 4 | old & Bits.B_0000_1111);
+                var old = base.GetByte(Layout.VersionBegin);
+                base.SetByte(Layout.VersionBegin, (Byte)((value) << 4 | old & Bits.B_0000_1111));
             }
         }
 
@@ -27,11 +27,11 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Type
         {
-            get { return base[Layout.TypeBegin].GetRange(4, 4); }
+            get { return base.GetByte(Layout.TypeBegin).GetRange(4, 4); }
             set
             {
-                var old = base[Layout.TypeBegin];
-                base[Layout.TypeBegin] = (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111);
+                var old = base.GetByte(Layout.TypeBegin);
+                base.SetByte(Layout.TypeBegin, (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111));
             }
         }
 
@@ -42,11 +42,11 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return (PPPoEFrameCode)base[Layout.CodeBegin];
+                return (PPPoEFrameCode)base.GetByte(Layout.CodeBegin);
             }
             set
             {
-                base[Layout.CodeBegin] = (Byte)value;
+                base.SetByte(Layout.CodeBegin, (Byte)value);
             }
         }
 

@@ -23,7 +23,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
                 Bytes = new Byte[28]
             };
 
-            arpFrame[4] = input;
+            arpFrame.SetByte(4, input);
 
             arpFrame.HardwareAddressLength.Should().Be(expected);
         }
@@ -39,7 +39,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.HardwareAddressLength = input;
             
-            arpFrame[4].Should().Be(expected);
+            arpFrame.GetByte(4).Should().Be(expected);
             arpFrame.HardwareAddressLength.Should().Be(expected);
         }
     }

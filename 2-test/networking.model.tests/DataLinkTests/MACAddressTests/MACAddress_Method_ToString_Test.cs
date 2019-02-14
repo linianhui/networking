@@ -20,7 +20,7 @@ namespace Networking.Model.Tests.DataLinkTests.MACAddressTests
 
             macAddress.ToString().Should().Be("12:34:56:78:9A:BC");
 
-            macAddress[0] = 0xFF;
+            macAddress.SetByte(0, 0xFF);
             macAddress.ToString().Should().Be("FF:34:56:78:9A:BC");
         }
     }

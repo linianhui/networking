@@ -16,7 +16,7 @@ namespace Networking.Model.Tests.OctetsTests
 
             octets.ToString().Should().Be("12-34-56");
 
-            octets[0] = 0xAB;
+            octets.SetByte(0, 0xAB);
             octets.ToString().Should().Be("AB-34-56");
         }
     }

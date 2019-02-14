@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[40]
             };
-            ipv6Packet[6] = 0x00;
+            ipv6Packet.SetByte(6, 0x00);
 
             ipv6Packet.NextHeader.Should().Be(0);
         }

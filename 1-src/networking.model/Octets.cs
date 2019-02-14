@@ -42,17 +42,6 @@ namespace Networking.Model
         /// 读取或写入
         /// </summary>
         /// <param name="index">索引</param>
-        /// <returns></returns>
-        public Byte this[Int32 index]
-        {
-            get { return Bytes.Span[index]; }
-            set { Bytes.Span[index] = value; }
-        }
-
-        /// <summary>
-        /// 读取或写入
-        /// </summary>
-        /// <param name="index">索引</param>
         /// <param name="length">长度</param>
         /// <returns></returns>
         public Memory<Byte> this[Int32 index, Int32 length]
@@ -140,6 +129,27 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 获取Byte
+        /// </summary>
+        /// <param name="byteIndex">byte的索引</param>
+        /// <returns></returns>
+        public Byte GetByte(Int32 byteIndex)
+        {
+            return Bytes.Span[byteIndex];
+        }
+
+        /// <summary>
+        /// 获取Byte
+        /// </summary>
+        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="byteValue">byte的值</param>
+        /// <returns></returns>
+        public void SetByte(Int32 byteIndex, Byte byteValue)
+        {
+            Bytes.Span[byteIndex] = byteValue;
+        }
+
+        /// <summary>
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="byteIndex">Byte的索引</param>
@@ -147,7 +157,7 @@ namespace Networking.Model
         /// <returns></returns>
         public Boolean GetBit(Int32 byteIndex, Byte bitIndex)
         {
-            return this[byteIndex].GetBit(bitIndex);
+            return GetByte(byteIndex).GetBit(bitIndex);
         }
 
         /// <summary>
@@ -159,8 +169,9 @@ namespace Networking.Model
         /// <returns></returns>
         public Byte SetBit(Int32 byteIndex, Byte bitIndex, Boolean bitValue)
         {
-            var value = this[byteIndex].SetBit(bitIndex, bitValue);
-            this[byteIndex] = value;
+            var byteValue = GetByte(byteIndex);
+            var value = byteValue.SetBit(bitIndex, bitValue);
+            SetByte(byteIndex, value);
             return value;
         }
 

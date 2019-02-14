@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[12] = 0x66;
+            tcpSegment.SetByte(12, 0x66);
 
             tcpSegment.HeaderLength.Should().Be(6);
         }
@@ -37,11 +37,11 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[12] = 0x05;
+            tcpSegment.SetByte(12, 0x05);
 
             tcpSegment.HeaderLength = input;
             tcpSegment.HeaderLength.Should().Be(input);
-            tcpSegment[12].Should().Be((Byte)(input << 4 | (0x45 & 0x0F)));
+            tcpSegment.GetByte(12).Should().Be((Byte)(input << 4 | (0x45 & 0x0F)));
         }
     }
 }

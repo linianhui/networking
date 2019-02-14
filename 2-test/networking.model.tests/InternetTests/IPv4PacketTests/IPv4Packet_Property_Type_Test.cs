@@ -26,7 +26,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            ipv4Packet[9] = input;
+            ipv4Packet.SetByte(9, input);
 
             ipv4Packet.Type.Should().Be(expected);
         }
@@ -42,7 +42,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
 
             ipv4Packet.Type = input;
 
-            ipv4Packet[9].Should().Be(expected);
+            ipv4Packet.GetByte(9).Should().Be(expected);
             ipv4Packet.Type.Should().Be(input);
         }
     }

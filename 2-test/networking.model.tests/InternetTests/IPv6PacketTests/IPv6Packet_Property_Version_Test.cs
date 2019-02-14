@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[60]
             };
-            ipv6Packet[0] = 0x65;
+            ipv6Packet.SetByte(0, 0x65);
 
             ipv6Packet.Version.Should().Be(IPVersion.IPv6);
         }
@@ -42,11 +42,11 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[40]
             };
-            ipv6Packet[0] = 0x05;
+            ipv6Packet.SetByte(0, 0x05);
 
             ipv6Packet.Version = (IPVersion)input;
 
-            ipv6Packet[0].Should().Be(0x65);
+            ipv6Packet.GetByte(0).Should().Be(0x65);
             ipv6Packet.Version.Should().Be(IPVersion.IPv6);
         }
     }

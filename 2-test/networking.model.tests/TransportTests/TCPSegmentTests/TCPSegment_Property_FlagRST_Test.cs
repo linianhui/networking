@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[13] = 0b_0000_0100;
+            tcpSegment.SetByte(13, 0b_0000_0100);
 
             tcpSegment.FlagRST.Should().Be(true);
         }
@@ -28,10 +28,10 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             };
 
             tcpSegment.FlagRST = true;
-            tcpSegment[13].Should().Be(0b_0000_0100);
+            tcpSegment.GetByte(13).Should().Be(0b_0000_0100);
 
             tcpSegment.FlagRST = false;
-            tcpSegment[13].Should().Be(0b_0000_0000);
+            tcpSegment.GetByte(13).Should().Be(0b_0000_0000);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.PPPoEFrameTests
             {
                 Bytes = new Byte[32]
             };
-            pppoeFrame[0] = 0x21;
+            pppoeFrame.SetByte(0, 0x21);
 
             pppoeFrame.Version.Should().Be(2);
             pppoeFrame.Type.Should().Be(1);
@@ -43,11 +43,11 @@ namespace Networking.Model.Tests.InternetTests.PPPoEFrameTests
             {
                 Bytes = new Byte[32]
             };
-            pppoeFrame[0] = 0x20;
+            pppoeFrame.SetByte(0, 0x20);
 
             pppoeFrame.Type = input;
 
-            pppoeFrame[0].Should().Be(0x21);
+            pppoeFrame.GetByte(0).Should().Be(0x21);
             pppoeFrame.Version.Should().Be(2);
             pppoeFrame.Type.Should().Be(1);
         }

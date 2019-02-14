@@ -13,8 +13,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte HardwareAddressLength
         {
-            get { return base[Layout.HardwareAddressLengthBegin]; }
-            set { base[Layout.HardwareAddressLengthBegin] = value; }
+            get { return base.GetByte(Layout.HardwareAddressLengthBegin); }
+            set { base.SetByte(Layout.HardwareAddressLengthBegin, value); }
         }
 
         /// <summary>
@@ -22,8 +22,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte ProtocolAddressLength
         {
-            get { return base[Layout.ProtocolAddressLengthBegin]; }
-            set { base[Layout.ProtocolAddressLengthBegin] = value; }
+            get { return base.GetByte(Layout.ProtocolAddressLengthBegin); }
+            set { base.SetByte(Layout.ProtocolAddressLengthBegin, value); }
         }
 
         /// <summary>

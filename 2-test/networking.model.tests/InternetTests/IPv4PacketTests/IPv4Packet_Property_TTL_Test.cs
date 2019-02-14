@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             {
                 Bytes = new Byte[32]
             };
-            ipv4Packet[8] = 0x7B;
+            ipv4Packet.SetByte(8, 0x7B);
 
             ipv4Packet.TTL.Should().Be(123);
         }

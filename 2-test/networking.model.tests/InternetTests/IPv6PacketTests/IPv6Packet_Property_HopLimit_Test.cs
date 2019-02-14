@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[40]
             };
-            ipv6Packet[7] = 0xff;
+            ipv6Packet.SetByte(7, 0xff);
 
             ipv6Packet.HopLimit.Should().Be(255);
         }

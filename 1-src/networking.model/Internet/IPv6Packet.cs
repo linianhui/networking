@@ -13,11 +13,11 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPVersion Version
         {
-            get { return (IPVersion)base[Layout.VersionBegin].GetRange(0, 4); }
+            get { return (IPVersion)base.GetByte(Layout.VersionBegin).GetRange(0, 4); }
             set
             {
-                var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111);
+                var old = base.GetByte(Layout.VersionBegin);
+                base.SetByte(Layout.VersionBegin, (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111));
             }
         }
 
@@ -41,8 +41,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte NextHeader
         {
-            get { return base[Layout.NextHeaderBegin]; }
-            set { base[Layout.NextHeaderBegin] = value; }
+            get { return base.GetByte(Layout.NextHeaderBegin); }
+            set { base.SetByte(Layout.NextHeaderBegin, value); }
         }
 
         /// <summary>
@@ -50,8 +50,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HopLimit
         {
-            get { return base[Layout.HopLimitBegin]; }
-            set { base[Layout.HopLimitBegin] = value; }
+            get { return base.GetByte(Layout.HopLimitBegin); }
+            set { base.SetByte(Layout.HopLimitBegin, value); }
         }
 
         /// <summary>

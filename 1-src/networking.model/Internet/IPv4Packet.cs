@@ -14,7 +14,7 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPVersion Version
         {
-            get { return (IPVersion)(base[Layout.VersionBegin] >> 4); }
+            get { return (IPVersion)base[Layout.VersionBegin].GetSubByte(0, 4); }
             set
             {
                 var old = base[Layout.VersionBegin];
@@ -27,7 +27,7 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HeaderLength
         {
-            get { return (Byte)(base[Layout.HeaderLengthBegin] & Bits.B_0000_1111); }
+            get { return base[Layout.HeaderLengthBegin].GetSubByte(4, 4); }
             set
             {
                 var old = base[Layout.HeaderLengthBegin];

@@ -53,6 +53,31 @@ namespace Networking.Model
             return (Byte)(~((~@this) | bits));
         }
 
+        /// <summary>
+        /// 获取指定位置的bits
+        /// </summary>
+        /// <param name="this">this</param>
+        /// <param name="index">索引[0-7]</param>
+        /// <param name="length">长度[0-8]</param>
+        /// <returns></returns>
+        public static Byte GetSubByte(this Byte @this, Byte index, Byte length)
+        {
+            CheckIndexAndLength(index, length);
+
+            var leftShiftResult = (Byte)(@this << index);
+            var rightShift = 8 - length;
+            return (Byte)(leftShiftResult >> rightShift);
+        }
+
+        private static void CheckIndexAndLength(Byte index, Byte length)
+        {
+            CheckIndex(index);
+            if (index + length > 8)
+            {
+                throw new IndexOutOfRangeException(
+                    $"{nameof(index)}+{nameof(length)}={index}+{length}={index + length} greater than 8.");
+            }
+        }
 
         private static void CheckIndex(Byte index)
         {

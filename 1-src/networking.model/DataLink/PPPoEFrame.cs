@@ -19,7 +19,7 @@ namespace Networking.Model.DataLink
             set
             {
                 var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)((value) << 4 | old & 0x0F);
+                base[Layout.VersionBegin] = (Byte)((value) << 4 | old & Bits.B_0000_1111);
             }
         }
 
@@ -28,11 +28,11 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Type
         {
-            get { return (Byte)(base[Layout.TypeBegin] & 0x0F); }
+            get { return (Byte)(base[Layout.TypeBegin] & Bits.B_0000_1111); }
             set
             {
                 var old = base[Layout.TypeBegin];
-                base[Layout.TypeBegin] = (Byte)(old & 0xF0 | value & 0x0F);
+                base[Layout.TypeBegin] = (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111);
             }
         }
 

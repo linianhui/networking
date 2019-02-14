@@ -17,7 +17,7 @@ namespace Networking.Model.Internet
             set
             {
                 var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
+                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111);
             }
         }
 

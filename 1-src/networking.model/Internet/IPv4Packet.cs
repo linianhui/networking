@@ -18,7 +18,7 @@ namespace Networking.Model.Internet
             set
             {
                 var old = base[Layout.VersionBegin];
-                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
+                base[Layout.VersionBegin] = (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111);
             }
         }
 
@@ -27,11 +27,11 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HeaderLength
         {
-            get { return (Byte)(base[Layout.HeaderLengthBegin] & 0x0F); }
+            get { return (Byte)(base[Layout.HeaderLengthBegin] & Bits.B_0000_1111); }
             set
             {
                 var old = base[Layout.HeaderLengthBegin];
-                base[Layout.HeaderLengthBegin] = (Byte)(old & 0xF0 | value & 0x0F);
+                base[Layout.HeaderLengthBegin] = (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111);
             }
         }
 

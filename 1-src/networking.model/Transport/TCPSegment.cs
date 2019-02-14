@@ -77,7 +77,7 @@ namespace Networking.Model.Transport
             set
             {
                 var old = base[Layout.HeaderLengthBegin];
-                base[Layout.HeaderLengthBegin] = (Byte)(((Byte)value) << 4 | old & 0x0F);
+                base[Layout.HeaderLengthBegin] = (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111);
             }
         }
 
@@ -86,7 +86,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean NS
         {
-            get { return (base[Layout.HeaderLengthBegin] & 0b_0000_0001) == 0b_0000_0001; }
+            get { return base[Layout.HeaderLengthBegin].GetBit(7); }
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean CWR
         {
-            get { return (base[Layout.FlagsBegin] & 0b_1000_0000) == 0b_1000_0000; }
+            get { return base[Layout.FlagsBegin].GetBit(0); }
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean ECE
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0100_0000) == 0b_0100_0000; }
+            get { return base[Layout.FlagsBegin].GetBit(1); }
         }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean URG
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0010_0000) == 0b_0010_0000; }
+            get { return base[Layout.FlagsBegin].GetBit(2); }
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean ACK
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0001_0000) == 0b_0001_0000; }
+            get { return base[Layout.FlagsBegin].GetBit(3); }
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean PSH
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0000_1000) == 0b_0000_1000; }
+            get { return base[Layout.FlagsBegin].GetBit(4); }
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean RST
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0000_0100) == 0b_0000_0100; }
+            get { return base[Layout.FlagsBegin].GetBit(5); }
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean SYN
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0000_0010) == 0b_0000_0010; }
+            get { return base[Layout.FlagsBegin].GetBit(6); }
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FIN
         {
-            get { return (base[Layout.FlagsBegin] & 0b_0000_0001) == 0b_0000_0001; }
+            get { return base[Layout.FlagsBegin].GetBit(7); }
         }
 
         /// <summary>

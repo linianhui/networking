@@ -26,22 +26,31 @@ namespace Networking.Model
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="this">this</param>
-        /// <param name="index">索引</param>
+        /// <param name="index">索引[0-7]</param>
         /// <returns></returns>
         public static Boolean GetBit(this Byte @this, Byte index)
         {
-            return (@this >> (7 - index) & 1) == 1;
+            if (index > 7)
+            {
+                throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
+            }
+            var byteValue = B_1000_0000 >> index;
+            return (@this & byteValue) == byteValue;
         }
 
         /// <summary>
         /// 设置指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="this">this</param>
-        /// <param name="index">索引</param>
+        /// <param name="index">索引[0-7]</param>
         /// <param name="value">值</param>
         /// <returns></returns>
         public static Byte SetBit(this Byte @this, Byte index, Boolean value)
         {
+            if (index > 7)
+            {
+                throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
+            }
             var byteValue = B_1000_0000 >> index;
             if (value)
             {

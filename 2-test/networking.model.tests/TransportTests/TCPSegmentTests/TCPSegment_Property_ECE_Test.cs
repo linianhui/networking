@@ -18,5 +18,20 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 
             tcpSegment.ECE.Should().Be(true);
         }
+
+        [Fact]
+        public void Set()
+        {
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
+
+            tcpSegment.ECE = true;
+            tcpSegment[13].Should().Be(0b_0100_0000);
+
+            tcpSegment.ECE = false;
+            tcpSegment[13].Should().Be(0b_0000_0000);
+        }
     }
 }

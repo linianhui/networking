@@ -87,6 +87,7 @@ namespace Networking.Model.Transport
         public Boolean NS
         {
             get { return base[Layout.HeaderLengthBegin].GetBit(7); }
+            set { base[Layout.HeaderLengthBegin] = base[Layout.HeaderLengthBegin].SetBit(7, value); }
         }
 
         /// <summary>
@@ -95,6 +96,7 @@ namespace Networking.Model.Transport
         public Boolean CWR
         {
             get { return base[Layout.FlagsBegin].GetBit(0); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(0, value); }
         }
 
         /// <summary>
@@ -103,6 +105,7 @@ namespace Networking.Model.Transport
         public Boolean ECE
         {
             get { return base[Layout.FlagsBegin].GetBit(1); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(1, value); }
         }
 
         /// <summary>
@@ -111,6 +114,7 @@ namespace Networking.Model.Transport
         public Boolean URG
         {
             get { return base[Layout.FlagsBegin].GetBit(2); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(2, value); }
         }
 
         /// <summary>
@@ -119,6 +123,7 @@ namespace Networking.Model.Transport
         public Boolean ACK
         {
             get { return base[Layout.FlagsBegin].GetBit(3); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(3, value); }
         }
 
         /// <summary>
@@ -127,6 +132,7 @@ namespace Networking.Model.Transport
         public Boolean PSH
         {
             get { return base[Layout.FlagsBegin].GetBit(4); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(4, value); }
         }
 
         /// <summary>
@@ -135,6 +141,7 @@ namespace Networking.Model.Transport
         public Boolean RST
         {
             get { return base[Layout.FlagsBegin].GetBit(5); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(5, value); }
         }
 
         /// <summary>
@@ -143,6 +150,7 @@ namespace Networking.Model.Transport
         public Boolean SYN
         {
             get { return base[Layout.FlagsBegin].GetBit(6); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(6, value); }
         }
 
         /// <summary>
@@ -151,6 +159,7 @@ namespace Networking.Model.Transport
         public Boolean FIN
         {
             get { return base[Layout.FlagsBegin].GetBit(7); }
+            set { base[Layout.FlagsBegin] = base[Layout.FlagsBegin].SetBit(7, value); }
         }
 
         /// <summary>

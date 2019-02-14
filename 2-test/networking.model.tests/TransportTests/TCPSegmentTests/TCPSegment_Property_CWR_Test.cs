@@ -18,5 +18,20 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
 
             tcpSegment.CWR.Should().Be(true);
         }
+
+        [Fact]
+        public void Set()
+        {
+            var tcpSegment = new TCPSegment
+            {
+                Bytes = new Byte[32]
+            };
+
+            tcpSegment.CWR = true;
+            tcpSegment[13].Should().Be(0b_1000_0000);
+
+            tcpSegment.CWR = false;
+            tcpSegment[13].Should().Be(0b_0000_0000);
+        }
     }
 }

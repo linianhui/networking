@@ -26,12 +26,13 @@ namespace Networking.Model
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="this">this</param>
-        /// <param name="index">索引[0-7]</param>
+        /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public static Boolean GetBit(this Byte @this, Byte index)
+        public static Boolean GetBit(this Byte @this, Byte bitIndex)
         {
-            CheckIndex(index);
-            var bits = B_1000_0000 >> index;
+            CheckIndex(bitIndex);
+
+            var bits = B_1000_0000 >> bitIndex;
             return (@this & bits) == bits;
         }
 
@@ -39,14 +40,15 @@ namespace Networking.Model
         /// 设置指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="this">this</param>
-        /// <param name="index">索引[0-7]</param>
-        /// <param name="value">值</param>
+        /// <param name="bitIndex">bit的索引[0-7]</param>
+        /// <param name="bitValue">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(this Byte @this, Byte index, Boolean value)
+        public static Byte SetBit(this Byte @this, Byte bitIndex, Boolean bitValue)
         {
-            CheckIndex(index);
-            var bits = B_1000_0000 >> index;
-            if (value)
+            CheckIndex(bitIndex);
+
+            var bits = B_1000_0000 >> bitIndex;
+            if (bitValue)
             {
                 return (Byte)(@this | bits);
             }
@@ -57,33 +59,33 @@ namespace Networking.Model
         /// 获取指定位置的bits组成的Byte
         /// </summary>
         /// <param name="this">this</param>
-        /// <param name="index">索引[0-7]</param>
-        /// <param name="length">长度[0-8]</param>
+        /// <param name="bitIndex">bit的索引[0-7]</param>
+        /// <param name="bitLength">bit的长度[0-8]</param>
         /// <returns></returns>
-        public static Byte GetRange(this Byte @this, Byte index, Byte length)
+        public static Byte GetRange(this Byte @this, Byte bitIndex, Byte bitLength)
         {
-            CheckIndexAndLength(index, length);
+            CheckIndexAndLength(bitIndex, bitLength);
 
-            var leftShiftResult = (Byte)(@this << index);
-            var rightShift = 8 - length;
+            var leftShiftResult = (Byte)(@this << bitIndex);
+            var rightShift = 8 - bitLength;
             return (Byte)(leftShiftResult >> rightShift);
         }
 
-        private static void CheckIndexAndLength(Byte index, Byte length)
+        private static void CheckIndexAndLength(Byte bitIndex, Byte bitLength)
         {
-            CheckIndex(index);
-            if (index + length > 8)
+            CheckIndex(bitIndex);
+            if (bitIndex + bitLength > 8)
             {
                 throw new IndexOutOfRangeException(
-                    $"{nameof(index)}+{nameof(length)}={index}+{length}={index + length} greater than 8.");
+                    $"{nameof(bitIndex)}+{nameof(bitLength)}={bitIndex}+{bitLength}={bitIndex + bitLength} greater than 8.");
             }
         }
 
-        private static void CheckIndex(Byte index)
+        private static void CheckIndex(Byte bitIndex)
         {
-            if (index > 7)
+            if (bitIndex > 7)
             {
-                throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
+                throw new IndexOutOfRangeException($"{nameof(bitIndex)}={bitIndex} not in [0-7].");
             }
         }
     }

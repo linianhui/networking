@@ -14,7 +14,7 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Version
         {
-            get { return base[Layout.VersionBegin].GetSubByte(0, 4); }
+            get { return base[Layout.VersionBegin].GetRange(0, 4); }
             set
             {
                 var old = base[Layout.VersionBegin];
@@ -27,7 +27,7 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Type
         {
-            get { return base[Layout.TypeBegin].GetSubByte(4, 4); }
+            get { return base[Layout.TypeBegin].GetRange(4, 4); }
             set
             {
                 var old = base[Layout.TypeBegin];

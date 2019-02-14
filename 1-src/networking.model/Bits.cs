@@ -54,13 +54,13 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 获取指定位置的bits
+        /// 获取指定位置的bits组成的Byte
         /// </summary>
         /// <param name="this">this</param>
         /// <param name="index">索引[0-7]</param>
         /// <param name="length">长度[0-8]</param>
         /// <returns></returns>
-        public static Byte GetSubByte(this Byte @this, Byte index, Byte length)
+        public static Byte GetRange(this Byte @this, Byte index, Byte length)
         {
             CheckIndexAndLength(index, length);
 

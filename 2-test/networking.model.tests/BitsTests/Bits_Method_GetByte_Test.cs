@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.BitsTests
 {
-    public class Bits_Method_GetSubByte_Test
+    public class Bits_Method_GetRange_Test
     {
 
         public static List<Object[]> Data => new List<Object[]>
@@ -24,9 +24,9 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void GetSubByte(Byte @this, Byte index, Byte length, Byte expected)
+        public void GetRange(Byte @this, Byte index, Byte length, Byte expected)
         {
-            @this.GetSubByte(index, length).Should().Be(expected);
+            @this.GetRange(index, length).Should().Be(expected);
         }
 
         [Theory]
@@ -39,9 +39,9 @@ namespace Networking.Model.Tests.BitsTests
         [InlineData(6, 3)]
         [InlineData(7, 2)]
         [InlineData(8, 0)]
-        public void GetSubByte_throw_IndexOutOfRangeException(Byte index, Byte length)
+        public void GetRange_throw_IndexOutOfRangeException(Byte index, Byte length)
         {
-            Assert.Throws<IndexOutOfRangeException>(() => ((Byte)1).GetSubByte(index, length).Should());
+            Assert.Throws<IndexOutOfRangeException>(() => ((Byte)1).GetRange(index, length).Should());
         }
     }
 }

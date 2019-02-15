@@ -50,12 +50,14 @@ namespace Networking.Model.Tests.BitsTests
         public void SetBit(Byte @this, Byte index, Boolean value, Byte expected)
         {
             @this.SetBit(index, value).Should().Be(expected);
+            @this.Should().Be(expected);
         }
 
         [Fact]
         public void SetBit_throw_IndexOutOfRangeException()
         {
-            Assert.Throws<IndexOutOfRangeException>(() => ((Byte)1).SetBit(8, true).Should());
+            Byte i = 1;
+            Assert.Throws<IndexOutOfRangeException>(() => i.SetBit(8, true).Should());
         }
     }
 }

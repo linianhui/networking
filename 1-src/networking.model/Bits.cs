@@ -13,11 +13,6 @@ namespace Networking.Model
         public const Byte B_0000_1111 = 0B_0000_1111;
 
         /// <summary>
-        /// 128=0x80=0B_1000_0000
-        /// </summary>
-        public const Byte B_1000_0000 = 0B_1000_0000;
-
-        /// <summary>
         /// 240=0xF0=0B_1111_0000
         /// </summary>
         public const Byte B_1111_0000 = 0B_1111_0000;
@@ -30,10 +25,11 @@ namespace Networking.Model
         /// <returns></returns>
         public static Boolean GetBit(this Byte @this, Byte bitIndex)
         {
-            CheckIndex(bitIndex);
+            CheckIndex(bitIndex, 7);
 
-            var bits = B_1000_0000 >> bitIndex;
-            return (@this & bits) == bits;
+            var bits = @this >> (7 - bitIndex);
+            var bit = bits & 1;
+            return bit == 1;
         }
 
         /// <summary>
@@ -43,16 +39,21 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitValue">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(this Byte @this, Byte bitIndex, Boolean bitValue)
+        public static Byte SetBit(ref this Byte @this, Byte bitIndex, Boolean bitValue)
         {
-            CheckIndex(bitIndex);
+            CheckIndex(bitIndex, 7);
 
-            var bits = B_1000_0000 >> bitIndex;
+            var bits = 1 << (7 - bitIndex);
             if (bitValue)
             {
-                return (Byte)(@this | bits);
+                @this |= (Byte)bits;
             }
-            return (Byte)(~((~@this) | bits));
+            else
+            {
+                @this &= (Byte)~bits;
+            }
+
+            return @this;
         }
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace Networking.Model
 
         private static void CheckIndexAndLength(Byte bitIndex, Byte bitLength)
         {
-            CheckIndex(bitIndex);
+            CheckIndex(bitIndex, 7);
             if (bitIndex + bitLength > 8)
             {
                 throw new IndexOutOfRangeException(
@@ -81,11 +82,11 @@ namespace Networking.Model
             }
         }
 
-        private static void CheckIndex(Byte bitIndex)
+        private static void CheckIndex(Byte index, Byte length)
         {
-            if (bitIndex > 7)
+            if (index > length)
             {
-                throw new IndexOutOfRangeException($"{nameof(bitIndex)}={bitIndex} not in [0-7].");
+                throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
             }
         }
     }

@@ -28,20 +28,5 @@ namespace Networking.Model.Tests.BitsTests
         {
             @this.GetRange(index, length).Should().Be(expected);
         }
-
-        [Theory]
-        [InlineData(0, 9)]
-        [InlineData(1, 8)]
-        [InlineData(2, 7)]
-        [InlineData(3, 6)]
-        [InlineData(4, 5)]
-        [InlineData(5, 4)]
-        [InlineData(6, 3)]
-        [InlineData(7, 2)]
-        [InlineData(8, 0)]
-        public void GetRange_throw_IndexOutOfRangeException(Byte index, Byte length)
-        {
-            Assert.Throws<IndexOutOfRangeException>(() => ((Byte)1).GetRange(index, length).Should());
-        }
     }
 }

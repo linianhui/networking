@@ -64,5 +64,19 @@ namespace Networking.Model
             var rightShiftLength = 8 - bitLength;
             return (Byte)(leftShiftResult >> rightShiftLength);
         }
+
+        /// <summary>
+        /// 获取指定位置的bits组成的<see cref="UInt16"/>
+        /// </summary>
+        /// <param name="this">this</param>
+        /// <param name="bitIndex">bit的索引[0-15]</param>
+        /// <param name="bitLength">bit的长度[0-16]</param>
+        /// <returns></returns>
+        public static UInt16 GetRange(this UInt16 @this, Byte bitIndex, Byte bitLength)
+        {
+            var leftShiftResult = (UInt16)(@this << bitIndex);
+            var rightShiftLength = 16 - bitLength;
+            return (UInt16)(leftShiftResult >> rightShiftLength);
+        }
     }
 }

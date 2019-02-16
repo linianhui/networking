@@ -81,16 +81,23 @@ namespace Networking.Model
         /// </summary>
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
-        /// <param name="bitValue">bit的值</param>
+        /// <param name="value">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(this Byte @this, Int32 bitIndex, Boolean bitValue)
+        public static Byte SetBit(this Byte @this, Int32 bitIndex, Boolean value)
         {
-            var bits = B_1000_0000 >> bitIndex;
-            if (bitValue)
-            {
-                return (Byte)(@this | bits);
-            }
-            return (Byte)(@this & ((Byte)~bits));
+            return (Byte)SetUInt32(@this, bitIndex + 24, 1, value ? 1u : 0u);
+        }
+
+        private static UInt32 SetUInt32(this UInt32 @this, Int32 bitIndex, Int32 bitLength, UInt32 value)
+        {
+            var mask = ~0u << 32 - bitLength;
+            mask >>= bitIndex;
+            mask = ~mask;
+
+            var bits = value << 32 - bitLength;
+            bits >>= bitIndex;
+
+            return @this & mask | bits;
         }
     }
 }

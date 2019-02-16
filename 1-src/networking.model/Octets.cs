@@ -96,7 +96,7 @@ namespace Networking.Model
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void SetUInt16(Int32 index, UInt16 value)
+        public UInt16 SetUInt16(Int32 index, UInt16 value)
         {
             var span = this[index, 2].Span;
             if (IsLittleEndian)
@@ -107,6 +107,7 @@ namespace Networking.Model
             {
                 BinaryPrimitives.WriteUInt16BigEndian(span, value);
             }
+            return value;
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace Networking.Model
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public void SetUInt32(Int32 index, UInt32 value)
+        public UInt32 SetUInt32(Int32 index, UInt32 value)
         {
             var span = this[index, 4].Span;
             if (IsLittleEndian)
@@ -126,6 +127,7 @@ namespace Networking.Model
             {
                 BinaryPrimitives.WriteUInt32BigEndian(span, value);
             }
+            return value;
         }
 
         /// <summary>
@@ -156,9 +158,10 @@ namespace Networking.Model
         /// <param name="byteIndex">byte的索引</param>
         /// <param name="byteValue">byte的值</param>
         /// <returns></returns>
-        public void SetByte(Int32 byteIndex, Byte byteValue)
+        public Byte SetByte(Int32 byteIndex, Byte byteValue)
         {
             Bytes.Span[byteIndex] = byteValue;
+            return byteValue;
         }
 
         /// <summary>
@@ -177,14 +180,13 @@ namespace Networking.Model
         /// </summary>
         /// <param name="byteIndex">Byte的索引</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
-        /// <param name="bitValue">bit的值</param>
+        /// <param name="value">bit的值</param>
         /// <returns></returns>
-        public Byte SetBit(Int32 byteIndex, Int32 bitIndex, Boolean bitValue)
+        public Byte SetBit(Int32 byteIndex, Int32 bitIndex, Boolean value)
         {
-            var byteValue = GetByte(byteIndex);
-            var value = byteValue.SetBit(bitIndex, bitValue);
-            SetByte(byteIndex, value);
-            return value;
+            var oldValue = GetByte(byteIndex);
+            var newValue = oldValue.SetBit(bitIndex, value);
+            return SetByte(byteIndex, newValue);
         }
 
         /// <summary>

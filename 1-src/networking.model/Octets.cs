@@ -150,6 +150,21 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 设置<see cref="Byte"/>
+        /// </summary>
+        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <param name="value">byte的值</param>
+        /// <returns></returns>
+        public Byte SetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength, Byte value)
+        {
+            var oldValue = GetByte(byteIndex);
+            var newValue = oldValue.SetByte(bitIndex, bitLength, value);
+            return SetByte(byteIndex, newValue);
+        }
+
+        /// <summary>
         /// 设置<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>

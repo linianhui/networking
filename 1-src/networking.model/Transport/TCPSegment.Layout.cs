@@ -95,47 +95,47 @@ namespace Networking.Model.Transport
             /// <summary>
             /// 标志位-NS的bit索引位置=7
             /// </summary>
-            public static readonly Byte FlagsNSBitIndex = 7;
+            public static readonly Int32 FlagsNSBitIndex = 7;
 
             /// <summary>
             /// 标志位-CWR的bit索引位置=0
             /// </summary>
-            public static readonly Byte FlagsCWRBitIndex = 0;
+            public static readonly Int32 FlagsCWRBitIndex = 0;
 
             /// <summary>
             /// 标志位-ECE的bit索引位置=1
             /// </summary>
-            public static readonly Byte FlagsECEBitIndex = 1;
+            public static readonly Int32 FlagsECEBitIndex = 1;
 
             /// <summary>
             /// 标志位-URG的bit索引位置=2
             /// </summary>
-            public static readonly Byte FlagsURGBitIndex = 2;
+            public static readonly Int32 FlagsURGBitIndex = 2;
 
             /// <summary>
             /// 标志位-ACK的bit索引位置=3
             /// </summary>
-            public static readonly Byte FlagsACKBitIndex = 3;
+            public static readonly Int32 FlagsACKBitIndex = 3;
 
             /// <summary>
             /// 标志位-PSH的bit索引位置=4
             /// </summary>
-            public static readonly Byte FlagsPSHBitIndex = 4;
+            public static readonly Int32 FlagsPSHBitIndex = 4;
 
             /// <summary>
             /// 标志位-RST的bit索引位置=5
             /// </summary>
-            public static readonly Byte FlagsRSTBitIndex = 5;
+            public static readonly Int32 FlagsRSTBitIndex = 5;
 
             /// <summary>
             /// 标志位-SYN的bit索引位置=6
             /// </summary>
-            public static readonly Byte FlagsSYNBitIndex = 6;
+            public static readonly Int32 FlagsSYNBitIndex = 6;
 
             /// <summary>
             /// 标志位-FIN的bit索引位置=7
             /// </summary>
-            public static readonly Byte FlagsFINBitIndex = 7;
+            public static readonly Int32 FlagsFINBitIndex = 7;
 
             /// <summary>
             /// 窗口大小-起始位置=14

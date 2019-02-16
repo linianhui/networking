@@ -31,9 +31,9 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void GetBit(Byte @this, Byte index, Boolean expected)
+        public void GetBit(Byte @this, Int32 bitIndex, Boolean expected)
         {
-            @this.GetBit(index).Should().Be(expected);
+            @this.GetBit(bitIndex).Should().Be(expected);
         }
     }
 }

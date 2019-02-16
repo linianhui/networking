@@ -26,7 +26,7 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void GetRange(UInt32 @this, Byte bitIndex, Byte bitLength, UInt32 expected)
+        public void GetRange(UInt32 @this, Int32 bitIndex, Int32 bitLength, UInt32 expected)
         {
             @this.GetRange(bitIndex, bitLength).Should().Be(expected);
         }

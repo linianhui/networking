@@ -28,7 +28,7 @@ namespace Networking.Model
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public static Boolean GetBit(this Byte @this, Byte bitIndex)
+        public static Boolean GetBit(this Byte @this, Int32 bitIndex)
         {
             var bits = B_1000_0000 >> bitIndex;
             return (@this & bits) == bits;
@@ -41,7 +41,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitValue">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(this Byte @this, Byte bitIndex, Boolean bitValue)
+        public static Byte SetBit(this Byte @this, Int32 bitIndex, Boolean bitValue)
         {
             var bits = B_1000_0000 >> bitIndex;
             if (bitValue)
@@ -58,7 +58,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitLength">bit的长度[0-8]</param>
         /// <returns></returns>
-        public static Byte GetRange(this Byte @this, Byte bitIndex, Byte bitLength)
+        public static Byte GetRange(this Byte @this, Int32 bitIndex, Int32 bitLength)
         {
             if (bitLength == 0)
             {
@@ -77,7 +77,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-15]</param>
         /// <param name="bitLength">bit的长度[0-16]</param>
         /// <returns></returns>
-        public static UInt16 GetRange(this UInt16 @this, Byte bitIndex, Byte bitLength)
+        public static UInt16 GetRange(this UInt16 @this, Int32 bitIndex, Int32 bitLength)
         {
             if (bitLength == 0)
             {
@@ -96,7 +96,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-31]</param>
         /// <param name="bitLength">bit的长度[0-32]</param>
         /// <returns></returns>
-        public static UInt32 GetRange(this UInt32 @this, Byte bitIndex, Byte bitLength)
+        public static UInt32 GetRange(this UInt32 @this, Int32 bitIndex, Int32 bitLength)
         {
             if (bitLength == 0)
             {

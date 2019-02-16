@@ -145,7 +145,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <returns></returns>
-        public Byte GetByte(Int32 byteIndex, Byte bitIndex, Byte bitLength)
+        public Byte GetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
         {
             return GetByte(byteIndex).GetRange(bitIndex, bitLength);
         }
@@ -167,7 +167,7 @@ namespace Networking.Model
         /// <param name="byteIndex">Byte的索引</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public Boolean GetBit(Int32 byteIndex, Byte bitIndex)
+        public Boolean GetBit(Int32 byteIndex, Int32 bitIndex)
         {
             return GetByte(byteIndex).GetBit(bitIndex);
         }
@@ -179,7 +179,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitValue">bit的值</param>
         /// <returns></returns>
-        public Byte SetBit(Int32 byteIndex, Byte bitIndex, Boolean bitValue)
+        public Byte SetBit(Int32 byteIndex, Int32 bitIndex, Boolean bitValue)
         {
             var byteValue = GetByte(byteIndex);
             var value = byteValue.SetBit(bitIndex, bitValue);

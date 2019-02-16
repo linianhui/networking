@@ -47,9 +47,9 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void SetBit(Byte @this, Byte index, Boolean value, Byte expected)
+        public void SetBit(Byte @this, Int32 bitIndex, Boolean value, Byte expected)
         {
-            @this.SetBit(index, value).Should().Be(expected);
+            @this.SetBit(bitIndex, value).Should().Be(expected);
         }
     }
 }

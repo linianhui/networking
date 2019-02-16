@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.BitsTests
 {
-    public class Bits_Method_GetRange_UInt16_Test
+    public class Bits_Method_GetUInt16_Test
     {
 
         public static List<Object[]> Data => new List<Object[]>
@@ -25,9 +25,9 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void GetRange(UInt16 @this, Int32 bitIndex, Int32 bitLength, UInt16 expected)
+        public void GetUInt16(UInt16 @this, Int32 bitIndex, Int32 bitLength, UInt16 expected)
         {
-            @this.GetRange(bitIndex, bitLength).Should().Be(expected);
+            @this.GetUInt16(bitIndex, bitLength).Should().Be(expected);
         }
     }
 }

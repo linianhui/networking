@@ -147,7 +147,7 @@ namespace Networking.Model
         /// <returns></returns>
         public Byte GetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
         {
-            return GetByte(byteIndex).GetRange(bitIndex, bitLength);
+            return GetByte(byteIndex).GetByte(bitIndex, bitLength);
         }
 
         /// <summary>

@@ -13,6 +13,11 @@ namespace Networking.Model
         public const Byte B_0000_1111 = 0B_0000_1111;
 
         /// <summary>
+        /// 128=0x80=0B_1000_0000
+        /// </summary>
+        public const Byte B_1000_0000 = 0B_1000_0000;
+
+        /// <summary>
         /// 240=0xF0=0B_1111_0000
         /// </summary>
         public const Byte B_1111_0000 = 0B_1111_0000;
@@ -25,11 +30,10 @@ namespace Networking.Model
         /// <returns></returns>
         public static Boolean GetBit(this Byte @this, Byte bitIndex)
         {
-            CheckIndex(bitIndex, 7);
+            CheckIndex(bitIndex);
 
-            var bits = @this >> (7 - bitIndex);
-            var bit = bits & 1;
-            return bit == 1;
+            var bits = B_1000_0000 >> bitIndex;
+            return (@this & bits) == bits;
         }
 
         /// <summary>
@@ -41,9 +45,9 @@ namespace Networking.Model
         /// <returns></returns>
         public static Byte SetBit(this Byte @this, Byte bitIndex, Boolean bitValue)
         {
-            CheckIndex(bitIndex, 7);
+            CheckIndex(bitIndex);
 
-            var bits = 1 << (7 - bitIndex);
+            var bits = B_1000_0000 >> bitIndex;
             if (bitValue)
             {
                 return (Byte)(@this | bits);
@@ -69,7 +73,7 @@ namespace Networking.Model
 
         private static void CheckIndexAndLength(Byte bitIndex, Byte bitLength)
         {
-            CheckIndex(bitIndex, 7);
+            CheckIndex(bitIndex);
             if (bitIndex + bitLength > 8)
             {
                 throw new IndexOutOfRangeException(
@@ -77,9 +81,9 @@ namespace Networking.Model
             }
         }
 
-        private static void CheckIndex(Byte index, Byte length)
+        private static void CheckIndex(Byte index)
         {
-            if (index > length)
+            if (index > 7)
             {
                 throw new IndexOutOfRangeException($"{nameof(index)}={index} not in [0-7].");
             }

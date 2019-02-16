@@ -15,11 +15,7 @@ namespace Networking.Model.Internet
         public IPVersion Version
         {
             get { return (IPVersion)base.GetByte(Layout.VersionBegin, 0, 4); }
-            set
-            {
-                var old = base.GetByte(Layout.VersionBegin);
-                base.SetByte(Layout.VersionBegin, (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111));
-            }
+            set { base.SetByte(Layout.VersionBegin, 0, 4, (Byte)value); }
         }
 
         /// <summary>
@@ -28,11 +24,7 @@ namespace Networking.Model.Internet
         public Byte HeaderLength
         {
             get { return base.GetByte(Layout.HeaderLengthBegin, 4, 4); }
-            set
-            {
-                var old = base.GetByte(Layout.HeaderLengthBegin);
-                base.SetByte(Layout.HeaderLengthBegin, (Byte)(old & Bits.B_1111_0000 | value & Bits.B_0000_1111));
-            }
+            set { base.SetByte(Layout.HeaderLengthBegin, 4, 4, value); }
         }
 
         /// <summary>

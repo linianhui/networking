@@ -74,11 +74,7 @@ namespace Networking.Model.Transport
         public Byte HeaderLength
         {
             get { return base.GetByte(Layout.HeaderLengthBegin, 0, 4); }
-            set
-            {
-                var old = base.GetByte(Layout.HeaderLengthBegin);
-                base.SetByte(Layout.HeaderLengthBegin, (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111));
-            }
+            set { base.SetByte(Layout.HeaderLengthBegin, 0, 4, value); }
         }
 
         /// <summary>

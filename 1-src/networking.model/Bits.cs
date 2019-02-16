@@ -8,21 +8,6 @@ namespace Networking.Model
     public static class Bits
     {
         /// <summary>
-        /// 15=0x0F=0B_0000_1111
-        /// </summary>
-        public const Byte B_0000_1111 = 0B_0000_1111;
-
-        /// <summary>
-        /// 128=0x80=0B_1000_0000
-        /// </summary>
-        public const Byte B_1000_0000 = 0B_1000_0000;
-
-        /// <summary>
-        /// 240=0xF0=0B_1111_0000
-        /// </summary>
-        public const Byte B_1111_0000 = 0B_1111_0000;
-
-        /// <summary>
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="this">this</param>

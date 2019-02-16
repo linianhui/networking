@@ -14,11 +14,7 @@ namespace Networking.Model.Internet
         public IPVersion Version
         {
             get { return (IPVersion)base.GetByte(Layout.VersionBegin, 0, 4); }
-            set
-            {
-                var old = base.GetByte(Layout.VersionBegin);
-                base.SetByte(Layout.VersionBegin, (Byte)(((Byte)value) << 4 | old & Bits.B_0000_1111));
-            }
+            set { base.SetByte(Layout.VersionBegin, 0, 4, (Byte)value); }
         }
 
         /// <summary>

@@ -39,21 +39,16 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitValue">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(ref this Byte @this, Byte bitIndex, Boolean bitValue)
+        public static Byte SetBit(this Byte @this, Byte bitIndex, Boolean bitValue)
         {
             CheckIndex(bitIndex, 7);
 
             var bits = 1 << (7 - bitIndex);
             if (bitValue)
             {
-                @this |= (Byte)bits;
+                return (Byte)(@this | bits);
             }
-            else
-            {
-                @this &= (Byte)~bits;
-            }
-
-            return @this;
+            return (Byte)(@this & ((Byte)~bits));
         }
 
         /// <summary>

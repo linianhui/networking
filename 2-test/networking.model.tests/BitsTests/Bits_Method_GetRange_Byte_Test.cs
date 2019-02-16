@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.BitsTests
 {
-    public class Bits_Method_GetRange_Test
+    public class Bits_Method_GetRange_Byte_Test
     {
 
         public static List<Object[]> Data => new List<Object[]>

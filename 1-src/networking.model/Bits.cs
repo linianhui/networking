@@ -52,7 +52,7 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 获取指定位置的bits组成的Byte
+        /// 获取指定位置的bits组成的<see cref="Byte"/>
         /// </summary>
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>

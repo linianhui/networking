@@ -60,6 +60,11 @@ namespace Networking.Model
         /// <returns></returns>
         public static Byte GetRange(this Byte @this, Byte bitIndex, Byte bitLength)
         {
+            if (bitLength == 0)
+            {
+                return 0;
+            }
+
             var leftShiftResult = (Byte)(@this << bitIndex);
             var rightShiftLength = 8 - bitLength;
             return (Byte)(leftShiftResult >> rightShiftLength);
@@ -74,9 +79,33 @@ namespace Networking.Model
         /// <returns></returns>
         public static UInt16 GetRange(this UInt16 @this, Byte bitIndex, Byte bitLength)
         {
+            if (bitLength == 0)
+            {
+                return 0;
+            }
+
             var leftShiftResult = (UInt16)(@this << bitIndex);
             var rightShiftLength = 16 - bitLength;
             return (UInt16)(leftShiftResult >> rightShiftLength);
+        }
+
+        /// <summary>
+        /// 获取指定位置的bits组成的<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="this">this</param>
+        /// <param name="bitIndex">bit的索引[0-31]</param>
+        /// <param name="bitLength">bit的长度[0-32]</param>
+        /// <returns></returns>
+        public static UInt32 GetRange(this UInt32 @this, Byte bitIndex, Byte bitLength)
+        {
+            if (bitLength == 0)
+            {
+                return 0;
+            }
+
+            var leftShiftResult = @this << bitIndex;
+            var rightShiftLength = 32 - bitLength;
+            return leftShiftResult >> rightShiftLength;
         }
     }
 }

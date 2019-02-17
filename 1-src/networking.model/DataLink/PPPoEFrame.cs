@@ -14,8 +14,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Version
         {
-            get { return base.GetByte(Layout.VersionBegin, 0, 4); }
-            set { base.SetByte(Layout.VersionBegin, 0, 4, value); }
+            get { return base.GetByte(Layout.VersionBegin, Layout.VersionBitIndex, Layout.VersionBitLength); }
+            set { base.SetByte(Layout.VersionBegin, Layout.VersionBitIndex, Layout.VersionBitLength, value); }
         }
 
         /// <summary>
@@ -23,8 +23,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Byte Type
         {
-            get { return base.GetByte(Layout.TypeBegin, 4, 4); }
-            set { base.SetByte(Layout.TypeBegin, 4, 4, value); }
+            get { return base.GetByte(Layout.TypeBegin, Layout.TypeBitIndex, Layout.TypeBitLength); }
+            set { base.SetByte(Layout.TypeBegin, Layout.TypeBitIndex, Layout.TypeBitLength, value); }
         }
 
         /// <summary>
@@ -32,14 +32,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public PPPoEFrameCode Code
         {
-            get
-            {
-                return (PPPoEFrameCode)base.GetByte(Layout.CodeBegin);
-            }
-            set
-            {
-                base.SetByte(Layout.CodeBegin, (Byte)value);
-            }
+            get { return (PPPoEFrameCode)base.GetByte(Layout.CodeBegin); }
+            set { base.SetByte(Layout.CodeBegin, (Byte)value); }
         }
 
         /// <summary>
@@ -47,14 +41,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public UInt16 SessionId
         {
-            get
-            {
-                return GetUInt16(Layout.SessionIdBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.SessionIdBegin, value);
-            }
+            get { return GetUInt16(Layout.SessionIdBegin); }
+            set { SetUInt16(Layout.SessionIdBegin, value); }
         }
 
         /// <summary>
@@ -62,14 +50,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public UInt16 PayloadLength
         {
-            get
-            {
-                return GetUInt16(Layout.PayloadLengthBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.PayloadLengthBegin, value);
-            }
+            get { return GetUInt16(Layout.PayloadLengthBegin); }
+            set { SetUInt16(Layout.PayloadLengthBegin, value); }
         }
 
         /// <summary>

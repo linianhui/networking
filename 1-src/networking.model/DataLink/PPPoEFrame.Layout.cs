@@ -29,58 +29,82 @@ namespace Networking.Model.DataLink
             /// <summary>
             /// 版本-起始位置=0
             /// </summary>
-            public static readonly Int32 VersionBegin = 0;
+            public const Int32 VersionBegin = 0;
 
             /// <summary>
             /// 版本-结束位置=1
             /// </summary>
-            public static readonly Int32 VersionEnd = VersionBegin + 1;
+            public const Int32 VersionEnd = VersionBegin + 1;
+
+            /// <summary>
+            /// 版本-bit索引=0
+            /// </summary>
+            public const Int32 VersionBitIndex = 0;
+
+            /// <summary>
+            /// 版本-bit长度=4
+            /// </summary>
+            public const Int32 VersionBitLength = 4;
+
 
             /// <summary>
             /// 类型-起始位置=0
             /// </summary>
-            public static readonly Int32 TypeBegin = 0;
+            public const Int32 TypeBegin = 0;
 
             /// <summary>
             /// 类型-结束位置=1
             /// </summary>
-            public static readonly Int32 TypeEnd = TypeBegin + 1;
+            public const Int32 TypeEnd = TypeBegin + 1;
+
+            /// <summary>
+            /// 版本-bit索引=4
+            /// </summary>
+            public const Int32 TypeBitIndex = 4;
+
+            /// <summary>
+            /// 版本-bit长度=4
+            /// </summary>
+            public const Int32 TypeBitLength = 4;
+
 
             /// <summary>
             /// 编号-起始位置=1
             /// </summary>
-            public static readonly Int32 CodeBegin = TypeEnd;
+            public const Int32 CodeBegin = TypeEnd;
 
             /// <summary>
             /// 编号-结束位置=2
             /// </summary>
-            public static readonly Int32 CodeEnd = CodeBegin + 1;
+            public const Int32 CodeEnd = CodeBegin + 1;
 
 
             /// <summary>
             /// 会话Id-起始位置=2
             /// </summary>
-            public static readonly Int32 SessionIdBegin = CodeEnd;
+            public const Int32 SessionIdBegin = CodeEnd;
 
             /// <summary>
             /// 会话Id-结束位置=4
             /// </summary>
-            public static readonly Int32 SessionIdEnd = SessionIdBegin + 2;
+            public const Int32 SessionIdEnd = SessionIdBegin + 2;
+
 
             /// <summary>
             /// 负载长度-起始位置=4
             /// </summary>
-            public static readonly Int32 PayloadLengthBegin = SessionIdEnd;
+            public const Int32 PayloadLengthBegin = SessionIdEnd;
 
             /// <summary>
             /// 负载长度-结束位置=6
             /// </summary>
-            public static readonly Int32  PayloadLengthEnd = PayloadLengthBegin + 2;
+            public const Int32 PayloadLengthEnd = PayloadLengthBegin + 2;
+
 
             /// <summary>
             /// 首部信息-长度=6
             /// </summary>
-            public static readonly Int32 HeaderLength =  PayloadLengthEnd;
+            public const Int32 HeaderLength = PayloadLengthEnd;
         }
     }
 }

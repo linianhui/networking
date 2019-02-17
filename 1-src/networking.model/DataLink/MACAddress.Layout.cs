@@ -12,7 +12,7 @@ namespace Networking.Model.DataLink
             /// <summary>
             /// MAC地址长度=6
             /// </summary>
-            public static readonly Int32 Length = 6;
+            public const Int32 Length = 6;
         }
     }
 }

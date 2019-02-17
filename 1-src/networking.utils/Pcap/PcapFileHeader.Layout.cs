@@ -24,63 +24,63 @@ namespace Networking.Utils.Pcap
             /// <summary>
             /// Major Number-起始位置
             /// </summary>
-            public static readonly Int32 MagicNumberBegin = 0;
+            public const Int32 MagicNumberBegin = 0;
 
             /// <summary>
             /// Major Number-结束位置
             /// </summary>
-            public static readonly Int32 MagicNumberEnd = MagicNumberBegin + 4;
+            public const Int32 MagicNumberEnd = MagicNumberBegin + 4;
 
 
             /// <summary>
             /// Major Version-起始位置
             /// </summary>
-            public static readonly Int32 VersionMajorBegin = MagicNumberEnd;
+            public const Int32 VersionMajorBegin = MagicNumberEnd;
 
             /// <summary>
             /// Major Version-结束位置
             /// </summary>
-            public static readonly Int32 VersionMajorEnd = VersionMajorBegin + 2;
+            public const Int32 VersionMajorEnd = VersionMajorBegin + 2;
 
 
             /// <summary>
             /// Minor Version-起始位置
             /// </summary>
-            public static readonly Int32 VersionMinorBegin = VersionMajorEnd;
+            public const Int32 VersionMinorBegin = VersionMajorEnd;
 
             /// <summary>
             /// Minor Version-结束位置
             /// </summary>
-            public static readonly Int32 VersionMinorEnd = VersionMinorBegin + 2;
+            public const Int32 VersionMinorEnd = VersionMinorBegin + 2;
 
 
             /// <summary>
             /// 数据包最大的长度-起始位置
             /// </summary>
-            public static readonly Int32 PacketMaxLengthBegin = VersionMinorEnd + 8;
+            public const Int32 PacketMaxLengthBegin = VersionMinorEnd + 8;
 
 
             /// <summary>
             /// 数据包最大的长度-结束位置
             /// </summary>
-            public static readonly Int32 PacketMaxLengthEnd = PacketMaxLengthBegin + 4;
+            public const Int32 PacketMaxLengthEnd = PacketMaxLengthBegin + 4;
 
             /// <summary>
             /// 数据链路类型-起始位置
             /// </summary>
-            public static readonly Int32 DataLinkTypeBegin = PacketMaxLengthEnd;
+            public const Int32 DataLinkTypeBegin = PacketMaxLengthEnd;
 
 
             /// <summary>
             /// 数据链路类型-结束位置
             /// </summary>
-            public static readonly Int32 DataLinkTypeEnd = DataLinkTypeBegin + 4;
+            public const Int32 DataLinkTypeEnd = DataLinkTypeBegin + 4;
 
 
             /// <summary>
             /// 首部长度
             /// </summary>
-            public static readonly Int32 HeaderLength = DataLinkTypeEnd;
+            public const Int32 HeaderLength = DataLinkTypeEnd;
         }
     }
 }

@@ -26,42 +26,45 @@ namespace Networking.Model.Internet
             /// <summary>
             /// 类型编号-起始位置=0
             /// </summary>
-            public static readonly Int32 TypeCodeBegin = 0;
+            public const Int32 TypeCodeBegin = 0;
 
             /// <summary>
             /// 类型编号-结束位置=2
             /// </summary>
-            public static readonly Int32 TypeCodeEnd = 2;
+            public const Int32 TypeCodeEnd = 2;
+
 
             /// <summary>
             /// 校验和-起始位置=2
             /// </summary>
-            public static readonly Int32 ChecksumBegin = TypeCodeEnd;
+            public const Int32 ChecksumBegin = TypeCodeEnd;
 
             /// <summary>
             /// 校验和-结束位置=4
             /// </summary>
-            public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
+            public const Int32 ChecksumEnd = ChecksumBegin + 2;
+
 
             /// <summary>
             /// Id-起始位置=4
             /// </summary>
-            public static readonly Int32 IdBegin = ChecksumEnd;
+            public const Int32 IdBegin = ChecksumEnd;
 
             /// <summary>
             /// Id-结束位置=6
             /// </summary>
-            public static readonly Int32 IdEnd = IdBegin + 2;
+            public const Int32 IdEnd = IdBegin + 2;
+
 
             /// <summary>
             /// 序列号-起始位置=6
             /// </summary>
-            public static readonly Int32 SequenceBegin = IdEnd;
+            public const Int32 SequenceBegin = IdEnd;
 
             /// <summary>
             /// 序列号-结束位置=8
             /// </summary>
-            public static readonly Int32 SequenceEnd = SequenceBegin + 2;
+            public const Int32 SequenceEnd = SequenceBegin + 2;
         }
     }
 }

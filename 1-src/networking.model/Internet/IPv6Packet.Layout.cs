@@ -34,62 +34,78 @@ namespace Networking.Model.Internet
             /// <summary>
             /// Version-起始位置=0
             /// </summary>
-            public static readonly Int32 VersionBegin = 0;
+            public const Int32 VersionBegin = 0;
+
+            /// <summary>
+            /// 版本-bit索引=0
+            /// </summary>
+            public const Int32 VersionBitIndex = 0;
+
+            /// <summary>
+            /// 版本-bit长度=4
+            /// </summary>
+            public const Int32 VersionBitLength = 4;
+
 
             /// <summary>
             /// 负载长度-起始位置=4
             /// </summary>
-            public static readonly Int32 PayloadLengthBegin = 4;
+            public const Int32 PayloadLengthBegin = 4;
 
             /// <summary>
             /// 负载长度-结束位置=6
             /// </summary>
-            public static readonly Int32 PayloadLengthEnd = PayloadLengthBegin + 2;
+            public const Int32 PayloadLengthEnd = PayloadLengthBegin + 2;
+
 
             /// <summary>
             /// 下一个首部-起始位置=6
             /// </summary>
-            public static readonly Int32 NextHeaderBegin = PayloadLengthEnd;
+            public const Int32 NextHeaderBegin = PayloadLengthEnd;
 
             /// <summary>
             /// 下一个首部-结束位置=7
             /// </summary>
-            public static readonly Int32 NextHeaderEnd = NextHeaderBegin + 1;
+            public const Int32 NextHeaderEnd = NextHeaderBegin + 1;
+
 
             /// <summary>
             /// 跳数限制-起始位置=7
             /// </summary>
-            public static readonly Int32 HopLimitBegin = NextHeaderEnd;
+            public const Int32 HopLimitBegin = NextHeaderEnd;
 
             /// <summary>
             /// 跳数限制-结束位置=8
             /// </summary>
-            public static readonly Int32 HopLimitEnd = HopLimitBegin + 1;
+            public const Int32 HopLimitEnd = HopLimitBegin + 1;
+
 
             /// <summary>
             /// 源IP-起始位置=8
             /// </summary>
-            public static readonly Int32 SourceIPAddressBegin = HopLimitEnd;
+            public const Int32 SourceIPAddressBegin = HopLimitEnd;
 
             /// <summary>
             /// 源IP-结束位置=24
             /// </summary>
-            public static readonly Int32 SourceIPAddressEnd = SourceIPAddressBegin + 16;
+            public const Int32 SourceIPAddressEnd = SourceIPAddressBegin + IPAddress.Layout.V6Length;
+
 
             /// <summary>
             /// 目标IP-起始位置=24
             /// </summary>
-            public static readonly Int32 DestinationIPAddressBegin = SourceIPAddressEnd;
+            public const Int32 DestinationIPAddressBegin = SourceIPAddressEnd;
 
             /// <summary>
             /// 目标IP-结束位置=40
             /// </summary>
-            public static readonly Int32 DestinationIPAddressEnd = DestinationIPAddressBegin + 16;
+            public const Int32 DestinationIPAddressEnd = DestinationIPAddressBegin + IPAddress.Layout.V6Length;
+
 
             /// <summary>
             /// 首部长度
             /// </summary>
-            public static readonly Int32 HeaderLength = DestinationIPAddressEnd;
+            public const Int32 HeaderLength = DestinationIPAddressEnd;
         }
     }
 }

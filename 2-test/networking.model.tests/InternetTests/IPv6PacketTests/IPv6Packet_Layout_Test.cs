@@ -10,6 +10,8 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
         public void Layout()
         {
             IPv6Packet.Layout.VersionBegin.Should().Be(0);
+            IPv6Packet.Layout.VersionBitIndex.Should().Be(0);
+            IPv6Packet.Layout.VersionBitLength.Should().Be(4);
 
             IPv6Packet.Layout.PayloadLengthBegin.Should().Be(4);
             IPv6Packet.Layout.PayloadLengthEnd.Should().Be(6);

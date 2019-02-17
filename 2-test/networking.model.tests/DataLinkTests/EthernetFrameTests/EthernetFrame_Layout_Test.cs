@@ -15,7 +15,6 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
             EthernetFrame.Layout.SourceMACAddressBegin.Should().Be(6);
             EthernetFrame.Layout.SourceMACAddressEnd.Should().Be(12);
 
-            EthernetFrame.Layout.TypeLength.Should().Be(2);
             EthernetFrame.Layout.TypeBegin.Should().Be(12);
             EthernetFrame.Layout.TypeEnd.Should().Be(14);
 

@@ -32,45 +32,44 @@ namespace Networking.Model.DataLink
         /// </summary>
         public class Layout
         {
-            /// <summary>
-            /// 类型长度=2
-            /// </summary>
-            public static readonly Int32 TypeLength = 2;
 
             /// <summary>
             /// 目标MAC地址-起始位置=0
             /// </summary>
-            public static readonly Int32 DestinationMACAddressBegin = 0;
+            public const Int32 DestinationMACAddressBegin = 0;
 
             /// <summary>
             /// 目标MAC地址-结束位置=6
             /// </summary>
-            public static readonly Int32 DestinationMACAddressEnd = DestinationMACAddressBegin + MACAddress.Layout.Length;
+            public const Int32 DestinationMACAddressEnd = DestinationMACAddressBegin + MACAddress.Layout.Length;
+
 
             /// <summary>
             /// 源MAC地址-起始位置=6
             /// </summary>
-            public static readonly Int32 SourceMACAddressBegin = DestinationMACAddressEnd;
+            public const Int32 SourceMACAddressBegin = DestinationMACAddressEnd;
 
             /// <summary>
             /// 源MAC地址-结束位置=12
             /// </summary>
-            public static readonly Int32 SourceMACAddressEnd = SourceMACAddressBegin + MACAddress.Layout.Length;
+            public const Int32 SourceMACAddressEnd = SourceMACAddressBegin + MACAddress.Layout.Length;
+
 
             /// <summary>
             /// 类型-起始位置=12
             /// </summary>
-            public static readonly Int32 TypeBegin = SourceMACAddressEnd;
+            public const Int32 TypeBegin = SourceMACAddressEnd;
 
             /// <summary>
             /// 类型-结束位置=14
             /// </summary>
-            public static readonly Int32 TypeEnd = TypeBegin + TypeLength;
+            public const Int32 TypeEnd = TypeBegin + 2;
+
 
             /// <summary>
             /// 首部信息-长度=14
             /// </summary>
-            public static readonly Int32 HeaderLength = TypeEnd;
+            public const Int32 HeaderLength = TypeEnd;
         }
     }
 }

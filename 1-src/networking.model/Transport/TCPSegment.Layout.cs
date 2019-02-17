@@ -35,137 +35,145 @@ namespace Networking.Model.Transport
             /// <summary>
             /// 源端口-起始位置=0
             /// </summary>
-            public static readonly Int32 SourcePortBegin = 0;
+            public const Int32 SourcePortBegin = 0;
 
             /// <summary>
             /// 源端口-结束位置=2
             /// </summary>
-            public static readonly Int32 SourcePortEnd = SourcePortBegin + 2;
+            public const Int32 SourcePortEnd = SourcePortBegin + 2;
+
 
             /// <summary>
             /// 目标端口-起始位置=2
             /// </summary>
-            public static readonly Int32 DestinationPortBegin = SourcePortEnd;
+            public const Int32 DestinationPortBegin = SourcePortEnd;
 
             /// <summary>
             /// 目标端口-结束位置=4
             /// </summary>
-            public static readonly Int32 DestinationPortEnd = DestinationPortBegin + 2;
+            public const Int32 DestinationPortEnd = DestinationPortBegin + 2;
+
 
             /// <summary>
             /// 序列号-起始位置=4
             /// </summary>
-            public static readonly Int32 SYNNumberBegin = DestinationPortEnd;
+            public const Int32 SYNNumberBegin = DestinationPortEnd;
 
             /// <summary>
             /// 序列号-结束位置=8
             /// </summary>
-            public static readonly Int32 SYNNumberEnd = SYNNumberBegin + 4;
+            public const Int32 SYNNumberEnd = SYNNumberBegin + 4;
+
 
             /// <summary>
             /// ACKNumber-起始位置=8
             /// </summary>
-            public static readonly Int32 ACKNumberBegin = SYNNumberEnd;
+            public const Int32 ACKNumberBegin = SYNNumberEnd;
 
             /// <summary>
             /// ACKNumber-结束位置=12
             /// </summary>
-            public static readonly Int32 ACKNumberEnd = ACKNumberBegin + 4;
+            public const Int32 ACKNumberEnd = ACKNumberBegin + 4;
+
 
             /// <summary>
             /// 首部长度-起始位置=12
             /// </summary>
-            public static readonly Int32 HeaderLengthBegin = ACKNumberEnd;
+            public const Int32 HeaderLengthBegin = ACKNumberEnd;
 
             /// <summary>
             /// 首部长度-起始位置=13
             /// </summary>
-            public static readonly Int32 HeaderLengthEnd = HeaderLengthBegin + 1;
+            public const Int32 HeaderLengthEnd = HeaderLengthBegin + 1;
+
 
             /// <summary>
             /// 标志位-起始位置=13
             /// </summary>
-            public static readonly Int32 FlagsBegin = HeaderLengthEnd;
+            public const Int32 FlagsBegin = HeaderLengthEnd;
 
             /// <summary>
             /// 标志位-起始位置=14
             /// </summary>
-            public static readonly Int32 FlagsEnd = FlagsBegin + 1;
+            public const Int32 FlagsEnd = FlagsBegin + 1;
 
             /// <summary>
             /// 标志位-NS的bit索引位置=7
             /// </summary>
-            public static readonly Int32 FlagsNSBitIndex = 7;
+            public const Int32 FlagsNSBitIndex = 7;
 
             /// <summary>
             /// 标志位-CWR的bit索引位置=0
             /// </summary>
-            public static readonly Int32 FlagsCWRBitIndex = 0;
+            public const Int32 FlagsCWRBitIndex = 0;
 
             /// <summary>
             /// 标志位-ECE的bit索引位置=1
             /// </summary>
-            public static readonly Int32 FlagsECEBitIndex = 1;
+            public const Int32 FlagsECEBitIndex = 1;
 
             /// <summary>
             /// 标志位-URG的bit索引位置=2
             /// </summary>
-            public static readonly Int32 FlagsURGBitIndex = 2;
+            public const Int32 FlagsURGBitIndex = 2;
 
             /// <summary>
             /// 标志位-ACK的bit索引位置=3
             /// </summary>
-            public static readonly Int32 FlagsACKBitIndex = 3;
+            public const Int32 FlagsACKBitIndex = 3;
 
             /// <summary>
             /// 标志位-PSH的bit索引位置=4
             /// </summary>
-            public static readonly Int32 FlagsPSHBitIndex = 4;
+            public const Int32 FlagsPSHBitIndex = 4;
 
             /// <summary>
             /// 标志位-RST的bit索引位置=5
             /// </summary>
-            public static readonly Int32 FlagsRSTBitIndex = 5;
+            public const Int32 FlagsRSTBitIndex = 5;
 
             /// <summary>
             /// 标志位-SYN的bit索引位置=6
             /// </summary>
-            public static readonly Int32 FlagsSYNBitIndex = 6;
+            public const Int32 FlagsSYNBitIndex = 6;
 
             /// <summary>
             /// 标志位-FIN的bit索引位置=7
             /// </summary>
-            public static readonly Int32 FlagsFINBitIndex = 7;
+            public const Int32 FlagsFINBitIndex = 7;
+
 
             /// <summary>
             /// 窗口大小-起始位置=14
             /// </summary>
-            public static readonly Int32 WindowsSizeBegin = FlagsEnd;
+            public const Int32 WindowsSizeBegin = FlagsEnd;
 
             /// <summary>
             /// 窗口大小-结束位置=16
             /// </summary>
-            public static readonly Int32 WindowsSizeEnd = WindowsSizeBegin + 2;
+            public const Int32 WindowsSizeEnd = WindowsSizeBegin + 2;
+
 
             /// <summary>
             /// 校验和-起始位置=16
             /// </summary>
-            public static readonly Int32 ChecksumBegin = WindowsSizeEnd;
+            public const Int32 ChecksumBegin = WindowsSizeEnd;
 
             /// <summary>
             /// 校验和-结束位置=18
             /// </summary>
-            public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
+            public const Int32 ChecksumEnd = ChecksumBegin + 2;
+
 
             /// <summary>
             /// 紧急指针-起始位置=18
             /// </summary>
-            public static readonly Int32 UrgentPointerBegin = ChecksumEnd;
+            public const Int32 UrgentPointerBegin = ChecksumEnd;
 
             /// <summary>
             /// 紧急指针-结束位置=20
             /// </summary>
-            public static readonly Int32 UrgentPointerEnd = UrgentPointerBegin + 2;
+            public const Int32 UrgentPointerEnd = UrgentPointerBegin + 2;
         }
     }
 }

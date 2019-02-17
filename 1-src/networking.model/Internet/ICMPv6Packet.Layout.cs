@@ -26,61 +26,67 @@ namespace Networking.Model.Internet
             /// <summary>
             /// 类型-起始位置=0
             /// </summary>
-            public static readonly Int32 TypeBegin = 0;
+            public const Int32 TypeBegin = 0;
 
             /// <summary>
             /// 类型-结束位置=1
             /// </summary>
-            public static readonly Int32 TypeEnd = TypeBegin + 1;
+            public const Int32 TypeEnd = TypeBegin + 1;
+
 
              /// <summary>
             /// 编号-起始位置=1
             /// </summary>
-            public static readonly Int32 CodeBegin = TypeEnd;
+            public const Int32 CodeBegin = TypeEnd;
 
             /// <summary>
             /// 编号-结束位置=2
             /// </summary>
-            public static readonly Int32 CodeEnd = CodeBegin + 1;
+            public const Int32 CodeEnd = CodeBegin + 1;
+
 
             /// <summary>
             /// 类型编号-起始位置=0
             /// </summary>
-            public static readonly Int32 TypeCodeBegin = 0;
+            public const Int32 TypeCodeBegin = 0;
 
             /// <summary>
             /// 类型编号-结束位置=2
             /// </summary>
-            public static readonly Int32 TypeCodeEnd = 2;
+            public const Int32 TypeCodeEnd = 2;
+
+
             /// <summary>
             /// 校验和-起始位置=2
             /// </summary>
-            public static readonly Int32 ChecksumBegin = CodeEnd;
+            public const Int32 ChecksumBegin = CodeEnd;
 
             /// <summary>
             /// 校验和-结束位置=4
             /// </summary>
-            public static readonly Int32 ChecksumEnd = ChecksumBegin + 2;
+            public const Int32 ChecksumEnd = ChecksumBegin + 2;
+
 
             /// <summary>
             /// Id-起始位置=4
             /// </summary>
-            public static readonly Int32 IdBegin = ChecksumEnd;
+            public const Int32 IdBegin = ChecksumEnd;
 
             /// <summary>
             /// Id-结束位置=6
             /// </summary>
-            public static readonly Int32 IdEnd = IdBegin + 2;
+            public const Int32 IdEnd = IdBegin + 2;
+
 
             /// <summary>
             /// 序列号-起始位置=6
             /// </summary>
-            public static readonly Int32 SequenceBegin = IdEnd;
+            public const Int32 SequenceBegin = IdEnd;
 
             /// <summary>
             /// 序列号-结束位置=8
             /// </summary>
-            public static readonly Int32 SequenceEnd = SequenceBegin + 2;
+            public const Int32 SequenceEnd = SequenceBegin + 2;
         }
     }
 }

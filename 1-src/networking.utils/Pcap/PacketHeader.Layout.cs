@@ -21,52 +21,51 @@ namespace Networking.Utils.Pcap
             /// <summary>
             /// 时间戳-起始位置
             /// </summary>
-            public static readonly Int32 TimestampSecondsBegin = 0;
+            public const Int32 TimestampSecondsBegin = 0;
 
             /// <summary>
             /// 时间戳-结束位置
             /// </summary>
-            public static readonly Int32 TimestampSecondsEnd = TimestampSecondsBegin + 4;
+            public const Int32 TimestampSecondsEnd = TimestampSecondsBegin + 4;
 
 
             /// <summary>
             /// 时间戳-微妙-起始位置
             /// </summary>
-            public static readonly Int32 TimestampMicrosecondsBegin = TimestampSecondsEnd;
+            public const Int32 TimestampMicrosecondsBegin = TimestampSecondsEnd;
 
             /// <summary>
             /// 时间戳-微妙-结束位置
             /// </summary>
-            public static readonly Int32 TimestampMicrosecondsEnd = TimestampMicrosecondsBegin + 4;
+            public const Int32 TimestampMicrosecondsEnd = TimestampMicrosecondsBegin + 4;
 
 
             /// <summary>
             /// 保存的长度-起始位置
             /// </summary>
-            public static readonly Int32 SavedLengthBegin = TimestampMicrosecondsEnd;
+            public const Int32 SavedLengthBegin = TimestampMicrosecondsEnd;
 
             /// <summary>
             /// 保存的长度-结束位置
             /// </summary>
-            public static readonly Int32 SavedLengthEnd = SavedLengthBegin + 4;
+            public const Int32 SavedLengthEnd = SavedLengthBegin + 4;
 
 
             /// <summary>
             /// 原始长度-起始位置
             /// </summary>
-            public static readonly Int32 OriginalLengthBegin = SavedLengthEnd;
-
+            public const Int32 OriginalLengthBegin = SavedLengthEnd;
 
             /// <summary>
             /// 原始长度-结束位置
             /// </summary>
-            public static readonly Int32 OriginalLengthEnd = OriginalLengthBegin + 4;
+            public const Int32 OriginalLengthEnd = OriginalLengthBegin + 4;
 
 
             /// <summary>
             /// 首部长度
             /// </summary>
-            public static readonly Int32 HeaderLength = OriginalLengthEnd;
+            public const Int32 HeaderLength = OriginalLengthEnd;
         }
     }
 }

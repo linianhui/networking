@@ -26,17 +26,18 @@ namespace Networking.Model.DataLink
             /// <summary>
             /// 类型-起始位置=0
             /// </summary>
-            public static readonly Int32 TypeBegin = 0;
+            public const Int32 TypeBegin = 0;
 
             /// <summary>
             /// 类型-结束位置=2
             /// </summary>
-            public static readonly Int32 TypeEnd = TypeBegin + 2;
+            public const Int32 TypeEnd = TypeBegin + 2;
+
 
             /// <summary>
             /// 首部信息-长度=2
             /// </summary>
-            public static readonly Int32 HeaderLength = TypeEnd;
+            public const Int32 HeaderLength = TypeEnd;
         }
     }
 }

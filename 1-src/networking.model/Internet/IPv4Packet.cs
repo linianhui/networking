@@ -14,8 +14,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPVersion Version
         {
-            get { return (IPVersion)base.GetByte(Layout.VersionBegin, 0, 4); }
-            set { base.SetByte(Layout.VersionBegin, 0, 4, (Byte)value); }
+            get { return (IPVersion)base.GetByte(Layout.VersionBegin, Layout.VersionBitIndex, Layout.VersionBitLength); }
+            set { base.SetByte(Layout.VersionBegin, Layout.VersionBitIndex, Layout.VersionBitLength, (Byte)value); }
         }
 
         /// <summary>
@@ -23,8 +23,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HeaderLength
         {
-            get { return base.GetByte(Layout.HeaderLengthBegin, 4, 4); }
-            set { base.SetByte(Layout.HeaderLengthBegin, 4, 4, value); }
+            get { return base.GetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength); }
+            set { base.SetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength, value); }
         }
 
         /// <summary>

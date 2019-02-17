@@ -39,82 +39,121 @@ namespace Networking.Model.Internet
             /// <summary>
             /// Version-起始位置=0
             /// </summary>
-            public static readonly Int32 VersionBegin = 0;
+            public const Int32 VersionBegin = 0;
+
+            /// <summary>
+            /// Version-结束位置=1
+            /// </summary>
+            public const Int32 VersionEnd = VersionBegin + 1;
+
+            /// <summary>
+            /// Version-bit索引=0
+            /// </summary>
+            public const Int32 VersionBitIndex = 0;
+
+            /// <summary>
+            /// Version-bit长度=4
+            /// </summary>
+            public const Int32 VersionBitLength = 4;
+
+
 
             /// <summary>
             /// IHL-起始位置=0
             /// </summary>
-            public static readonly Int32 HeaderLengthBegin = 0;
+            public const Int32 HeaderLengthBegin = 0;
+
+            /// <summary>
+            /// IHL-结束位置=1
+            /// </summary>
+            public const Int32 HeaderLengthEnd = HeaderLengthBegin + 1;
+
+            /// <summary>
+            /// IHL-bit索引=4
+            /// </summary>
+            public const Int32 HeaderLengthBitIndex = 4;
+
+            /// <summary>
+            /// IHL-bit长度=4
+            /// </summary>
+            public const Int32 HeaderLengthBitLength = 4;
+
 
             /// <summary>
             /// 总长度-起始位置=2
             /// </summary>
-            public static readonly Int32 TotalLengthBegin = 2;
+            public const Int32 TotalLengthBegin = 2;
 
             /// <summary>
             /// 总长度-结束位置=4
             /// </summary>
-            public static readonly Int32 TotalLengthEnd = TotalLengthBegin + 2;
+            public const Int32 TotalLengthEnd = TotalLengthBegin + 2;
+
 
             /// <summary>
             /// Id-起始位置=4
             /// </summary>
-            public static readonly Int32 IdBegin = TotalLengthEnd;
+            public const Int32 IdBegin = TotalLengthEnd;
 
             /// <summary>
             /// Id-结束位置=6
             /// </summary>
-            public static readonly Int32 IdEnd = IdBegin + 2;
+            public const Int32 IdEnd = IdBegin + 2;
+
 
             /// <summary>
             /// TTL-起始位置=8
             /// </summary>
-            public static readonly Int32 TTLBegin = 8;
+            public const Int32 TTLBegin = 8;
 
             /// <summary>
             /// TTL-结束位置=9
             /// </summary>
-            public static readonly Int32 TTLEnd = TTLBegin + 1;
+            public const Int32 TTLEnd = TTLBegin + 1;
+
 
             /// <summary>
             /// 类型-起始位置=9
             /// </summary>
-            public static readonly Int32 TypeBegin = TTLEnd;
+            public const Int32 TypeBegin = TTLEnd;
 
             /// <summary>
             /// 类型-结束位置=10
             /// </summary>
-            public static readonly Int32 TypeEnd = TypeBegin + 1;
+            public const Int32 TypeEnd = TypeBegin + 1;
+
 
             /// <summary>
             /// 首部校验和-起始位置=10
             /// </summary>
-            public static readonly Int32 HeaderChecksumBegin = TypeEnd;
+            public const Int32 HeaderChecksumBegin = TypeEnd;
 
             /// <summary>
             /// 首部校验和-结束位置=12
             /// </summary>
-            public static readonly Int32 HeaderChecksumEnd = HeaderChecksumBegin + 2;
+            public const Int32 HeaderChecksumEnd = HeaderChecksumBegin + 2;
+
 
             /// <summary>
             /// 源IP-起始位置=12
             /// </summary>
-            public static readonly Int32 SourceIPAddressBegin = HeaderChecksumEnd;
+            public const Int32 SourceIPAddressBegin = HeaderChecksumEnd;
 
             /// <summary>
             /// 源IP-结束位置=16
             /// </summary>
-            public static readonly Int32 SourceIPAddressEnd = SourceIPAddressBegin + 4;
+            public const Int32 SourceIPAddressEnd = SourceIPAddressBegin + IPAddress.Layout.V4Length;
+
 
             /// <summary>
             /// 目标IP-起始位置=16
             /// </summary>
-            public static readonly Int32 DestinationIPAddressBegin = SourceIPAddressEnd;
+            public const Int32 DestinationIPAddressBegin = SourceIPAddressEnd;
 
             /// <summary>
             /// 目标IP-结束位置=20
             /// </summary>
-            public static readonly Int32 DestinationIPAddressEnd = DestinationIPAddressBegin + 4;
+            public const Int32 DestinationIPAddressEnd = DestinationIPAddressBegin + IPAddress.Layout.V4Length;
         }
     }
 }

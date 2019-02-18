@@ -1,5 +1,6 @@
 using System;
 using System.Buffers.Binary;
+using Networking.Model.DataLink;
 
 namespace Networking.Model
 {
@@ -124,6 +125,19 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 获取<see cref="MACAddress"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public MACAddress GetMAC(Int32 index)
+        {
+            return new MACAddress
+            {
+                Bytes = this[index, MACAddress.Layout.Length]
+            };
+        }
+
+        /// <summary>
         /// 设置指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="byteIndex">Byte的索引</param>
@@ -202,6 +216,17 @@ namespace Networking.Model
                 BinaryPrimitives.WriteUInt32BigEndian(span, value);
             }
             return value;
+        }
+
+        /// <summary>
+        /// 设置<see cref="MACAddress"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public void SetMAC(Int32 index, MACAddress value)
+        {
+            this[index, MACAddress.Layout.Length] = value.Bytes;
         }
 
         /// <summary>

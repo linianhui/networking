@@ -31,17 +31,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public MACAddress SenderMACAddress
         {
-            get
-            {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.SenderHardwareAddressBegin, MACAddress.Layout.Length]
-                };
-            }
-            set
-            {
-                base[Layout.SenderHardwareAddressBegin, MACAddress.Layout.Length] = value.Bytes;
-            }
+            get { return GetMAC(Layout.SenderHardwareAddressBegin); }
+            set { SetMAC(Layout.SenderHardwareAddressBegin, value); }
         }
 
         /// <summary>
@@ -67,17 +58,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public MACAddress TargetMACAddress
         {
-            get
-            {
-                return new MACAddress
-                {
-                    Bytes = base[Layout.TargetHardwareAddressBegin, MACAddress.Layout.Length]
-                };
-            }
-            set
-            {
-                base[Layout.TargetHardwareAddressBegin, MACAddress.Layout.Length] = value.Bytes;
-            }
+            get { return GetMAC(Layout.TargetHardwareAddressBegin); }
+            set { SetMAC(Layout.TargetHardwareAddressBegin, value); }
         }
 
 

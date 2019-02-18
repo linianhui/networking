@@ -1,6 +1,7 @@
 using System;
 using System.Buffers.Binary;
 using Networking.Model.DataLink;
+using Networking.Model.Internet;
 
 namespace Networking.Model
 {
@@ -138,6 +139,19 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 获取IPv4<see cref="IPAddress"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public IPAddress GetIPv4(Int32 index)
+        {
+            return new IPAddress
+            {
+                Bytes = this[index, IPAddress.Layout.V4Length]
+            };
+        }
+
+        /// <summary>
         /// 设置指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="byteIndex">Byte的索引</param>
@@ -227,6 +241,17 @@ namespace Networking.Model
         public void SetMAC(Int32 index, MACAddress value)
         {
             this[index, MACAddress.Layout.Length] = value.Bytes;
+        }
+
+        /// <summary>
+        /// 设置IPv4<see cref="IPAddress"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public void SetIPv4(Int32 index, IPAddress value)
+        {
+            this[index, IPAddress.Layout.V4Length] = value.Bytes;
         }
 
         /// <summary>

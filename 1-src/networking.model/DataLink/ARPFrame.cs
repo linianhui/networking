@@ -40,17 +40,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public IPAddress SenderIPAddress
         {
-            get
-            {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.SenderProtocolAddressBegin, IPAddress.Layout.V4Length]
-                };
-            }
-            set
-            {
-                base[Layout.SenderProtocolAddressBegin, IPAddress.Layout.V4Length] = value.Bytes;
-            }
+            get { return GetIPv4(Layout.SenderProtocolAddressBegin); }
+            set { SetIPv4(Layout.SenderProtocolAddressBegin, value); }
         }
 
         /// <summary>
@@ -68,17 +59,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public IPAddress TargetIPAddress
         {
-            get
-            {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.TargetProtocolAddressBegin, IPAddress.Layout.V4Length]
-                };
-            }
-            set
-            {
-                base[Layout.TargetProtocolAddressBegin, IPAddress.Layout.V4Length] = value.Bytes;
-            }
+            get { return GetIPv4(Layout.TargetProtocolAddressBegin); }
+            set { SetIPv4(Layout.TargetProtocolAddressBegin, value); }
         }
 
         /// <summary>

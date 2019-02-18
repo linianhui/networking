@@ -14,10 +14,7 @@ namespace Networking.Utils.Pcap
         /// </summary>
         public UInt32 MagicNumber
         {
-            get
-            {
-                return GetUInt32(Layout.MagicNumberBegin);
-            }
+            get { return GetUInt32(Layout.MagicNumberBegin); }
         }
 
         /// <summary>
@@ -25,10 +22,7 @@ namespace Networking.Utils.Pcap
         /// </summary>
         public UInt16 VersionMajor
         {
-            get
-            {
-                return GetUInt16(Layout.VersionMajorBegin);
-            }
+            get { return GetUInt16(Layout.VersionMajorBegin); }
         }
 
         /// <summary>
@@ -36,10 +30,7 @@ namespace Networking.Utils.Pcap
         /// </summary>
         public UInt16 VersionMinor
         {
-            get
-            {
-                return GetUInt16(Layout.VersionMinorBegin);
-            }
+            get { return GetUInt16(Layout.VersionMinorBegin); }
         }
 
         /// <summary>
@@ -47,10 +38,7 @@ namespace Networking.Utils.Pcap
         /// </summary>
         public UInt32 PacketMaxLength
         {
-            get
-            {
-                return GetUInt16(Layout.PacketMaxLengthBegin);
-            }
+            get { return GetUInt16(Layout.PacketMaxLengthBegin); }
         }
 
         /// <summary>
@@ -58,10 +46,7 @@ namespace Networking.Utils.Pcap
         /// </summary>
         public DataLinkType Type
         {
-            get
-            {
-                return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin);
-            }
+            get { return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin); }
         }
     }
 }

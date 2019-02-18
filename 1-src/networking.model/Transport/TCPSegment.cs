@@ -13,14 +13,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 SourcePort
         {
-            get
-            {
-                return GetUInt16(Layout.SourcePortBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.SourcePortBegin, value);
-            }
+            get { return GetUInt16(Layout.SourcePortBegin); }
+            set { SetUInt16(Layout.SourcePortBegin, value); }
         }
 
         /// <summary>
@@ -28,14 +22,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 DestinationPort
         {
-            get
-            {
-                return GetUInt16(Layout.DestinationPortBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.DestinationPortBegin, value);
-            }
+            get { return GetUInt16(Layout.DestinationPortBegin); }
+            set { SetUInt16(Layout.DestinationPortBegin, value); }
         }
 
         /// <summary>
@@ -43,14 +31,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt32 SYNNumber
         {
-            get
-            {
-                return GetUInt32(Layout.SYNNumberBegin);
-            }
-            set
-            {
-                SetUInt32(Layout.SYNNumberBegin, value);
-            }
+            get { return GetUInt32(Layout.SYNNumberBegin); }
+            set { SetUInt32(Layout.SYNNumberBegin, value); }
         }
 
         /// <summary>
@@ -58,14 +40,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt32 ACKNumber
         {
-            get
-            {
-                return GetUInt32(Layout.ACKNumberBegin);
-            }
-            set
-            {
-                SetUInt32(Layout.ACKNumberBegin, value);
-            }
+            get { return GetUInt32(Layout.ACKNumberBegin); }
+            set { SetUInt32(Layout.ACKNumberBegin, value); }
         }
 
         /// <summary>
@@ -163,14 +139,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 WindowsSize
         {
-            get
-            {
-                return GetUInt16(Layout.WindowsSizeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.WindowsSizeBegin, value);
-            }
+            get { return GetUInt16(Layout.WindowsSizeBegin); }
+            set { SetUInt16(Layout.WindowsSizeBegin, value); }
         }
 
         /// <summary>
@@ -178,14 +148,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 Checksum
         {
-            get
-            {
-                return GetUInt16(Layout.ChecksumBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.ChecksumBegin, value);
-            }
+            get { return GetUInt16(Layout.ChecksumBegin); }
+            set { SetUInt16(Layout.ChecksumBegin, value); }
         }
 
         /// <summary>
@@ -193,14 +157,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 UrgentPointer
         {
-            get
-            {
-                return GetUInt16(Layout.UrgentPointerBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.UrgentPointerBegin, value);
-            }
+            get { return GetUInt16(Layout.UrgentPointerBegin); }
+            set { SetUInt16(Layout.UrgentPointerBegin, value); }
         }
 
         /// <summary>
@@ -214,7 +172,6 @@ namespace Networking.Model.Transport
                 {
                     Bytes = Slice(HeaderLength * 4)
                 };
-
             }
         }
     }

@@ -22,14 +22,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 PayloadLength
         {
-            get
-            {
-                return GetUInt16(Layout.PayloadLengthBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.PayloadLengthBegin, value);
-            }
+            get { return GetUInt16(Layout.PayloadLengthBegin); }
+            set { SetUInt16(Layout.PayloadLengthBegin, value); }
         }
 
         /// <summary>

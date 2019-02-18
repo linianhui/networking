@@ -15,14 +15,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public PPPFrameType Type
         {
-            get
-            {
-                return (PPPFrameType)GetUInt16(Layout.TypeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.TypeBegin, (UInt16)value);
-            }
+            get { return (PPPFrameType)GetUInt16(Layout.TypeBegin); }
+            set { SetUInt16(Layout.TypeBegin, (UInt16)value); }
         }
 
         /// <summary>

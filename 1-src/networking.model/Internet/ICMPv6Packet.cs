@@ -8,36 +8,22 @@ namespace Networking.Model.Internet
     /// </summary>
     public partial class ICMPv6Packet : Octets
     {
-
         /// <summary>
         /// 编号
         /// </summary>
         public ICMPv6Type Type
         {
-            get
-            {
-                return (ICMPv6Type)base.GetByte(Layout.TypeBegin);
-            }
-            set
-            {
-                base.SetByte(Layout.TypeBegin, (Byte)value);
-            }
+            get { return (ICMPv6Type)base.GetByte(Layout.TypeBegin); }
+            set { base.SetByte(Layout.TypeBegin, (Byte)value); }
         }
-
 
         /// <summary>
         /// 编号
         /// </summary>
         public Byte Code
         {
-            get
-            {
-                return base.GetByte(Layout.CodeBegin);
-            }
-            set
-            {
-                base.SetByte(Layout.CodeBegin, value);
-            }
+            get { return base.GetByte(Layout.CodeBegin); }
+            set { base.SetByte(Layout.CodeBegin, value); }
         }
 
         /// <summary>
@@ -45,14 +31,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public ICMPv6TypeCode TypeCode
         {
-            get
-            {
-                return (ICMPv6TypeCode)GetUInt16(Layout.TypeCodeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.TypeCodeBegin, (UInt16)value);
-            }
+            get { return (ICMPv6TypeCode)GetUInt16(Layout.TypeCodeBegin); }
+            set { SetUInt16(Layout.TypeCodeBegin, (UInt16)value); }
         }
 
         /// <summary>
@@ -60,14 +40,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 Checksum
         {
-            get
-            {
-                return GetUInt16(Layout.ChecksumBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.ChecksumBegin, value);
-            }
+            get { return GetUInt16(Layout.ChecksumBegin); }
+            set { SetUInt16(Layout.ChecksumBegin, value); }
         }
 
         /// <summary>
@@ -75,14 +49,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 Id
         {
-            get
-            {
-                return GetUInt16(Layout.IdBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.IdBegin, value);
-            }
+            get { return GetUInt16(Layout.IdBegin); }
+            set { SetUInt16(Layout.IdBegin, value); }
         }
 
         /// <summary>
@@ -90,14 +58,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 Sequence
         {
-            get
-            {
-                return GetUInt16(Layout.SequenceBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.SequenceBegin, value);
-            }
+            get { return GetUInt16(Layout.SequenceBegin); }
+            set { SetUInt16(Layout.SequenceBegin, value); }
         }
     }
 }

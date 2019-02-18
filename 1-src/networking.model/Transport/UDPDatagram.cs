@@ -13,14 +13,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 SourcePort
         {
-            get
-            {
-                return GetUInt16(Layout.SourcePortBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.SourcePortBegin, value);
-            }
+            get { return GetUInt16(Layout.SourcePortBegin); }
+            set { SetUInt16(Layout.SourcePortBegin, value); }
         }
 
         /// <summary>
@@ -28,14 +22,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 DestinationPort
         {
-            get
-            {
-                return GetUInt16(Layout.DestinationPortBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.DestinationPortBegin, value);
-            }
+            get { return GetUInt16(Layout.DestinationPortBegin); }
+            set { SetUInt16(Layout.DestinationPortBegin, value); }
         }
 
         /// <summary>
@@ -43,14 +31,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 TotalLength
         {
-            get
-            {
-                return GetUInt16(Layout.TotalLengthBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.TotalLengthBegin, value);
-            }
+            get { return GetUInt16(Layout.TotalLengthBegin); }
+            set { SetUInt16(Layout.TotalLengthBegin, value); }
         }
 
         /// <summary>
@@ -58,14 +40,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public UInt16 Checksum
         {
-            get
-            {
-                return GetUInt16(Layout.ChecksumBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.ChecksumBegin, value);
-            }
+            get { return GetUInt16(Layout.ChecksumBegin); }
+            set { SetUInt16(Layout.ChecksumBegin, value); }
         }
 
         /// <summary>

@@ -68,14 +68,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public EthernetFrameType ProtocolType
         {
-            get
-            {
-                return (EthernetFrameType)GetUInt16(Layout.ProtocolTypeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.ProtocolTypeBegin, (UInt16)value);
-            }
+            get { return (EthernetFrameType)GetUInt16(Layout.ProtocolTypeBegin); }
+            set { SetUInt16(Layout.ProtocolTypeBegin, (UInt16)value); }
         }
 
         /// <summary>
@@ -83,14 +77,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public HardwareType HardwareType
         {
-            get
-            {
-                return (HardwareType)GetUInt16(Layout.HardwareTypeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.HardwareTypeBegin, (UInt16)value);
-            }
+            get { return (HardwareType)GetUInt16(Layout.HardwareTypeBegin); }
+            set { SetUInt16(Layout.HardwareTypeBegin, (UInt16)value); }
         }
 
         /// <summary>
@@ -98,17 +86,9 @@ namespace Networking.Model.DataLink
         /// </summary>
         public ARPOperationCode OperationCode
         {
-            get
-            {
-                return (ARPOperationCode)GetUInt16(Layout.OperationCodeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.OperationCodeBegin, (UInt16)value);
-            }
+            get { return (ARPOperationCode)GetUInt16(Layout.OperationCodeBegin); }
+            set { SetUInt16(Layout.OperationCodeBegin, (UInt16)value); }
         }
-
-
 
     }
 }

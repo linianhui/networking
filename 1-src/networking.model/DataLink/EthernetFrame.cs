@@ -32,14 +32,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public EthernetFrameType Type
         {
-            get
-            {
-                return (EthernetFrameType)GetUInt16(Layout.TypeBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.TypeBegin, (UInt16)value);
-            }
+            get { return (EthernetFrameType)GetUInt16(Layout.TypeBegin); }
+            set { SetUInt16(Layout.TypeBegin, (UInt16)value); }
         }
 
         /// <summary>

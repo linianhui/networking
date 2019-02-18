@@ -23,8 +23,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Byte HeaderLength
         {
-            get { return base.GetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength); }
-            set { base.SetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength, value); }
+            get { return GetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength); }
+            set { SetByte(Layout.HeaderLengthBegin, Layout.HeaderLengthBitIndex, Layout.HeaderLengthBitLength, value); }
         }
 
         /// <summary>
@@ -32,14 +32,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 TotalLength
         {
-            get
-            {
-                return GetUInt16(Layout.TotalLengthBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.TotalLengthBegin, value);
-            }
+            get { return GetUInt16(Layout.TotalLengthBegin); }
+            set { SetUInt16(Layout.TotalLengthBegin, value); }
         }
 
         /// <summary>
@@ -47,14 +41,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 Id
         {
-            get
-            {
-                return GetUInt16(Layout.IdBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.IdBegin, value);
-            }
+            get { return GetUInt16(Layout.IdBegin); }
+            set { SetUInt16(Layout.IdBegin, value); }
         }
 
         /// <summary>
@@ -80,14 +68,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public UInt16 HeaderChecksum
         {
-            get
-            {
-                return GetUInt16(Layout.HeaderChecksumBegin);
-            }
-            set
-            {
-                SetUInt16(Layout.HeaderChecksumBegin, value);
-            }
+            get { return GetUInt16(Layout.HeaderChecksumBegin); }
+            set { SetUInt16(Layout.HeaderChecksumBegin, value); }
         }
 
         /// <summary>
@@ -99,7 +81,6 @@ namespace Networking.Model.Internet
             set { SetIPv4(Layout.SourceIPAddressBegin, value); }
         }
 
-
         /// <summary>
         /// 目标IP地址
         /// </summary>
@@ -108,7 +89,6 @@ namespace Networking.Model.Internet
             get { return GetIPv4(Layout.DestinationIPAddressBegin); }
             set { SetIPv4(Layout.DestinationIPAddressBegin, value); }
         }
-
 
         /// <summary>
         /// 负载信息
@@ -119,7 +99,6 @@ namespace Networking.Model.Internet
             {
                 switch (Type)
                 {
-
                     case IPPacketType.ICMPv4:
                         return new ICMPv4Packet
                         {
@@ -143,6 +122,5 @@ namespace Networking.Model.Internet
                 }
             }
         }
-
     }
 }

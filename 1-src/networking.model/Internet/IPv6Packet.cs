@@ -55,17 +55,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress SourceIPAddress
         {
-            get
-            {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.SourceIPAddressBegin, IPAddress.Layout.V6Length]
-                };
-            }
-            set
-            {
-                base[Layout.SourceIPAddressBegin, IPAddress.Layout.V6Length] = value.Bytes;
-            }
+            get { return GetIPv6(Layout.SourceIPAddressBegin); }
+            set { SetIPv6(Layout.SourceIPAddressBegin, value); }
         }
 
 
@@ -74,17 +65,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress DestinationIPAddress
         {
-            get
-            {
-                return new IPAddress
-                {
-                    Bytes = base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V6Length]
-                };
-            }
-            set
-            {
-                base[Layout.DestinationIPAddressBegin, IPAddress.Layout.V6Length] = value.Bytes;
-            }
+            get { return GetIPv6(Layout.DestinationIPAddressBegin); }
+            set { SetIPv6(Layout.DestinationIPAddressBegin, value); }
         }
 
 

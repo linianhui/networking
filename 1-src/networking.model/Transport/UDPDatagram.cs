@@ -53,7 +53,7 @@ namespace Networking.Model.Transport
             {
                 return new Octets
                 {
-                    Bytes = Slice(8)
+                    Bytes = Slice(Layout.HeaderLength)
                 };
             }
         }

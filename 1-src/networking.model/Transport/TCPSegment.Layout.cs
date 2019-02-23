@@ -66,20 +66,20 @@ namespace Networking.Model.Transport
 
 
             /// <summary>
-            /// ACKNumber-起始位置=8
+            /// Acknowledgment-起始位置=8
             /// </summary>
-            public const Int32 ACKNumberBegin = SYNNumberEnd;
+            public const Int32 AcknowledgmentNumberBegin = SYNNumberEnd;
 
             /// <summary>
-            /// ACKNumber-结束位置=12
+            /// Acknowledgment-结束位置=12
             /// </summary>
-            public const Int32 ACKNumberEnd = ACKNumberBegin + 4;
+            public const Int32 AcknowledgmentNumberEnd = AcknowledgmentNumberBegin + 4;
 
 
             /// <summary>
             /// 首部长度-起始位置=12
             /// </summary>
-            public const Int32 HeaderLengthBegin = ACKNumberEnd;
+            public const Int32 HeaderLengthBegin = AcknowledgmentNumberEnd;
 
             /// <summary>
             /// 首部长度-起始位置=13

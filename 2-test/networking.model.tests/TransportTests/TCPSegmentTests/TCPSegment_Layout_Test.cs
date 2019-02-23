@@ -18,8 +18,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             TCPSegment.Layout.SYNNumberBegin.Should().Be(4);
             TCPSegment.Layout.SYNNumberEnd.Should().Be(8);
 
-            TCPSegment.Layout.ACKNumberBegin.Should().Be(8);
-            TCPSegment.Layout.ACKNumberEnd.Should().Be(12);
+            TCPSegment.Layout.AcknowledgmentNumberBegin.Should().Be(8);
+            TCPSegment.Layout.AcknowledgmentNumberEnd.Should().Be(12);
 
             TCPSegment.Layout.HeaderLengthBegin.Should().Be(12);
             TCPSegment.Layout.HeaderLengthEnd.Should().Be(13);

@@ -38,10 +38,10 @@ namespace Networking.Model.Transport
         /// <summary>
         /// 确认号
         /// </summary>
-        public UInt32 ACKNumber
+        public UInt32 AcknowledgmentNumber
         {
-            get { return GetUInt32(Layout.ACKNumberBegin); }
-            set { SetUInt32(Layout.ACKNumberBegin, value); }
+            get { return GetUInt32(Layout.AcknowledgmentNumberBegin); }
+            set { SetUInt32(Layout.AcknowledgmentNumberBegin, value); }
         }
 
         /// <summary>

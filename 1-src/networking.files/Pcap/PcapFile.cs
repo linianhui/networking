@@ -27,8 +27,8 @@ namespace Networking.Files.Pcap
         /// </summary>
         public PcapFile(String file)
         {
-            this._stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-            this.Init();
+            _stream = new FileStream(file, FileMode.Open, FileAccess.Read);
+            Init();
         }
 
         /// <summary>
@@ -36,8 +36,8 @@ namespace Networking.Files.Pcap
         /// </summary>
         public PcapFile(Stream stream)
         {
-            this._stream = stream;
-            this.Init();
+            _stream = stream;
+            Init();
         }
 
         /// <summary>
@@ -45,28 +45,28 @@ namespace Networking.Files.Pcap
         /// </summary>
         public PcapFile(Byte[] bytes)
         {
-            this._stream = new MemoryStream(bytes);
-            this.Init();
+            _stream = new MemoryStream(bytes);
+            Init();
         }
 
         private void Init()
         {
             if (ReadBytes(0, 1)[0] == 0xA1)
             {
-                this.IsLittleEndian = false;
+                IsLittleEndian = false;
             }
             else
             {
-                this.IsLittleEndian = true;
+                IsLittleEndian = true;
             }
 
-            this.Header = new PcapFileHeader
+            Header = new PcapFileHeader
             {
                 IsLittleEndian = IsLittleEndian,
                 Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
             };
 
-            this._offset = PcapFileHeader.Layout.HeaderLength;
+            _offset = PcapFileHeader.Layout.HeaderLength;
         }
 
         /// <summary>
@@ -74,13 +74,13 @@ namespace Networking.Files.Pcap
         /// </summary>
         public Packet ReadNextPacket()
         {
-            PacketHeader packetHeader = ReadNextPacketHeader();
+            var packetHeader = ReadNextPacketHeader();
             if (packetHeader == null)
             {
                 return null;
             }
 
-            Byte[] packetDataBytes = ReadNextPacketDataBytes(packetHeader);
+            var packetDataBytes = ReadNextPacketDataBytes(packetHeader);
             if (packetDataBytes.Length == 0)
             {
                 return null;
@@ -91,7 +91,7 @@ namespace Networking.Files.Pcap
 
         private PacketHeader ReadNextPacketHeader()
         {
-            Byte[] packetHeaderBytes = ReadNextBytes(PacketHeader.Layout.HeaderLength);
+            var packetHeaderBytes = ReadNextBytes(PacketHeader.Layout.HeaderLength);
             if (packetHeaderBytes.Length == 0)
             {
                 return null;
@@ -106,7 +106,7 @@ namespace Networking.Files.Pcap
 
         private Byte[] ReadNextPacketDataBytes(PacketHeader packetHeader)
         {
-            Int32 dataActualLength = ComputeDataActualLength(packetHeader);
+            var dataActualLength = ComputeDataActualLength(packetHeader);
             return ReadNextBytes(dataActualLength);
         }
 
@@ -125,8 +125,8 @@ namespace Networking.Files.Pcap
         /// </summary>
         private Byte[] ReadNextBytes(Int32 length)
         {
-            Byte[] buffer = ReadBytes(this._offset, length);
-            this._offset += length;
+            var buffer = ReadBytes(_offset, length);
+            _offset += length;
             return buffer;
         }
 
@@ -135,13 +135,13 @@ namespace Networking.Files.Pcap
         /// </summary>
         private Byte[] ReadBytes(Int32 offset, Int32 length)
         {
-            if (offset + length > this._stream.Length)
+            if (offset + length > _stream.Length)
             {
                 return new Byte[0];
             }
-            this._stream.Seek(offset, SeekOrigin.Begin);
-            Byte[] buffer = new Byte[length];
-            this._stream.Read(buffer, 0, length);
+            _stream.Seek(offset, SeekOrigin.Begin);
+            var buffer = new Byte[length];
+            _stream.Read(buffer, 0, length);
             return buffer;
         }
     }

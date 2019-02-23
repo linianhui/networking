@@ -57,18 +57,18 @@ namespace Networking.Model.Transport
             /// <summary>
             /// 序列号-起始位置=4
             /// </summary>
-            public const Int32 SYNNumberBegin = DestinationPortEnd;
+            public const Int32 SequenceNumberBegin = DestinationPortEnd;
 
             /// <summary>
             /// 序列号-结束位置=8
             /// </summary>
-            public const Int32 SYNNumberEnd = SYNNumberBegin + 4;
+            public const Int32 SequenceNumberEnd = SequenceNumberBegin + 4;
 
 
             /// <summary>
             /// Acknowledgment-起始位置=8
             /// </summary>
-            public const Int32 AcknowledgmentNumberBegin = SYNNumberEnd;
+            public const Int32 AcknowledgmentNumberBegin = SequenceNumberEnd;
 
             /// <summary>
             /// Acknowledgment-结束位置=12

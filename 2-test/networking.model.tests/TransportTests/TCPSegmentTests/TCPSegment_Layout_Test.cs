@@ -15,8 +15,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             TCPSegment.Layout.DestinationPortBegin.Should().Be(2);
             TCPSegment.Layout.DestinationPortEnd.Should().Be(4);
 
-            TCPSegment.Layout.SYNNumberBegin.Should().Be(4);
-            TCPSegment.Layout.SYNNumberEnd.Should().Be(8);
+            TCPSegment.Layout.SequenceNumberBegin.Should().Be(4);
+            TCPSegment.Layout.SequenceNumberEnd.Should().Be(8);
 
             TCPSegment.Layout.AcknowledgmentNumberBegin.Should().Be(8);
             TCPSegment.Layout.AcknowledgmentNumberEnd.Should().Be(12);

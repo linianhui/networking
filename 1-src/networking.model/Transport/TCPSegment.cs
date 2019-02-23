@@ -29,10 +29,10 @@ namespace Networking.Model.Transport
         /// <summary>
         /// 序列号
         /// </summary>
-        public UInt32 SYNNumber
+        public UInt32 SequenceNumber
         {
-            get { return GetUInt32(Layout.SYNNumberBegin); }
-            set { SetUInt32(Layout.SYNNumberBegin, value); }
+            get { return GetUInt32(Layout.SequenceNumberBegin); }
+            set { SetUInt32(Layout.SequenceNumberBegin, value); }
         }
 
         /// <summary>

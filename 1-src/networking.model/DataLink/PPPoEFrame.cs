@@ -61,9 +61,10 @@ namespace Networking.Model.DataLink
         {
             get
             {
+                var payloadBytes = GetBytes(Layout.HeaderLength);
                 return new PPPFrame
                 {
-                    Bytes = Slice(Layout.HeaderLength)
+                    Bytes = payloadBytes
                 };
             }
         }

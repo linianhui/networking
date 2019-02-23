@@ -51,9 +51,10 @@ namespace Networking.Model.Transport
         {
             get
             {
+                var payloadBytes = GetBytes(Layout.HeaderLength);
                 return new Octets
                 {
-                    Bytes = Slice(Layout.HeaderLength)
+                    Bytes = payloadBytes
                 };
             }
         }

@@ -97,27 +97,28 @@ namespace Networking.Model.Internet
         {
             get
             {
+                var payloadBytes = GetBytes(HeaderLength * 4);
                 switch (Type)
                 {
                     case IPPacketType.ICMPv4:
                         return new ICMPv4Packet
                         {
-                            Bytes = Slice(HeaderLength * 4)
+                            Bytes = payloadBytes
                         };
                     case IPPacketType.TCP:
                         return new TCPSegment
                         {
-                            Bytes = Slice(HeaderLength * 4)
+                            Bytes = payloadBytes
                         };
                     case IPPacketType.UDP:
                         return new UDPDatagram
                         {
-                            Bytes = Slice(HeaderLength * 4)
+                            Bytes = payloadBytes
                         };
                     default:
                         return new Octets
                         {
-                            Bytes = Slice(HeaderLength * 4)
+                            Bytes = payloadBytes
                         };
                 }
             }

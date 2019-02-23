@@ -53,16 +53,6 @@ namespace Networking.Model
         }
 
         /// <summary>
-        /// 读取
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public Memory<Byte> Slice(Int32 index)
-        {
-            return Bytes.Slice(index);
-        }
-
-        /// <summary>
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="byteIndex">Byte的索引</param>
@@ -93,6 +83,16 @@ namespace Networking.Model
         public Byte GetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
         {
             return GetByte(byteIndex).GetByte(bitIndex, bitLength);
+        }
+
+        /// <summary>
+        /// 读取Bytes
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public Memory<Byte> GetBytes(Int32 index)
+        {
+            return Bytes.Slice(index);
         }
 
         /// <summary>

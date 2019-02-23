@@ -43,34 +43,35 @@ namespace Networking.Model.DataLink
         {
             get
             {
+                var payloadBytes = GetBytes(Layout.HeaderLength);
                 switch (Type)
                 {
 
                     case EthernetFrameType.IPv4:
                         return new IPv4Packet
                         {
-                            Bytes = Slice(Layout.HeaderLength)
+                            Bytes = payloadBytes
                         };
                     case EthernetFrameType.IPv6:
                         return new IPv6Packet
                         {
-                            Bytes = Slice(Layout.HeaderLength)
+                            Bytes = payloadBytes
                         };
                     case EthernetFrameType.ARP:
                         return new ARPFrame
                         {
-                            Bytes = Slice(Layout.HeaderLength)
+                            Bytes = payloadBytes
                         };
                     case EthernetFrameType.PPPoEDiscoveryStage:
                     case EthernetFrameType.PPPoESessionStage:
                         return new PPPoEFrame
                         {
-                            Bytes = Slice(Layout.HeaderLength)
+                            Bytes = payloadBytes
                         };
                     default:
                         return new Octets
                         {
-                            Bytes = Slice(Layout.HeaderLength)
+                            Bytes = payloadBytes
                         };
                 }
             }

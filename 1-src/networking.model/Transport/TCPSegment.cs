@@ -168,9 +168,10 @@ namespace Networking.Model.Transport
         {
             get
             {
+                var payloadBytes = GetBytes(HeaderLength * 4);
                 return new Octets
                 {
-                    Bytes = Slice(HeaderLength * 4)
+                    Bytes = payloadBytes
                 };
             }
         }

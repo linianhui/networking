@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Utils.Pcap
+namespace Networking.Files.Pcap
 {
     public partial class PcapFileHeader
     {
@@ -11,9 +11,9 @@ namespace Networking.Utils.Pcap
         /// <para>typedef struct pcap_hdr_s {                                               </para>
         /// <para>    guint32 magic_number;   // magic number                               </para>
         /// <para>    guint16 version_major;  // major version number                       </para>
-        /// <para>    guint16 version_minor;  // minor version number                       </para>  
+        /// <para>    guint16 version_minor;  // minor version number                       </para>
         /// <para>    gint32  thiszone;       // GMT to local correction                    </para>
-        /// <para>    guint32 sigfigs;        // accuracy of timestamps                     </para> 
+        /// <para>    guint32 sigfigs;        // accuracy of timestamps                     </para>
         /// <para>    guint32 snaplen;        // max length of captured packets, in octets  </para>
         /// <para>    guint32 network;        // data link type                             </para>
         /// <para>} pcap_hdr_t;                                                             </para>

@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace Networking.Utils.Pcap
+namespace Networking.Files.Pcap
 {
     /// <summary>
     /// *.pcap文件

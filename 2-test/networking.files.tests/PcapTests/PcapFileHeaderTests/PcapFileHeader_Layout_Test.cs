@@ -1,8 +1,8 @@
 using FluentAssertions;
-using Networking.Utils.Pcap;
+using Networking.Files.Pcap;
 using Xunit;
 
-namespace Networking.Utils.Tests.PcapTests.PcapFileHeaderTests
+namespace Networking.Files.Tests.PcapTests.PcapFileHeaderTests
 {
     public class PcapFileHeader_Layout_Test
     {

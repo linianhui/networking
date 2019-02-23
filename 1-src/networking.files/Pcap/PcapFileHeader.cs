@@ -1,7 +1,7 @@
 using System;
 using Networking.Model;
 
-namespace Networking.Utils.Pcap
+namespace Networking.Files.Pcap
 {
     /// <summary>
     /// *.pcap 文件首部

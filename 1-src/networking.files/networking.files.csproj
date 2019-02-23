@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Networking.Utils</AssemblyName>
-    <RootNamespace>Networking.Utils</RootNamespace>
+    <AssemblyName>Networking.Files</AssemblyName>
+    <RootNamespace>Networking.Files</RootNamespace>
   </PropertyGroup>
 
  <PropertyGroup>
-    <PackageId>Networking.Utils</PackageId>
-    <Version>$(Networking_Utils_Version)</Version>
+    <PackageId>Networking.Files</PackageId>
+    <Version>$(Networking_Files_Version)</Version>
   </PropertyGroup>
 
   <ItemGroup>

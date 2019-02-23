@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{931088
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model.tests", "2-test\networking.model.tests\networking.model.tests.csproj", "{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.utils", "1-src\networking.utils\networking.utils.csproj", "{9749E2E1-B59F-4F3A-82CE-9E67FE0A8FA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.files", "1-src\networking.files\networking.files.csproj", "{9749E2E1-B59F-4F3A-82CE-9E67FE0A8FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.utils.tests", "2-test\networking.utils.tests\networking.utils.tests.csproj", "{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.files.tests", "2-test\networking.files.tests\networking.files.tests.csproj", "{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

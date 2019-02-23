@@ -1,10 +1,10 @@
 using System;
 using FluentAssertions;
 using Networking.Model.DataLink;
-using Networking.Utils.Pcap;
+using Networking.Files.Pcap;
 using Xunit;
 
-namespace Networking.Utils.Tests.PcapTests.PcapFileTests
+namespace Networking.Files.Tests.PcapTests.PcapFileTests
 {
     public class PcapFile_Test
     {

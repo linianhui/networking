@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Utils.Pcap
+namespace Networking.Files.Pcap
 {
     /// <summary>
     /// Packet (Record)

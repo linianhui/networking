@@ -80,6 +80,22 @@ namespace Networking.Model.Internet
 
 
             /// <summary>
+            /// DSCP-起始位置=1
+            /// </summary>
+            public const Int32 DSCPBegin = 1;
+
+            /// <summary>
+            /// DSCP-bit索引=0
+            /// </summary>
+            public const Int32 DSCPBitIndex = 0;
+
+            /// <summary>
+            /// DSCP-bit长度=6
+            /// </summary>
+            public const Int32 DSCPBitLength = 6;
+
+
+            /// <summary>
             /// 总长度-起始位置=2
             /// </summary>
             public const Int32 TotalLengthBegin = 2;

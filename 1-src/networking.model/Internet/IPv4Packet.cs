@@ -28,6 +28,15 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Differentiated Services Code Point
+        /// </summary>
+        public UInt32 DSCP
+        {
+            get { return base.GetUInt32(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength); }
+            set { base.SetUInt32(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength, value); }
+        }
+
+        /// <summary>
         /// 总长度
         /// </summary>
         public UInt16 TotalLength

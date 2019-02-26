@@ -86,6 +86,19 @@ namespace Networking.Model
             return (Byte)SetUInt32(@this, bitIndex + 24, bitLength, value);
         }
 
+        /// <summary>
+        /// 设置指定位置的bits
+        /// </summary>
+        /// <param name="this">this</param>
+        /// <param name="bitIndex">bit的索引[0-15]</param>
+        /// <param name="bitLength">bit的长度[0-16]</param>
+        /// <param name="value">值[15-bitLength~15]bits</param>
+        /// <returns></returns>
+        public static UInt16 SetUInt16(this UInt16 @this, Int32 bitIndex, Int32 bitLength, UInt16 value)
+        {
+            return (UInt16)SetUInt32(@this, bitIndex + 16, bitLength, value);
+        }
+
         private static UInt32 SetUInt32(this UInt32 @this, Int32 bitIndex, Int32 bitLength, UInt32 value)
         {
             var mask = ~0u << 32 - bitLength;

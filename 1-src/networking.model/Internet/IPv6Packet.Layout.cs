@@ -64,6 +64,22 @@ namespace Networking.Model.Internet
 
 
             /// <summary>
+            /// Flow Label-起始位置=0
+            /// </summary>
+            public const Int32 FlowLabelBegin = 0;
+
+            /// <summary>
+            /// Flow Label-bit索引=12
+            /// </summary>
+            public const Int32 FlowLabelBitIndex = 12;
+
+            /// <summary>
+            /// Flow Label-bit长度=20
+            /// </summary>
+            public const Int32 FlowLabelBitLength = 20;
+
+
+            /// <summary>
             /// 负载长度-起始位置=4
             /// </summary>
             public const Int32 PayloadLengthBegin = 4;

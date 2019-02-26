@@ -27,6 +27,15 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Flow Label
+        /// </summary>
+        public UInt32 FlowLabel
+        {
+            get { return base.GetUInt32(Layout.FlowLabelBegin, Layout.FlowLabelBitIndex, Layout.FlowLabelBitLength); }
+            set { base.SetUInt32(Layout.FlowLabelBegin, Layout.FlowLabelBitIndex, Layout.FlowLabelBitLength, value); }
+        }
+
+        /// <summary>
         /// 负载部分长度
         /// </summary>
         public UInt16 PayloadLength

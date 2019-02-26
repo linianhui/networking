@@ -26,6 +26,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
 
             icmpv6.Version.Should().Be(IPVersion.IPv6);
             icmpv6.TrafficClass.Should().Be(0x12);
+            icmpv6.FlowLabel.Should().Be(0xdf606);
             icmpv6.PayloadLength.Should().Be(16);
             icmpv6.NextHeader.Should().Be(58);
             icmpv6.HopLimit.Should().Be(255);

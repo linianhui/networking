@@ -17,6 +17,10 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             IPv6Packet.Layout.TrafficClassBitIndex.Should().Be(4);
             IPv6Packet.Layout.TrafficClassBitLength.Should().Be(8);
 
+            IPv6Packet.Layout.FlowLabelBegin.Should().Be(0);
+            IPv6Packet.Layout.FlowLabelBitIndex.Should().Be(12);
+            IPv6Packet.Layout.FlowLabelBitLength.Should().Be(20);
+
             IPv6Packet.Layout.PayloadLengthBegin.Should().Be(4);
             IPv6Packet.Layout.PayloadLengthEnd.Should().Be(6);
 

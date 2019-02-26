@@ -252,16 +252,16 @@ namespace Networking.Model
         /// <summary>
         /// 设置<see cref="UInt16"/>
         /// </summary>
-        /// <param name="byteIndex">索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <param name="value">UInt16的值</param>
         /// <returns></returns>
-        public UInt16 SetUInt16(Int32 byteIndex, Int32 bitIndex, Int32 bitLength, UInt16 value)
+        public UInt16 SetUInt16(Int32 index, Int32 bitIndex, Int32 bitLength, UInt16 value)
         {
-            var oldValue = GetUInt16(byteIndex);
+            var oldValue = GetUInt16(index);
             var newValue = oldValue.SetUInt16(bitIndex, bitLength, value);
-            return SetUInt16(byteIndex, newValue);
+            return SetUInt16(index, newValue);
         }
 
         /// <summary>
@@ -282,6 +282,21 @@ namespace Networking.Model
                 BinaryPrimitives.WriteUInt32BigEndian(span, value);
             }
             return value;
+        }
+
+        /// <summary>
+        /// 设置<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <param name="value">UInt32的值</param>
+        /// <returns></returns>
+        public UInt32 SetUInt32(Int32 index, Int32 bitIndex, Int32 bitLength, UInt32 value)
+        {
+            var oldValue = GetUInt32(index);
+            var newValue = oldValue.SetUInt32(bitIndex, bitLength, value);
+            return SetUInt32(index, newValue);
         }
 
         /// <summary>

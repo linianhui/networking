@@ -111,6 +111,18 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 获取<see cref="UInt16"/>
+        /// </summary>
+        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <returns></returns>
+        public UInt16 GetUInt16(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
+        {
+            return GetUInt16(byteIndex).GetUInt16(bitIndex, bitLength);
+        }
+
+        /// <summary>
         /// 获取<see cref="UInt32"/>
         /// </summary>
         /// <param name="index">索引</param>

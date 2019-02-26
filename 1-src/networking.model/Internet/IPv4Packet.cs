@@ -64,6 +64,24 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Don't Fragment
+        /// </summary>
+        public Boolean FlagDF
+        {
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsDFBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsDFBitIndex, value); }
+        }
+
+        /// <summary>
+        /// More Fragments
+        /// </summary>
+        public Boolean FlagMF
+        {
+            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsMFBitIndex); }
+            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsMFBitIndex, value); }
+        }
+
+        /// <summary>
         /// Fragment Offset
         /// </summary>
         public UInt16 FragmentOffset

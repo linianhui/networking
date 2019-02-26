@@ -14,7 +14,8 @@ namespace Networking.Model.Internet
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
         /// <para>|Version|  IHL  |   DSCP    |ECN|     Total Length              |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
-        /// <para>|      Identification           |Flags|    Fragment Offset      |</para>
+        /// <para>|      Identification           | |D|M|    Fragment Offset      |</para>
+        /// <para>|      (2 octets)               | |F|F|    (13 bit)             |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|      TTL      |    Type       |          Checksum             |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
@@ -29,6 +30,8 @@ namespace Networking.Model.Internet
         /// <para>IHL = Internet Header Length                                     </para>
         /// <para>DSCP= Differentiated Services Code Point                         </para>
         /// <para>ECN = Explicit Congestion Notification                           </para>
+        /// <para>DF  = Don't Fragment                                             </para>
+        /// <para>MF  = More Fragments                                             </para>
         /// <para>TTL = Time to Live                                               </para>
         /// <para>fixed-header                = 4*5 = 20 octets                    </para>
         /// <para>fixed-header+options-header = 20 + ?                             </para>
@@ -131,6 +134,29 @@ namespace Networking.Model.Internet
             /// Id-结束位置=6
             /// </summary>
             public const Int32 IdEnd = IdBegin + 2;
+
+
+
+            /// <summary>
+            /// 标志位-起始位置=6
+            /// </summary>
+            public const Int32 FlagsBegin = IdEnd;
+
+            /// <summary>
+            /// 标志位-结束位置=6
+            /// </summary>
+            public const Int32 FlagsEnd = FlagsBegin + 1;
+
+            /// <summary>
+            /// 标志位-DF的bit索引位置=1
+            /// </summary>
+            public const Int32 FlagsDFBitIndex = 1;
+
+            /// <summary>
+            /// 标志位-MF的bit索引位置=2
+            /// </summary>
+            public const Int32 FlagsMFBitIndex = 2;
+
 
 
             /// <summary>

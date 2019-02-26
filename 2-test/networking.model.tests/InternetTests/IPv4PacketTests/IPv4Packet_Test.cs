@@ -29,6 +29,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             ipv4Packet.HeaderLength.Should().Be(6);
             ipv4Packet.DSCP.Should().Be(0b_101010);
             ipv4Packet.ECN.Should().Be(0b_10);
+            ipv4Packet.FlagDF.Should().Be(false);
+            ipv4Packet.FlagMF.Should().Be(true);
             ipv4Packet.FragmentOffset.Should().Be(0b_0_1010_0101_0101);
             ipv4Packet.TotalLength.Should().Be(32);
             ipv4Packet.Id.Should().Be(59336);

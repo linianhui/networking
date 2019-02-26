@@ -250,6 +250,21 @@ namespace Networking.Model
         }
 
         /// <summary>
+        /// 设置<see cref="UInt16"/>
+        /// </summary>
+        /// <param name="byteIndex">索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <param name="value">UInt16的值</param>
+        /// <returns></returns>
+        public UInt16 SetUInt16(Int32 byteIndex, Int32 bitIndex, Int32 bitLength, UInt16 value)
+        {
+            var oldValue = GetUInt16(byteIndex);
+            var newValue = oldValue.SetUInt16(bitIndex, bitLength, value);
+            return SetUInt16(byteIndex, newValue);
+        }
+
+        /// <summary>
         /// 设置<see cref="UInt32"/>
         /// </summary>
         /// <param name="index">索引</param>

@@ -55,34 +55,34 @@ namespace Networking.Model
         /// <summary>
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
-        /// <param name="byteIndex">Byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public Boolean GetBit(Int32 byteIndex, Int32 bitIndex)
+        public Boolean GetBit(Int32 index, Int32 bitIndex)
         {
-            return GetByte(byteIndex).GetBit(bitIndex);
+            return GetByte(index).GetBit(bitIndex);
         }
 
         /// <summary>
         /// 获取<see cref="Byte"/>
         /// </summary>
-        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="index">索引</param>
         /// <returns></returns>
-        public Byte GetByte(Int32 byteIndex)
+        public Byte GetByte(Int32 index)
         {
-            return Bytes.Span[byteIndex];
+            return Bytes.Span[index];
         }
 
         /// <summary>
         /// 获取<see cref="Byte"/>
         /// </summary>
-        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <returns></returns>
-        public Byte GetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
+        public Byte GetByte(Int32 index, Int32 bitIndex, Int32 bitLength)
         {
-            return GetByte(byteIndex).GetByte(bitIndex, bitLength);
+            return GetByte(index).GetByte(bitIndex, bitLength);
         }
 
         /// <summary>
@@ -113,13 +113,13 @@ namespace Networking.Model
         /// <summary>
         /// 获取<see cref="UInt16"/>
         /// </summary>
-        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <returns></returns>
-        public UInt16 GetUInt16(Int32 byteIndex, Int32 bitIndex, Int32 bitLength)
+        public UInt16 GetUInt16(Int32 index, Int32 bitIndex, Int32 bitLength)
         {
-            return GetUInt16(byteIndex).GetUInt16(bitIndex, bitLength);
+            return GetUInt16(index).GetUInt16(bitIndex, bitLength);
         }
 
         /// <summary>
@@ -135,6 +135,18 @@ namespace Networking.Model
                 return BinaryPrimitives.ReadUInt32LittleEndian(span);
             }
             return BinaryPrimitives.ReadUInt32BigEndian(span);
+        }
+
+        /// <summary>
+        /// 获取<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="bitIndex">bit的索引</param>
+        /// <param name="bitLength">bit的长度</param>
+        /// <returns></returns>
+        public UInt32 GetUInt32(Int32 index, Int32 bitIndex, Int32 bitLength)
+        {
+            return GetUInt32(index).GetUInt32(bitIndex, bitLength);
         }
 
         /// <summary>
@@ -179,42 +191,42 @@ namespace Networking.Model
         /// <summary>
         /// 设置指定位置的bit[1=true,0=false]
         /// </summary>
-        /// <param name="byteIndex">Byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="value">bit的值</param>
         /// <returns></returns>
-        public Byte SetBit(Int32 byteIndex, Int32 bitIndex, Boolean value)
+        public Byte SetBit(Int32 index, Int32 bitIndex, Boolean value)
         {
-            var oldValue = GetByte(byteIndex);
+            var oldValue = GetByte(index);
             var newValue = oldValue.SetBit(bitIndex, value);
-            return SetByte(byteIndex, newValue);
+            return SetByte(index, newValue);
         }
 
         /// <summary>
         /// 设置<see cref="Byte"/>
         /// </summary>
-        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="byteValue">byte的值</param>
         /// <returns></returns>
-        public Byte SetByte(Int32 byteIndex, Byte byteValue)
+        public Byte SetByte(Int32 index, Byte byteValue)
         {
-            Bytes.Span[byteIndex] = byteValue;
+            Bytes.Span[index] = byteValue;
             return byteValue;
         }
 
         /// <summary>
         /// 设置<see cref="Byte"/>
         /// </summary>
-        /// <param name="byteIndex">byte的索引</param>
+        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <param name="value">byte的值</param>
         /// <returns></returns>
-        public Byte SetByte(Int32 byteIndex, Int32 bitIndex, Int32 bitLength, Byte value)
+        public Byte SetByte(Int32 index, Int32 bitIndex, Int32 bitLength, Byte value)
         {
-            var oldValue = GetByte(byteIndex);
+            var oldValue = GetByte(index);
             var newValue = oldValue.SetByte(bitIndex, bitLength, value);
-            return SetByte(byteIndex, newValue);
+            return SetByte(index, newValue);
         }
 
         /// <summary>

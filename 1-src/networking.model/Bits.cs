@@ -79,7 +79,7 @@ namespace Networking.Model
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="bitLength">bit的长度[0-8]</param>
-        /// <param name="value">值[7-bitLength~7]bits</param>
+        /// <param name="value">值[8-bitLength~7]bits</param>
         /// <returns></returns>
         public static Byte SetByte(this Byte @this, Int32 bitIndex, Int32 bitLength, Byte value)
         {
@@ -92,14 +92,22 @@ namespace Networking.Model
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-15]</param>
         /// <param name="bitLength">bit的长度[0-16]</param>
-        /// <param name="value">值[15-bitLength~15]bits</param>
+        /// <param name="value">值[16-bitLength~15]bits</param>
         /// <returns></returns>
         public static UInt16 SetUInt16(this UInt16 @this, Int32 bitIndex, Int32 bitLength, UInt16 value)
         {
             return (UInt16)SetUInt32(@this, bitIndex + 16, bitLength, value);
         }
 
-        private static UInt32 SetUInt32(this UInt32 @this, Int32 bitIndex, Int32 bitLength, UInt32 value)
+        /// <summary>
+        /// 设置指定位置的bits
+        /// </summary>
+        /// <param name="this">this</param>
+        /// <param name="bitIndex">bit的索引[0-31]</param>
+        /// <param name="bitLength">bit的长度[0-32]</param>
+        /// <param name="value">值[32-bitLength~31]bits</param>
+        /// <returns></returns>
+        public static UInt32 SetUInt32(this UInt32 @this, Int32 bitIndex, Int32 bitLength, UInt32 value)
         {
             var mask = ~0u << 32 - bitLength;
             mask >>= bitIndex;

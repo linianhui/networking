@@ -23,6 +23,10 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             IPv4Packet.Layout.DSCPBitIndex.Should().Be(0);
             IPv4Packet.Layout.DSCPBitLength.Should().Be(6);
 
+            IPv4Packet.Layout.ECNBegin.Should().Be(1);
+            IPv4Packet.Layout.ECNBitIndex.Should().Be(6);
+            IPv4Packet.Layout.ECNBitLength.Should().Be(2);
+
             IPv4Packet.Layout.TotalLengthBegin.Should().Be(2);
             IPv4Packet.Layout.TotalLengthEnd.Should().Be(4);
 

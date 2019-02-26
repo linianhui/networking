@@ -37,6 +37,15 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Explicit Congestion Notification
+        /// </summary>
+        public UInt32 ECN
+        {
+            get { return base.GetUInt32(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength); }
+            set { base.SetUInt32(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength, value); }
+        }
+
+        /// <summary>
         /// 总长度
         /// </summary>
         public UInt16 TotalLength

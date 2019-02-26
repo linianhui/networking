@@ -96,6 +96,22 @@ namespace Networking.Model.Internet
 
 
             /// <summary>
+            /// ECN-起始位置=1
+            /// </summary>
+            public const Int32 ECNBegin = 1;
+
+            /// <summary>
+            /// ECN-bit索引=6
+            /// </summary>
+            public const Int32 ECNBitIndex = 6;
+
+            /// <summary>
+            /// ECN-bit长度=2
+            /// </summary>
+            public const Int32 ECNBitLength = 2;
+
+
+            /// <summary>
             /// 总长度-起始位置=2
             /// </summary>
             public const Int32 TotalLengthBegin = 2;

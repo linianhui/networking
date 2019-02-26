@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             {
                 Bytes = new Byte[]
                 {
-                    0x46, 0b_101010_00, 0x00, 0x20,
+                    0x46, 0b_101010_10, 0x00, 0x20,
                     0xe7, 0xc8, 0x00, 0x00,
                     0x01, 0x02, 0x99, 0xa4,
                     0xc0, 0xa8, 0x02, 0x01,
@@ -28,6 +28,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             ipv4Packet.Version.Should().Be(IPVersion.IPv4);
             ipv4Packet.HeaderLength.Should().Be(6);
             ipv4Packet.DSCP.Should().Be(0b_101010);
+            ipv4Packet.ECN.Should().Be(0b_10);
             ipv4Packet.TotalLength.Should().Be(32);
             ipv4Packet.Id.Should().Be(59336);
             ipv4Packet.TTL.Should().Be(1);

@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.OctetsTests
 {
-    public class Octets_Method_GetUInt32_Index_Test
+    public class Octets_Method_GetUInt32_Bits_Test
     {
 
         [Fact]

@@ -13,6 +13,10 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             IPv6Packet.Layout.VersionBitIndex.Should().Be(0);
             IPv6Packet.Layout.VersionBitLength.Should().Be(4);
 
+            IPv6Packet.Layout.TrafficClassBegin.Should().Be(0);
+            IPv6Packet.Layout.TrafficClassBitIndex.Should().Be(4);
+            IPv6Packet.Layout.TrafficClassBitLength.Should().Be(8);
+
             IPv6Packet.Layout.PayloadLengthBegin.Should().Be(4);
             IPv6Packet.Layout.PayloadLengthEnd.Should().Be(6);
 

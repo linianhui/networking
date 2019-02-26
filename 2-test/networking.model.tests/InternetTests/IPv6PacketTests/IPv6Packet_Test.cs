@@ -14,7 +14,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             {
                 Bytes = new Byte[]
                 {
-                    0x60, 0x0d, 0xf6, 0x06,
+                    0x61, 0x2d, 0xf6, 0x06,
                     0x00, 0x10,
                     0x3a,
                     0xff,
@@ -25,6 +25,7 @@ namespace Networking.Model.Tests.InternetTests.IPv6PacketTests
             };
 
             icmpv6.Version.Should().Be(IPVersion.IPv6);
+            icmpv6.TrafficClass.Should().Be(0x12);
             icmpv6.PayloadLength.Should().Be(16);
             icmpv6.NextHeader.Should().Be(58);
             icmpv6.HopLimit.Should().Be(255);

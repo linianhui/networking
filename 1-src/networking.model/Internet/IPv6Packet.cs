@@ -18,6 +18,15 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Traffic Class
+        /// </summary>
+        public UInt16 TrafficClass
+        {
+            get { return base.GetUInt16(Layout.TrafficClassBegin, Layout.TrafficClassBitIndex, Layout.TrafficClassBitLength); }
+            set { base.SetUInt16(Layout.TrafficClassBegin, Layout.TrafficClassBitIndex, Layout.TrafficClassBitLength, value); }
+        }
+
+        /// <summary>
         /// 负载部分长度
         /// </summary>
         public UInt16 PayloadLength

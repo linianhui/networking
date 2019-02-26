@@ -48,6 +48,22 @@ namespace Networking.Model.Internet
 
 
             /// <summary>
+            /// Traffic Class-起始位置=0
+            /// </summary>
+            public const Int32 TrafficClassBegin = 0;
+
+            /// <summary>
+            /// Traffic Class-bit索引=4
+            /// </summary>
+            public const Int32 TrafficClassBitIndex = 4;
+
+            /// <summary>
+            /// Traffic Class-bit长度=8
+            /// </summary>
+            public const Int32 TrafficClassBitLength = 8;
+
+
+            /// <summary>
             /// 负载长度-起始位置=4
             /// </summary>
             public const Int32 PayloadLengthBegin = 4;

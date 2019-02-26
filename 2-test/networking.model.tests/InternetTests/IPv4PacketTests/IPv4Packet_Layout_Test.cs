@@ -33,6 +33,11 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             IPv4Packet.Layout.IdBegin.Should().Be(4);
             IPv4Packet.Layout.IdEnd.Should().Be(6);
 
+            IPv4Packet.Layout.FragmentOffsetBegin.Should().Be(6);
+            IPv4Packet.Layout.FragmentOffsetEnd.Should().Be(8);
+            IPv4Packet.Layout.FragmentOffsetBitIndex.Should().Be(3);
+            IPv4Packet.Layout.FragmentOffsetBitLength.Should().Be(13);
+
             IPv4Packet.Layout.TTLBegin.Should().Be(8);
             IPv4Packet.Layout.TTLEnd.Should().Be(9);
 

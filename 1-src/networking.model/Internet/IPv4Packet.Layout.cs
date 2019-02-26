@@ -134,9 +134,30 @@ namespace Networking.Model.Internet
 
 
             /// <summary>
+            /// Fragment Offset-起始位置=6
+            /// </summary>
+            public const Int32 FragmentOffsetBegin = IdEnd;
+
+            /// <summary>
+            /// Fragment Offset-bit索引=3
+            /// </summary>
+            public const Int32 FragmentOffsetBitIndex = 3;
+
+            /// <summary>
+            /// Fragment Offset-bit长度=13
+            /// </summary>
+            public const Int32 FragmentOffsetBitLength = 13;
+
+            /// <summary>
+            /// Fragment Offset-结束位置=8
+            /// </summary>
+            public const Int32 FragmentOffsetEnd = FragmentOffsetBegin + 2;
+
+
+            /// <summary>
             /// TTL-起始位置=8
             /// </summary>
-            public const Int32 TTLBegin = 8;
+            public const Int32 TTLBegin = FragmentOffsetEnd;
 
             /// <summary>
             /// TTL-结束位置=9

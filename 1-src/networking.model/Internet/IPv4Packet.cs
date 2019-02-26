@@ -64,6 +64,15 @@ namespace Networking.Model.Internet
         }
 
         /// <summary>
+        /// Fragment Offset
+        /// </summary>
+        public UInt16 FragmentOffset
+        {
+            get { return base.GetUInt16(Layout.FragmentOffsetBegin, Layout.FragmentOffsetBitIndex, Layout.FragmentOffsetBitLength); }
+            set { base.SetUInt16(Layout.FragmentOffsetBegin, Layout.FragmentOffsetBitIndex, Layout.FragmentOffsetBitLength, value); }
+        }
+
+        /// <summary>
         /// Time to Live
         /// </summary>
         public Byte TTL

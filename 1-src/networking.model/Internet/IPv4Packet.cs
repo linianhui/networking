@@ -30,19 +30,19 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Differentiated Services Code Point
         /// </summary>
-        public UInt32 DSCP
+        public Byte DSCP
         {
-            get { return base.GetUInt32(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength); }
-            set { base.SetUInt32(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength, value); }
+            get { return base.GetByte(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength); }
+            set { base.SetByte(Layout.DSCPBegin, Layout.DSCPBitIndex, Layout.DSCPBitLength, value); }
         }
 
         /// <summary>
         /// Explicit Congestion Notification
         /// </summary>
-        public UInt32 ECN
+        public Byte ECN
         {
-            get { return base.GetUInt32(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength); }
-            set { base.SetUInt32(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength, value); }
+            get { return base.GetByte(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength); }
+            set { base.SetByte(Layout.ECNBegin, Layout.ECNBitIndex, Layout.ECNBitLength, value); }
         }
 
         /// <summary>

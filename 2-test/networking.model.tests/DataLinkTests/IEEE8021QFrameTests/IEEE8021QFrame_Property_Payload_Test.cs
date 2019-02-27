@@ -5,9 +5,9 @@ using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
+namespace Networking.Model.Tests.DataLinkTests.IEEE8021QFrameTests
 {
-    public class EthernetFrame_Property_Payload_Test
+    public class IEEE8021QFrame_Property_Payload_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -23,14 +23,14 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
         [MemberData(nameof(Data))]
         public void Get(EthernetFrameType input, Type excepted)
         {
-            var ethernetFrame = new EthernetFrame
+            var ieee8021QFrame = new IEEE8021QFrame
             {
-                Bytes = new Byte[64]
+                Bytes = new Byte[32]
             };
 
-            ethernetFrame.Type = input;
+            ieee8021QFrame.Type = input;
 
-            ethernetFrame.Payload.GetType().Should().Be(excepted);
+            ieee8021QFrame.Payload.GetType().Should().Be(excepted);
         }
     }
 }

@@ -14,7 +14,9 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
             new Object[] { new Byte[]{ 0x08, 0x00 }, EthernetFrameType.IPv4 },
             new Object[] { new Byte[]{ 0x08, 0x06 }, EthernetFrameType.ARP },
             new Object[] { new Byte[]{ 0x81, 0x00 }, EthernetFrameType.IEEE8021Q },
-            new Object[] { new Byte[]{ 0x86, 0xDD }, EthernetFrameType.IPv6 }
+            new Object[] { new Byte[]{ 0x86, 0xDD }, EthernetFrameType.IPv6 },
+            new Object[] { new Byte[]{ 0x88, 0x63 }, EthernetFrameType.PPPoEDiscoveryStage },
+            new Object[] { new Byte[]{ 0x88, 0x64 }, EthernetFrameType.PPPoESessionStage },
         };
 
         [Theory]

@@ -24,6 +24,11 @@ namespace Networking.Model.DataLink
         ARP = 0x0806,
 
         /// <summary>
+        /// VLAN : IEEE 802.1Q
+        /// </summary>
+        IEEE8021Q = 0x08100,
+
+        /// <summary>
         /// Internet Protocol Version 6
         /// </summary>
         IPv6 = 0x86DD,

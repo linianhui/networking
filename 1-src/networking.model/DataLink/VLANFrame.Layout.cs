@@ -2,18 +2,18 @@ using System;
 
 namespace Networking.Model.DataLink
 {
-    public partial class IEEE8021QFrame
+    public partial class VLANFrame
     {
         /// <summary>
-        /// <see cref="IEEE8021QFrame"/>的首部-布局信息
+        /// <see cref="VLANFrame"/>的首部-布局信息
         /// <see href="https://en.wikipedia.org/wiki/IEEE_802.1Q#Frame_format"/>
         /// <para></para>
         /// <para>|                          IEEE 802.1Q                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>| PCP |D| VID (VLAN identifier) |                               |</para>
-        /// <para>|3bits|E| 12 bits               +        Type (2 octets)        |</para> 
+        /// <para>|3bits|E| 12 bits               +        Type (2 octets)        |</para>
         /// <para>|     |I| max = 0xFFF = 4096    |                               |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|                                                               |</para>

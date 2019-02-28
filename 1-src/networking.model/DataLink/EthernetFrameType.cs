@@ -26,7 +26,7 @@ namespace Networking.Model.DataLink
         /// <summary>
         /// VLAN : IEEE 802.1Q
         /// </summary>
-        IEEE8021Q = 0x08100,
+        VLAN = 0x08100,
 
         /// <summary>
         /// Internet Protocol Version 6

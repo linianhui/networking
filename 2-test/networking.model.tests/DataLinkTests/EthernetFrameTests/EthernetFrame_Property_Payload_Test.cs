@@ -16,7 +16,7 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
             new Object[] { EthernetFrameType.IPv6 , typeof(IPv6Packet) },
             new Object[] { EthernetFrameType.PPPoEDiscoveryStage , typeof(PPPoEFrame) },
             new Object[] { EthernetFrameType.PPPoESessionStage , typeof(PPPoEFrame) },
-            new Object[] { EthernetFrameType.IEEE8021Q , typeof(IEEE8021QFrame) },
+            new Object[] { EthernetFrameType.VLAN , typeof(VLANFrame) },
         };
 
         [Theory]

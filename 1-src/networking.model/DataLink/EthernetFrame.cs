@@ -69,8 +69,8 @@ namespace Networking.Model.DataLink
                     {
                         Bytes = payloadBytes
                     };
-                case EthernetFrameType.IEEE8021Q:
-                    return new IEEE8021QFrame
+                case EthernetFrameType.VLAN:
+                    return new VLANFrame
                     {
                         Bytes = payloadBytes
                     };

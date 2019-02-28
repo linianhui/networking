@@ -4,9 +4,9 @@ using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Tests.DataLinkTests.IEEE8021QFrameTests
+namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {
-    public class IEEE8021QFrame_Property_Type_Test
+    public class VLANFrame_Property_Type_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -22,29 +22,29 @@ namespace Networking.Model.Tests.DataLinkTests.IEEE8021QFrameTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, EthernetFrameType expected)
         {
-            var ieee8021QFrame = new IEEE8021QFrame
+            var vlanFrame = new VLANFrame
             {
                 Bytes = new Byte[4]
             };
 
-            ieee8021QFrame[2, 2] = input;
+            vlanFrame[2, 2] = input;
 
-            ieee8021QFrame.Type.Should().Be(expected);
+            vlanFrame.Type.Should().Be(expected);
         }
 
         [Theory]
         [MemberData(nameof(Data))]
         public void Set(Byte[] expected, EthernetFrameType input)
         {
-            var ieee8021QFrame = new IEEE8021QFrame
+            var vlanFrame = new VLANFrame
             {
                 Bytes = new Byte[4]
             };
 
-            ieee8021QFrame.Type = input;
+            vlanFrame.Type = input;
 
-            ieee8021QFrame[2, 2].ToArray().Should().Equal(expected);
-            ieee8021QFrame.Type.Should().Be(input);
+            vlanFrame[2, 2].ToArray().Should().Equal(expected);
+            vlanFrame.Type.Should().Be(input);
         }
     }
 }

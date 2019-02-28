@@ -5,9 +5,9 @@ using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.DataLinkTests.IEEE8021QFrameTests
+namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {
-    public class IEEE8021QFrame_Property_Payload_Test
+    public class VLANFrame_Property_Payload_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -16,21 +16,21 @@ namespace Networking.Model.Tests.DataLinkTests.IEEE8021QFrameTests
             new Object[] { EthernetFrameType.IPv6 , typeof(IPv6Packet) },
             new Object[] { EthernetFrameType.PPPoEDiscoveryStage , typeof(PPPoEFrame) },
             new Object[] { EthernetFrameType.PPPoESessionStage , typeof(PPPoEFrame) },
-            new Object[] { EthernetFrameType.IEEE8021Q , typeof(IEEE8021QFrame) },
+            new Object[] { EthernetFrameType.VLAN , typeof(VLANFrame) },
         };
 
         [Theory]
         [MemberData(nameof(Data))]
         public void Get(EthernetFrameType input, Type excepted)
         {
-            var ieee8021QFrame = new IEEE8021QFrame
+            var vlanFrame = new VLANFrame
             {
                 Bytes = new Byte[32]
             };
 
-            ieee8021QFrame.Type = input;
+            vlanFrame.Type = input;
 
-            ieee8021QFrame.Payload.GetType().Should().Be(excepted);
+            vlanFrame.Payload.GetType().Should().Be(excepted);
         }
     }
 }

@@ -12,6 +12,8 @@
 |             | [ARP]      | Frame    |
 |             | [PPP]      | Frame    |
 |             | [PPPoE]    | Frame    |
+|             | [VLAN]     | Frame    |
+|             | [VXLAN]    | Frame    |
 
 # CI
 
@@ -52,3 +54,5 @@
 [Ethernet]:/1-src/networking.model/DataLink/EthernetFrame.cs
 [PPP]:/1-src/networking.model/DataLink/PPPFrame.cs
 [PPPoE]:/1-src/networking.model/DataLink/PPPoEFrame.cs
+[VLAN]:/1-src/networking.model/DataLink/VLANFrame.cs
+[VXLAN]:/1-src/networking.model/DataLink/VXLANFrame.cs

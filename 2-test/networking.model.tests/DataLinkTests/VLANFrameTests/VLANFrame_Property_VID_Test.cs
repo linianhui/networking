@@ -31,8 +31,8 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
             vlanFrame.SetByte(0, 0b_1110_0000);
             vlanFrame.VID = 0b_1100_1010_0101;
 
-            vlanFrame.GetByte(0).Should().Be(0b1110_1100);
-            vlanFrame.GetByte(1).Should().Be(0b1010_0101);
+            vlanFrame.GetByte(0).Should().Be(0b_1110_1100);
+            vlanFrame.GetByte(1).Should().Be(0b_1010_0101);
         }
     }
 }

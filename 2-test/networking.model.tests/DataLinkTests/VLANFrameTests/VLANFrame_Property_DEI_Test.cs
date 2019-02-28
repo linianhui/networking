@@ -3,7 +3,7 @@ using FluentAssertions;
 using Xunit;
 using Networking.Model.DataLink;
 
-namespace Networking.Model.Tests.DataLinkTests.IPv4PacketTests
+namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {
     public class VLANFrame_Property_DEI_Test
     {

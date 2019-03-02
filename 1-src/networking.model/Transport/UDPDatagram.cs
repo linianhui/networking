@@ -63,6 +63,16 @@ namespace Networking.Model.Transport
                         Bytes = payloadBytes
                     };
                 }
+                else if (DHCP.ServerPort == sourcePort
+                         || DHCP.ServerPort == destinationPort
+                         || DHCP.ClientPort == sourcePort
+                         || DHCP.ClientPort == destinationPort)
+                {
+                    return new DHCP
+                    {
+                        Bytes = payloadBytes
+                    };
+                }
                 else
                 {
                     return new Octets

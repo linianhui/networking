@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ApplicationTests\DHCPTests\dhcp.pcap" />
     <EmbeddedResource Include="ApplicationTests\DNSTests\dns.pcap" />
   </ItemGroup>
 

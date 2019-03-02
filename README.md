@@ -3,6 +3,7 @@
 | Layer         | Protocol   | [PDU]    |
 | ------------- | ---------- | -------- |
 | [Application] | [DHCP]     |          |
+|               | [DNS]      |          |
 | [Transport]   | [TCP]      | Segment  |
 |               | [UDP]      | Datagram |
 | [Internet]    | [IPv4]     | Packet   |
@@ -43,6 +44,7 @@
 
 [Application]:/1-src/networking.model/Application/
 [DHCP]:/1-src/networking.model/Application/DHCP.cs
+[DNS]:/1-src/networking.model/Application/DNS.cs
 
 [Transport]:/1-src/networking.model/Transport/
 [TCP]:/1-src/networking.model/Transport/TCPSegment.cs

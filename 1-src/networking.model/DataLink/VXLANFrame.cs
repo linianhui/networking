@@ -14,8 +14,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Boolean I
         {
-            get { return base.GetBit(Layout.TagBegin, Layout.TagIBitIndex); }
-            set { base.SetBit(Layout.TagBegin, Layout.TagIBitIndex, value); }
+            get { return base.GetBoolean(Layout.TagBegin, Layout.TagIBitIndex); }
+            set { base.SetBoolean(Layout.TagBegin, Layout.TagIBitIndex, value); }
         }
 
         /// <summary>

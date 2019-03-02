@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Networking.Model.Tests.BitsTests
 {
-    public class Bits_Method_GetBit_Test
+    public class Bits_Method_GetBoolean_Test
     {
 
         public static List<Object[]> Data => new List<Object[]>
@@ -31,9 +31,9 @@ namespace Networking.Model.Tests.BitsTests
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void GetBit(Byte @this, Int32 bitIndex, Boolean expected)
+        public void GetBoolean(Byte @this, Int32 bitIndex, Boolean expected)
         {
-            @this.GetBit(bitIndex).Should().Be(expected);
+            @this.GetBoolean(bitIndex).Should().Be(expected);
         }
     }
 }

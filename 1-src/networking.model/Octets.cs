@@ -58,9 +58,9 @@ namespace Networking.Model
         /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public Boolean GetBit(Int32 index, Int32 bitIndex)
+        public Boolean GetBoolean(Int32 index, Int32 bitIndex)
         {
-            return GetByte(index).GetBit(bitIndex);
+            return GetByte(index).GetBoolean(bitIndex);
         }
 
         /// <summary>
@@ -195,10 +195,10 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="value">bit的值</param>
         /// <returns></returns>
-        public Byte SetBit(Int32 index, Int32 bitIndex, Boolean value)
+        public Byte SetBoolean(Int32 index, Int32 bitIndex, Boolean value)
         {
             var oldValue = GetByte(index);
-            var newValue = oldValue.SetBit(bitIndex, value);
+            var newValue = oldValue.SetBoolean(bitIndex, value);
             return SetByte(index, newValue);
         }
 

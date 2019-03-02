@@ -68,8 +68,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Boolean FlagDF
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsDFBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsDFBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsDFBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsDFBitIndex, value); }
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public Boolean FlagMF
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsMFBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsMFBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsMFBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsMFBitIndex, value); }
         }
 
         /// <summary>

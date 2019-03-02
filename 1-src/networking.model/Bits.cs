@@ -13,7 +13,7 @@ namespace Networking.Model
         /// <param name="this">this</param>
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <returns></returns>
-        public static Boolean GetBit(this Byte @this, Int32 bitIndex)
+        public static Boolean GetBoolean(this Byte @this, Int32 bitIndex)
         {
             return GetUInt32(@this, bitIndex + 24, 1) == 1;
         }
@@ -68,7 +68,7 @@ namespace Networking.Model
         /// <param name="bitIndex">bit的索引[0-7]</param>
         /// <param name="value">bit的值</param>
         /// <returns></returns>
-        public static Byte SetBit(this Byte @this, Int32 bitIndex, Boolean value)
+        public static Byte SetBoolean(this Byte @this, Int32 bitIndex, Boolean value)
         {
             return (Byte)SetUInt32(@this, bitIndex + 24, 1, value ? 1u : 0u);
         }

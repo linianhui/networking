@@ -2,6 +2,8 @@ using System;
 using FluentAssertions;
 using Networking.Model.Application;
 using Networking.Model.DataLink;
+using Networking.Model.Internet;
+using Networking.Model.Transport;
 using Xunit;
 
 namespace Networking.Model.Tests.ApplicationTests.DHCPTests
@@ -9,7 +11,7 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
     public class DHCP_Test
     {
         [Fact]
-        public void discover()
+        public void dhcp_discover()
         {
             var dhcp = new DHCP
             {
@@ -60,6 +62,21 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
             dhcp.ServerIPAddress.ToString().Should().Be("0.0.0.0");
             dhcp.GatewayIPAddress.ToString().Should().Be("0.0.0.0");
             dhcp.ClientHardwareAddress.ToString().Should().Be("00:0B:82:01:FC:42");
+        }
+
+        [Fact]
+        public void dhcp()
+        {
+            this.PcapFileForEach("dhcp.pcap", bytes =>
+            {
+                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+
+                var ipv4 = (IPv4Packet)ethernetFrame.Payload;
+                var udp = (UDPDatagram)ipv4.Payload;
+                var udpPayload = udp.Payload;
+
+                udpPayload.GetType().Should().Be(typeof(DHCP));
+            });
         }
     }
 }

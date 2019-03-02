@@ -12,6 +12,16 @@ namespace Networking.Model.Application
     public partial class DHCP : Octets
     {
         /// <summary>
+        /// 服务端端口号=68
+        /// </summary>
+        public const UInt16 ClientPort = 68;
+
+        /// <summary>
+        /// 服务端端口号=67
+        /// </summary>
+        public const UInt16 ServerPort = 67;
+
+        /// <summary>
         /// Operation Code
         /// </summary>
         public Byte OperationCode

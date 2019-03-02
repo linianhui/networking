@@ -23,8 +23,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Boolean DEI
         {
-            get { return base.GetBit(Layout.DEIBegin, Layout.DEIBitIndex); }
-            set { base.SetBit(Layout.DEIBegin, Layout.DEIBitIndex, value); }
+            get { return base.GetBoolean(Layout.DEIBegin, Layout.DEIBitIndex); }
+            set { base.SetBoolean(Layout.DEIBegin, Layout.DEIBitIndex, value); }
         }
 
         /// <summary>

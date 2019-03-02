@@ -58,8 +58,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagNS
         {
-            get { return base.GetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex); }
-            set { base.SetBit(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex, value); }
+            get { return base.GetBoolean(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex); }
+            set { base.SetBoolean(Layout.HeaderLengthBegin, Layout.FlagsNSBitIndex, value); }
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagCWR
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsCWRBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsCWRBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsCWRBitIndex, value); }
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagECE
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsECEBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsECEBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsECEBitIndex, value); }
         }
 
         /// <summary>
@@ -85,8 +85,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagURG
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsURGBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsURGBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsURGBitIndex, value); }
         }
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagACK
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsACKBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsACKBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsACKBitIndex, value); }
         }
 
         /// <summary>
@@ -103,8 +103,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagPSH
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsPSHBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsPSHBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsPSHBitIndex, value); }
         }
 
         /// <summary>
@@ -112,8 +112,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagRST
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsRSTBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsRSTBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsRSTBitIndex, value); }
         }
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagSYN
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsSYNBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsSYNBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsSYNBitIndex, value); }
         }
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace Networking.Model.Transport
         /// </summary>
         public Boolean FlagFIN
         {
-            get { return base.GetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex); }
-            set { base.SetBit(Layout.FlagsBegin, Layout.FlagsFINBitIndex, value); }
+            get { return base.GetBoolean(Layout.FlagsBegin, Layout.FlagsFINBitIndex); }
+            set { base.SetBoolean(Layout.FlagsBegin, Layout.FlagsFINBitIndex, value); }
         }
 
         /// <summary>

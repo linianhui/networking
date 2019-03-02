@@ -1,4 +1,5 @@
 using System;
+using Networking.Model.Application;
 
 namespace Networking.Model.Transport
 {
@@ -51,11 +52,24 @@ namespace Networking.Model.Transport
         {
             get
             {
+                var sourcePort = SourcePort;
+                var destinationPort = DestinationPort;
                 var payloadBytes = GetBytes(Layout.HeaderLength);
-                return new Octets
+                if (DNS.ServerPort == sourcePort
+                    || DNS.ServerPort == destinationPort)
                 {
-                    Bytes = payloadBytes
-                };
+                    return new DNS
+                    {
+                        Bytes = payloadBytes
+                    };
+                }
+                else
+                {
+                    return new Octets
+                    {
+                        Bytes = payloadBytes
+                    };
+                }
             }
         }
     }

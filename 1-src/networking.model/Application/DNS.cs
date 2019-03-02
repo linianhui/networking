@@ -10,6 +10,11 @@ namespace Networking.Model.Application
     public partial class DNS : Octets
     {
         /// <summary>
+        /// 服务端端口号=53
+        /// </summary>
+        public const UInt16 ServerPort = 53;
+
+        /// <summary>
         /// Transaction Id
         /// </summary>
         public UInt16 TransactionId

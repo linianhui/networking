@@ -2,11 +2,19 @@ using System;
 using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {
     public class VLANFrame_Test
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public VLANFrame_Test(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void ipv4()
         {
@@ -24,6 +32,25 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
             vlanFrame.DEI.Should().Be(true);
             vlanFrame.VID.Should().Be(0b_1010_1100_0011);
             vlanFrame.Type.Should().Be(EthernetFrameType.IPv4);
+        }
+
+        [Fact]
+        public void vlan()
+        {
+            this.PcapFileForEach("vlan.pcap", bytes =>
+            {
+                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+
+                _testOutputHelper.WriteLine(
+                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}"
+                );
+
+                if (ethernetFrame.Type == EthernetFrameType.VLAN)
+                {
+                    var vlan = ethernetFrame.Payload;
+                    vlan.GetType().Should().Be<VLANFrame>();
+                }
+            });
         }
     }
 }

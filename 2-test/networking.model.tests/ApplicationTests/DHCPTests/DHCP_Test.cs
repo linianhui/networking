@@ -5,11 +5,19 @@ using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Networking.Model.Transport;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.ApplicationTests.DHCPTests
 {
     public class DHCP_Test
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public DHCP_Test(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void dhcp_discover()
         {
@@ -74,6 +82,12 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
                 var udpPayload = udp.Payload;
+
+                _testOutputHelper.WriteLine(
+                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
+                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
+                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
+                );
 
                 udpPayload.GetType().Should().Be(typeof(DHCP));
             });

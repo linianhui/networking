@@ -1,11 +1,11 @@
 using System;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Application
 {
-    public partial class VXLANFrame
+    public partial class VXLAN
     {
         /// <summary>
-        /// <see cref="VXLANFrame"/>的首部-布局信息
+        /// <see cref="VXLAN"/>的首部-布局信息
         /// <see href="https://tools.ietf.org/html/rfc7348"/>
         /// <para></para>
         /// <para>|                          VXLAN Header                         |</para>

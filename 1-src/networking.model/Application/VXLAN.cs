@@ -1,13 +1,14 @@
 using System;
+using Networking.Model.DataLink;
 
-namespace Networking.Model.DataLink
+namespace Networking.Model.Application
 {
     /// <summary>
     /// VXLAN : RFC7348
     /// <see href="https://en.wikipedia.org/wiki/Virtual_Extensible_LAN"/>
     /// <see href="https://tools.ietf.org/html/rfc7348"/>
     /// </summary>
-    public partial class VXLANFrame : Octets
+    public partial class VXLAN : Octets
     {
         /// <summary>
         /// I

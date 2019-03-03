@@ -4,6 +4,7 @@
 | ------------- | ---------- | -------- |
 | [Application] | [DHCP]     |          |
 |               | [DNS]      |          |
+|               | [VXLAN]    |          |
 | [Transport]   | [TCP]      | Segment  |
 |               | [UDP]      | Datagram |
 | [Internet]    | [IPv4]     | Packet   |
@@ -15,7 +16,6 @@
 |               | [PPP]      | Frame    |
 |               | [PPPoE]    | Frame    |
 |               | [VLAN]     | Frame    |
-|               | [VXLAN]    | Frame    |
 
 # CI
 
@@ -45,6 +45,7 @@
 [Application]:/1-src/networking.model/Application/
 [DHCP]:/1-src/networking.model/Application/DHCP.cs
 [DNS]:/1-src/networking.model/Application/DNS.cs
+[VXLAN]:/1-src/networking.model/Application/VXLAN.cs
 
 [Transport]:/1-src/networking.model/Transport/
 [TCP]:/1-src/networking.model/Transport/TCPSegment.cs
@@ -62,4 +63,3 @@
 [PPP]:/1-src/networking.model/DataLink/PPPFrame.cs
 [PPPoE]:/1-src/networking.model/DataLink/PPPoEFrame.cs
 [VLAN]:/1-src/networking.model/DataLink/VLANFrame.cs
-[VXLAN]:/1-src/networking.model/DataLink/VXLANFrame.cs

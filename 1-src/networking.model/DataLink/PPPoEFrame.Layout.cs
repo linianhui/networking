@@ -6,7 +6,7 @@ namespace Networking.Model.DataLink
     {
         /// <summary>
         /// <see cref="PPPoEFrame"/>的首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/point-to-point_protocol_over_ethernet"/>
+        /// <see href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol_over_Ethernet"/>
         /// <see href="https://tools.ietf.org/html/rfc2516"/>
         /// <para></para>
         /// <para>|        PPPoE (Point to Point over Ethernet) Frame             |</para>

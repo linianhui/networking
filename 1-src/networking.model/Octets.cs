@@ -7,7 +7,7 @@ namespace Networking.Model
 {
     /// <summary>
     /// 八位字节组
-    /// <see href="https://en.wikipedia.org/wiki/octet_(computing)"/>
+    /// <see href="https://en.wikipedia.org/wiki/Octet_(computing)"/>
     /// </summary>
     public class Octets
     {

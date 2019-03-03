@@ -4,7 +4,7 @@ namespace Networking.Model.Internet
 {
     /// <summary>
     /// ICMPv4=Internet Control Message Protocol
-    /// <see href="http://en.wikipedia.org/wiki/internet_control_message_protocol"/>
+    /// <see href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol"/>
     /// </summary>
     public partial class ICMPv4Packet : Octets
     {

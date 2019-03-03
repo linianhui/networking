@@ -6,16 +6,16 @@ namespace Networking.Model.DataLink
     {
         /// <summary>
         /// <see cref="EthernetFrame"/>的首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/ethernet_frame"/>
+        /// <see href="https://en.wikipedia.org/wiki/Ethernet_frame"/>
         /// <para></para>
         /// <para>|              Ethernet II (DIX) Frame                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Destination MAC Address (6 octets)                  |</para>
-        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para>
         /// <para>|                               |                               |</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+                               |</para>
         /// <para>|           Source MAC Address (6 octets)                       |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|        Type (2 octets)        |                               |</para>

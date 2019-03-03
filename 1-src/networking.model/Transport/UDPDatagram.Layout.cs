@@ -6,14 +6,14 @@ namespace Networking.Model.Transport
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/user_datagram_protocol"/>
+        /// <see href="https://en.wikipedia.org/wiki/User_Datagram_Protocol#Packet_structure"/>
         /// <para></para>
         /// <para>|                          UDP Datagram                         |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|     Source Port (2 octets)    |  Destination Port (2 octets)  |</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>| Total Length (header+payload) |      Checksum  (2 octets)     |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|                                                               |</para>

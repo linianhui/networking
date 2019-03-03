@@ -6,17 +6,17 @@ namespace Networking.Model.Transport
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/transmission_control_protocol"/>
+        /// <see href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol"/>
         /// <para></para>
         /// <para>|                          TCP Segment                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|     Source Port (2 octets)    |  Destination Port (2 octets)  |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
-        /// <para>|                Sequence number (4 octets)                     |</para> 
+        /// <para>|                Sequence number (4 octets)                     |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
-        /// <para>|           Acknowledgment number (if ACK set)                  |</para> 
+        /// <para>|           Acknowledgment number (if ACK set)                  |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>| data  |     |N|C|E|U|A|P|R|S|F|                               |</para>
         /// <para>|offset |     |S|W|C|R|C|S|S|Y|I|   Windows Size (2 octets)     |</para>

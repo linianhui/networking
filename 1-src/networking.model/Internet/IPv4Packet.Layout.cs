@@ -6,14 +6,14 @@ namespace Networking.Model.Internet
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/ipv4#packet_structure"/>
+        /// <see href="https://en.wikipedia.org/wiki/IPv4#Packet_structure"/>
         /// <para></para>
         /// <para>|                          IPv4 Packet                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|Version|  IHL  |   DSCP    |ECN|     Total Length              |</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|      Identification           | |D|M|    Fragment Offset      |</para>
         /// <para>|      (2 octets)               | |F|F|    (13 bit)             |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>

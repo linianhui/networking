@@ -4,7 +4,7 @@ namespace Networking.Model.Internet
 {
     /// <summary>
     /// IPv6-Packet
-    /// <see href="https://en.wikipedia.org/wiki/ipv6"/>
+    /// <see href="https://en.wikipedia.org/wiki/IPv6"/>
     /// </summary>
     public partial class IPv6Packet : InternetPDU
     {

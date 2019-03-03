@@ -7,18 +7,18 @@ namespace Networking.Model.DataLink
     {
         /// <summary>
         /// <see cref="ARPFrame"/>的结构信息
-        /// <see href="https://en.wikipedia.org/wiki/address_resolution_protocol"/>
+        /// <see href="https://en.wikipedia.org/wiki/Address_Resolution_Protocol"/>
         /// <para></para>
         /// <para>|                          ARP Frame                            |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|    Hardware Type (2 octets)   |    Protocol Type (2 octets)   |</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|Hardware Length|Protocol Length|   Operation Code              |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Sender Hardware Address (6 octets)                  |</para>
-        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|                               +- - - - - - - -+- - - - - - - -|</para>
         /// <para>|                               | Sender IP Address (1~2 octets)|</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>| Sender IP Address (3~4 octets)|                               |</para>

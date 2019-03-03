@@ -5,7 +5,7 @@ namespace Networking.Model.Transport
 {
     /// <summary>
     /// 用户数据报协议
-    /// <see href="https://en.wikipedia.org/wiki/user_datagram_protocol"/>
+    /// <see href="https://en.wikipedia.org/wiki/User_Datagram_Protocol"/>
     /// </summary>
     public partial class UDPDatagram : TransportPDU
     {

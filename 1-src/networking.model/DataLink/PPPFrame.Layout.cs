@@ -6,7 +6,7 @@ namespace Networking.Model.DataLink
     {
         /// <summary>
         /// <see cref="PPPFrame"/>的结构信息
-        /// <see href="http://en.wikipedia.org/wiki/point-to-point_protocol"/>
+        /// <see href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol"/>
         /// <para></para>
         /// <para>|              PPP (Point to Point) Frame                       |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>

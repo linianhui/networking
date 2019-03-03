@@ -5,7 +5,7 @@ namespace Networking.Model.DataLink
 {
     /// <summary>
     /// Ethernet II(DIX) Frame
-    /// <see href="https://en.wikipedia.org/wiki/ethernet_frame"/>
+    /// <see href="https://en.wikipedia.org/wiki/Ethernet_frame"/>
     /// </summary>
     public partial class EthernetFrame : DataLinkPDU
     {

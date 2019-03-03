@@ -4,7 +4,7 @@ namespace Networking.Model.Transport
 {
     /// <summary>
     /// 传输控制协议
-    /// <see href="https://en.wikipedia.org/wiki/transmission_control_protocol"/>
+    /// <see href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol"/>
     /// </summary>
     public partial class TCPSegment : TransportPDU
     {

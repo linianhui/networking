@@ -6,7 +6,7 @@ namespace Networking.Files.Pcap
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
+        /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
         /// <para></para>
         /// <para>typedef struct pcap_hdr_s {                                               </para>
         /// <para>    guint32 magic_number;   // magic number                               </para>

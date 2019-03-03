@@ -5,7 +5,7 @@ namespace Networking.Files.Pcap
 {
     /// <summary>
     /// Packet (Record) 首部
-    /// <see href="https://wiki.wireshark.org/development/libpcapfileformat"/>
+    /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
     /// </summary>
     public partial class PacketHeader : Octets
     {

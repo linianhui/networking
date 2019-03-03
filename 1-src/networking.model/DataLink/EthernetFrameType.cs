@@ -4,7 +4,7 @@ namespace Networking.Model.DataLink
 {
     /// <summary>
     /// <see cref="EthernetFrame"/>的类型
-    /// <see href="https://en.wikipedia.org/wiki/ethertype"/>
+    /// <see href="https://en.wikipedia.org/wiki/EtherType"/>
     /// </summary>
     public enum EthernetFrameType : UInt16
     {

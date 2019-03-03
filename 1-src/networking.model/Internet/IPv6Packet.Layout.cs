@@ -6,14 +6,14 @@ namespace Networking.Model.Internet
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/ipv6_packet"/>
+        /// <see href="https://en.wikipedia.org/wiki/IPv6_packet"/>
         /// <para></para>
         /// <para>|                          IPv6 Packet                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|Version| Traffic Class |            Flow Label                 |</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|      Payload Length           | Next Header   | Hop Limit     |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|                                                               |</para>
@@ -21,7 +21,7 @@ namespace Networking.Model.Internet
         /// <para>|           Source IP Address (16 octets)                       |</para>
         /// <para>|                                                               |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
-        /// <para>|                                                               |</para> 
+        /// <para>|                                                               |</para>
         /// <para>|                                                               |</para>
         /// <para>|           Destination IP Address (16 octets)                  |</para>
         /// <para>|                                                               |</para>

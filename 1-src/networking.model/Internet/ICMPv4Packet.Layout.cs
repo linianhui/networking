@@ -6,12 +6,12 @@ namespace Networking.Model.Internet
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://en.wikipedia.org/wiki/internet_control_message_protocol#datagram_structure"/>
+        /// <see href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Datagram_structure"/>
         /// <para></para>
         /// <para>|                        ICMPv4 Packet                          |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|    Type       |      Code     |        Checksum               |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Rest of Header (based on type and code)             |</para>

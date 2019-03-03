@@ -4,7 +4,7 @@ namespace Networking.Model.Internet
 {
     /// <summary>
     /// ICMPv4类型编号
-    /// <see href="https://en.wikipedia.org/wiki/internet_control_message_protocol#datagram_structure"/>
+    /// <see href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Datagram_structure"/>
     /// </summary>
     public enum ICMPv4TypeCode : UInt16
     {
@@ -47,12 +47,12 @@ namespace Networking.Model.Internet
         DestinationUnreachableOfPort = 0x0303,
 
         /// <summary>
-        /// Destination Unreachable : Fragmentation required, and DF flag set 
+        /// Destination Unreachable : Fragmentation required, and DF flag set
         /// </summary>
         DestinationUnreachableOfFragmentationRequired = 0x0304,
 
         /// <summary>
-        /// Destination Unreachable : Source route failed 
+        /// Destination Unreachable : Source route failed
         /// </summary>
         DestinationUnreachableOfSourceRouteFailed = 0x0305,
 
@@ -77,7 +77,7 @@ namespace Networking.Model.Internet
         DestinationUnreachableOfNetworkAdministrativelyProhibited  = 0x0309,
 
         /// <summary>
-        /// Destination Unreachable : Host administratively prohibited 
+        /// Destination Unreachable : Host administratively prohibited
         /// </summary>
         DestinationUnreachableOfHostAdministrativelyProhibited = 0x030A,
 
@@ -102,7 +102,7 @@ namespace Networking.Model.Internet
         DestinationUnreachableOfHostPrecedenceViolation = 0x030E,
 
         /// <summary>
-        /// Destination Unreachable : Precedence cutoff in effect 
+        /// Destination Unreachable : Precedence cutoff in effect
         /// </summary>
         DestinationUnreachableOfPrecedenceCutoffInEffect = 0x030F,
 
@@ -121,7 +121,7 @@ namespace Networking.Model.Internet
         RedirectMessageOfHost = 0x0501,
 
         /// <summary>
-        /// Redirect Message : Redirect Datagram for the ToS and Network 
+        /// Redirect Message : Redirect Datagram for the ToS and Network
         /// </summary>
         RedirectMessageOfTosAndNetwork = 0x0502,
 
@@ -131,7 +131,7 @@ namespace Networking.Model.Internet
         RedirectMessageOfTosAndHost = 0x0503,
 
         #endregion
- 
+
 
         #region Time Exceeded
 

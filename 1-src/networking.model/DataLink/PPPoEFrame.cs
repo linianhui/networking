@@ -4,7 +4,7 @@ namespace Networking.Model.DataLink
 {
     /// <summary>
     /// PPP over Ethernet
-    /// <see href="https://en.wikipedia.org/wiki/point-to-point_protocol_over_ethernet"/>
+    /// <see href="https://en.wikipedia.org/wiki/Point-to-Point_Protocol_over_Ethernet"/>
     /// </summary>
     public partial class PPPoEFrame : Octets
     {

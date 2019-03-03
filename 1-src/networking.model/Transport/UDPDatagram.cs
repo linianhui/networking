@@ -63,31 +63,32 @@ namespace Networking.Model.Transport
                         Bytes = payloadBytes
                     };
                 }
-                else if (DHCP.ServerPort == sourcePort
-                         || DHCP.ServerPort == destinationPort
-                         || DHCP.ClientPort == sourcePort
-                         || DHCP.ClientPort == destinationPort)
+
+                if (DHCP.ServerPort == sourcePort
+                    || DHCP.ServerPort == destinationPort
+                    || DHCP.ClientPort == sourcePort
+                    || DHCP.ClientPort == destinationPort)
                 {
                     return new DHCP
                     {
                         Bytes = payloadBytes
                     };
                 }
-                else if (VXLAN.ServerPort == sourcePort
-                         || VXLAN.ServerPort == destinationPort)
+
+                if (VXLAN.ServerPort == sourcePort
+                    || VXLAN.ServerPort == destinationPort)
                 {
                     return new VXLAN
                     {
                         Bytes = payloadBytes
                     };
                 }
-                else
+
+
+                return new Octets
                 {
-                    return new Octets
-                    {
-                        Bytes = payloadBytes
-                    };
-                }
+                    Bytes = payloadBytes
+                };
             }
         }
     }

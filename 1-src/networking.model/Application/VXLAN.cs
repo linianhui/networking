@@ -11,6 +11,11 @@ namespace Networking.Model.Application
     public partial class VXLAN : Octets
     {
         /// <summary>
+        /// 服务端端口号=4789
+        /// </summary>
+        public const UInt16 ServerPort = 4789;
+
+        /// <summary>
         /// I
         /// </summary>
         public Boolean I

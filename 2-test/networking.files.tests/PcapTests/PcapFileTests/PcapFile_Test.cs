@@ -11,7 +11,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
         [Fact]
         public void read()
         {
-            PcapFile pcapFile = new PcapFile(AppContext.BaseDirectory + "PcapTests/PcapFileTests/test.pcap");
+            var pcapFile = new PcapFile(AppContext.BaseDirectory + "PcapTests/PcapFileTests/test.pcap");
 
             pcapFile.Header.IsLittleEndian.Should().Be(true);
             pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);
@@ -21,7 +21,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
             pcapFile.Header.Type.Should().Be(DataLinkType.Ethernet);
 
             Packet packet = null;
-            Int32 i = 0;
+            var i = 0;
             do
             {
                 packet = pcapFile.ReadNextPacket();
@@ -29,7 +29,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
                 {
                     packet.FileHeader.IsLittleEndian.Should().Be(true);
                     packet.Header.IsLittleEndian.Should().Be(true);
-                    EthernetFrame ethernetFrame = new EthernetFrame
+                    var ethernetFrame = new EthernetFrame
                     {
                         Bytes = packet.Data
                     };

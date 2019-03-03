@@ -10,6 +10,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ApplicationTests\DHCPTests\dhcp.pcap" />
     <EmbeddedResource Include="ApplicationTests\DNSTests\dns.pcap" />
+    <EmbeddedResource Include="ApplicationTests\VXLANTests\vxlan.pcap" />
     <EmbeddedResource Include="DataLinkTests\VLANFrameTests\vlan.pcap" />
   </ItemGroup>
 

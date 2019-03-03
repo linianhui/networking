@@ -73,6 +73,14 @@ namespace Networking.Model.Transport
                         Bytes = payloadBytes
                     };
                 }
+                else if (VXLAN.ServerPort == sourcePort
+                         || VXLAN.ServerPort == destinationPort)
+                {
+                    return new VXLAN
+                    {
+                        Bytes = payloadBytes
+                    };
+                }
                 else
                 {
                     return new Octets

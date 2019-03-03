@@ -47,8 +47,9 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 
                 if (ethernetFrame.Type == EthernetFrameType.VLAN)
                 {
-                    var vlan = ethernetFrame.Payload;
+                    var vlan = (VLANFrame)ethernetFrame.Payload;
                     vlan.GetType().Should().Be<VLANFrame>();
+                    _testOutputHelper.WriteLine($"\r\n{vlan.VID} {vlan.Type}");
                 }
             });
         }

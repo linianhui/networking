@@ -1,4 +1,4 @@
-# Networking [PDU] analysis 
+# Networking [PDU] 
 
 | Layer         | Protocol   | [PDU]    |
 | ------------- | ---------- | -------- |

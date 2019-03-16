@@ -24,7 +24,7 @@ namespace Networking.Model.Application
         /// <para>V    = Version        2 bit                                      </para>
         /// <para>T    = Type           2 bit                                      </para>
         /// <para>TKL  = Token Length   4 bit                                      </para>
-        /// <para>Code = c.dd        c= 3 bit  dd                                  </para>
+        /// <para>Code = c.dd        c= 3 bit  dd= 5 bit                           </para>
         /// <para></para>
         /// </summary>
         public class Layout

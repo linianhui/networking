@@ -113,7 +113,7 @@ namespace Networking.Files.Pcap
 
         private Int32 ComputeDataActualLength(PacketHeader packetHeader)
         {
-            if (packetHeader.SavedLength > Header.PacketMaxLength)
+            if (Header.PacketMaxLength != 0 && packetHeader.SavedLength > Header.PacketMaxLength)
             {
                 return (Int32)Header.PacketMaxLength;
             }

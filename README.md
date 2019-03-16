@@ -6,6 +6,7 @@
 |               | [DNS]      |          |
 |               | [VXLAN]    |          |
 |               | [MQTT]     |          |
+|               | [CoAP]     |          |
 | [Transport]   | [TCP]      | Segment  |
 |               | [UDP]      | Datagram |
 | [Internet]    | [IPv4]     | Packet   |
@@ -48,6 +49,7 @@
 [DNS]:/1-src/networking.model/Application/DNS.cs
 [VXLAN]:/1-src/networking.model/Application/VXLAN.cs
 [MQTT]:/1-src/networking.model/Application/MQTT.cs
+[CoAP]:/1-src/networking.model/Application/CoAP.cs
 
 [Transport]:/1-src/networking.model/Transport/
 [TCP]:/1-src/networking.model/Transport/TCPSegment.cs

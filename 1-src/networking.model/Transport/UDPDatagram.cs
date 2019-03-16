@@ -84,6 +84,15 @@ namespace Networking.Model.Transport
                     };
                 }
 
+                if (CoAP.ServerPort == sourcePort
+                    || CoAP.ServerPort == destinationPort)
+                {
+                    return new CoAP
+                    {
+                        Bytes = payloadBytes
+                    };
+                }
+
 
                 return new Octets
                 {

@@ -3,6 +3,7 @@
 `NAT` ( `N`etwork `A`ddress `T`ranslation ) : 网络地址转换。是一种重写 `IP Packet` 的 `Source IP` 或 `Destination IP` 的技术。
 
 原始的 `IP Packet` 如下 : 
+
 | Source IP   | Destination IP |
 | ----------- | -------------- |
 | 192.168.2.2 | 9.9.9.9        |
@@ -12,6 +13,7 @@
 `SNAT` ( `S`ource `N`etwork `A`ddress `T`ranslation ) : 源地址转换。重写的是 `Source IP`。
 
 重写后如下 : 
+
 | Source IP                            | Destination IP |
 | ------------------------------------ | -------------- |
 | <font color='#FF0000'>1.1.1.1</font> | 9.9.9.9        |
@@ -22,6 +24,7 @@
 `DNAT` ( `D`estination `N`etwork `A`ddress `T`ranslation ) : 目标地址转换。重写的是 `Destination IP`。
 
 重写后如下 : 
+
 | Source IP   | Destination IP                       |
 | ----------- | ------------------------------------ |
 | 192.168.2.2 | <font color='#00FF00'>8.8.8.8</font> |
@@ -32,11 +35,13 @@
 `PAT` ( `P`ort `A`ddress `T`ranslation ) : 端口地址转换(或者称为`Port Forwarding`)。是一种重写传输层的 `Source IP` 或者 `Destination Port` 的技术（隶属于 `NAT` 体系）。
 
 原始的数据包如下 : 
+
 | Source IP   | Source Port | Destination IP | Destination Port |
 | ----------- | ----------- | -------------- | ---------------- |
 | 192.168.2.2 | 6666        | 9.9.9.9        | 80               |
 
 `Destination Port`重写后如下 : 
+
 | Source IP   | Source Port | Destination IP | Destination Port                  |
 | ----------- | ----------- | -------------- | --------------------------------- |
 | 192.168.2.2 | 6666        | 9.9.9.9        | <font color='#0000FF'>8080</font> |

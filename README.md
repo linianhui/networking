@@ -1,23 +1,11 @@
 # Networking [PDU] 
 
-| Layer         | Protocol   | [PDU]    |
-| ------------- | ---------- | -------- |
-| [Application] | [DHCP]     |          |
-|               | [DNS]      |          |
-|               | [VXLAN]    |          |
-|               | [MQTT]     |          |
-|               | [CoAP]     |          |
-| [Transport]   | [TCP]      | Segment  |
-|               | [UDP]      | Datagram |
-| [Internet]    | [IPv4]     | Packet   |
-|               | [ICMPv4]   | Packet   |
-|               | [IPv6]     | Packet   |
-|               | [ICMPv6]   | Packet   |
-| [DataLink]    | [Ethernet] | Frame    |
-|               | [ARP]      | Frame    |
-|               | [PPP]      | Frame    |
-|               | [PPPoE]    | Frame    |
-|               | [VLAN]     | Frame    |
+| Layer         | Protocol                                  | [PDU]  |
+| ------------- | ----------------------------------------- | ------ |
+| [Application] | [DHCP], [DNS], [VXLAN], [MQTT], [CoAP]    | Data   |
+| [Transport]   | [TCP]Segment, [UDP]Datagram               |        |
+| [Internet]    | [IPv4], [ICMPv4], [IPv6], [ICMPv6]        | Packet |
+| [DataLink]    | [Ethernet], [ARP], [PPP], [PPPoE], [VLAN] | Frame  |
 
 # CI
 

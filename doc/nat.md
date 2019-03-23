@@ -1,3 +1,17 @@
+<!-- omit in toc -->
+- [1 NAT](#1-nat)
+  - [1.1 SNAT](#11-snat)
+  - [1.2 DNAT](#12-dnat)
+- [2 PAT](#2-pat)
+- [3 NAPT](#3-napt)
+- [4 NAPT的类型](#4-napt的类型)
+  - [4.1 Cone NAT](#41-cone-nat)
+    - [4.1.1 Full Cone NAT](#411-full-cone-nat)
+    - [4.1.2 Address Restricted Cone NAT](#412-address-restricted-cone-nat)
+    - [4.1.3 Address Port Restricted Cone NAT](#413-address-port-restricted-cone-nat)
+  - [4.2 Symmetric NAT](#42-symmetric-nat)
+- [参考](#参考)
+  
 # 1 NAT
 
 `NAT` ( `N`etwork `A`ddress `T`ranslation ) : 网络地址转换。是一种重写 `IP Packet` 的 `Source IP` 或 `Destination IP` 的技术。

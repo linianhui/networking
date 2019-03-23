@@ -32,7 +32,7 @@
 
 # 2 PAT
 
-`PAT` ( `P`ort `A`ddress `T`ranslation ) : 端口地址转换(或者称为`Port Forwarding`)。是一种重写传输层的 `Source IP` 或者 `Destination Port` 的技术（隶属于 `NAT` 体系）。
+`PAT` ( `P`ort `A`ddress `T`ranslation ) : 端口地址转换(或者称为`Port Forwarding`)。是一种重写传输层的 `Source Port` 或者 `Destination Port` 的技术（隶属于 `NAT` 体系）。
 
 原始的数据包如下 : 
 

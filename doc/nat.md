@@ -41,7 +41,7 @@
 
 | Source IP   | Destination IP                       |
 | ----------- | ------------------------------------ |
-| 192.168.2.2 | <font color='#00FF00'>8.8.8.8</font> |
+| 192.168.2.2 | <font color='#00FF00'>2.2.2.2</font> |
 
 
 # 2 PAT
@@ -71,11 +71,11 @@
 | <font color='#FF0000'>1.1.1.1</font> | <font color='#0000FF'>7777</font> | 9.9.9.9        | 80               |
 
 
-或者重写目标地址的IP和端口号。比如把发往 `9.9.9.9:80` 的数据重写为发往 `8.8.8.8:8080`，以此可以可以实现数据包转发的目的（如果可以动态的轮询转发给多个IP, 则也可以实现负载均衡的目的）。重写后如下 : 
+或者重写目标地址的IP和端口号。比如把发往 `9.9.9.9:80` 的数据重写为发往 `2.2.2.2:8080`，以此可以可以实现数据包转发的目的（如果可以动态的轮询转发给多个IP, 则也可以实现负载均衡的目的）。重写后如下 : 
 
 | Source IP   | Source Port | Destination IP                       | Destination Port                  |
 | ----------- | ----------- | ------------------------------------ | --------------------------------- |
-| 192.168.2.2 | 6666        | <font color='#00FF00'>8.8.8.8</font> | <font color='#0000FF'>8080</font> |
+| 192.168.2.2 | 6666        | <font color='#00FF00'>2.2.2.2</font> | <font color='#0000FF'>8080</font> |
 
 
 # 4 NAPT的类型
@@ -101,7 +101,7 @@
             <td align="left">any</td>
         </tr>
         <tr>
-            <td align="left">192.168.2.2:6666 &gt; 8.8.8.8:22</td>
+            <td align="left">192.168.2.2:6666 &gt; 2.2.2.2:33</td>
             <td align="left">any</td>
             <td align="left">any</td>
         </tr>
@@ -113,8 +113,8 @@
             <td align="left">any</td>
         </tr>
         <tr>
-            <td align="left">192.168.2.2:6666 &gt; 8.8.8.8:22</td>
-            <td align="left">8.8.8.8</td>
+            <td align="left">192.168.2.2:6666 &gt; 2.2.2.2:33</td>
+            <td align="left">2.2.2.2</td>
             <td align="left">any</td>
         </tr>
         <tr>
@@ -125,9 +125,9 @@
             <td align="left">80</td>
         </tr>
         <tr>
-            <td align="left">192.168.2.2:6666 &gt; 8.8.8.8:22</td>
-            <td align="left">8.8.8.8</td>
-            <td align="left">22</td>
+            <td align="left">192.168.2.2:6666 &gt; 2.2.2.2:33</td>
+            <td align="left">2.2.2.2</td>
+            <td align="left">33</td>
         </tr>
         <tr>
             <td align="left" rowspan="2" colspan="2">Symmetric</td>
@@ -137,10 +137,10 @@
             <td align="left">80</td>
         </tr>
         <tr>
-            <td align="left">192.168.2.2:6666 &gt; 8.8.8.8:22</td>
+            <td align="left">192.168.2.2:6666 &gt; 2.2.2.2:33</td>
             <td align="left">1.1.1.1:7878</td>
-            <td align="left">8.8.8.8</td>
-            <td align="left">22</td>
+            <td align="left">2.2.2.2</td>
+            <td align="left">33</td>
         </tr>
     </tbody>
 </table>

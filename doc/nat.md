@@ -181,3 +181,7 @@
 https://en.wikipedia.org/wiki/Network_address_translation
 
 https://tools.ietf.org/html/rfc2663
+
+https://www.youtube.com/watch?v=QBqPzHEDzvo
+
+https://www.youtube.com/watch?v=wg8Hosr20yw

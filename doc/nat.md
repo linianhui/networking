@@ -86,9 +86,9 @@
         <tr>
             <th align="left" colspan="2">Type</th>
             <th align="left">Source &gt; Destination</th>
-            <th align="left">NPAT</th>
-            <th align="left">NPAT Allow IP</th>
-            <th align="left">NPAT Allow Port</th>
+            <th align="left">NAPT</th>
+            <th align="left">NAPT Allow IP</th>
+            <th align="left">NAPT Allow Port</th>
         </tr>
     </thead>
     <tbody class="rich-diff-level-one">

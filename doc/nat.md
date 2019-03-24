@@ -147,31 +147,31 @@
 
 ## 4.1 Cone NAT
 
-由 `Source` 方发送数据包触发，根据 `Source IP` : `Source Port` 为唯一标识，在NAPT中建立映射关系(即使 `Destination` 不同也只会建立一个映射关系)。
+由 `Source` 方发送数据包触发，根据 `Source IP:Source Port` 为唯一标识，在NAPT中建立映射关系(即使 `Destination` 不同也只会建立一个映射关系)。
 
 ### 4.1.1 Full Cone NAT
 
-映射建立后，允许外部的 <font color='#00FF00'>Any IP</font> : <font color='#00FF00'>Any Port</font> 访问映射的 `NAT IP` : `NAT Port`。
+映射建立后，允许外部的 <font color='#00FF00'>Any IP</font> : <font color='#00FF00'>Any Port</font> 访问映射的 `NAT IP:NAT Port`。
 
 ![Full Cone NAT](img/nat.full-cone.svg)
 
 ### 4.1.2 Address Restricted Cone NAT
 
-映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#00FF00'>Any Port</font> 访问映射的 `NAT IP` : `NAT Port`。
+映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#00FF00'>Any Port</font> 访问映射的 `NAT IP:NAT Port`。
 
 ![Address Restricted Cone NAT](img/nat.address-restricted-cone.svg)
 
 ### 4.1.3 Address Port Restricted Cone NAT
 
-映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#FFFF00'>Destination Port</font> 访问映射的 `NAT IP` : `NAT Port`。
+映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#FFFF00'>Destination Port</font> 访问映射的 `NAT IP:NAT Port`。
 
 ![Port Restricted Cone NAT](img/nat.address-port-restricted-cone.svg)
 
 ## 4.2 Symmetric NAT
 
-由`Source`方发送数据包触发，根据 `Source IP` : `Source Port` 和 `Destination IP` : `Destination Port` 为唯一标识，在NAPT中建立映射关系。
+由`Source`方发送数据包触发，根据 `Source IP:Source Port` 和 `Destination IP:Destination Port` 为唯一标识，在NAPT中建立映射关系。
 
-映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#FFFF00'>Destination Port</font> 访问映射的 `NAT IP` : `NAT Port`。
+映射建立后，允许外部的 <font color='#FFFF00'>Destination IP</font> : <font color='#FFFF00'>Destination Port</font> 访问映射的 `NAT IP:NAT Port`。
 
 ![Symmetric NAT](img/nat.symmetric.svg)
 

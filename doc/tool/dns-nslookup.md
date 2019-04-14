@@ -1,0 +1,3 @@
+```sh
+nslookup bing.com
+```

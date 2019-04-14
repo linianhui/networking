@@ -1,3 +1,5 @@
+[doc](/doc/)
+
 # CI
 
 | CI Service | Build Platform | Stauts                          |
@@ -15,15 +17,6 @@
 | [Internet]    | [IPv4], [ICMPv4], [IPv6], [ICMPv6]        | Packet |
 | [DataLink]    | [Ethernet], [ARP], [PPP], [PPPoE], [VLAN] | Frame  |
 
-# [doc]
-
-1. [nat] 
-
-
-
-
-[doc]:/doc/
-[nat]:/doc/nat.md
 
 
 [PDU]:https://en.wikipedia.org/wiki/protocol_data_unit

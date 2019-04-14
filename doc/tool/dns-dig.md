@@ -1,0 +1,3 @@
+```sh
+dig bing.com
+```

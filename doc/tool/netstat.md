@@ -3,6 +3,16 @@
 ```sh
 apt install -y net-tools
 ```
+# Options
+
+| short option | full option                                                                 |
+| ------------ | --------------------------------------------------------------------------- |
+| -h           | --help                                                                      |
+| -V           | --version                                                                   |
+| -n           | --numeric <br/> --numeric-hosts <br/> --numeric-ports <br/> --numeric-users |
+| -t           | --tcp                                                                       |
+| -u           | --udp                                                                       |
+| -x           | --unix                                                                      |
 
 # TCP
 

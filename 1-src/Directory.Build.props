@@ -3,15 +3,17 @@
   <Import Project="../0-build/build.props" />
 
   <!--nuget打包的共同配置-->
+  <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->
   <PropertyGroup>
     <IsPackable>true</IsPackable>
     <IncludeSymbols>true</IncludeSymbols>
     <IncludeSource>true</IncludeSource>
-    <Authors>lnh</Authors>
-    <Company>lnh</Company>
-    <Copyright>Copyright © lnh 2018</Copyright>
+    <Authors>lnhcode</Authors>
+    <Company>lnhcode</Company>
+    <Copyright>Copyright © lnhcode 2019</Copyright>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/linianhui/networking/blob/master/LICENSE</PackageLicenseUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>

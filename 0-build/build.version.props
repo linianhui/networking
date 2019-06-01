@@ -1,7 +1,7 @@
 <Project>
   <!--Nuget Pack的版本信息-->
   <PropertyGroup>
-    <Networking_Model_Version>2019.04.27.2</Networking_Model_Version>
-    <Networking_Files_Version>2019.04.27.2</Networking_Files_Version>
+    <Networking_Model_Version>2019.06.01.0</Networking_Model_Version>
+    <Networking_Files_Version>2019.06.01.0</Networking_Files_Version>
   </PropertyGroup>
 </Project>

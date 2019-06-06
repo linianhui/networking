@@ -13,7 +13,7 @@
     <Copyright>Copyright © lnhcode 2019</Copyright>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/linianhui/networking/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>

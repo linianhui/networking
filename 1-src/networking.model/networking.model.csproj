@@ -8,7 +8,8 @@
 
   <PropertyGroup>
     <PackageId>Networking.Model</PackageId>
-    <Version>$(Networking_Model_Version)</Version>
+    <VersionPerfix>$(Networking_Model_Version)</VersionPerfix>
+    <PackageVersion>$(Networking_Model_Version)</PackageVersion>
     <PackageDescription>Networking PDU Model : DHCP, DNS, VXLAN, MQTT, CoAP, TCP, UDP, IPv4, ICMPv4, IPv6, ICMPv6, ARP, PPP, PPPoE, VLAN.</PackageDescription>
   </PropertyGroup>
 

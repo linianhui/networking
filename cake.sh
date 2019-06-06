@@ -3,9 +3,8 @@
 SCRIPT='0-build/build.cake'
 CAKE_VERSION='0.33.0'
 
-# nuget server config
-export NUGET_REPOSITORY_API_URL='http://nuget-server.test/nuget'
-export NUGET_REPOSITORY_API_KEY='123456'
+# git commit sha
+export GIT_COMMIT_SHA=$(git rev-parse --short HEAD)
 
 # Install  cake.tool
 dotnet tool install --global cake.tool --version $CAKE_VERSION

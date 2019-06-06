@@ -1,7 +1,3 @@
-#reference "NuGet.Packaging"
-
-#load nuget.tool.cake
-
 var target = Argument("target", "default");
 
 var rootPath     = "../";
@@ -13,7 +9,6 @@ var solution     = rootPath + "networking.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
 
-var nugetTool = NuGetTool.FromCakeContext(Context);
 
 Task("clean")
     .Description("清理项目缓存")
@@ -53,12 +48,12 @@ Task("test")
     .IsDependentOn("build")
     .Does(() =>
 {
-    var testSetting = new DotNetCoreTestSettings{
+    var testSetting = new DotNetCoreTestSettings {
         ArgumentCustomization = _ => _.Append("--verbosity normal")
                                       .Append("--logger trx")
                                       .Append("--results-directory " + MakeAbsolute(Directory(distPath))),
-        NoRestore = true,
-        NoBuild = true
+        NoRestore             = true,
+        NoBuild               = true
     };
 
     foreach(var testProject in testProjects)
@@ -72,19 +67,22 @@ Task("pack")
     .IsDependentOn("test")
     .Does(() =>
 {
-    var projectFilePaths = srcProjects.Select(_=>_.FullPath).ToList();
+    var GIT_COMMIT_SHA = EnvironmentVariable("GIT_COMMIT_SHA");
 
-    nugetTool.Pack(projectFilePaths, distPath);
-});
+    var packSetting = new DotNetCorePackSettings
+    {
+        Configuration   = "Release",
+        OutputDirectory = distPath,
+        IncludeSource   = true,
+        IncludeSymbols  = true,
+        NoBuild         = false,
+        VersionSuffix   = GIT_COMMIT_SHA == null ? null : "git-sha-" + GIT_COMMIT_SHA
+    };
 
-Task("push")
-    .Description("nuget发布")
-    .IsDependentOn("pack")
-    .Does(() =>
-{
-    var packageFilePaths = GetFiles(distPath + "*.symbols.nupkg").Select(_=>_.FullPath).ToList();
-
-    nugetTool.Push(packageFilePaths);
+    foreach(var srcProject in srcProjects)
+    {
+        DotNetCorePack(srcProject.FullPath, packSetting);
+    }
 });
 
 Task("default")

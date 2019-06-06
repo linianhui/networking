@@ -6,13 +6,3 @@ test_script:
 
 artifacts:
   - path: '3-dist\**.nupkg'
-  
-deploy:
-  provider: NuGet
-  on:
-    APPVEYOR_REPO_TAG: true
-  api_key:
-    secure: "0qN7BoUb0LplVajjpnT8cm2ZQu+mpCuVv1cPrPjb/ornampptpQ1JmKtCvrF27zr"
-  skip_symbols: false
-  symbol_server:
-  artifact: /.*\.nupkg/

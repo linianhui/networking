@@ -5,7 +5,7 @@ test_script:
 - ps: ./cake.ps1 -target=pack
 
 artifacts:
-  - path: "3-dist\**.symbols.nupkg"
+  - path: '3-dist\**.symbols.nupkg'
   
 deploy:
   provider: NuGet

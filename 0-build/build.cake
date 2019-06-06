@@ -9,6 +9,9 @@ var solution     = rootPath + "networking.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
 
+string GetVersionSuffix(){
+    return "git-sha1-" + EnvironmentVariable("GIT_COMMIT_SHA");
+}
 
 Task("clean")
     .Description("清理项目缓存")
@@ -35,13 +38,13 @@ Task("build")
     .IsDependentOn("restore")
     .Does(() =>
 {
-    var buildSetting = new DotNetCoreBuildSettings{
-        NoRestore = true
+    var buildSetting = new DotNetCoreBuildSettings {
+        NoRestore     = true,
+        VersionSuffix = GetVersionSuffix()
     };
-     
+
     DotNetCoreBuild(solution, buildSetting);
 });
-
 
 Task("test")
     .Description("运行测试")
@@ -49,11 +52,11 @@ Task("test")
     .Does(() =>
 {
     var testSetting = new DotNetCoreTestSettings {
-        ArgumentCustomization = _ => _.Append("--verbosity normal")
-                                      .Append("--logger trx")
-                                      .Append("--results-directory " + MakeAbsolute(Directory(distPath))),
-        NoRestore             = true,
-        NoBuild               = true
+        NoRestore        = true,
+        NoBuild          = true,
+        Logger           = "trx",
+        Verbosity        = DotNetCoreVerbosity.Normal,
+        ResultsDirectory = distPath
     };
 
     foreach(var testProject in testProjects)
@@ -67,16 +70,13 @@ Task("pack")
     .IsDependentOn("test")
     .Does(() =>
 {
-    var GIT_COMMIT_SHA = EnvironmentVariable("GIT_COMMIT_SHA");
-
-    var packSetting = new DotNetCorePackSettings
-    {
+    var packSetting = new DotNetCorePackSettings {
         Configuration   = "Release",
         OutputDirectory = distPath,
         IncludeSource   = true,
         IncludeSymbols  = true,
         NoBuild         = false,
-        VersionSuffix   = GIT_COMMIT_SHA == null ? null : "git-sha-" + GIT_COMMIT_SHA
+        VersionSuffix   = GetVersionSuffix()
     };
 
     foreach(var srcProject in srcProjects)

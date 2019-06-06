@@ -6,9 +6,12 @@
     <RootNamespace>Networking.Files</RootNamespace>
   </PropertyGroup>
 
- <PropertyGroup>
+  <PropertyGroup>
     <PackageId>Networking.Files</PackageId>
     <VersionPerfix>$(Networking_Files_Version)</VersionPerfix>
+    <FileVersion>$(Networking_Files_Version)</FileVersion>
+    <AssemblyVersion>$(Networking_Files_Version)</AssemblyVersion>
+    <ProductVersion>$(Networking_Files_Version)</ProductVersion>
     <PackageVersion>$(Networking_Files_Version)</PackageVersion>
     <PackageDescription>parse *.pcap file.</PackageDescription>
   </PropertyGroup>

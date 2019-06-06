@@ -3,6 +3,7 @@
 
 # git commit sha
 $ENV:GIT_COMMIT_SHA = git rev-parse --short HEAD
+Write-Host "GIT_COMMIT_SHA: $ENV:GIT_COMMIT_SHA" -ForegroundColor GREEN
 
 # Install cake.tool
 dotnet tool install --global cake.tool --version $CAKE_VERSION

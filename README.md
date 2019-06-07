@@ -16,11 +16,12 @@
 
 # CI
 
-| CI Service | Build Platform | Stauts                          |
-| ---------- | -------------- | ------------------------------- |
-| AppVeyor   | Windows        | [![AppVeyor-Img]][AppVeyor-Url] |
-| Travis     | Linux          | [![Travis-Img]][Travis-Url]     |
-| Circle     | Docker         | [![Circle-Img]][Circle-Url]     |
+| CI Service | Build Platform | Stauts                            |
+| ---------- | -------------- | --------------------------------- |
+| AppVeyor   | Windows        | [![AppVeyor-Img]][AppVeyor-Url]   |
+| Travis     | Linux          | [![Travis-Img]][Travis-Url]       |
+| Circle     | Docker         | [![Circle-Img]][Circle-Url]       |
+| Gitlab CI  | Docker         | [![Gitlab-CI-Img]][Gitlab-CI-Url] |
 
 
 [PDU]:https://en.wikipedia.org/wiki/protocol_data_unit
@@ -33,6 +34,9 @@
 
 [Circle-Img]:https://circleci.com/gh/linianhui/networking.svg?style=svg
 [Circle-Url]:https://circleci.com/gh/linianhui/networking
+
+[Gitlab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
+[Gitlab-CI-Url]:https://gitlab.com/lnh/networking/commits/master
 
 [NuGet-Networking-Model-Img]:https://img.shields.io/nuget/v/Networking.Model.svg?label=nuget+Networking.Model
 [NuGet-Networking-Model-URL]:https://www.nuget.org/packages/Networking.Model

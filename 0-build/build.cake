@@ -44,7 +44,7 @@ Task("build")
     .Does(() =>
 {
     var buildSetting = new DotNetCoreBuildSettings {
-        ArgumentCustomization = args => args.Append("/p:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
         NoRestore             = true
     };
 
@@ -76,7 +76,7 @@ Task("pack")
     .Does(() =>
 {
     var packSetting = new DotNetCorePackSettings {
-        ArgumentCustomization = args => args.Append("/p:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
         Configuration         = "Release",
         OutputDirectory       = distPath,
         IncludeSource         = true,

@@ -24,6 +24,18 @@
 | Circle     | Docker         | [![Circle-Img]][Circle-Url]       |
 | Gitlab CI  | Docker         | [![Gitlab-CI-Img]][Gitlab-CI-Url] |
 
+# Docker Build
+
+```sh
+docker run \
+       --rm \
+       --volume $(pwd):/src \
+       --workdir /src \
+       --env GIT_COMMIT_SHA=$(git rev-parse --short HEAD) \
+       mcr.microsoft.com/dotnet/core/sdk:2.2-alpine \
+       ./cake.sh -target=pack
+```
+
 
 [PDU]:https://en.wikipedia.org/wiki/protocol_data_unit
 

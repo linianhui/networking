@@ -1,5 +1,5 @@
 var target       = Argument("target", "default");
-var gitCommitSha = Argument("git-commit-sha", "");
+var gitCommitSha = Argument("git-commit-sha", EnvironmentVariable("GIT_COMMIT_SHA"));
 
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";

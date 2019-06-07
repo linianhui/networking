@@ -8,11 +8,9 @@
 
   <PropertyGroup>
     <PackageId>Networking.Files</PackageId>
-    <VersionPerfix>$(Networking_Files_Version)</VersionPerfix>
-    <FileVersion>$(Networking_Files_Version)</FileVersion>
-    <AssemblyVersion>$(Networking_Files_Version)</AssemblyVersion>
-    <ProductVersion>$(Networking_Files_Version)</ProductVersion>
+    <Version>$(Networking_Files_Version)</Version>
     <PackageVersion>$(Networking_Files_Version)</PackageVersion>
+    <InformationalVersion>$(Networking_Files_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
     <PackageDescription>parse *.pcap file.</PackageDescription>
   </PropertyGroup>
 

@@ -1,4 +1,5 @@
-var target = Argument("target", "default");
+var target       = Argument("target", "default");
+var gitCommitSha = Argument("git-commit-sha", "");
 
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
@@ -10,7 +11,11 @@ var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
 
 string GetVersionSuffix(){
-    return "git-sha1-" + EnvironmentVariable("GIT_COMMIT_SHA");
+    if (string.IsNullOrWhiteSpace(gitCommitSha))
+    {
+        return string.Empty;
+    }
+    return "+git+sha1+" + gitCommitSha;
 }
 
 Task("clean")
@@ -39,8 +44,8 @@ Task("build")
     .Does(() =>
 {
     var buildSetting = new DotNetCoreBuildSettings {
-        NoRestore     = true,
-        VersionSuffix = GetVersionSuffix()
+        ArgumentCustomization = args => args.Append("/p:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        NoRestore             = true
     };
 
     DotNetCoreBuild(solution, buildSetting);
@@ -71,12 +76,12 @@ Task("pack")
     .Does(() =>
 {
     var packSetting = new DotNetCorePackSettings {
-        Configuration   = "Release",
-        OutputDirectory = distPath,
-        IncludeSource   = true,
-        IncludeSymbols  = true,
-        NoBuild         = false,
-        VersionSuffix   = GetVersionSuffix()
+        ArgumentCustomization = args => args.Append("/p:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        Configuration         = "Release",
+        OutputDirectory       = distPath,
+        IncludeSource         = true,
+        IncludeSymbols        = true,
+        NoBuild               = false
     };
 
     foreach(var srcProject in srcProjects)

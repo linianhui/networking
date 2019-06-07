@@ -2,7 +2,9 @@
 [string]$CAKE_VERSION = '0.33.0'
 
 # git commit sha
-[string]$GIT_COMMIT_SHA = git rev-parse --short HEAD
+if (Get-Command git -ErrorAction SilentlyContinue){
+    [string]$GIT_COMMIT_SHA = git rev-parse --short HEAD
+}
 
 # Install cake.tool
 dotnet tool install --global cake.tool --version $CAKE_VERSION

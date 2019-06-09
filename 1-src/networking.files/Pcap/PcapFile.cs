@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Networking.Files.Pcap
@@ -88,6 +89,20 @@ namespace Networking.Files.Pcap
             }
 
             return new Packet(Header, packetHeader, packetDataBytes);
+        }
+
+        /// <summary>
+        /// 读取所有数据包
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Packet> ReadAllPackets()
+        {
+            var packet = ReadNextPacket();
+            while (packet != null)
+            {
+                yield return packet;
+                packet = ReadNextPacket();
+            }
         }
 
         private PacketHeader ReadNextPacketHeader()

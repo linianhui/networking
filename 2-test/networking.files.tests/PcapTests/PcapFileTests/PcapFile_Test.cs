@@ -20,25 +20,20 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
             pcapFile.Header.PacketMaxLength.Should().Be(65535);
             pcapFile.Header.Type.Should().Be(DataLinkType.Ethernet);
 
-            Packet packet = null;
             var i = 0;
-            do
+
+            foreach (var packet in pcapFile.ReadAllPackets())
             {
-                packet = pcapFile.ReadNextPacket();
-                if (packet != null)
+                packet.FileHeader.IsLittleEndian.Should().Be(true);
+                packet.Header.IsLittleEndian.Should().Be(true);
+                var ethernetFrame = new EthernetFrame
                 {
-                    packet.FileHeader.IsLittleEndian.Should().Be(true);
-                    packet.Header.IsLittleEndian.Should().Be(true);
-                    var ethernetFrame = new EthernetFrame
-                    {
-                        Bytes = packet.Data
-                    };
-                    ethernetFrame.IsLittleEndian.Should().Be(false);
-                    ethernetFrame.Length.Should().BeGreaterThan(0);
-                    i++;
-                }
+                    Bytes = packet.Data
+                };
+                ethernetFrame.IsLittleEndian.Should().Be(false);
+                ethernetFrame.Length.Should().BeGreaterThan(0);
+                i++;
             }
-            while (packet != null);
 
             i.Should().Be(27);
         }

@@ -23,16 +23,10 @@ namespace Networking.Model.Tests
             var stream = type.Assembly.GetManifestResourceStream(resourceFileName);
             var pcapFile = new PcapFile(stream);
 
-            Packet packet;
-            do
+            foreach (var packet in pcapFile.ReadAllPackets())
             {
-                packet = pcapFile.ReadNextPacket();
-                if (packet != null)
-                {
-                    action(packet.Data);
-                }
+                action(packet.Data);
             }
-            while (packet != null);
         }
     }
 }

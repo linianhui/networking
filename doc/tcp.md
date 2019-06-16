@@ -27,7 +27,7 @@
       <td>
         Client
         <span style="display: inline-block;text-align: center">
-          syn=1,seq=<span style="color: #F00">j</span>
+          SYN=1,seq=<span style="color: #F00">j</span>
           <br />
           --------------------------------&gt;
         </span>
@@ -47,7 +47,7 @@
       <td>
         Client
         <span style="display: inline-block;text-align: center">
-          syn=1,ack=1,ack=<span style="color: #F00">j</span>+1,seq=<span style="color: #00F">k</span>
+          SYN=1,ACK=1,ack=<span style="color: #F00">j</span>+1,seq=<span style="color: #00F">k</span>
           <br />
           &lt;--------------------------------
         </span>
@@ -67,7 +67,7 @@
       <td>
         Client
         <span style="display: inline-block;text-align: center">
-          ack=1,ack=<span style="color: #00F">k</span>+1
+          ACK=1,ack=<span style="color: #00F">k</span>+1
           <br />
           --------------------------------&gt;
         </span>

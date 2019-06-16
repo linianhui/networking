@@ -33,6 +33,10 @@ indent_size = 4
 [*.yml]
 indent_size = 2
 
+# HTML 文件
+[*.html]
+indent_size = 2
+
 # JS 文件
 [*.{js,ts,json}]
 indent_size = 2

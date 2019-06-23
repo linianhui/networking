@@ -1,4 +1,4 @@
-# TCP 建立连接为什么需要三次握手?
+# TCP 建立连接为什么需要 *`3`* 次握手?
 
 答：3次握手是通信双方确认`自身`和`对方`都具备`发送`和`接受`能力的最小交互次数。
 
@@ -25,13 +25,7 @@
     <tr>
       <td>1</td>
       <td>
-        Client
-        <span style="display: inline-block;text-align: center">
-          SYN=1,seq=<span style="color: #F00">j</span>
-          <br />
-          --------------------------------&gt;
-        </span>
-        Server
+        Client -&gt; Server
       </td>
       <td></td>
       <td></td>
@@ -45,13 +39,7 @@
     <tr>
       <td>2</td>
       <td>
-        Client
-        <span style="display: inline-block;text-align: center">
-          SYN=1,ACK=1,ack=<span style="color: #F00">j</span>+1,seq=<span style="color: #00F">k</span>
-          <br />
-          &lt;--------------------------------
-        </span>
-        Server
+        Client &lt;- Server
       </td>
       <td>✔</td>
       <td>✔</td>
@@ -65,13 +53,7 @@
     <tr>
       <td>3</td>
       <td>
-        Client
-        <span style="display: inline-block;text-align: center">
-          ACK=1,ack=<span style="color: #00F">k</span>+1
-          <br />
-          --------------------------------&gt;
-        </span>
-        Server
+        Client -&gt; Server
       </td>
       <td></td>
       <td></td>
@@ -85,7 +67,6 @@
   </tbody>
 </table>
 
-><span style="color: #F00">j</span>和<span style="color: #00F">k</span>为随机数。
 
 # TCP State Diagram
 

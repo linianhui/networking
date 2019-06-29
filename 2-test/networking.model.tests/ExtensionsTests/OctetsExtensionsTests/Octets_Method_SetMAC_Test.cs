@@ -3,7 +3,7 @@ using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Tests.ExtensionsTests
+namespace Networking.Model.Tests.ExtensionsTests.OctetsExtensionsTests
 {
     public class Octets_Method_SetMAC_Test
     {

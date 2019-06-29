@@ -2,7 +2,7 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model.Tests.ExtensionsTests
+namespace Networking.Model.Tests.ExtensionsTests.OctetsExtensionsTests
 {
     public class Octets_Method_GetMAC_Test
     {

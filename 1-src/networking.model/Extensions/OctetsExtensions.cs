@@ -74,5 +74,18 @@ namespace Networking
                 Bytes = @this[index, IPAddress.Layout.V6Length]
             };
         }
+
+
+        /// <summary>
+        /// 设置IPv6<see cref="IPAddress"/>
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public static void SetIPv6(this Octets @this, Int32 index, IPAddress value)
+        {
+            @this[index, IPAddress.Layout.V6Length] = value.Bytes;
+        }
     }
 }

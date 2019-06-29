@@ -1,7 +1,5 @@
 using System;
 using System.Buffers.Binary;
-using Networking.Model.DataLink;
-using Networking.Model.Internet;
 
 namespace Networking
 {
@@ -262,16 +260,6 @@ namespace Networking
             return SetUInt32(index, newValue);
         }
 
-        /// <summary>
-        /// 设置IPv6<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetIPv6(Int32 index, IPAddress value)
-        {
-            this[index, IPAddress.Layout.V6Length] = value.Bytes;
-        }
 
         /// <summary>
         /// 12-34-56-78-89-AB-CD-EF

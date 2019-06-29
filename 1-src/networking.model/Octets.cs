@@ -3,7 +3,7 @@ using System.Buffers.Binary;
 using Networking.Model.DataLink;
 using Networking.Model.Internet;
 
-namespace Networking.Model
+namespace Networking
 {
     /// <summary>
     /// 八位字节组

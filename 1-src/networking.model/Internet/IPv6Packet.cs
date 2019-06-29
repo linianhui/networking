@@ -67,7 +67,7 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress SourceIPAddress
         {
-            get { return GetIPv6(Layout.SourceIPAddressBegin); }
+            get { return this.GetIPv6(Layout.SourceIPAddressBegin); }
             set { SetIPv6(Layout.SourceIPAddressBegin, value); }
         }
 
@@ -77,7 +77,7 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress DestinationIPAddress
         {
-            get { return GetIPv6(Layout.DestinationIPAddressBegin); }
+            get { return this.GetIPv6(Layout.DestinationIPAddressBegin); }
             set { SetIPv6(Layout.DestinationIPAddressBegin, value); }
         }
 

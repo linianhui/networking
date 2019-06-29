@@ -60,5 +60,19 @@ namespace Networking
         {
             @this[index, IPAddress.Layout.V4Length] = value.Bytes;
         }
+
+        /// <summary>
+        /// 获取IPv6<see cref="IPAddress"/>
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public static IPAddress GetIPv6(this Octets @this, Int32 index)
+        {
+            return new IPAddress
+            {
+                Bytes = @this[index, IPAddress.Layout.V6Length]
+            };
+        }
     }
 }

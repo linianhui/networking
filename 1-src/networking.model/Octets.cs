@@ -149,18 +149,7 @@ namespace Networking
             return GetUInt32(index).GetUInt32(bitIndex, bitLength);
         }
 
-        /// <summary>
-        /// 获取IPv6<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public IPAddress GetIPv6(Int32 index)
-        {
-            return new IPAddress
-            {
-                Bytes = this[index, IPAddress.Layout.V6Length]
-            };
-        }
+
 
         /// <summary>
         /// 设置指定位置的bit[1=true,0=false]

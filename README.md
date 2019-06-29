@@ -11,6 +11,8 @@
 
 # Nuget
 
+[![NuGet-Networking-Core-Img]][NuGet-Networking-Core-Url]
+
 [![NuGet-Networking-Model-Img]][NuGet-Networking-Model-Url]
 
 [![NuGet-Networking-Files-Img]][NuGet-Networking-Files-Url]
@@ -50,6 +52,9 @@ docker run \
 
 [Gitlab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
 [Gitlab-CI-Url]:https://gitlab.com/lnh/networking/commits/master
+
+[NuGet-Networking-Core-Img]:https://img.shields.io/nuget/v/Networking.Core.svg?label=nuget+Networking.Core
+[NuGet-Networking-Core-URL]:https://www.nuget.org/packages/Networking.Core
 
 [NuGet-Networking-Model-Img]:https://img.shields.io/nuget/v/Networking.Model.svg?label=nuget+Networking.Model
 [NuGet-Networking-Model-URL]:https://www.nuget.org/packages/Networking.Model

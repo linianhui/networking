@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Model.Internet
+namespace Networking
 {
     /// <summary>
     /// IP版本

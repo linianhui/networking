@@ -80,7 +80,7 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress ClientIPAddress
         {
-            get { return base.GetIPv4(Layout.ClientIPAddressBegin); }
+            get { return this.GetIPv4(Layout.ClientIPAddressBegin); }
             set { base.SetIPv4(Layout.ClientIPAddressBegin, value); }
         }
 
@@ -89,7 +89,7 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress YourClientIPAddress
         {
-            get { return base.GetIPv4(Layout.YourClientIPAddressBegin); }
+            get { return this.GetIPv4(Layout.YourClientIPAddressBegin); }
             set { base.SetIPv4(Layout.YourClientIPAddressBegin, value); }
         }
 
@@ -98,7 +98,7 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress ServerIPAddress
         {
-            get { return base.GetIPv4(Layout.ServerIPAddressBegin); }
+            get { return this.GetIPv4(Layout.ServerIPAddressBegin); }
             set { base.SetIPv4(Layout.ServerIPAddressBegin, value); }
         }
 
@@ -107,7 +107,7 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress GatewayIPAddress
         {
-            get { return base.GetIPv4(Layout.GatewayIPAddressBegin); }
+            get { return this.GetIPv4(Layout.GatewayIPAddressBegin); }
             set { base.SetIPv4(Layout.GatewayIPAddressBegin, value); }
         }
 

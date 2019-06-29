@@ -150,19 +150,6 @@ namespace Networking
         }
 
         /// <summary>
-        /// 获取IPv4<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public IPAddress GetIPv4(Int32 index)
-        {
-            return new IPAddress
-            {
-                Bytes = this[index, IPAddress.Layout.V4Length]
-            };
-        }
-
-        /// <summary>
         /// 获取IPv6<see cref="IPAddress"/>
         /// </summary>
         /// <param name="index">索引</param>

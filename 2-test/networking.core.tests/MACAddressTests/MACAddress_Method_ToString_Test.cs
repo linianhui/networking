@@ -1,9 +1,8 @@
 using System;
 using FluentAssertions;
-using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Tests.DataLinkTests.MACAddressTests
+namespace Networking.Tests.MACAddressTests
 {
     public class MACAddress_Method_ToString_Test
     {

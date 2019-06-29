@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Networking.Core</AssemblyName>
+    <RootNamespace>Networking.Core</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Networking.Core</PackageId>
+    <Version>$(Networking_Core_Version)</Version>
+    <PackageVersion>$(Networking_Core_Version)</PackageVersion>
+    <InformationalVersion>$(Networking_Core_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
+    <PackageDescription>Networking Core : Bit , Octet.</PackageDescription>
+  </PropertyGroup>
+
+</Project>

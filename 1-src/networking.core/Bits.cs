@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Model
+namespace Networking
 {
     /// <summary>
     /// bit操作

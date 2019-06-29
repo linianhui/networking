@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model.Tests.BitsTests
+namespace Networking.Tests.BitsTests
 {
     public class Bits_Method_SetUInt16_Test
     {

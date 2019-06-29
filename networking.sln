@@ -1,19 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-src", "1-src", "{0F2DBF2D-242C-4699-8273-5504D8410032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model", "1-src\networking.model\networking.model.csproj", "{6B9941EF-5B1B-433C-B3F9-F66B83575121}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.model", "1-src\networking.model\networking.model.csproj", "{6B9941EF-5B1B-433C-B3F9-F66B83575121}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-test", "2-test", "{9310880F-0CA6-468E-B045-6094A9B3D96D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.model.tests", "2-test\networking.model.tests\networking.model.tests.csproj", "{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.model.tests", "2-test\networking.model.tests\networking.model.tests.csproj", "{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.files", "1-src\networking.files\networking.files.csproj", "{9749E2E1-B59F-4F3A-82CE-9E67FE0A8FA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.files", "1-src\networking.files\networking.files.csproj", "{9749E2E1-B59F-4F3A-82CE-9E67FE0A8FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.files.tests", "2-test\networking.files.tests\networking.files.tests.csproj", "{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.files.tests", "2-test\networking.files.tests\networking.files.tests.csproj", "{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "networking.core", "1-src\networking.core\networking.core.csproj", "{9C234A22-1A98-4FDE-B26C-34DB911505FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.core.tests", "2-test\networking.core.tests\networking.core.tests.csproj", "{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,14 @@ Global
 		{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43AF7BCA-955A-4C14-8E20-CC4DD39C556E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C234A22-1A98-4FDE-B26C-34DB911505FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C234A22-1A98-4FDE-B26C-34DB911505FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C234A22-1A98-4FDE-B26C-34DB911505FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C234A22-1A98-4FDE-B26C-34DB911505FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,8 @@ Global
 		{4F02BE9C-5720-4167-A8E4-F1E4B65CCA60} = {9310880F-0CA6-468E-B045-6094A9B3D96D}
 		{9749E2E1-B59F-4F3A-82CE-9E67FE0A8FA8} = {0F2DBF2D-242C-4699-8273-5504D8410032}
 		{43AF7BCA-955A-4C14-8E20-CC4DD39C556E} = {9310880F-0CA6-468E-B045-6094A9B3D96D}
+		{9C234A22-1A98-4FDE-B26C-34DB911505FF} = {0F2DBF2D-242C-4699-8273-5504D8410032}
+		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB} = {9310880F-0CA6-468E-B045-6094A9B3D96D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {559B2883-F4BD-4EA5-9040-247AB6478B68}

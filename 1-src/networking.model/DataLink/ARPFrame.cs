@@ -32,7 +32,7 @@ namespace Networking.Model.DataLink
         public MACAddress SenderMACAddress
         {
             get { return this.GetMAC(Layout.SenderHardwareAddressBegin); }
-            set { SetMAC(Layout.SenderHardwareAddressBegin, value); }
+            set { this.SetMAC(Layout.SenderHardwareAddressBegin, value); }
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Networking.Model.DataLink
         public MACAddress TargetMACAddress
         {
             get { return this.GetMAC(Layout.TargetHardwareAddressBegin); }
-            set { SetMAC(Layout.TargetHardwareAddressBegin, value); }
+            set { this.SetMAC(Layout.TargetHardwareAddressBegin, value); }
         }
 
 

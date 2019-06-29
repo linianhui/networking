@@ -287,17 +287,6 @@ namespace Networking
         }
 
         /// <summary>
-        /// 设置<see cref="MACAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetMAC(Int32 index, MACAddress value)
-        {
-            this[index, MACAddress.Layout.Length] = value.Bytes;
-        }
-
-        /// <summary>
         /// 设置IPv4<see cref="IPAddress"/>
         /// </summary>
         /// <param name="index">索引</param>

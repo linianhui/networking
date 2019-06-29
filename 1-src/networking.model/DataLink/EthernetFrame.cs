@@ -15,7 +15,7 @@ namespace Networking.Model.DataLink
         public MACAddress DestinationMACAddress
         {
             get { return this.GetMAC(Layout.DestinationMACAddressBegin); }
-            set { SetMAC(Layout.DestinationMACAddressBegin, value); }
+            set { this.SetMAC(Layout.DestinationMACAddressBegin, value); }
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Networking.Model.DataLink
         public MACAddress SourceMACAddress
         {
             get { return this.GetMAC(Layout.SourceMACAddressBegin); }
-            set { SetMAC(Layout.SourceMACAddressBegin, value); }
+            set { this.SetMAC(Layout.SourceMACAddressBegin, value); }
         }
 
         /// <summary>

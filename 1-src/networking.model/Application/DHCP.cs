@@ -117,7 +117,7 @@ namespace Networking.Model.Application
         public MACAddress ClientHardwareAddress
         {
             get { return this.GetMAC(Layout.ClientHardwareAddressBegin); }
-            set { base.SetMAC(Layout.ClientHardwareAddressBegin, value); }
+            set { this.SetMAC(Layout.ClientHardwareAddressBegin, value); }
         }
     }
 }

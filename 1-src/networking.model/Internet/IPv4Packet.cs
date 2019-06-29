@@ -123,7 +123,7 @@ namespace Networking.Model.Internet
         public IPAddress SourceIPAddress
         {
             get { return this.GetIPv4(Layout.SourceIPAddressBegin); }
-            set { SetIPv4(Layout.SourceIPAddressBegin, value); }
+            set { this.SetIPv4(Layout.SourceIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Networking.Model.Internet
         public IPAddress DestinationIPAddress
         {
             get { return this.GetIPv4(Layout.DestinationIPAddressBegin); }
-            set { SetIPv4(Layout.DestinationIPAddressBegin, value); }
+            set { this.SetIPv4(Layout.DestinationIPAddressBegin, value); }
         }
 
         /// <summary>

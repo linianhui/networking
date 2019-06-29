@@ -48,5 +48,17 @@ namespace Networking
                 Bytes = @this[index, IPAddress.Layout.V4Length]
             };
         }
+
+        /// <summary>
+        /// 设置IPv4<see cref="IPAddress"/>
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public static void SetIPv4(this Octets @this, Int32 index, IPAddress value)
+        {
+            @this[index, IPAddress.Layout.V4Length] = value.Bytes;
+        }
     }
 }

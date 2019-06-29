@@ -41,7 +41,7 @@ namespace Networking.Model.DataLink
         public IPAddress SenderIPAddress
         {
             get { return this.GetIPv4(Layout.SenderProtocolAddressBegin); }
-            set { SetIPv4(Layout.SenderProtocolAddressBegin, value); }
+            set { this.SetIPv4(Layout.SenderProtocolAddressBegin, value); }
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Networking.Model.DataLink
         public IPAddress TargetIPAddress
         {
             get { return this.GetIPv4(Layout.TargetProtocolAddressBegin); }
-            set { SetIPv4(Layout.TargetProtocolAddressBegin, value); }
+            set { this.SetIPv4(Layout.TargetProtocolAddressBegin, value); }
         }
 
         /// <summary>

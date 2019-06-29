@@ -274,17 +274,6 @@ namespace Networking
         }
 
         /// <summary>
-        /// 设置IPv4<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetIPv4(Int32 index, IPAddress value)
-        {
-            this[index, IPAddress.Layout.V4Length] = value.Bytes;
-        }
-
-        /// <summary>
         /// 设置IPv6<see cref="IPAddress"/>
         /// </summary>
         /// <param name="index">索引</param>

@@ -1,12 +1,28 @@
 using System;
 
-namespace Networking.Model.Internet
+namespace Networking
 {
     /// <summary>
     /// IP地址
     /// </summary>
     public partial class IPAddress : Octets
     {
+        /// <summary>
+        /// 首部-布局信息
+        /// </summary>
+        public class Layout
+        {
+            /// <summary>
+            /// V4地址长度=4
+            /// </summary>
+            public const Int32 V4Length = 4;
+
+            /// <summary>
+            /// V6地址长度=16
+            /// </summary>
+            public const Int32 V6Length = 16;
+        }
+
         /// <summary>
         /// 获取版本
         /// </summary>

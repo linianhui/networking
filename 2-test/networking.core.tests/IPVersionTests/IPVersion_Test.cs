@@ -1,8 +1,7 @@
 using FluentAssertions;
-using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.InternetTests.IPVersionTests
+namespace Networking.Tests.IPVersionTests
 {
     public class IPVersion_Test
     {

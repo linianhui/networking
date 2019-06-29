@@ -1,9 +1,8 @@
 using System;
 using FluentAssertions;
-using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.InternetTests.IPAddressTests
+namespace Networking.Tests.IPAddressTests
 {
     public class IPAddress_Property_Version_Test
     {

@@ -15,6 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\networking.core\networking.core.csproj" />
     <ProjectReference Include="..\networking.model\networking.model.csproj" />
   </ItemGroup>
 

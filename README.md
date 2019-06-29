@@ -11,11 +11,9 @@
 
 # Nuget
 
-[![NuGet-Networking-Core-Img]][NuGet-Networking-Core-Url]
-
-[![NuGet-Networking-Model-Img]][NuGet-Networking-Model-Url]
-
-[![NuGet-Networking-Files-Img]][NuGet-Networking-Files-Url]
+1. [![NuGet-Networking-Core-Img]][NuGet-Networking-Core-Url]
+2. [![NuGet-Networking-Model-Img]][NuGet-Networking-Model-Url]
+3. [![NuGet-Networking-Files-Img]][NuGet-Networking-Files-Url]
 
 # CI
 

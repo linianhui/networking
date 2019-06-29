@@ -1,5 +1,4 @@
 using System;
-using Networking.Model;
 
 namespace Networking.Files.Pcap
 {

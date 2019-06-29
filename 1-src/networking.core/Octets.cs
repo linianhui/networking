@@ -1,9 +1,7 @@
 using System;
 using System.Buffers.Binary;
-using Networking.Model.DataLink;
-using Networking.Model.Internet;
 
-namespace Networking.Model
+namespace Networking
 {
     /// <summary>
     /// 八位字节组
@@ -149,44 +147,7 @@ namespace Networking.Model
             return GetUInt32(index).GetUInt32(bitIndex, bitLength);
         }
 
-        /// <summary>
-        /// 获取<see cref="MACAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public MACAddress GetMAC(Int32 index)
-        {
-            return new MACAddress
-            {
-                Bytes = this[index, MACAddress.Layout.Length]
-            };
-        }
 
-        /// <summary>
-        /// 获取IPv4<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public IPAddress GetIPv4(Int32 index)
-        {
-            return new IPAddress
-            {
-                Bytes = this[index, IPAddress.Layout.V4Length]
-            };
-        }
-
-        /// <summary>
-        /// 获取IPv6<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public IPAddress GetIPv6(Int32 index)
-        {
-            return new IPAddress
-            {
-                Bytes = this[index, IPAddress.Layout.V6Length]
-            };
-        }
 
         /// <summary>
         /// 设置指定位置的bit[1=true,0=false]
@@ -299,38 +260,6 @@ namespace Networking.Model
             return SetUInt32(index, newValue);
         }
 
-        /// <summary>
-        /// 设置<see cref="MACAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetMAC(Int32 index, MACAddress value)
-        {
-            this[index, MACAddress.Layout.Length] = value.Bytes;
-        }
-
-        /// <summary>
-        /// 设置IPv4<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetIPv4(Int32 index, IPAddress value)
-        {
-            this[index, IPAddress.Layout.V4Length] = value.Bytes;
-        }
-
-        /// <summary>
-        /// 设置IPv6<see cref="IPAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="value">值</param>
-        /// <returns></returns>
-        public void SetIPv6(Int32 index, IPAddress value)
-        {
-            this[index, IPAddress.Layout.V6Length] = value.Bytes;
-        }
 
         /// <summary>
         /// 12-34-56-78-89-AB-CD-EF

@@ -3,7 +3,7 @@ using FluentAssertions;
 using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.OctetsTests
+namespace Networking.Model.Tests.ExtensionsTests.OctetsExtensionsTests
 {
     public class Octets_Method_SetIPv4_Test
     {

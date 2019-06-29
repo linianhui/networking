@@ -122,8 +122,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress SourceIPAddress
         {
-            get { return GetIPv4(Layout.SourceIPAddressBegin); }
-            set { SetIPv4(Layout.SourceIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.SourceIPAddressBegin); }
+            set { this.SetIPv4(Layout.SourceIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -131,8 +131,8 @@ namespace Networking.Model.Internet
         /// </summary>
         public IPAddress DestinationIPAddress
         {
-            get { return GetIPv4(Layout.DestinationIPAddressBegin); }
-            set { SetIPv4(Layout.DestinationIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.DestinationIPAddressBegin); }
+            set { this.SetIPv4(Layout.DestinationIPAddressBegin, value); }
         }
 
         /// <summary>

@@ -80,8 +80,8 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress ClientIPAddress
         {
-            get { return base.GetIPv4(Layout.ClientIPAddressBegin); }
-            set { base.SetIPv4(Layout.ClientIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.ClientIPAddressBegin); }
+            set { this.SetIPv4(Layout.ClientIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress YourClientIPAddress
         {
-            get { return base.GetIPv4(Layout.YourClientIPAddressBegin); }
-            set { base.SetIPv4(Layout.YourClientIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.YourClientIPAddressBegin); }
+            set { this.SetIPv4(Layout.YourClientIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress ServerIPAddress
         {
-            get { return base.GetIPv4(Layout.ServerIPAddressBegin); }
-            set { base.SetIPv4(Layout.ServerIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.ServerIPAddressBegin); }
+            set { this.SetIPv4(Layout.ServerIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace Networking.Model.Application
         /// </summary>
         public IPAddress GatewayIPAddress
         {
-            get { return base.GetIPv4(Layout.GatewayIPAddressBegin); }
-            set { base.SetIPv4(Layout.GatewayIPAddressBegin, value); }
+            get { return this.GetIPv4(Layout.GatewayIPAddressBegin); }
+            set { this.SetIPv4(Layout.GatewayIPAddressBegin, value); }
         }
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Networking.Model.Application
         /// </summary>
         public MACAddress ClientHardwareAddress
         {
-            get { return base.GetMAC(Layout.ClientHardwareAddressBegin); }
-            set { base.SetMAC(Layout.ClientHardwareAddressBegin, value); }
+            get { return this.GetMAC(Layout.ClientHardwareAddressBegin); }
+            set { this.SetMAC(Layout.ClientHardwareAddressBegin, value); }
         }
     }
 }

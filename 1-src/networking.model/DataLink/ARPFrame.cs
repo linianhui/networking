@@ -31,8 +31,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public MACAddress SenderMACAddress
         {
-            get { return GetMAC(Layout.SenderHardwareAddressBegin); }
-            set { SetMAC(Layout.SenderHardwareAddressBegin, value); }
+            get { return this.GetMAC(Layout.SenderHardwareAddressBegin); }
+            set { this.SetMAC(Layout.SenderHardwareAddressBegin, value); }
         }
 
         /// <summary>
@@ -40,8 +40,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public IPAddress SenderIPAddress
         {
-            get { return GetIPv4(Layout.SenderProtocolAddressBegin); }
-            set { SetIPv4(Layout.SenderProtocolAddressBegin, value); }
+            get { return this.GetIPv4(Layout.SenderProtocolAddressBegin); }
+            set { this.SetIPv4(Layout.SenderProtocolAddressBegin, value); }
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public MACAddress TargetMACAddress
         {
-            get { return GetMAC(Layout.TargetHardwareAddressBegin); }
-            set { SetMAC(Layout.TargetHardwareAddressBegin, value); }
+            get { return this.GetMAC(Layout.TargetHardwareAddressBegin); }
+            set { this.SetMAC(Layout.TargetHardwareAddressBegin, value); }
         }
 
 
@@ -59,8 +59,8 @@ namespace Networking.Model.DataLink
         /// </summary>
         public IPAddress TargetIPAddress
         {
-            get { return GetIPv4(Layout.TargetProtocolAddressBegin); }
-            set { SetIPv4(Layout.TargetProtocolAddressBegin, value); }
+            get { return this.GetIPv4(Layout.TargetProtocolAddressBegin); }
+            set { this.SetIPv4(Layout.TargetProtocolAddressBegin, value); }
         }
 
         /// <summary>

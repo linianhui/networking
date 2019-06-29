@@ -2,7 +2,7 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model.Tests.OctetsTests
+namespace Networking.Tests.OctetsTests
 {
     public class Octets_Method_SetUInt32_Bits_Test
     {

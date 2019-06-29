@@ -2,7 +2,7 @@ using System;
 using FluentAssertions;
 using Xunit;
 
-namespace Networking.Model.Tests.OctetsTests
+namespace Networking.Tests.OctetsTests
 {
     public class Octets_Indexer_Index_Length_Test
     {

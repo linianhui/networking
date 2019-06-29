@@ -150,19 +150,6 @@ namespace Networking
         }
 
         /// <summary>
-        /// 获取<see cref="MACAddress"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public MACAddress GetMAC(Int32 index)
-        {
-            return new MACAddress
-            {
-                Bytes = this[index, MACAddress.Layout.Length]
-            };
-        }
-
-        /// <summary>
         /// 获取IPv4<see cref="IPAddress"/>
         /// </summary>
         /// <param name="index">索引</param>

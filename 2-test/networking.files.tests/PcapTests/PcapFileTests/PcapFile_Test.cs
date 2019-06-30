@@ -11,7 +11,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
         [Fact]
         public void read()
         {
-            var pcapFile = new PcapFile(AppContext.BaseDirectory + "PcapTests/PcapFileTests/test.pcap");
+            var pcapFile = this.GetPcapFile("test.pcap");
 
             pcapFile.Header.IsLittleEndian.Should().Be(true);
             pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);

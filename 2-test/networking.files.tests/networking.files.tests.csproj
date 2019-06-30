@@ -8,14 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="PcapTests\PcapFileTests\test.pcap">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="PcapTests\PcapFileTests\test.pcap" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\1-src\networking.files\networking.files.csproj" />
     <ProjectReference Include="..\..\1-src\networking.model\networking.model.csproj" />
+    <ProjectReference Include="..\networking.tests.util\networking.tests.util.csproj" />
   </ItemGroup>
 
 </Project>

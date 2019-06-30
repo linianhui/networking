@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AssemblyName>Networking.Core.Tests</AssemblyName>
-    <RootNamespace>Networking.Core.Tests</RootNamespace>
+    <RootNamespace>Networking.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

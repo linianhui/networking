@@ -47,6 +47,11 @@ namespace Networking.Files.PcapNG
                         {
                             Bytes = bodyBytes
                         };
+                    case BlockType.InterfaceDescription:
+                        return new InterfaceDescriptionBody
+                        {
+                            Bytes = bodyBytes
+                        };
                     default:
                         return new BlockBody
                         {

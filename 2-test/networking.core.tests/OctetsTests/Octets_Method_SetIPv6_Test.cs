@@ -1,9 +1,8 @@
 using System;
 using FluentAssertions;
-using Networking.Model.Internet;
 using Xunit;
 
-namespace Networking.Model.Tests.ExtensionsTests.OctetsExtensionsTests
+namespace Networking.Tests.OctetsTests
 {
     public class Octets_Method_SetIPv6_Test
     {

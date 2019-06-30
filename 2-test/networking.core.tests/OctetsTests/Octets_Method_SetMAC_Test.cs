@@ -1,9 +1,8 @@
 using System;
 using FluentAssertions;
-using Networking.Model.DataLink;
 using Xunit;
 
-namespace Networking.Model.Tests.ExtensionsTests.OctetsExtensionsTests
+namespace Networking.Tests.OctetsTests
 {
     public class Octets_Method_SetMAC_Test
     {

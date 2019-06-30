@@ -1,14 +1,27 @@
 using System;
 using Networking.Files.Pcap;
 
-// ReSharper disable once CheckNamespace
-namespace Networking.Model.Tests
+namespace Networking
 {
     /// <summary>
     /// *.pcap文件扩展方法
     /// </summary>
-    public static class PcapExtensions
+    public static class PcapFileExtensions
     {
+        /// <summary>
+        /// 获取<see cref="PcapFile"/>
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static PcapFile GetPcapFile(this Object @this, String fileName)
+        {
+            var type = @this.GetType();
+            var resourceFileName = type.Namespace + "." + fileName;
+            var stream = type.Assembly.GetManifestResourceStream(resourceFileName);
+            return new PcapFile(stream);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -18,10 +31,7 @@ namespace Networking.Model.Tests
         /// <returns></returns>
         public static void PcapFileForEach(this Object @this, String fileName, Action<Byte[]> action)
         {
-            var type = @this.GetType();
-            var resourceFileName = type.Namespace + "." + fileName;
-            var stream = type.Assembly.GetManifestResourceStream(resourceFileName);
-            var pcapFile = new PcapFile(stream);
+            var pcapFile = @this.GetPcapFile(fileName);
 
             foreach (var packet in pcapFile.ReadAllPackets())
             {

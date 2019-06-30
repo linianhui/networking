@@ -27,20 +27,5 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
 
             block.TotalLength.Should().Be(expected);
         }
-
-        [Theory]
-        [MemberData(nameof(Data))]
-        public void Set(Byte[] expected, UInt32 input)
-        {
-            var block = new Block
-            {
-                Bytes = new Byte[12]
-            };
-
-            block.TotalLength = input;
-
-            block[4, 4].ToArray().Should().Equal(expected);
-            block.TotalLength.Should().Be(input);
-        }
     }
 }

@@ -32,20 +32,5 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
 
             block.Type.Should().Be(expected);
         }
-
-        [Theory]
-        [MemberData(nameof(Data))]
-        public void Set(Byte[] expected, BlockType input)
-        {
-            var block = new Block
-            {
-                Bytes = new Byte[12]
-            };
-
-            block.Type = input;
-
-            block[0, 4].ToArray().Should().Equal(expected);
-            block.Type.Should().Be(input);
-        }
     }
 }

@@ -14,7 +14,6 @@ namespace Networking.Files.PcapNG
         public BlockType Type
         {
             get { return (BlockType)base.GetUInt32(Layout.TypeBegin); }
-            set { base.SetUInt32(Layout.TypeBegin, (UInt32)value); }
         }
 
         /// <summary>
@@ -23,7 +22,6 @@ namespace Networking.Files.PcapNG
         public UInt32 TotalLength
         {
             get { return base.GetUInt32(Layout.TotalLengthBegin); }
-            set { base.SetUInt32(Layout.TotalLengthBegin, value); }
         }
 
         /// <summary>

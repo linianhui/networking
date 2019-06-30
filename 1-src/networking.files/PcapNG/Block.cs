@@ -35,15 +35,25 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// Body
         /// </summary>
-        public Octets Body
+        public BlockBody Body
         {
             get
             {
                 var bodyBytes = base[Layout.BodyBegin, (Int32)BodyLength];
-                return new Octets
+                switch (Type)
                 {
-                    Bytes = bodyBytes
-                };
+                    case BlockType.SectionHeader:
+                        return new SectionHeaderBody
+                        {
+                            Bytes = bodyBytes
+                        };
+                    default:
+                        return new BlockBody
+                        {
+                            Bytes = bodyBytes
+                        };
+                }
+
             }
         }
     }

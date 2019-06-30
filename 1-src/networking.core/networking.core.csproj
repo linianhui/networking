@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Networking.Core</AssemblyName>
-    <RootNamespace>Networking.Core</RootNamespace>
+    <RootNamespace>Networking</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -11,7 +11,7 @@
     <Version>$(Networking_Core_Version)</Version>
     <PackageVersion>$(Networking_Core_Version)</PackageVersion>
     <InformationalVersion>$(Networking_Core_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
-    <PackageDescription>Networking Core : Bit , Octet.</PackageDescription>
+    <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress.</PackageDescription>
   </PropertyGroup>
 
 </Project>

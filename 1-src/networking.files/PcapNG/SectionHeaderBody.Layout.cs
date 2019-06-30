@@ -27,18 +27,18 @@ namespace Networking.Files.PcapNG
             /// <summary>
             /// Byte-Order Magic-起始位置=0
             /// </summary>
-            public const Int32 ByteOrderMagicBegin = 0;
+            public const Int32 MagicNumberBegin = 0;
 
             /// <summary>
             /// Byte-Order Magic-结束位置=4
             /// </summary>
-            public const Int32 ByteOrderMagicEnd = ByteOrderMagicBegin + 4;
+            public const Int32 MagicNumberEnd = MagicNumberBegin + 4;
 
 
             /// <summary>
             /// Major Version-起始位置=4
             /// </summary>
-            public const Int32 MajorVersionBegin = ByteOrderMagicEnd;
+            public const Int32 MajorVersionBegin = MagicNumberEnd;
 
             /// <summary>
             /// Major Version-结束位置=6

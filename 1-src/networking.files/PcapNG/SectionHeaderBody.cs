@@ -13,7 +13,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public UInt32 MagicNumber
         {
-            get { return GetUInt32(Layout.ByteOrderMagicBegin); }
+            get { return GetUInt32(Layout.MagicNumberBegin); }
         }
 
         /// <summary>

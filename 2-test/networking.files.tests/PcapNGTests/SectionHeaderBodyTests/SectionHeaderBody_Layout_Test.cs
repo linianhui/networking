@@ -9,8 +9,8 @@ namespace Networking.Files.Tests.PcapNGTests.SectionHeaderBodyTests
         [Fact]
         public void Layout()
         {
-            SectionHeaderBody.Layout.ByteOrderMagicBegin.Should().Be(0);
-            SectionHeaderBody.Layout.ByteOrderMagicEnd.Should().Be(4);
+            SectionHeaderBody.Layout.MagicNumberBegin.Should().Be(0);
+            SectionHeaderBody.Layout.MagicNumberEnd.Should().Be(4);
 
             SectionHeaderBody.Layout.MajorVersionBegin.Should().Be(4);
             SectionHeaderBody.Layout.MajorVersionEnd.Should().Be(6);

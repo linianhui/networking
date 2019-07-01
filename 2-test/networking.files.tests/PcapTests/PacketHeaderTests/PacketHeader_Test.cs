@@ -10,7 +10,7 @@ namespace Networking.Files.Tests.PcapTests.PacketHeaderTests
         [Fact]
         public void Get()
         {
-            PacketHeader packetHeader = new PacketHeader
+            var packetHeader = new PacketHeader
             {
                 IsLittleEndian = true,
                 Bytes = new Byte[] {

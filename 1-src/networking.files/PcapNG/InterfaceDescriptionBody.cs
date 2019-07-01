@@ -1,3 +1,5 @@
+using System;
+
 namespace Networking.Files.PcapNG
 {
     /// <summary>
@@ -12,6 +14,14 @@ namespace Networking.Files.PcapNG
         public DataLinkType Type
         {
             get { return (DataLinkType)GetUInt16(Layout.DataLinkTypeBegin); }
+        }
+
+        /// <summary>
+        /// 数据包最大长度
+        /// </summary>
+        public UInt32 MaxCapturedLength
+        {
+            get { return GetUInt32(Layout.MaxCapturedLengthBegin); }
         }
     }
 }

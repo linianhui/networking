@@ -34,9 +34,20 @@ namespace Networking.Files.PcapNG
 
 
             /// <summary>
+            /// Captured Length-起始位置=4
+            /// </summary>
+            public const Int32 MaxCapturedLengthBegin = 4;
+
+            /// <summary>
+            /// Captured Length-结束位置=8
+            /// </summary>
+            public const Int32 MaxCapturedLengthEnd = MaxCapturedLengthBegin + 4;
+
+
+            /// <summary>
             /// Header Length=12
             /// </summary>
-            public const Int32 HeaderLength = 8;
+            public const Int32 HeaderLength = MaxCapturedLengthEnd;
         }
     }
 }

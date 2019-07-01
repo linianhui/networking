@@ -13,11 +13,13 @@ namespace Networking.Files.Tests.PcapNGTests.InterfaceDescriptionBodyTests
             var interfaceDescriptionBody = new InterfaceDescriptionBody
             {
                 Bytes = new Byte[] {
-                    0x00,0x01
+                    0x00,0x01,0x00,0x00,
+                    0x12,0x34,0x56,0x78
                 }
             };
 
             interfaceDescriptionBody.Type.Should().Be(DataLinkType.Ethernet);
+            interfaceDescriptionBody.MaxCapturedLength.Should().Be(0x12345678);
         }
     }
 }

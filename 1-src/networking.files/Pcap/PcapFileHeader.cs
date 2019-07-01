@@ -47,7 +47,7 @@ namespace Networking.Files.Pcap
         /// </summary>
         public UInt32 MaxCapturedLength
         {
-            get { return GetUInt16(Layout.MaxCapturedLengthBegin); }
+            get { return GetUInt32(Layout.MaxCapturedLengthBegin); }
         }
 
         /// <summary>

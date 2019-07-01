@@ -64,7 +64,7 @@ namespace Networking.Files.Pcap
                 return null;
             }
 
-            var packetDataBytes = ReadNextPacketDataBytes(packetHeader);
+            var packetDataBytes = ReadNextPacketData(packetHeader);
             if (packetDataBytes.Length == 0)
             {
                 return null;
@@ -102,25 +102,16 @@ namespace Networking.Files.Pcap
             };
         }
 
-        private Byte[] ReadNextPacketDataBytes(PacketHeader packetHeader)
+        private Byte[] ReadNextPacketData(PacketHeader packetHeader)
         {
-            var dataActualLength = ComputeDataActualLength(packetHeader);
-            return ReadNextBytes(dataActualLength);
-        }
-
-        private Int32 ComputeDataActualLength(PacketHeader packetHeader)
-        {
-            if (Header.MaxCapturedLength != 0 && packetHeader.CapturedLength > Header.MaxCapturedLength)
-            {
-                return (Int32)Header.MaxCapturedLength;
-            }
-            return (Int32)packetHeader.CapturedLength;
+            var packetDataLength = (Int32)packetHeader.CapturedLength;
+            return ReadNextBytes(packetDataLength);
         }
 
         private Byte[] ReadNextBytes(Int32 length)
         {
             var buffer = ReadBytes(_offset, length);
-            _offset += length;
+            _offset += buffer.Length;
             return buffer;
         }
 

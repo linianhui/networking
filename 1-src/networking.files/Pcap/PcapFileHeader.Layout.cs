@@ -57,18 +57,18 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// 数据包最大的长度-起始位置
             /// </summary>
-            public const Int32 PacketMaxLengthBegin = MinorVersionEnd + 8;
+            public const Int32 MaxCapturedLengthBegin = MinorVersionEnd + 8;
 
 
             /// <summary>
             /// 数据包最大的长度-结束位置
             /// </summary>
-            public const Int32 PacketMaxLengthEnd = PacketMaxLengthBegin + 4;
+            public const Int32 MaxCapturedLengthEnd = MaxCapturedLengthBegin + 4;
 
             /// <summary>
             /// 数据链路类型-起始位置
             /// </summary>
-            public const Int32 DataLinkTypeBegin = PacketMaxLengthEnd;
+            public const Int32 DataLinkTypeBegin = MaxCapturedLengthEnd;
 
 
             /// <summary>

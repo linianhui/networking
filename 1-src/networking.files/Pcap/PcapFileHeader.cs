@@ -35,9 +35,9 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 数据包最大长度
         /// </summary>
-        public UInt32 PacketMaxLength
+        public UInt32 MaxCapturedLength
         {
-            get { return GetUInt16(Layout.PacketMaxLengthBegin); }
+            get { return GetUInt16(Layout.MaxCapturedLengthBegin); }
         }
 
         /// <summary>

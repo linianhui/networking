@@ -128,9 +128,9 @@ namespace Networking.Files.Pcap
 
         private Int32 ComputeDataActualLength(PacketHeader packetHeader)
         {
-            if (Header.PacketMaxLength != 0 && packetHeader.SavedLength > Header.PacketMaxLength)
+            if (Header.MaxCapturedLength != 0 && packetHeader.SavedLength > Header.MaxCapturedLength)
             {
-                return (Int32)Header.PacketMaxLength;
+                return (Int32)Header.MaxCapturedLength;
             }
             return (Int32)packetHeader.SavedLength;
         }

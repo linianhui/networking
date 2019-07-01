@@ -35,18 +35,18 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// Major Version-起始位置
             /// </summary>
-            public const Int32 VersionMajorBegin = MagicNumberEnd;
+            public const Int32 MajorVersionBegin = MagicNumberEnd;
 
             /// <summary>
             /// Major Version-结束位置
             /// </summary>
-            public const Int32 VersionMajorEnd = VersionMajorBegin + 2;
+            public const Int32 MajorVersionEnd = MajorVersionBegin + 2;
 
 
             /// <summary>
             /// Minor Version-起始位置
             /// </summary>
-            public const Int32 VersionMinorBegin = VersionMajorEnd;
+            public const Int32 VersionMinorBegin = MajorVersionEnd;
 
             /// <summary>
             /// Minor Version-结束位置

@@ -19,9 +19,9 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// Major Version
         /// </summary>
-        public UInt16 VersionMajor
+        public UInt16 MajorVersion
         {
-            get { return GetUInt16(Layout.VersionMajorBegin); }
+            get { return GetUInt16(Layout.MajorVersionBegin); }
         }
 
         /// <summary>

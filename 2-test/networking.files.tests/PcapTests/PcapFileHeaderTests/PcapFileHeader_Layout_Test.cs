@@ -12,8 +12,8 @@ namespace Networking.Files.Tests.PcapTests.PcapFileHeaderTests
             PcapFileHeader.Layout.MagicNumberBegin.Should().Be(0);
             PcapFileHeader.Layout.MagicNumberEnd.Should().Be(4);
 
-            PcapFileHeader.Layout.VersionMajorBegin.Should().Be(4);
-            PcapFileHeader.Layout.VersionMajorEnd.Should().Be(6);
+            PcapFileHeader.Layout.MajorVersionBegin.Should().Be(4);
+            PcapFileHeader.Layout.MajorVersionEnd.Should().Be(6);
 
             PcapFileHeader.Layout.VersionMinorBegin.Should().Be(6);
             PcapFileHeader.Layout.VersionMinorEnd.Should().Be(8);

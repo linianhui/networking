@@ -15,8 +15,8 @@ namespace Networking.Files.Tests.PcapTests.PacketHeaderTests
             PacketHeader.Layout.TimestampMicrosecondsBegin.Should().Be(4);
             PacketHeader.Layout.TimestampMicrosecondsEnd.Should().Be(8);
 
-            PacketHeader.Layout.SavedLengthBegin.Should().Be(8);
-            PacketHeader.Layout.SavedLengthEnd.Should().Be(12);
+            PacketHeader.Layout.CapturedLengthBegin.Should().Be(8);
+            PacketHeader.Layout.CapturedLengthEnd.Should().Be(12);
 
             PacketHeader.Layout.OriginalLengthBegin.Should().Be(12);
             PacketHeader.Layout.OriginalLengthEnd.Should().Be(16);

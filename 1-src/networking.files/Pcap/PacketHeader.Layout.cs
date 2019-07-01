@@ -43,18 +43,18 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// 保存的长度-起始位置
             /// </summary>
-            public const Int32 SavedLengthBegin = TimestampMicrosecondsEnd;
+            public const Int32 CapturedLengthBegin = TimestampMicrosecondsEnd;
 
             /// <summary>
             /// 保存的长度-结束位置
             /// </summary>
-            public const Int32 SavedLengthEnd = SavedLengthBegin + 4;
+            public const Int32 CapturedLengthEnd = CapturedLengthBegin + 4;
 
 
             /// <summary>
             /// 原始长度-起始位置
             /// </summary>
-            public const Int32 OriginalLengthBegin = SavedLengthEnd;
+            public const Int32 OriginalLengthBegin = CapturedLengthEnd;
 
             /// <summary>
             /// 原始长度-结束位置

@@ -25,11 +25,11 @@ namespace Networking.Files.Pcap
         }
 
         /// <summary>
-        /// 保存的长度
+        /// 捕获的长度
         /// </summary>
-        public UInt32 SavedLength
+        public UInt32 CapturedLength
         {
-            get { return GetUInt32(Layout.SavedLengthBegin); }
+            get { return GetUInt32(Layout.CapturedLengthBegin); }
         }
 
         /// <summary>

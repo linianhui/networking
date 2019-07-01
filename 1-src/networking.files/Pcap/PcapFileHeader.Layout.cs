@@ -46,18 +46,18 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// Minor Version-起始位置
             /// </summary>
-            public const Int32 VersionMinorBegin = MajorVersionEnd;
+            public const Int32 MinorVersionBegin = MajorVersionEnd;
 
             /// <summary>
             /// Minor Version-结束位置
             /// </summary>
-            public const Int32 VersionMinorEnd = VersionMinorBegin + 2;
+            public const Int32 MinorVersionEnd = MinorVersionBegin + 2;
 
 
             /// <summary>
             /// 数据包最大的长度-起始位置
             /// </summary>
-            public const Int32 PacketMaxLengthBegin = VersionMinorEnd + 8;
+            public const Int32 PacketMaxLengthBegin = MinorVersionEnd + 8;
 
 
             /// <summary>

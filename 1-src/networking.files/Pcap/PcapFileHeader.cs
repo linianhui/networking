@@ -27,9 +27,9 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// Minor Version
         /// </summary>
-        public UInt16 VersionMinor
+        public UInt16 MinorVersion
         {
-            get { return GetUInt16(Layout.VersionMinorBegin); }
+            get { return GetUInt16(Layout.MinorVersionBegin); }
         }
 
         /// <summary>

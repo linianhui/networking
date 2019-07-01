@@ -3,7 +3,8 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// <see href="https://pcapng.github.io/pcapng/#rfc.section.11.1"/>
+    /// Block Type
+    /// <see href="https://pcapng.github.io/pcapng/#section_block_code_registry"/>
     /// </summary>
     public enum BlockType : UInt32
     {

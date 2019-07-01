@@ -4,7 +4,7 @@ namespace Networking.Files.PcapNG
 {
     /// <summary>
     /// General Block
-    /// <see href="https://pcapng.github.io/pcapng/#rfc.section.3.1"/>
+    /// <see href="https://pcapng.github.io/pcapng/#section_block"/>
     /// </summary>
     public partial class Block : Octets
     {

@@ -6,7 +6,7 @@ namespace Networking.Files.PcapNG
     {
         /// <summary>
         /// 首部-布局信息
-        /// <see href="https://pcapng.github.io/pcapng/#rfc.section.3.1"/>
+        /// <see href="https://pcapng.github.io/pcapng/#section_block"/>
         /// <para></para>
         /// <para>|                    General Block Structure                    |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>

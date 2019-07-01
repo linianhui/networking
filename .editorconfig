@@ -157,17 +157,17 @@ csharp_style_var_elsewhere                                 = true : error
 
 # 表达式体成员
 ## IDE0022
-csharp_style_expression_bodied_methods                     = false : error
+csharp_style_expression_bodied_methods                     = false : silent
 ## IDE0021
-csharp_style_expression_bodied_constructors                = false : error
+csharp_style_expression_bodied_constructors                = false : silent
 ## IDE0023,IDE0024
-csharp_style_expression_bodied_operators                   = false : error
+csharp_style_expression_bodied_operators                   = false : silent
 ## IDE0025
-csharp_style_expression_bodied_properties                  = when_on_single_line : error
+csharp_style_expression_bodied_properties                  = when_on_single_line : silent
 ## IDE0026
-csharp_style_expression_bodied_indexers                    = when_on_single_line : error
+csharp_style_expression_bodied_indexers                    = when_on_single_line : silent
 ## IDE0027
-csharp_style_expression_bodied_accessors                   = when_on_single_line : error
+csharp_style_expression_bodied_accessors                   = when_on_single_line : silent
 
 # 模式匹配
 ## IDE0020

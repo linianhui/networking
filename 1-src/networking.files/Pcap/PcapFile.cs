@@ -15,11 +15,6 @@ namespace Networking.Files.Pcap
         private Int32 _offset;
 
         /// <summary>
-        /// 是否小端字节序
-        /// </summary>
-        public Boolean IsLittleEndian { get; private set; }
-
-        /// <summary>
         /// 文件首部
         /// </summary>
         public PcapFileHeader Header { get; private set; }
@@ -27,10 +22,10 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 构造函数
         /// </summary>
-        public PcapFile(String file)
+        public PcapFile(String filePath)
         {
-            _stream = new FileStream(file, FileMode.Open, FileAccess.Read);
-            Init();
+            _stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            ReadFileHeader();
         }
 
         /// <summary>
@@ -39,7 +34,7 @@ namespace Networking.Files.Pcap
         public PcapFile(Stream stream)
         {
             _stream = stream;
-            Init();
+            ReadFileHeader();
         }
 
         /// <summary>
@@ -48,27 +43,14 @@ namespace Networking.Files.Pcap
         public PcapFile(Byte[] bytes)
         {
             _stream = new MemoryStream(bytes);
-            Init();
+            ReadFileHeader();
         }
 
-        private void Init()
+        private void ReadFileHeader()
         {
-            if (ReadBytes(0, 1)[0] == 0xA1)
-            {
-                IsLittleEndian = false;
-            }
-            else
-            {
-                IsLittleEndian = true;
-            }
-
-            Header = new PcapFileHeader
-            {
-                IsLittleEndian = IsLittleEndian,
-                Bytes = ReadBytes(0, PcapFileHeader.Layout.HeaderLength)
-            };
-
-            _offset = PcapFileHeader.Layout.HeaderLength;
+            _offset = 0;
+            var headerBytes = ReadNextBytes(PcapFileHeader.Layout.HeaderLength);
+            Header = new PcapFileHeader(headerBytes);
         }
 
         /// <summary>
@@ -115,7 +97,7 @@ namespace Networking.Files.Pcap
 
             return new PacketHeader
             {
-                IsLittleEndian = IsLittleEndian,
+                IsLittleEndian = Header.IsLittleEndian,
                 Bytes = packetHeaderBytes
             };
         }
@@ -135,10 +117,6 @@ namespace Networking.Files.Pcap
             return (Int32)packetHeader.CapturedLength;
         }
 
-
-        /// <summary>
-        /// 读取bytes
-        /// </summary>
         private Byte[] ReadNextBytes(Int32 length)
         {
             var buffer = ReadBytes(_offset, length);
@@ -146,9 +124,6 @@ namespace Networking.Files.Pcap
             return buffer;
         }
 
-        /// <summary>
-        /// 读取bytes
-        /// </summary>
         private Byte[] ReadBytes(Int32 offset, Int32 length)
         {
             if (offset + length > _stream.Length)

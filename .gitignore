@@ -333,3 +333,5 @@ ASALocalRun/
 
 3-dist/
 !3-dist/.gitkeep
+
+.DS_Store

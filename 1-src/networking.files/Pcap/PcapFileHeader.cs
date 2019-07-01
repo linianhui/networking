@@ -57,5 +57,20 @@ namespace Networking.Files.Pcap
         {
             get { return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin); }
         }
+
+        /// <summary>
+        /// 是否是纳秒
+        /// </summary>
+        public Boolean IsNanosecond
+        {
+            get
+            {
+                if (IsLittleEndian)
+                {
+                    return base.GetByte(0) == 0x4D;
+                }
+                return base.GetByte(3) == 0x4D;
+            }
+        }
     }
 }

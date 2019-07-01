@@ -15,9 +15,9 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
 
             pcapFile.Header.IsLittleEndian.Should().Be(true);
             pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);
-            pcapFile.Header.VersionMajor.Should().Be(2);
-            pcapFile.Header.VersionMinor.Should().Be(4);
-            pcapFile.Header.PacketMaxLength.Should().Be(65535);
+            pcapFile.Header.MajorVersion.Should().Be(2);
+            pcapFile.Header.MinorVersion.Should().Be(4);
+            pcapFile.Header.MaxCapturedLength.Should().Be(65535);
             pcapFile.Header.Type.Should().Be(DataLinkType.Ethernet);
 
             var i = 0;

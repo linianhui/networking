@@ -35,40 +35,40 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// Major Version-起始位置
             /// </summary>
-            public const Int32 VersionMajorBegin = MagicNumberEnd;
+            public const Int32 MajorVersionBegin = MagicNumberEnd;
 
             /// <summary>
             /// Major Version-结束位置
             /// </summary>
-            public const Int32 VersionMajorEnd = VersionMajorBegin + 2;
+            public const Int32 MajorVersionEnd = MajorVersionBegin + 2;
 
 
             /// <summary>
             /// Minor Version-起始位置
             /// </summary>
-            public const Int32 VersionMinorBegin = VersionMajorEnd;
+            public const Int32 MinorVersionBegin = MajorVersionEnd;
 
             /// <summary>
             /// Minor Version-结束位置
             /// </summary>
-            public const Int32 VersionMinorEnd = VersionMinorBegin + 2;
+            public const Int32 MinorVersionEnd = MinorVersionBegin + 2;
 
 
             /// <summary>
             /// 数据包最大的长度-起始位置
             /// </summary>
-            public const Int32 PacketMaxLengthBegin = VersionMinorEnd + 8;
+            public const Int32 MaxCapturedLengthBegin = MinorVersionEnd + 8;
 
 
             /// <summary>
             /// 数据包最大的长度-结束位置
             /// </summary>
-            public const Int32 PacketMaxLengthEnd = PacketMaxLengthBegin + 4;
+            public const Int32 MaxCapturedLengthEnd = MaxCapturedLengthBegin + 4;
 
             /// <summary>
             /// 数据链路类型-起始位置
             /// </summary>
-            public const Int32 DataLinkTypeBegin = PacketMaxLengthEnd;
+            public const Int32 DataLinkTypeBegin = MaxCapturedLengthEnd;
 
 
             /// <summary>

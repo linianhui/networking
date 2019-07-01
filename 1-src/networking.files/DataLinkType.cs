@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Files.Pcap
+namespace Networking.Files
 {
     /// <summary>
     /// 数据链路的类型

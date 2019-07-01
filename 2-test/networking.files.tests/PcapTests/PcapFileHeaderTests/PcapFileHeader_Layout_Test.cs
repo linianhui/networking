@@ -12,14 +12,14 @@ namespace Networking.Files.Tests.PcapTests.PcapFileHeaderTests
             PcapFileHeader.Layout.MagicNumberBegin.Should().Be(0);
             PcapFileHeader.Layout.MagicNumberEnd.Should().Be(4);
 
-            PcapFileHeader.Layout.VersionMajorBegin.Should().Be(4);
-            PcapFileHeader.Layout.VersionMajorEnd.Should().Be(6);
+            PcapFileHeader.Layout.MajorVersionBegin.Should().Be(4);
+            PcapFileHeader.Layout.MajorVersionEnd.Should().Be(6);
 
-            PcapFileHeader.Layout.VersionMinorBegin.Should().Be(6);
-            PcapFileHeader.Layout.VersionMinorEnd.Should().Be(8);
+            PcapFileHeader.Layout.MinorVersionBegin.Should().Be(6);
+            PcapFileHeader.Layout.MinorVersionEnd.Should().Be(8);
 
-            PcapFileHeader.Layout.PacketMaxLengthBegin.Should().Be(16);
-            PcapFileHeader.Layout.PacketMaxLengthEnd.Should().Be(20);
+            PcapFileHeader.Layout.MaxCapturedLengthBegin.Should().Be(16);
+            PcapFileHeader.Layout.MaxCapturedLengthEnd.Should().Be(20);
 
             PcapFileHeader.Layout.DataLinkTypeBegin.Should().Be(20);
             PcapFileHeader.Layout.DataLinkTypeEnd.Should().Be(24);

@@ -26,6 +26,10 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
             {
                 packet.FileHeader.IsLittleEndian.Should().Be(true);
                 packet.Header.IsLittleEndian.Should().Be(true);
+                if (i==0)
+                {
+                    packet.TimestampNanosecond.Should().Be(1_549_110_206_807_127_000UL);
+                }
                 var ethernetFrame = new EthernetFrame
                 {
                     Bytes = packet.Data

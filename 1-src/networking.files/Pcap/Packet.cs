@@ -44,7 +44,7 @@ namespace Networking.Files.Pcap
                     nanosecond *= 1000;
                 }
 
-                return Header.TimestampSecond * 1_000_000_000u + nanosecond;
+                return Header.TimestampSecond * 1_000_000_000UL + nanosecond;
             }
         }
 

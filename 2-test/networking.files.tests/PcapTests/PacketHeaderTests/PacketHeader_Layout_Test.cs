@@ -9,11 +9,11 @@ namespace Networking.Files.Tests.PcapTests.PacketHeaderTests
         [Fact]
         public void Layout()
         {
-            PacketHeader.Layout.TimestampSecondsBegin.Should().Be(0);
-            PacketHeader.Layout.TimestampSecondsEnd.Should().Be(4);
+            PacketHeader.Layout.TimestampSecondBegin.Should().Be(0);
+            PacketHeader.Layout.TimestampSecondEnd.Should().Be(4);
 
-            PacketHeader.Layout.TimestampMicrosecondsBegin.Should().Be(4);
-            PacketHeader.Layout.TimestampMicrosecondsEnd.Should().Be(8);
+            PacketHeader.Layout.TimestampMicrosecondBegin.Should().Be(4);
+            PacketHeader.Layout.TimestampMicrosecondEnd.Should().Be(8);
 
             PacketHeader.Layout.CapturedLengthBegin.Should().Be(8);
             PacketHeader.Layout.CapturedLengthEnd.Should().Be(12);

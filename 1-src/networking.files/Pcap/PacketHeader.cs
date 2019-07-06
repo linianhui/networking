@@ -11,17 +11,17 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 时间戳
         /// </summary>
-        public UInt32 TimestampSeconds
+        public UInt32 TimestampSecond
         {
-            get { return GetUInt32(Layout.TimestampSecondsBegin); }
+            get { return GetUInt32(Layout.TimestampSecondBegin); }
         }
 
         /// <summary>
         /// 时间戳的微妙部分
         /// </summary>
-        public UInt32 TimestampMicroseconds
+        public UInt32 TimestampMicrosecond
         {
-            get { return GetUInt32(Layout.TimestampMicrosecondsBegin); }
+            get { return GetUInt32(Layout.TimestampMicrosecondBegin); }
         }
 
         /// <summary>

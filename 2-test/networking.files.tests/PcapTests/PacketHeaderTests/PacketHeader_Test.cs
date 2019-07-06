@@ -22,8 +22,8 @@ namespace Networking.Files.Tests.PcapTests.PacketHeaderTests
             };
 
             packetHeader.IsLittleEndian.Should().Be(true);
-            packetHeader.TimestampSeconds.Should().Be(1549110206);
-            packetHeader.TimestampMicroseconds.Should().Be(807127);
+            packetHeader.TimestampSecond.Should().Be(1549110206);
+            packetHeader.TimestampMicrosecond.Should().Be(807127);
             packetHeader.CapturedLength.Should().Be(74);
             packetHeader.OriginalLength.Should().Be(74);
         }

@@ -29,7 +29,7 @@ namespace Networking
         /// <param name="fileName"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static void PcapFileForEach(this Object @this, String fileName, Action<Byte[]> action)
+        public static void PcapFileForEach(this Object @this, String fileName, Action<Memory<Byte>> action)
         {
             var pcapFile = @this.GetPcapFile(fileName);
 

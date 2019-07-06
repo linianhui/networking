@@ -9,6 +9,11 @@ namespace Networking.Files.Pcap
     public partial class PcapFileHeader : Octets
     {
         /// <summary>
+        /// 是否是纳秒
+        /// </summary>
+        public Boolean IsNanosecond { get; }
+
+        /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="bytes">首部Byte[]</param>
@@ -16,6 +21,11 @@ namespace Networking.Files.Pcap
         {
             Bytes = bytes;
             IsLittleEndian = base.GetByte(0) != 0xA1;
+            if (IsLittleEndian)
+            {
+                IsNanosecond = base.GetByte(0) == 0x4D;
+            }
+            IsNanosecond = base.GetByte(3) == 0x4D;
         }
 
         /// <summary>
@@ -56,21 +66,6 @@ namespace Networking.Files.Pcap
         public DataLinkType Type
         {
             get { return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin); }
-        }
-
-        /// <summary>
-        /// 是否是纳秒
-        /// </summary>
-        public Boolean IsNanosecond
-        {
-            get
-            {
-                if (IsLittleEndian)
-                {
-                    return base.GetByte(0) == 0x4D;
-                }
-                return base.GetByte(3) == 0x4D;
-            }
         }
     }
 }

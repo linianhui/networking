@@ -6,32 +6,41 @@ namespace Networking.Files.Pcap
     /// Packet (Record)
     /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
     /// </summary>
-    public class Packet
+    public class Packet : IPacket
     {
-        /// <summary>
-        /// 文件首部
-        /// </summary>
-        public PcapFileHeader FileHeader { get; }
-
         /// <summary>
         /// Packet首部
         /// </summary>
         public PacketHeader Header { get; }
 
         /// <summary>
-        /// Packet数据部分
-        /// </summary>
-        public Byte[] Data { get; }
-
-
-        /// <summary>
         /// 构造函数
         /// </summary>
-        public Packet(PcapFileHeader fileHeader, PacketHeader header, Byte[] data)
+        public Packet(PacketHeader header, Memory<Byte> payload)
         {
-            FileHeader = fileHeader;
             Header = header;
-            Data = data;
+            Payload = payload;
+        }
+
+        /// <summary>
+        /// 链路层类型
+        /// </summary>
+        public DataLinkType Type
+        {
+            get { return Header.FileHeader.Type; }
+        }
+
+        /// <summary>
+        /// 有效负载
+        /// </summary>
+        public Memory<Byte> Payload { get; }
+
+        /// <summary>
+        /// UNIX时间戳-纳秒
+        /// </summary>
+        public UInt64 TimestampNanosecond
+        {
+            get { return Header.TimestampNanosecond; }
         }
     }
 }

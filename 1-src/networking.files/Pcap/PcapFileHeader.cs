@@ -9,68 +9,58 @@ namespace Networking.Files.Pcap
     public partial class PcapFileHeader : Octets
     {
         /// <summary>
+        /// 是否是纳秒
+        /// </summary>
+        public Boolean TimestampMicrosecondPartIsNanosecond { get; set; }
+
+        /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="bytes">首部Byte[]</param>
-        public PcapFileHeader(Byte[] bytes)
+        /// <param name="headerBytes">首部Byte[]</param>
+        public PcapFileHeader(Byte[] headerBytes)
         {
-            Bytes = bytes;
+            Bytes = headerBytes;
             IsLittleEndian = base.GetByte(0) != 0xA1;
+            TimestampMicrosecondPartIsNanosecond = ComputeTimestampMicrosecondPartIsNanosecond();
+            MagicNumber = GetUInt32(Layout.MagicNumberBegin);
+            MajorVersion = GetUInt16(Layout.MajorVersionBegin);
+            MinorVersion = GetUInt16(Layout.MinorVersionBegin);
+            MaxCapturedLength = GetUInt32(Layout.MaxCapturedLengthBegin);
+            Type = (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin);
         }
 
         /// <summary>
         /// Magic Number
         /// </summary>
-        public UInt32 MagicNumber
-        {
-            get { return GetUInt32(Layout.MagicNumberBegin); }
-        }
+        public UInt32 MagicNumber { get; }
 
         /// <summary>
         /// Major Version
         /// </summary>
-        public UInt16 MajorVersion
-        {
-            get { return GetUInt16(Layout.MajorVersionBegin); }
-        }
+        public UInt16 MajorVersion { get; }
 
         /// <summary>
         /// Minor Version
         /// </summary>
-        public UInt16 MinorVersion
-        {
-            get { return GetUInt16(Layout.MinorVersionBegin); }
-        }
+        public UInt16 MinorVersion { get; }
 
         /// <summary>
         /// 数据包最大长度
         /// </summary>
-        public UInt32 MaxCapturedLength
-        {
-            get { return GetUInt32(Layout.MaxCapturedLengthBegin); }
-        }
+        public UInt32 MaxCapturedLength { get; }
 
         /// <summary>
         /// 数据链路类型
         /// </summary>
-        public DataLinkType Type
-        {
-            get { return (DataLinkType)GetUInt32(Layout.DataLinkTypeBegin); }
-        }
+        public DataLinkType Type { get; }
 
-        /// <summary>
-        /// 是否是纳秒
-        /// </summary>
-        public Boolean IsNanosecond
+        private Boolean ComputeTimestampMicrosecondPartIsNanosecond()
         {
-            get
+            if (IsLittleEndian)
             {
-                if (IsLittleEndian)
-                {
-                    return base.GetByte(0) == 0x4D;
-                }
-                return base.GetByte(3) == 0x4D;
+                return base.GetByte(0) == 0x4D;
             }
+            return base.GetByte(3) == 0x4D;
         }
     }
 }

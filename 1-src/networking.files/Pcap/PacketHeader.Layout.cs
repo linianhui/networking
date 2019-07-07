@@ -21,29 +21,29 @@ namespace Networking.Files.Pcap
             /// <summary>
             /// 时间戳-起始位置
             /// </summary>
-            public const Int32 TimestampSecondsBegin = 0;
+            public const Int32 TimestampSecondPartBegin = 0;
 
             /// <summary>
             /// 时间戳-结束位置
             /// </summary>
-            public const Int32 TimestampSecondsEnd = TimestampSecondsBegin + 4;
+            public const Int32 TimestampSecondPartEnd = TimestampSecondPartBegin + 4;
 
 
             /// <summary>
             /// 时间戳-微妙-起始位置
             /// </summary>
-            public const Int32 TimestampMicrosecondsBegin = TimestampSecondsEnd;
+            public const Int32 TimestampMicrosecondPartBegin = TimestampSecondPartEnd;
 
             /// <summary>
             /// 时间戳-微妙-结束位置
             /// </summary>
-            public const Int32 TimestampMicrosecondsEnd = TimestampMicrosecondsBegin + 4;
+            public const Int32 TimestampMicrosecondPartEnd = TimestampMicrosecondPartBegin + 4;
 
 
             /// <summary>
             /// 保存的长度-起始位置
             /// </summary>
-            public const Int32 CapturedLengthBegin = TimestampMicrosecondsEnd;
+            public const Int32 CapturedLengthBegin = TimestampMicrosecondPartEnd;
 
             /// <summary>
             /// 保存的长度-结束位置

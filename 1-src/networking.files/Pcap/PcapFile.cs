@@ -70,7 +70,7 @@ namespace Networking.Files.Pcap
                 return null;
             }
 
-            return new Packet(Header, packetHeader, packetDataBytes);
+            return new Packet(packetHeader, packetDataBytes);
         }
 
         /// <summary>
@@ -95,11 +95,7 @@ namespace Networking.Files.Pcap
                 return null;
             }
 
-            return new PacketHeader
-            {
-                IsLittleEndian = Header.IsLittleEndian,
-                Bytes = packetHeaderBytes
-            };
+            return new PacketHeader(Header, packetHeaderBytes);
         }
 
         private Byte[] ReadNextPacketData(PacketHeader packetHeader)

@@ -24,9 +24,10 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
 
             foreach (var packet in pcapFile.ReadAllPackets())
             {
-                packet.FileHeader.IsLittleEndian.Should().Be(true);
                 packet.Header.IsLittleEndian.Should().Be(true);
-                if (i==0)
+                packet.Header.FileHeader.IsLittleEndian.Should().Be(true);
+
+                if (i == 0)
                 {
                     packet.TimestampNanosecond.Should().Be(1_549_110_206_807_127_000UL);
                 }

@@ -95,7 +95,11 @@ namespace Networking.Files.Pcap
                 return null;
             }
 
-            return new PacketHeader(Header, packetHeaderBytes);
+            return new PacketHeader
+            {
+                FileHeader = Header,
+                Bytes = packetHeaderBytes
+            };
         }
 
         private Byte[] ReadNextPacketData(PacketHeader packetHeader)

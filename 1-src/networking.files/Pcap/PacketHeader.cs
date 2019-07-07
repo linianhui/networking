@@ -8,61 +8,67 @@ namespace Networking.Files.Pcap
     /// </summary>
     public partial class PacketHeader : Octets
     {
+        private PcapFileHeader _fileHeader;
+
         /// <summary>
         /// 文件首部
         /// </summary>
-        public PcapFileHeader FileHeader { get; }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PacketHeader(PcapFileHeader fileHeader, Memory<Byte> headerBytes)
+        public PcapFileHeader FileHeader
         {
-            FileHeader = fileHeader;
-            IsLittleEndian = fileHeader.IsLittleEndian;
-            Bytes = headerBytes;
-            TimestampSecondPart = GetUInt32(Layout.TimestampSecondPartBegin);
-            TimestampMicrosecondPart = GetUInt32(Layout.TimestampMicrosecondPartBegin);
-            TimestampNanosecond = ComputeTimestampNanosecond();
-            CapturedLength = GetUInt32(Layout.CapturedLengthBegin);
-            OriginalLength = GetUInt32(Layout.OriginalLengthBegin);
+            get { return _fileHeader; }
+            set
+            {
+                _fileHeader = value;
+                IsLittleEndian = value.IsLittleEndian;
+            }
         }
 
         /// <summary>
         /// 时间戳-秒部分
         /// </summary>
-        public UInt32 TimestampSecondPart { get; }
+        public UInt32 TimestampSecondPart
+        {
+            get { return GetUInt32(Layout.TimestampSecondPartBegin); }
+        }
 
         /// <summary>
         /// 时间戳-微妙部分
         /// </summary>
-        public UInt32 TimestampMicrosecondPart { get; }
+        public UInt32 TimestampMicrosecondPart
+        {
+            get { return GetUInt32(Layout.TimestampMicrosecondPartBegin); }
+        }
 
         /// <summary>
         /// 捕获的长度
         /// </summary>
-        public UInt32 CapturedLength { get; }
+        public UInt32 CapturedLength
+        {
+            get { return GetUInt32(Layout.CapturedLengthBegin); }
+        }
 
         /// <summary>
         /// 原始长度
         /// </summary>
-        public UInt32 OriginalLength { get; }
+        public UInt32 OriginalLength
+        {
+            get { return GetUInt32(Layout.OriginalLengthBegin); }
+        }
 
         /// <summary>
         /// UNIX时间戳-精度纳秒
         /// </summary>
-        public UInt64 TimestampNanosecond { get; }
-
-
-        private UInt64 ComputeTimestampNanosecond()
+        public UInt64 TimestampNanosecond
         {
-            UInt64 nanosecondPart = TimestampMicrosecondPart;
-            if (FileHeader.TimestampMicrosecondPartIsNanosecond == false)
+            get
             {
-                nanosecondPart *= 1000;
+                UInt64 nanosecondPart = TimestampMicrosecondPart;
+                if (FileHeader.TimestampMicrosecondPartIsNanosecond == false)
+                {
+                    nanosecondPart *= 1000;
+                }
+                return TimestampSecondPart * 1_000_000_000UL + nanosecondPart;
             }
-
-            return TimestampSecondPart * 1_000_000_000UL + nanosecondPart;
         }
     }
 }

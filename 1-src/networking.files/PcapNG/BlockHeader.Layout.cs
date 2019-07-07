@@ -2,7 +2,7 @@ using System;
 
 namespace Networking.Files.PcapNG
 {
-    public partial class Block
+    public partial class BlockHeader
     {
         /// <summary>
         /// 首部-布局信息
@@ -44,6 +44,7 @@ namespace Networking.Files.PcapNG
             /// Total Length-结束位置
             /// </summary>
             public const Int32 TotalLengthEnd = TotalLengthBegin + 4;
+
 
             /// <summary>
             /// Body-起始位置

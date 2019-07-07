@@ -4,9 +4,9 @@ using FluentAssertions;
 using Networking.Files.PcapNG;
 using Xunit;
 
-namespace Networking.Files.Tests.PcapNGTests.BlockTests
+namespace Networking.Files.Tests.PcapNGTests.BlockHeaderTests
 {
-    public class Block_Property_Type_Test
+    public class BlockHeader_Property_Type_Test
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -23,14 +23,14 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, BlockType expected)
         {
-            var block = new Block
+            var blockHeader = new BlockHeader
             {
-                Bytes = new Byte[12]
+                Bytes= new Byte[12]
             };
 
-            block[0, 4] = input;
+            blockHeader[0, 4] = input;
 
-            block.Type.Should().Be(expected);
+            blockHeader.Type.Should().Be(expected);
         }
     }
 }

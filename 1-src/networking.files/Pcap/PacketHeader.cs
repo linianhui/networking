@@ -56,7 +56,7 @@ namespace Networking.Files.Pcap
         private UInt64 ComputeNanosecond()
         {
             UInt64 nanosecond = TimestampMicrosecondPart;
-            if (FileHeader.IsNanosecond == false)
+            if (FileHeader.TimestampMicrosecondPartIsNanosecond == false)
             {
                 nanosecond *= 1000;
             }

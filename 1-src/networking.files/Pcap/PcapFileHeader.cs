@@ -11,7 +11,7 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 是否是纳秒
         /// </summary>
-        public Boolean IsNanosecond { get; }
+        public Boolean TimestampMicrosecondPartIsNanosecond { get; set; }
 
         /// <summary>
         /// 构造函数
@@ -21,11 +21,7 @@ namespace Networking.Files.Pcap
         {
             Bytes = headerBytes;
             IsLittleEndian = base.GetByte(0) != 0xA1;
-            if (IsLittleEndian)
-            {
-                IsNanosecond = base.GetByte(0) == 0x4D;
-            }
-            IsNanosecond = base.GetByte(3) == 0x4D;
+            TimestampMicrosecondPartIsNanosecond = ComputeTimestampMicrosecondPartIsNanosecond();
             MagicNumber = GetUInt32(Layout.MagicNumberBegin);
             MajorVersion = GetUInt16(Layout.MajorVersionBegin);
             MinorVersion = GetUInt16(Layout.MinorVersionBegin);
@@ -57,5 +53,14 @@ namespace Networking.Files.Pcap
         /// 数据链路类型
         /// </summary>
         public DataLinkType Type { get; }
+
+        private Boolean ComputeTimestampMicrosecondPartIsNanosecond()
+        {
+            if (IsLittleEndian)
+            {
+                return base.GetByte(0) == 0x4D;
+            }
+            return base.GetByte(3) == 0x4D;
+        }
     }
 }

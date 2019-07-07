@@ -23,7 +23,7 @@ namespace Networking.Files.Pcap
             Bytes = headerBytes;
             TimestampSecondPart = GetUInt32(Layout.TimestampSecondPartBegin);
             TimestampMicrosecondPart = GetUInt32(Layout.TimestampMicrosecondPartBegin);
-            TimestampNanosecond = ComputeNanosecond();
+            TimestampNanosecond = ComputeTimestampNanosecond();
             CapturedLength = GetUInt32(Layout.CapturedLengthBegin);
             OriginalLength = GetUInt32(Layout.OriginalLengthBegin);
         }
@@ -53,15 +53,16 @@ namespace Networking.Files.Pcap
         /// </summary>
         public UInt64 TimestampNanosecond { get; }
 
-        private UInt64 ComputeNanosecond()
+
+        private UInt64 ComputeTimestampNanosecond()
         {
-            UInt64 nanosecond = TimestampMicrosecondPart;
+            UInt64 nanosecondPart = TimestampMicrosecondPart;
             if (FileHeader.TimestampMicrosecondPartIsNanosecond == false)
             {
-                nanosecond *= 1000;
+                nanosecondPart *= 1000;
             }
 
-            return TimestampSecondPart * 1_000_000_000UL + nanosecond;
+            return TimestampSecondPart * 1_000_000_000UL + nanosecondPart;
         }
     }
 }

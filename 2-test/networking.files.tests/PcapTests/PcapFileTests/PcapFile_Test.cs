@@ -13,12 +13,12 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
         {
             var pcapFile = this.GetPcapFile("test.pcap");
 
-            pcapFile.Header.IsLittleEndian.Should().Be(true);
-            pcapFile.Header.MagicNumber.Should().Be(0xA1B2C3D4);
-            pcapFile.Header.MajorVersion.Should().Be(2);
-            pcapFile.Header.MinorVersion.Should().Be(4);
-            pcapFile.Header.MaxCapturedLength.Should().Be(65535);
-            pcapFile.Header.Type.Should().Be(DataLinkType.Ethernet);
+            pcapFile.FileHeader.IsLittleEndian.Should().Be(true);
+            pcapFile.FileHeader.MagicNumber.Should().Be(0xA1B2C3D4);
+            pcapFile.FileHeader.MajorVersion.Should().Be(2);
+            pcapFile.FileHeader.MinorVersion.Should().Be(4);
+            pcapFile.FileHeader.MaxCapturedLength.Should().Be(65535);
+            pcapFile.FileHeader.Type.Should().Be(DataLinkType.Ethernet);
 
             var i = 0;
 

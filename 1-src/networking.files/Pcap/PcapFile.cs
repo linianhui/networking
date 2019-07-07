@@ -17,7 +17,7 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 文件首部
         /// </summary>
-        public PcapFileHeader Header { get; private set; }
+        public PcapFileHeader FileHeader { get; private set; }
 
         /// <summary>
         /// 构造函数
@@ -50,7 +50,7 @@ namespace Networking.Files.Pcap
         {
             _offset = 0;
             var headerBytes = ReadNextBytes(PcapFileHeader.Layout.HeaderLength);
-            Header = new PcapFileHeader(headerBytes);
+            FileHeader = new PcapFileHeader(headerBytes);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Networking.Files.Pcap
 
             return new PacketHeader
             {
-                FileHeader = Header,
+                FileHeader = FileHeader,
                 Bytes = packetHeaderBytes
             };
         }

@@ -3,8 +3,7 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// General Block
-    /// <see href="https://pcapng.github.io/pcapng/#section_block"/>
+    /// Block
     /// </summary>
     public class Block
     {
@@ -19,7 +18,7 @@ namespace Networking.Files.PcapNG
         public BlockBody Body { get; }
 
         /// <summary>
-        /// ¹¹Ôìº¯Êý
+        /// æž„é€ å‡½æ•°
         /// </summary>
         public Block(BlockHeader blockHeader, Memory<Byte> blockBytes)
         {

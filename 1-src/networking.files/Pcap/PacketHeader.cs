@@ -21,8 +21,8 @@ namespace Networking.Files.Pcap
             FileHeader = fileHeader;
             IsLittleEndian = fileHeader.IsLittleEndian;
             Bytes = headerBytes;
-            TimestampSecond = GetUInt32(Layout.TimestampSecondBegin);
-            TimestampMicrosecond = GetUInt32(Layout.TimestampMicrosecondBegin);
+            TimestampSecondPart = GetUInt32(Layout.TimestampSecondPartBegin);
+            TimestampMicrosecondPart = GetUInt32(Layout.TimestampMicrosecondPartBegin);
             TimestampNanosecond = ComputeNanosecond();
             CapturedLength = GetUInt32(Layout.CapturedLengthBegin);
             OriginalLength = GetUInt32(Layout.OriginalLengthBegin);
@@ -31,12 +31,12 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 时间戳-秒部分
         /// </summary>
-        public UInt32 TimestampSecond { get; }
+        public UInt32 TimestampSecondPart { get; }
 
         /// <summary>
         /// 时间戳-微妙部分
         /// </summary>
-        public UInt32 TimestampMicrosecond { get; }
+        public UInt32 TimestampMicrosecondPart { get; }
 
         /// <summary>
         /// 捕获的长度
@@ -55,13 +55,13 @@ namespace Networking.Files.Pcap
 
         private UInt64 ComputeNanosecond()
         {
-            UInt64 nanosecond = TimestampMicrosecond;
+            UInt64 nanosecond = TimestampMicrosecondPart;
             if (FileHeader.IsNanosecond == false)
             {
                 nanosecond *= 1000;
             }
 
-            return TimestampSecond * 1_000_000_000UL + nanosecond;
+            return TimestampSecondPart * 1_000_000_000UL + nanosecond;
         }
     }
 }

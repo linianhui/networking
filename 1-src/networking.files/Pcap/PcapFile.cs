@@ -54,6 +54,20 @@ namespace Networking.Files.Pcap
         }
 
         /// <summary>
+        /// 读取所有数据包
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Packet> ReadAllPackets()
+        {
+            var packet = ReadNextPacket();
+            while (packet != null)
+            {
+                yield return packet;
+                packet = ReadNextPacket();
+            }
+        }
+
+        /// <summary>
         /// 读取下一个数据包
         /// </summary>
         public Packet ReadNextPacket()
@@ -71,20 +85,6 @@ namespace Networking.Files.Pcap
             }
 
             return new Packet(packetHeader, packetDataBytes);
-        }
-
-        /// <summary>
-        /// 读取所有数据包
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<Packet> ReadAllPackets()
-        {
-            var packet = ReadNextPacket();
-            while (packet != null)
-            {
-                yield return packet;
-                packet = ReadNextPacket();
-            }
         }
 
         private PacketHeader ReadNextPacketHeader()

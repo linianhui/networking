@@ -33,7 +33,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileTests
                 }
                 var ethernetFrame = new EthernetFrame
                 {
-                    Bytes = packet.Data
+                    Bytes = packet.Payload
                 };
                 ethernetFrame.IsLittleEndian.Should().Be(false);
                 ethernetFrame.Length.Should().BeGreaterThan(0);

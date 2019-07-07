@@ -13,9 +13,9 @@ namespace Networking.Files
         DataLinkType Type { get; }
 
         /// <summary>
-        /// 数据包
+        /// 有效负载
         /// </summary>
-        Memory<Byte> Data { get; }
+        Memory<Byte> Payload { get; }
 
         /// <summary>
         /// UNIX时间戳-纳秒

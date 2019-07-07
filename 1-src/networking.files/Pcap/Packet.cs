@@ -19,13 +19,8 @@ namespace Networking.Files.Pcap
         public Packet(PacketHeader header, Memory<Byte> payload)
         {
             Header = header;
-            Data = payload;
+            Payload = payload;
         }
-
-        /// <summary>
-        /// 数据包
-        /// </summary>
-        public Memory<Byte> Data { get; }
 
         /// <summary>
         /// 链路层类型
@@ -34,6 +29,11 @@ namespace Networking.Files.Pcap
         {
             get { return Header.FileHeader.Type; }
         }
+
+        /// <summary>
+        /// 有效负载
+        /// </summary>
+        public Memory<Byte> Payload { get; }
 
         /// <summary>
         /// UNIX时间戳-纳秒

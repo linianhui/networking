@@ -35,7 +35,7 @@ namespace Networking
 
             foreach (var packet in pcapFile.ReadAllPackets())
             {
-                action(packet.Data);
+                action(packet.Payload);
             }
         }
     }

@@ -3,7 +3,7 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// General Block Header
+    /// Block Header
     /// <see href="https://pcapng.github.io/pcapng/#section_block"/>
     /// </summary>
     public partial class BlockHeader : Octets

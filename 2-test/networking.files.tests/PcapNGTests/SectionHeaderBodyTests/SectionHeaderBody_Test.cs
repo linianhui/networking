@@ -20,6 +20,8 @@ namespace Networking.Files.Tests.PcapNGTests.SectionHeaderBodyTests
                 }
             };
 
+            sectionHeaderBody.Should().NotBeAssignableTo<IPacket>();
+            sectionHeaderBody.IsPacket.Should().Be(false);
             sectionHeaderBody.MagicNumber.Should().Be(0x1A2B3C4D);
             sectionHeaderBody.MajorVersion.Should().Be(1);
             sectionHeaderBody.MinorVersion.Should().Be(0);

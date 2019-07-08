@@ -18,8 +18,10 @@ namespace Networking.Files.Tests.PcapNGTests.SimplePacketBodyTests
                 }
             };
 
+            simplePacketBody.Should().BeAssignableTo<IPacket>();
+            simplePacketBody.IsPacket.Should().Be(true);
             simplePacketBody.OriginalLength.Should().Be(0x80);
-            simplePacketBody.Data.ToArray().Should().Equal(0x12, 0x34, 0x56, 0x78);
+            simplePacketBody.Payload.ToArray().Should().Equal(0x12, 0x34, 0x56, 0x78);
         }
     }
 }

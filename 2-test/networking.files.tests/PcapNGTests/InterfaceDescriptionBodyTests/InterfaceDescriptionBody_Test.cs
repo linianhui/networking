@@ -18,6 +18,8 @@ namespace Networking.Files.Tests.PcapNGTests.InterfaceDescriptionBodyTests
                 }
             };
 
+            interfaceDescriptionBody.Should().NotBeAssignableTo<IPacket>();
+            interfaceDescriptionBody.IsPacket.Should().Be(false);
             interfaceDescriptionBody.Type.Should().Be(DataLinkType.Ethernet);
             interfaceDescriptionBody.MaxCapturedLength.Should().Be(0x12345678);
         }

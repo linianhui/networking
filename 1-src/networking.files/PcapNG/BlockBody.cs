@@ -8,6 +8,19 @@ namespace Networking.Files.PcapNG
     public class BlockBody : Octets
     {
         /// <summary>
+        /// 是否是数据包
+        /// </summary>
+        public Boolean IsPacket { get; }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public BlockBody(Boolean isPacket = false)
+        {
+            IsPacket = isPacket;
+        }
+
+        /// <summary>
         /// 创建 <see cref="BlockBody"/> 
         /// </summary>
         /// <param name="blockType">type</param>

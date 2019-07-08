@@ -11,14 +11,12 @@ namespace Networking.Files.Tests.PcapNGTests.BlockHeaderTests
         [Fact]
         public void block_header()
         {
-            var blockHeader = new BlockHeader
+            var blockHeader = BlockHeader.From(new Byte[]
             {
-                Bytes = new Byte[]
-                {
-                    0x00,0x00,0x00,0x01,
-                    0x00,0x00,0x00,0x10,
-                }
-            };
+                0x00,0x00,0x00,0x01,
+                0x00,0x00,0x00,0x10,
+                0x00,0x00,0x00,0x10
+            });
 
             blockHeader.Type.Should().Be(BlockType.InterfaceDescription);
             blockHeader.TotalLength.Should().Be(16);

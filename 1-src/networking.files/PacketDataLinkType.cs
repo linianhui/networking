@@ -6,7 +6,7 @@ namespace Networking.Files
     /// 数据链路的类型
     /// <see href="http://www.tcpdump.org/linktypes.html"/>
     /// </summary>
-    public enum DataLinkType : UInt32
+    public enum PacketDataLinkType : UInt32
     {
         /// <summary>
         /// null

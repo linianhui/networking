@@ -10,7 +10,7 @@ namespace Networking.Files
         /// <summary>
         /// 链路层类型
         /// </summary>
-        DataLinkType Type { get; }
+        PacketDataLinkType DataLinkType { get; }
 
         /// <summary>
         /// 有效负载

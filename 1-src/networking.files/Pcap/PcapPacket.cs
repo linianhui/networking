@@ -25,9 +25,9 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 链路层类型
         /// </summary>
-        public DataLinkType Type
+        public PacketDataLinkType DataLinkType
         {
-            get { return Header.Header.Type; }
+            get { return Header.Header.DataLinkType; }
         }
 
         /// <summary>

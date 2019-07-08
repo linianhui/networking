@@ -25,9 +25,9 @@ namespace Networking.Files.PcapNG
         }
 
         /// <summary>
-        /// <see cref="IPacket.Type"/>
+        /// <see cref="IPacket.DataLinkType"/>
         /// </summary>
-        public DataLinkType Type
+        public PacketDataLinkType DataLinkType
         {
             get
             {

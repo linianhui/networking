@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="PcapTests\PcapFileReaderTests\test.pcap" />
+    <EmbeddedResource Include="PcapTests\PcapFileReaderTests\pcap.pcap" />
   </ItemGroup>
 
   <ItemGroup>

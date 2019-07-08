@@ -10,7 +10,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
         [Fact]
         public void ReadPackets()
         {
-            var pcapFileReader = this.GetPcapFileReader("test.pcap");
+            var pcapFileReader = this.GetPcapFileReader("pcap.pcap");
 
             pcapFileReader.Header.IsLittleEndian.Should().Be(true);
             pcapFileReader.Header.MagicNumber.Should().Be(0xA1B2C3D4);

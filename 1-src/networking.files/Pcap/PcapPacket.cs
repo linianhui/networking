@@ -6,17 +6,17 @@ namespace Networking.Files.Pcap
     /// Packet (Record)
     /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
     /// </summary>
-    public class Packet : IPacket
+    public class PcapPacket : IPacket
     {
         /// <summary>
         /// Packet首部
         /// </summary>
-        public PacketHeader Header { get; }
+        public PcapPacketHeader Header { get; }
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        public Packet(PacketHeader header, Memory<Byte> payload)
+        public PcapPacket(PcapPacketHeader header, Memory<Byte> payload)
         {
             Header = header;
             Payload = payload;
@@ -27,7 +27,7 @@ namespace Networking.Files.Pcap
         /// </summary>
         public DataLinkType Type
         {
-            get { return Header.FileHeader.Type; }
+            get { return Header.Header.Type; }
         }
 
         /// <summary>

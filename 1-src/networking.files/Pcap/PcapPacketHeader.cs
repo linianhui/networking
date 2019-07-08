@@ -6,19 +6,19 @@ namespace Networking.Files.Pcap
     /// Packet (Record) 首部
     /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
     /// </summary>
-    public partial class PacketHeader : Octets
+    public partial class PcapPacketHeader : Octets
     {
-        private PcapFileHeader _fileHeader;
+        private PcapFileHeader _header;
 
         /// <summary>
         /// 文件首部
         /// </summary>
-        public PcapFileHeader FileHeader
+        public PcapFileHeader Header
         {
-            get { return _fileHeader; }
+            get { return _header; }
             set
             {
-                _fileHeader = value;
+                _header = value;
                 IsLittleEndian = value.IsLittleEndian;
             }
         }
@@ -63,7 +63,7 @@ namespace Networking.Files.Pcap
             get
             {
                 UInt64 nanosecondPart = TimestampMicrosecondPart;
-                if (FileHeader.TimestampMicrosecondPartIsNanosecond == false)
+                if (Header.TimestampMicrosecondPartIsNanosecond == false)
                 {
                     nanosecondPart *= 1000;
                 }

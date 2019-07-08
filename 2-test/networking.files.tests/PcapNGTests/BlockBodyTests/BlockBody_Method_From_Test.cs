@@ -11,15 +11,22 @@ namespace Networking.Files.Tests.PcapNGTests.BlockBodyTests
 
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] { BlockType.SectionHeader , typeof(SectionHeaderBody) },
-            new Object[] { BlockType.InterfaceDescription, typeof(InterfaceDescriptionBody) },
+            new Object[] { new Byte[] { 0x0A, 0x0D, 0x0D, 0x0A } , typeof(SectionHeaderBody) },
+            new Object[] { new Byte[] { 0x01, 0x00, 0x00, 0x00 } , typeof(InterfaceDescriptionBody) },
         };
 
         [Theory]
         [MemberData(nameof(Data))]
-        public void From(BlockType blockType, Type excepted)
+        public void From(Byte[] headerBytes, Type excepted)
         {
-            BlockBody.From(blockType, new Byte[12]).GetType().Should().Be(excepted);
+            var blockHeader = new BlockHeader
+            {
+                IsLittleEndian = true,
+                Bytes = headerBytes
+            };
+            var blockBody = BlockBody.From(blockHeader, new Byte[12]);
+            blockBody.IsLittleEndian.Should().Be(true);
+            blockBody.GetType().Should().Be(excepted);
         }
     }
 }

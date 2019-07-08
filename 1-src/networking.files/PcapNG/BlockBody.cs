@@ -23,26 +23,29 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 创建 <see cref="BlockBody"/> 
         /// </summary>
-        /// <param name="blockType">type</param>
-        /// <param name="bodyBytes">bytes</param>
+        /// <param name="blockHeader">blockHeader</param>
+        /// <param name="bodyBytes">bodyBytes</param>
         /// <returns></returns>
-        public static BlockBody From(BlockType blockType, Memory<Byte> bodyBytes)
+        public static BlockBody From(BlockHeader blockHeader, Memory<Byte> bodyBytes)
         {
-            switch (blockType)
+            switch (blockHeader.Type)
             {
                 case BlockType.SectionHeader:
                     return new SectionHeaderBody
                     {
+                        IsLittleEndian = blockHeader.IsLittleEndian,
                         Bytes = bodyBytes
                     };
                 case BlockType.InterfaceDescription:
                     return new InterfaceDescriptionBody
                     {
+                        IsLittleEndian = blockHeader.IsLittleEndian,
                         Bytes = bodyBytes
                     };
                 default:
                     return new BlockBody
                     {
+                        IsLittleEndian = blockHeader.IsLittleEndian,
                         Bytes = bodyBytes
                     };
             }

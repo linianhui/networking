@@ -23,7 +23,7 @@ namespace Networking.Files.PcapNG
         public Block(BlockHeader blockHeader, Memory<Byte> blockBytes)
         {
             Header = blockHeader;
-            Body = BlockBody.From(blockHeader.Type, blockBytes);
+            Body = BlockBody.From(blockHeader, blockBytes);
         }
     }
 }

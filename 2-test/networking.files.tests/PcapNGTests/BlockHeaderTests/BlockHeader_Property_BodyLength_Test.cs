@@ -18,10 +18,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockHeaderTests
         [MemberData(nameof(Data))]
         public void Get(Byte[] input, UInt32 expected)
         {
-            var blockHeader = new BlockHeader
-            {
-                Bytes = new Byte[12]
-            };
+            var blockHeader = BlockHeader.From(new Byte[12]);
 
             blockHeader[4, 4] = input;
 

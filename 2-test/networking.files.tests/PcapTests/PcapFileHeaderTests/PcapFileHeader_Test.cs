@@ -25,7 +25,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileHeaderTests
             pcapFileHeader.MajorVersion.Should().Be(2);
             pcapFileHeader.MinorVersion.Should().Be(4);
             pcapFileHeader.MaxCapturedLength.Should().Be(65535);
-            pcapFileHeader.Type.Should().Be(DataLinkType.Ethernet);
+            pcapFileHeader.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
             pcapFileHeader.TimestampMicrosecondPartIsNanosecond.Should().Be(false);
         }
     }

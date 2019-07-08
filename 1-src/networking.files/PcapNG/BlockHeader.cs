@@ -8,6 +8,8 @@ namespace Networking.Files.PcapNG
     /// </summary>
     public partial class BlockHeader : Octets
     {
+        private BlockHeader() { }
+
         /// <summary>
         /// Type
         /// </summary>
@@ -30,6 +32,28 @@ namespace Networking.Files.PcapNG
         public UInt32 BodyLength
         {
             get { return TotalLength - 12; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="headerBytes"></param>
+        /// <returns></returns>
+        public static BlockHeader From(Memory<Byte> headerBytes)
+        {
+            if (headerBytes.Length != 12)
+            {
+                throw new ArithmeticException(nameof(headerBytes) + "length must be 12.");
+            }
+            var blockHeader = new BlockHeader
+            {
+                Bytes = headerBytes
+            };
+            if (blockHeader.Type == BlockType.SectionHeader)
+            {
+                blockHeader.IsLittleEndian = blockHeader.GetByte(8) == 0x4D;
+            }
+            return blockHeader;
         }
     }
 }

@@ -41,9 +41,14 @@ namespace Networking.Files.PcapNG
             public const Int32 TotalLengthBegin = TypeEnd;
 
             /// <summary>
+            /// Total Length的长度
+            /// </summary>
+            public const Int32 TotalLengthLength = 4;
+
+            /// <summary>
             /// Total Length-结束位置
             /// </summary>
-            public const Int32 TotalLengthEnd = TotalLengthBegin + 4;
+            public const Int32 TotalLengthEnd = TotalLengthBegin + TotalLengthLength;
 
 
             /// <summary>

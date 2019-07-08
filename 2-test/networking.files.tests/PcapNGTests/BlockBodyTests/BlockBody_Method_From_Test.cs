@@ -19,11 +19,9 @@ namespace Networking.Files.Tests.PcapNGTests.BlockBodyTests
         [MemberData(nameof(Data))]
         public void From(Byte[] headerBytes, Type excepted)
         {
-            var blockHeader = new BlockHeader
-            {
-                IsLittleEndian = true,
-                Bytes = headerBytes
-            };
+            var blockHeader = BlockHeader.From(headerBytes.PaddingEndToLength(12));
+            blockHeader.IsLittleEndian = true;
+
             var blockBody = BlockBody.From(blockHeader, new Byte[12]);
             blockBody.IsLittleEndian.Should().Be(true);
             blockBody.GetType().Should().Be(excepted);

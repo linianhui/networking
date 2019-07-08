@@ -17,7 +17,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
             pcapFileReader.Header.MajorVersion.Should().Be(2);
             pcapFileReader.Header.MinorVersion.Should().Be(4);
             pcapFileReader.Header.MaxCapturedLength.Should().Be(65535);
-            pcapFileReader.Header.Type.Should().Be(DataLinkType.Ethernet);
+            pcapFileReader.Header.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
 
             var i = 0;
 

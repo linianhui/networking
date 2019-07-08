@@ -30,9 +30,14 @@ namespace Networking.Files.PcapNG
             public const Int32 MagicNumberBegin = 0;
 
             /// <summary>
+            /// Byte-Order Magic-长度
+            /// </summary>
+            public const Int32 MagicNumberLength = 4;
+
+            /// <summary>
             /// Byte-Order Magic-结束位置=4
             /// </summary>
-            public const Int32 MagicNumberEnd = MagicNumberBegin + 4;
+            public const Int32 MagicNumberEnd = MagicNumberBegin + MagicNumberLength;
 
 
             /// <summary>

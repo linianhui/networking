@@ -12,14 +12,11 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
         public void constructor()
         {
             var block = new Block(
-                new BlockHeader
-                {
-                    Bytes = new Byte[]
-                    {
-                        0x00,0x00,0x00,0x01,
-                        0x00,0x00,0x00,0x10,
-                    }
-                },
+                BlockHeader.From(new Byte[] {
+                    0x00,0x00,0x00,0x01,
+                    0x00,0x00,0x00,0x10,
+                    0x00,0x00,0x00,0x10
+                }),
                 new Byte[12]
             );
 

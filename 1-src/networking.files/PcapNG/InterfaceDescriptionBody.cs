@@ -11,9 +11,9 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 数据链路类型
         /// </summary>
-        public DataLinkType Type
+        public PacketDataLinkType DataLinkType
         {
-            get { return (DataLinkType)GetUInt16(Layout.DataLinkTypeBegin); }
+            get { return (PacketDataLinkType)GetUInt16(Layout.DataLinkTypeBegin); }
         }
 
         /// <summary>

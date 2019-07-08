@@ -8,7 +8,7 @@ namespace Networking.Files.PcapNG
         /// 首部-布局信息
         /// <see href="https://pcapng.github.io/pcapng/#section_idb"/>
         /// <para></para>
-        /// <para>|               Interface Description Block (IHB)               |</para>
+        /// <para>|               Interface Description Block (IDB)               |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 

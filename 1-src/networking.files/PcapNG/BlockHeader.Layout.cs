@@ -47,9 +47,9 @@ namespace Networking.Files.PcapNG
 
 
             /// <summary>
-            /// Body-起始位置
+            /// 头部长度
             /// </summary>
-            public const Int32 BodyBegin = TotalLengthEnd;
+            public const Int32 HeaderLength = TotalLengthEnd;
         }
     }
 }

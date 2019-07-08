@@ -15,7 +15,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockHeaderTests
             BlockHeader.Layout.TotalLengthBegin.Should().Be(4);
             BlockHeader.Layout.TotalLengthEnd.Should().Be(8);
 
-            BlockHeader.Layout.BodyBegin.Should().Be(8);
+            BlockHeader.Layout.HeaderLength.Should().Be(8);
         }
     }
 }

@@ -2,7 +2,7 @@ using System;
 
 namespace Networking.Files.Pcap
 {
-    public partial class PacketHeader
+    public partial class PcapPacketHeader
     {
         /// <summary>
         /// 首部-布局信息

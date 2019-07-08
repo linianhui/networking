@@ -75,7 +75,7 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
         [Fact]
         public void dhcp()
         {
-            this.PcapFileForEach("dhcp.pcap", bytes =>
+            this.PcapFileReaderForEach("dhcp.pcap", bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
 

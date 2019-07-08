@@ -14,7 +14,7 @@ namespace Networking.Files
         /// <summary>
         /// Offset
         /// </summary>
-        public Int32 Offset { get; private set; }
+        public Int32 Offset { get; protected set; }
 
         /// <summary>
         /// 构造函数

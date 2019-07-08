@@ -51,7 +51,7 @@ namespace Networking.Files.PcapNG
             };
             if (blockHeader.Type == BlockType.SectionHeader)
             {
-                blockHeader.IsLittleEndian = blockHeader.GetByte(8) == 0x1A;
+                blockHeader.IsLittleEndian = blockHeader.GetByte(8) == 0x4D;
             }
             return blockHeader;
         }

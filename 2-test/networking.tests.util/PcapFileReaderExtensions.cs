@@ -1,4 +1,5 @@
 using System;
+using Networking.Files;
 using Networking.Files.Pcap;
 
 namespace Networking
@@ -26,14 +27,11 @@ namespace Networking
         /// 
         /// </summary>
         /// <param name="this"></param>
-        /// <param name="fileName"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static void PcapFileReaderForEach(this Object @this, String fileName, Action<Memory<Byte>> action)
+        public static void ForEach(this PacketReader @this, Action<Memory<Byte>> action)
         {
-            var pcapFile = @this.GetPcapFileReader(fileName);
-
-            foreach (var packet in pcapFile.ReadPackets())
+            foreach (var packet in @this.ReadPackets())
             {
                 action(packet.Payload);
             }

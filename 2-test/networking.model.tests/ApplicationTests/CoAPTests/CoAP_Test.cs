@@ -44,7 +44,7 @@ namespace Networking.Model.Tests.ApplicationTests.CoAPTests
         [Fact]
         public void coap()
         {
-            this.PcapFileReaderForEach("coap.pcap", bytes =>
+            this.GetPcapFileReader("coap.pcap").ForEach(bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
 

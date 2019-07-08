@@ -38,7 +38,7 @@ namespace Networking.Model.Tests.ApplicationTests.VXLANTests
         [Fact]
         public void vxlan()
         {
-            this.PcapFileReaderForEach("vxlan.pcap", bytes =>
+            this.GetPcapFileReader("vxlan.pcap").ForEach(bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
 

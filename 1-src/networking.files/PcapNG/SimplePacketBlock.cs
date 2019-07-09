@@ -3,7 +3,7 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// Simple Packet Body
+    /// Simple Packet Block
     /// <see href="https://pcapng.github.io/pcapng/#section_spb"/>
     /// </summary>
     public partial class SimplePacketBlock : Block, IPacket

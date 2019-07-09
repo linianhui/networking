@@ -3,7 +3,7 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// Interface Description Body
+    /// Interface Description Block
     /// <see href="https://pcapng.github.io/pcapng/#section_idb"/>
     /// </summary>
     public partial class InterfaceDescriptionBlock : Block

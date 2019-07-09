@@ -3,17 +3,33 @@ using System;
 namespace Networking.Files.PcapNG
 {
     /// <summary>
-    /// Simple Packet Block
-    /// <see href="https://pcapng.github.io/pcapng/#section_spb"/>
+    /// Enhanced Packet Block
+    /// <see href="https://pcapng.github.io/pcapng/#section_epb"/>
     /// </summary>
-    public partial class SimplePacketBlock : Block, IPacket
+    public partial class EnhancedPacketBlock : Block, IPacket
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SimplePacketBlock() : base(isPacket: true)
+        public EnhancedPacketBlock() : base(isPacket: true)
         {
 
+        }
+
+        /// <summary>
+        /// Interface Id
+        /// </summary>
+        public UInt32 InterfaceId
+        {
+            get { return GetUInt32(Layout.InterfaceIdBegin); }
+        }
+
+        /// <summary>
+        /// 捕获长度
+        /// </summary>
+        public UInt32 CapturedLength
+        {
+            get { return GetUInt32(Layout.CapturedLengthBegin); }
         }
 
         /// <summary>
@@ -48,7 +64,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public Memory<Byte> Payload
         {
-            get { return base[Layout.HeaderLength, (Int32)TotalLength - Layout.HeaderTotalLength]; }
+            get { return base[Layout.HeaderLength, (Int32)CapturedLength]; }
         }
     }
 }

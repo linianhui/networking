@@ -39,6 +39,11 @@ namespace Networking.Files.PcapNG
         InterfaceStatistics = 0x00000005,
 
         /// <summary>
+        /// Enhanced Packet Block
+        /// </summary>
+        EnhancedPacket = 0x00000006,
+
+        /// <summary>
         /// Section Header Block
         /// </summary>
         SectionHeader = 0x0A0D0D0A

@@ -61,6 +61,8 @@ namespace Networking.Files.PcapNG
                     return new InterfaceDescriptionBlock();
                 case BlockType.SimplePacket:
                     return new SimplePacketBlock();
+                case BlockType.EnhancedPacket:
+                    return new EnhancedPacketBlock();
                 default:
                     return new Block();
             }

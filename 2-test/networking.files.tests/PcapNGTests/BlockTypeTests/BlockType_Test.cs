@@ -16,6 +16,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTypeTests
             new Object[] {  BlockType.SimplePacket, 0x00000003},
             new Object[] {  BlockType.NameResolution, 0x00000004},
             new Object[] {  BlockType.InterfaceStatistics, 0x00000005},
+            new Object[] {  BlockType.EnhancedPacket, 0x00000006},
             new Object[] {  BlockType.SectionHeader, 0x0A0D0D0A},
         };
 

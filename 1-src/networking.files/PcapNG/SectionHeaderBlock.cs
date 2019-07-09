@@ -6,7 +6,7 @@ namespace Networking.Files.PcapNG
     /// Section Header Body
     /// <see href="https://pcapng.github.io/pcapng/#section_shb"/>
     /// </summary>
-    public partial class SectionHeaderBlock : BlockBody
+    public partial class SectionHeaderBlock : Block
     {
         /// <summary>
         /// Magic Number

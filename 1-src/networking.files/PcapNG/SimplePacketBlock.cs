@@ -6,7 +6,7 @@ namespace Networking.Files.PcapNG
     /// Simple Packet Body
     /// <see href="https://pcapng.github.io/pcapng/#section_spb"/>
     /// </summary>
-    public partial class SimplePacketBlock : BlockBody, IPacket
+    public partial class SimplePacketBlock : Block, IPacket
     {
         /// <summary>
         /// 构造函数
@@ -48,7 +48,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public Memory<Byte> Payload
         {
-            get { return GetBytes(Layout.HeaderLength); }
+            get { return base[Layout.HeaderLength, (Int32)TotalLength - Layout.HeaderTotalLength]; }
         }
     }
 }

@@ -9,13 +9,13 @@ namespace Networking.Files.Tests.PcapNGTests.InterfaceDescriptionBlockTests
         [Fact]
         public void Layout()
         {
-            InterfaceDescriptionBlock.Layout.DataLinkTypeBegin.Should().Be(0);
-            InterfaceDescriptionBlock.Layout.DataLinkTypeEnd.Should().Be(2);
+            InterfaceDescriptionBlock.Layout.DataLinkTypeBegin.Should().Be(8);
+            InterfaceDescriptionBlock.Layout.DataLinkTypeEnd.Should().Be(10);
 
-            InterfaceDescriptionBlock.Layout.MaxCapturedLengthBegin.Should().Be(4);
-            InterfaceDescriptionBlock.Layout.MaxCapturedLengthEnd.Should().Be(8);
+            InterfaceDescriptionBlock.Layout.MaxCapturedLengthBegin.Should().Be(12);
+            InterfaceDescriptionBlock.Layout.MaxCapturedLengthEnd.Should().Be(16);
 
-            InterfaceDescriptionBlock.Layout.HeaderLength.Should().Be(8);
+            InterfaceDescriptionBlock.Layout.HeaderLength.Should().Be(16);
         }
     }
 }

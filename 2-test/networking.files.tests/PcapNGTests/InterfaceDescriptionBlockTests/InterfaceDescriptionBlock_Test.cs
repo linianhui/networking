@@ -13,6 +13,8 @@ namespace Networking.Files.Tests.PcapNGTests.InterfaceDescriptionBlockTests
             var interfaceDescriptionBlock = new InterfaceDescriptionBlock
             {
                 Bytes = new Byte[] {
+                    0x00,0x00,0x00,0x01,
+                    0x00,0x00,0x00,0x14,
                     0x00,0x01,0x00,0x00,
                     0x12,0x34,0x56,0x78
                 }

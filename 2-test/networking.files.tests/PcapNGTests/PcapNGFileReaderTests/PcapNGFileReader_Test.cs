@@ -14,21 +14,20 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 
             var blocks = pcapNgFileReader.ReadBlocks().ToList();
             blocks.Count.Should().Be(6);
-            blocks[0].Header.Type.Should().Be(BlockType.SectionHeader);
-            blocks[0].Header.IsLittleEndian.Should().Be(true);
-            blocks[0].Header.TotalLength.Should().Be(28);
-            blocks[0].Header.BodyLength.Should().Be(16);
-            var sectionHeaderBlock = (SectionHeaderBlock)blocks[0].Body;
+
+            var sectionHeaderBlock = (SectionHeaderBlock)blocks[0];
+            sectionHeaderBlock.Type.Should().Be(BlockType.SectionHeader);
+            sectionHeaderBlock.IsLittleEndian.Should().Be(true);
+            sectionHeaderBlock.TotalLength.Should().Be(28);
             sectionHeaderBlock.MagicNumber.Should().Be(0x1A2B3C4DU);
             sectionHeaderBlock.MajorVersion.Should().Be(1);
             sectionHeaderBlock.MinorVersion.Should().Be(0);
             sectionHeaderBlock.SectionLength.Should().Be(4294967295u);
 
-            blocks[1].Header.IsLittleEndian.Should().Be(true);
-            blocks[1].Header.Type.Should().Be(BlockType.InterfaceDescription);
-            blocks[1].Header.TotalLength.Should().Be(32);
-            blocks[1].Header.BodyLength.Should().Be(20);
-            var interfaceDescriptionBlock = (InterfaceDescriptionBlock)blocks[1].Body;
+            var interfaceDescriptionBlock = (InterfaceDescriptionBlock)blocks[1];
+            interfaceDescriptionBlock.IsLittleEndian.Should().Be(true);
+            interfaceDescriptionBlock.Type.Should().Be(BlockType.InterfaceDescription);
+            interfaceDescriptionBlock.TotalLength.Should().Be(32);
             interfaceDescriptionBlock.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
             interfaceDescriptionBlock.MaxCapturedLength.Should().Be(0xFFFFu);
         }

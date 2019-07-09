@@ -26,23 +26,28 @@ namespace Networking.Files.PcapNG
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
         /// <para></para>
         /// </summary>
-        public class Layout
+        public new class Layout
         {
             /// <summary>
-            /// Original Length-起始位置=0
+            /// Original Length-起始位置=8
             /// </summary>
-            public const Int32 OriginalLengthBegin = 0;
+            public const Int32 OriginalLengthBegin = Block.Layout.HeaderLength;
 
             /// <summary>
-            /// Original Length-结束位置=4
+            /// Original Length-结束位置=12
             /// </summary>
             public const Int32 OriginalLengthEnd = OriginalLengthBegin + 4;
 
 
             /// <summary>
-            /// Header Length=4
+            /// Header Length=12
             /// </summary>
             public const Int32 HeaderLength = OriginalLengthEnd;
+
+            /// <summary>
+            /// Header Total Length=16
+            /// </summary>
+            public const Int32 HeaderTotalLength = HeaderLength + 4;
         }
     }
 }

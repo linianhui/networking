@@ -13,8 +13,11 @@ namespace Networking.Files.Tests.PcapNGTests.SimplePacketBlockTests
             var simplePacketBlock = new SimplePacketBlock
             {
                 Bytes = new Byte[] {
+                    0x00,0x00,0x00,0x03,
+                    0x00,0x00,0x00,0x14,
                     0x00,0x00,0x00,0x80,
-                    0x12,0x34,0x56,0x78
+                    0x12,0x34,0x56,0x78,
+                    0x00,0x00,0x00,0x14
                 }
             };
 

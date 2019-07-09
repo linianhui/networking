@@ -9,7 +9,7 @@ namespace Networking.Files.PcapNG
     /// <see href="https://pcapng.github.io/pcapng"/>
     /// <see href="https://wiki.wireshark.org/Development/PcapNg"/>
     /// </summary>
-    public class PcapNGFileReader : PacketReader
+    public partial class PcapNGFileReader : PacketReader
     {
         /// <summary>
         /// 构造函数
@@ -38,16 +38,16 @@ namespace Networking.Files.PcapNG
         /// <returns></returns>
         public IEnumerable<Block> ReadBlocks()
         {
-            Block sectionBlock = null;
+            Block sectionHeaderBlock = null;
             var block = ReadBlock(null);
             while (block != null)
             {
-                if (block.Header.Type == BlockType.SectionHeader)
+                if (block.Type == BlockType.SectionHeader)
                 {
-                    sectionBlock = block;
+                    sectionHeaderBlock = block;
                 }
                 yield return block;
-                block = ReadBlock(sectionBlock);
+                block = ReadBlock(sectionHeaderBlock);
             }
         }
 
@@ -59,10 +59,9 @@ namespace Networking.Files.PcapNG
         {
             foreach (var block in ReadBlocks())
             {
-                var blockBody = block.Body;
-                if (blockBody.IsPacket)
+                if (block.IsPacket)
                 {
-                    yield return blockBody as IPacket;
+                    yield return block as IPacket;
                 }
             }
         }
@@ -75,41 +74,36 @@ namespace Networking.Files.PcapNG
                 return null;
             }
 
-            var blockBodyBytes = ReadBlockBodyBytes(blockHeader);
-            if (blockBodyBytes.Length == 0)
+            var blockBytes = ReadBlockBytes(blockHeader.TotalLength);
+            if (blockBytes.Length == 0)
             {
                 return null;
             }
 
-            return new Block(blockHeader, blockBodyBytes);
+            return Block.From(blockHeader.Type, blockHeader.IsLittleEndian, blockBytes);
         }
 
-        private BlockHeader ReadBlockHeader(Block sectionBlock)
+        private BlockHeader ReadBlockHeader(Block sectionHeaderBlock)
         {
-            var headerLength = BlockHeader.Layout.HeaderLength
-                               + SectionHeaderBlock.Layout.MagicNumberLength;
-            var headerBytes = base.ReadBytes(headerLength);
+            var headerBytes = base.ReadBytes(12);
             if (headerBytes.Length == 0)
             {
                 return null;
             }
 
-            base.Offset = base.Offset - SectionHeaderBlock.Layout.MagicNumberLength;
+            base.Offset = base.Offset - 12;
 
             var blockHeader = BlockHeader.From(headerBytes);
-            if (blockHeader.Type != BlockType.SectionHeader && sectionBlock != null)
+            if (blockHeader.Type != BlockType.SectionHeader && sectionHeaderBlock != null)
             {
-                blockHeader.IsLittleEndian = sectionBlock.Header.IsLittleEndian;
+                blockHeader.IsLittleEndian = sectionHeaderBlock.IsLittleEndian;
             }
             return blockHeader;
         }
 
-        private Byte[] ReadBlockBodyBytes(BlockHeader blockHeader)
+        private Byte[] ReadBlockBytes(UInt32 blockLength)
         {
-            var bodyLength = (Int32)blockHeader.BodyLength;
-            var bodyBytes = base.ReadBytes(bodyLength);
-            base.Offset = base.Offset + BlockHeader.Layout.TotalLengthLength;
-            return bodyBytes;
+            return base.ReadBytes((Int32)blockLength);
         }
     }
 }

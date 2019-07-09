@@ -26,12 +26,12 @@ namespace Networking.Files.PcapNG
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
         /// <para></para>
         /// </summary>
-        public class Layout
+        public new class Layout
         {
             /// <summary>
             /// LinkType-起始位置=0
             /// </summary>
-            public const Int32 DataLinkTypeBegin = 0;
+            public const Int32 DataLinkTypeBegin = Block.Layout.HeaderLength;
 
             /// <summary>
             /// LinkType-结束位置=2
@@ -42,7 +42,7 @@ namespace Networking.Files.PcapNG
             /// <summary>
             /// Captured Length-起始位置=4
             /// </summary>
-            public const Int32 MaxCapturedLengthBegin = 4;
+            public const Int32 MaxCapturedLengthBegin = DataLinkTypeEnd + 2;
 
             /// <summary>
             /// Captured Length-结束位置=8

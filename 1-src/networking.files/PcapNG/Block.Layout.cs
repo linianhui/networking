@@ -2,7 +2,7 @@ using System;
 
 namespace Networking.Files.PcapNG
 {
-    public partial class BlockHeader
+    public partial class Block
     {
         /// <summary>
         /// 首部-布局信息

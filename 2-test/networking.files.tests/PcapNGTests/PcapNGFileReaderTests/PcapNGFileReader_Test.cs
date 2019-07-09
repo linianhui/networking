@@ -1,12 +1,24 @@
 using System.Linq;
 using FluentAssertions;
 using Networking.Files.PcapNG;
+using Networking.Model.Application;
+using Networking.Model.DataLink;
+using Networking.Model.Internet;
+using Networking.Model.Transport;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 {
     public class PcapNGFileReader_Test
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public PcapNGFileReader_Test(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void ReadBlocks()
         {
@@ -30,6 +42,38 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             interfaceDescriptionBlock.TotalLength.Should().Be(32);
             interfaceDescriptionBlock.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
             interfaceDescriptionBlock.MaxCapturedLength.Should().Be(0xFFFFu);
+
+            var enhancedPacketBlock = (EnhancedPacketBlock)blocks[2];
+            enhancedPacketBlock.IsLittleEndian.Should().Be(true);
+            enhancedPacketBlock.Type.Should().Be(BlockType.EnhancedPacket);
+            enhancedPacketBlock.TotalLength.Should().Be(348);
+            enhancedPacketBlock.InterfaceId.Should().Be(0);
+            enhancedPacketBlock.CapturedLength.Should().Be(314);
+            enhancedPacketBlock.OriginalLength.Should().Be(314);
+
+
+            foreach (var block in blocks)
+            {
+                if (block.IsPacket == false)
+                {
+                    continue;
+                }
+
+                var packet = block as IPacket;
+                var ethernetFrame = new EthernetFrame { Bytes = packet.Payload };
+
+                var ipv4 = (IPv4Packet)ethernetFrame.Payload;
+                var udp = (UDPDatagram)ipv4.Payload;
+                var udpPayload = udp.Payload;
+
+                _testOutputHelper.WriteLine(
+                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
+                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
+                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
+                );
+
+                udpPayload.GetType().Should().Be(typeof(DHCP));
+            }
         }
     }
 }

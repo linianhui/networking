@@ -2,7 +2,7 @@ using System;
 
 namespace Networking.Files.PcapNG
 {
-    public partial class SectionHeaderBody
+    public partial class SectionHeaderBlock
     {
         /// <summary>
         /// 首部-布局信息
@@ -11,7 +11,11 @@ namespace Networking.Files.PcapNG
         /// <para>|                  Section Header Block (SHB)                   |</para>
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
-        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Block Type (4 octets = 32 bits)                     |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Block Total Length (4 octets = 32 bits)             |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Byte-Order Magic (4 octets = 32 bits)               |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Major Version       |         Minor Version         |</para>
@@ -19,6 +23,8 @@ namespace Networking.Files.PcapNG
         /// <para>|           Section Length (4 octets = 32 bits)                 |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Options (variable)                                  |</para>
+        /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
+        /// <para>|           Block Total Length (4 octets = 32 bits) Copy        |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para> 
         /// <para></para>
         /// </summary>

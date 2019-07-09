@@ -6,12 +6,12 @@ namespace Networking.Files.PcapNG
     /// Simple Packet Body
     /// <see href="https://pcapng.github.io/pcapng/#section_spb"/>
     /// </summary>
-    public partial class SimplePacketBody : BlockBody, IPacket
+    public partial class SimplePacketBlock : BlockBody, IPacket
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SimplePacketBody() : base(isPacket: true)
+        public SimplePacketBlock() : base(isPacket: true)
         {
 
         }

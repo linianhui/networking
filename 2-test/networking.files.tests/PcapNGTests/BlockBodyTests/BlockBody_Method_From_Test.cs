@@ -11,8 +11,8 @@ namespace Networking.Files.Tests.PcapNGTests.BlockBodyTests
 
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] { new Byte[] { 0x0A, 0x0D, 0x0D, 0x0A } , typeof(SectionHeaderBody) },
-            new Object[] { new Byte[] { 0x01, 0x00, 0x00, 0x00 } , typeof(InterfaceDescriptionBody) },
+            new Object[] { new Byte[] { 0x0A, 0x0D, 0x0D, 0x0A } , typeof(SectionHeaderBlock) },
+            new Object[] { new Byte[] { 0x01, 0x00, 0x00, 0x00 } , typeof(InterfaceDescriptionBlock) },
         };
 
         [Theory]

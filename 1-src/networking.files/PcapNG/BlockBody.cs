@@ -31,13 +31,13 @@ namespace Networking.Files.PcapNG
             switch (blockHeader.Type)
             {
                 case BlockType.SectionHeader:
-                    return new SectionHeaderBody
+                    return new SectionHeaderBlock
                     {
                         IsLittleEndian = blockHeader.IsLittleEndian,
                         Bytes = bodyBytes
                     };
                 case BlockType.InterfaceDescription:
-                    return new InterfaceDescriptionBody
+                    return new InterfaceDescriptionBlock
                     {
                         IsLittleEndian = blockHeader.IsLittleEndian,
                         Bytes = bodyBytes

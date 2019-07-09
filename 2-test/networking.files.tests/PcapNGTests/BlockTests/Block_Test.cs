@@ -23,7 +23,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
             block.Header.Type.Should().Be(BlockType.InterfaceDescription);
             block.Header.TotalLength.Should().Be(16);
             block.Header.BodyLength.Should().Be(4);
-            block.Body.GetType().Should().Be(typeof(InterfaceDescriptionBody));
+            block.Body.GetType().Should().Be(typeof(InterfaceDescriptionBlock));
         }
     }
 }

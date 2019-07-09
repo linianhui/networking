@@ -6,7 +6,7 @@ namespace Networking.Files.PcapNG
     /// Interface Description Body
     /// <see href="https://pcapng.github.io/pcapng/#section_idb"/>
     /// </summary>
-    public partial class InterfaceDescriptionBody : BlockBody
+    public partial class InterfaceDescriptionBlock : BlockBody
     {
         /// <summary>
         /// 数据链路类型

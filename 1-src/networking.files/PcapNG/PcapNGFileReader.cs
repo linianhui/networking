@@ -87,14 +87,14 @@ namespace Networking.Files.PcapNG
         private BlockHeader ReadBlockHeader(Block sectionBlock)
         {
             var headerLength = BlockHeader.Layout.HeaderLength
-                               + SectionHeaderBody.Layout.MagicNumberLength;
+                               + SectionHeaderBlock.Layout.MagicNumberLength;
             var headerBytes = base.ReadBytes(headerLength);
             if (headerBytes.Length == 0)
             {
                 return null;
             }
 
-            base.Offset = base.Offset - SectionHeaderBody.Layout.MagicNumberLength;
+            base.Offset = base.Offset - SectionHeaderBlock.Layout.MagicNumberLength;
 
             var blockHeader = BlockHeader.From(headerBytes);
             if (blockHeader.Type != BlockType.SectionHeader && sectionBlock != null)

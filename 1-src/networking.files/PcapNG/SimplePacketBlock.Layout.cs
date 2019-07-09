@@ -12,7 +12,7 @@ namespace Networking.Files.PcapNG
         /// <para>|- - - - - - - -+- - - 32 bits(4 octets) - - - -+- - - - - - - -|</para>
         /// <para>|0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7+0 1 2 3 4 5 6 7|</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
-        /// <para>|           Block Type (4 octets = 32 bits)                     |</para>
+        /// <para>|           Block Type = 0x00000006                             |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>
         /// <para>|           Block Total Length (4 octets = 32 bits)             |</para>
         /// <para>|- - - - - - - -+- - - - - - - -+- - - - - - - -+- - - - - - - -|</para>

@@ -12,9 +12,9 @@ namespace Networking.Files
         private readonly Stream _stream;
 
         /// <summary>
-        /// Offset
+        /// Position
         /// </summary>
-        public Int32 Offset { get; protected set; }
+        public Int32 Position { get; protected set; }
 
         /// <summary>
         /// 构造函数
@@ -53,20 +53,20 @@ namespace Networking.Files
         /// <returns></returns>
         protected Byte[] ReadBytes(Int32 length)
         {
-            return ReadBytes(Offset, length);
+            return ReadBytes(Position, length);
         }
 
-        private Byte[] ReadBytes(Int32 offset, Int32 length)
+        private Byte[] ReadBytes(Int32 position, Int32 length)
         {
-            if (offset + length > _stream.Length)
+            if (position + length > _stream.Length)
             {
                 return new Byte[0];
             }
-            _stream.Seek(offset, SeekOrigin.Begin);
-            var buffer = new Byte[length];
-            _stream.Read(buffer, 0, length);
-            Offset += length;
-            return buffer;
+            var bytes = new Byte[length];
+            _stream.Seek(position, SeekOrigin.Begin);
+            _stream.Read(bytes, 0, length);
+            Position += length;
+            return bytes;
         }
     }
 }

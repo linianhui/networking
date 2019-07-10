@@ -47,7 +47,7 @@ namespace Networking.Files.PcapNG
                     sectionHeaderBlock = block;
                 }
                 yield return block;
-                block = ReadBlock(sectionHeaderBlock);
+                block = ReadBlock(sectionHeaderBlock?.IsLittleEndian);
             }
         }
 
@@ -66,9 +66,9 @@ namespace Networking.Files.PcapNG
             }
         }
 
-        private Block ReadBlock(Block sectionBlock)
+        private Block ReadBlock(Boolean? isLittleEndian)
         {
-            var blockHeader = ReadBlockHeader(sectionBlock);
+            var blockHeader = ReadBlockHeader(isLittleEndian);
             if (blockHeader == null)
             {
                 return null;
@@ -83,22 +83,17 @@ namespace Networking.Files.PcapNG
             return Block.From(blockHeader.Type, blockHeader.IsLittleEndian, blockBytes);
         }
 
-        private BlockHeader ReadBlockHeader(Block sectionHeaderBlock)
+        private BlockHeader ReadBlockHeader(Boolean? isLittleEndian)
         {
-            var headerBytes = base.ReadBytes(12);
+            var headerBytes = base.ReadBytes(SectionHeaderBlock.Layout.MagicNumberEnd);
             if (headerBytes.Length == 0)
             {
                 return null;
             }
 
-            base.Offset = base.Offset - 12;
+            base.Position = base.Position - SectionHeaderBlock.Layout.MagicNumberEnd;
 
-            var blockHeader = BlockHeader.From(headerBytes);
-            if (blockHeader.Type != BlockType.SectionHeader && sectionHeaderBlock != null)
-            {
-                blockHeader.IsLittleEndian = sectionHeaderBlock.IsLittleEndian;
-            }
-            return blockHeader;
+            return BlockHeader.From(headerBytes, isLittleEndian);
         }
 
         private Byte[] ReadBlockBytes(UInt32 blockLength)

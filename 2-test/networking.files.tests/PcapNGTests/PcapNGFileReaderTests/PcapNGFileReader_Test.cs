@@ -22,15 +22,15 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
         [Fact]
         public void ReadBlocks()
         {
-            var pcapNgFileReader = this.GetPcapNGFileReader("pcapng.pcapng");
+            var pcapNgFileReader = this.GetPcapNGFileReader("1-shb.11-idb.64-epb.1-nrb.11-isb.pcapng");
 
             var blocks = pcapNgFileReader.ReadBlocks().ToList();
-            blocks.Count.Should().Be(6);
+            blocks.Count.Should().Be(88);
 
             var sectionHeaderBlock = (SectionHeaderBlock)blocks[0];
             sectionHeaderBlock.Type.Should().Be(BlockType.SectionHeader);
             sectionHeaderBlock.IsLittleEndian.Should().Be(true);
-            sectionHeaderBlock.TotalLength.Should().Be(28);
+            sectionHeaderBlock.TotalLength.Should().Be(140);
             sectionHeaderBlock.MagicNumber.Should().Be(0x1A2B3C4DU);
             sectionHeaderBlock.MajorVersion.Should().Be(1);
             sectionHeaderBlock.MinorVersion.Should().Be(0);
@@ -39,18 +39,29 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             var interfaceDescriptionBlock = (InterfaceDescriptionBlock)blocks[1];
             interfaceDescriptionBlock.IsLittleEndian.Should().Be(true);
             interfaceDescriptionBlock.Type.Should().Be(BlockType.InterfaceDescription);
-            interfaceDescriptionBlock.TotalLength.Should().Be(32);
+            interfaceDescriptionBlock.TotalLength.Should().Be(116);
             interfaceDescriptionBlock.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
-            interfaceDescriptionBlock.MaxCapturedLength.Should().Be(0xFFFFu);
+            interfaceDescriptionBlock.MaxCapturedLength.Should().Be(262144u);
 
-            var enhancedPacketBlock = (EnhancedPacketBlock)blocks[2];
+            var enhancedPacketBlock = (EnhancedPacketBlock)blocks[12];
             enhancedPacketBlock.IsLittleEndian.Should().Be(true);
             enhancedPacketBlock.Type.Should().Be(BlockType.EnhancedPacket);
-            enhancedPacketBlock.TotalLength.Should().Be(348);
+            enhancedPacketBlock.TotalLength.Should().Be(212);
             enhancedPacketBlock.InterfaceId.Should().Be(0);
-            enhancedPacketBlock.CapturedLength.Should().Be(314);
-            enhancedPacketBlock.OriginalLength.Should().Be(314);
+            enhancedPacketBlock.CapturedLength.Should().Be(178);
+            enhancedPacketBlock.OriginalLength.Should().Be(178);
 
+            var nameResolutionBlock = (NameResolutionBlock)blocks[76];
+            nameResolutionBlock.Type.Should().Be(BlockType.NameResolution);
+            nameResolutionBlock.IsLittleEndian.Should().Be(true);
+            nameResolutionBlock.TotalLength.Should().Be(216);
+            var nameResolutionBlockRecords = nameResolutionBlock.GetRecords().ToList();
+            nameResolutionBlockRecords.Count.Should().Be(7);
+            var nameResolutionBlockRecord = nameResolutionBlockRecords[0];
+            nameResolutionBlockRecord.Type.Should().Be(NameResolutionBlock.RecordType.IPv4);
+            nameResolutionBlockRecord.ValueLength.Should().Be(25);
+            nameResolutionBlockRecord.IP.ToString().Should().Be("74.125.228.227");
+            nameResolutionBlockRecord.Host.Should().Be("clients.l.google.com");
 
             foreach (var block in blocks)
             {
@@ -60,19 +71,38 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                 }
 
                 var packet = block as IPacket;
-                var ethernetFrame = new EthernetFrame { Bytes = packet.Payload };
-
-                var ipv4 = (IPv4Packet)ethernetFrame.Payload;
-                var udp = (UDPDatagram)ipv4.Payload;
-                var udpPayload = udp.Payload;
+                var ethernetFrame = new EthernetFrame
+                {
+                    Bytes = packet.Payload
+                };
 
                 _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
+                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}"
                 );
 
-                udpPayload.GetType().Should().Be(typeof(DHCP));
+                if (ethernetFrame.Type == EthernetFrameType.IPv4)
+                {
+                    var ipv4 = (IPv4Packet)ethernetFrame.Payload;
+                    if (ipv4.Type == IPPacketType.UDP)
+                    {
+                        var udp = (UDPDatagram)ipv4.Payload;
+                        _testOutputHelper.WriteLine(
+                            $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
+                            $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
+                            $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
+                        );
+                    }
+
+                    if (ipv4.Type == IPPacketType.TCP)
+                    {
+                        var tcp = (TCPSegment)ipv4.Payload;
+                        _testOutputHelper.WriteLine(
+                            $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
+                            $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
+                            $"\r\n{tcp.SourcePort} > {tcp.DestinationPort}"
+                        );
+                    }
+                }
             }
         }
     }

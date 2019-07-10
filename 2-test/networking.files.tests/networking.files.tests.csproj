@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="PcapTests\PcapFileReaderTests\pcap.pcap" />
-    <EmbeddedResource Include="PcapNGTests\PcapNGFileReaderTests\pcapng.pcapng" />
+    <EmbeddedResource Include="PcapNGTests\PcapNGFileReaderTests\1-shb.11-idb.64-epb.1-nrb.11-isb.pcapng" />
   </ItemGroup>
 
   <ItemGroup>

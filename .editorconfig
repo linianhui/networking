@@ -111,13 +111,13 @@ dotnet_naming_style.async_method_style.required_suffix                    = Asyn
 [*.cs]
 # this.限定符
 ## IDE0003
-dotnet_style_qualification_for_field                       = false : error
+dotnet_style_qualification_for_field                       = false : silent
 ## IDE0003
-dotnet_style_qualification_for_property                    = false : error
+dotnet_style_qualification_for_property                    = false : silent
 ## IDE0003
-dotnet_style_qualification_for_method                      = false : error
+dotnet_style_qualification_for_method                      = false : silent
 ## IDE0003
-dotnet_style_qualification_for_event                       = false : error
+dotnet_style_qualification_for_event                       = false : silent
 
 # 基元类型
 ## IDE0012

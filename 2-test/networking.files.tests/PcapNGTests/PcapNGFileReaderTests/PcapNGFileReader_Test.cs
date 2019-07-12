@@ -63,6 +63,12 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             nameResolutionBlockRecord.IP.ToString().Should().Be("74.125.228.227");
             nameResolutionBlockRecord.Host.Should().Be("clients.l.google.com");
 
+            var interfaceStatisticsBlock = (InterfaceStatisticsBlock)blocks[77];
+            interfaceStatisticsBlock.Should().NotBeAssignableTo<IPacket>();
+            interfaceStatisticsBlock.IsPacket.Should().Be(false);
+            interfaceStatisticsBlock.TotalLength.Should().Be(0x6c);
+            interfaceStatisticsBlock.InterfaceId.Should().Be(0);
+
             foreach (var block in blocks)
             {
                 if (block.IsPacket == false)

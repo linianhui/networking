@@ -1,7 +1,6 @@
 using System.Linq;
 using FluentAssertions;
 using Networking.Files.PcapNG;
-using Networking.Model.Application;
 using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Networking.Model.Transport;

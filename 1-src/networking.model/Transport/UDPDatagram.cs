@@ -1,5 +1,4 @@
 using System;
-using Networking.Model.Application;
 
 namespace Networking.Model.Transport
 {

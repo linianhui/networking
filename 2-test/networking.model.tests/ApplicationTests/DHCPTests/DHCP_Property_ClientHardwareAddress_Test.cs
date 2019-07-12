@@ -1,7 +1,6 @@
 using System;
 using FluentAssertions;
 using Networking.Model.Application;
-using Networking.Model.DataLink;
 using Xunit;
 
 namespace Networking.Model.Tests.ApplicationTests.DHCPTests

@@ -1,6 +1,4 @@
 using System;
-using Networking.Model.DataLink;
-using Networking.Model.Internet;
 
 namespace Networking.Model.Application
 {

@@ -51,7 +51,10 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Octets Payload
         {
-            get { return EthernetFrame.BuildPayload(Type, GetBytes(Layout.HeaderLength)); }
+            get
+            {
+                return PDUCreator.Create(Type, GetBytes(Layout.HeaderLength));
+            }
         }
     }
 }

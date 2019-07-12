@@ -51,6 +51,18 @@ namespace Networking.Model
             [PPPFrameType.IPv6] = bytes => new IPv6Packet { Bytes = bytes }
         };
 
+        /// <summary>
+        /// EthernetFrameType
+        /// </summary>
+        public static readonly IDictionary<EthernetFrameType, Func<Memory<Byte>, Octets>> EthernetFrameTypeMap = new Dictionary<EthernetFrameType, Func<Memory<Byte>, Octets>>
+        {
+            [EthernetFrameType.IPv4] = bytes => new IPv4Packet { Bytes = bytes },
+            [EthernetFrameType.IPv6] = bytes => new IPv6Packet { Bytes = bytes },
+            [EthernetFrameType.ARP] = bytes => new ARPFrame { Bytes = bytes },
+            [EthernetFrameType.VLAN] = bytes => new VLANFrame { Bytes = bytes },
+            [EthernetFrameType.PPPoEDiscoveryStage] = bytes => new PPPoEFrame { Bytes = bytes },
+            [EthernetFrameType.PPPoESessionStage] = bytes => new PPPoEFrame { Bytes = bytes },
+        };
 
 
         /// <summary>
@@ -102,6 +114,22 @@ namespace Networking.Model
             if (PPPFrameTypeMap.ContainsKey(pppFrameType))
             {
                 return PPPFrameTypeMap[pppFrameType](bytes);
+            }
+
+            return Default(bytes);
+        }
+
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="ethernetFrameType">ethernetFrameType</param>
+        /// <param name="bytes">数据</param>
+        /// <returns></returns>
+        public static Octets Create(EthernetFrameType ethernetFrameType, Memory<Byte> bytes)
+        {
+            if (EthernetFrameTypeMap.ContainsKey(ethernetFrameType))
+            {
+                return EthernetFrameTypeMap[ethernetFrameType](bytes);
             }
 
             return Default(bytes);

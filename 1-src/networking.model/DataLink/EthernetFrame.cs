@@ -41,50 +41,9 @@ namespace Networking.Model.DataLink
         /// </summary>
         public Octets Payload
         {
-            get { return BuildPayload(Type, GetBytes(Layout.HeaderLength)); }
-        }
-
-        /// <summary>
-        /// 构建负载部分
-        /// </summary>
-        /// <param name="ethernetFrameType"></param>
-        /// <param name="payloadBytes"></param>
-        /// <returns></returns>
-        public static Octets BuildPayload(EthernetFrameType ethernetFrameType, Memory<Byte> payloadBytes)
-        {
-            switch (ethernetFrameType)
+            get
             {
-                case EthernetFrameType.IPv4:
-                    return new IPv4Packet
-                    {
-                        Bytes = payloadBytes
-                    };
-                case EthernetFrameType.IPv6:
-                    return new IPv6Packet
-                    {
-                        Bytes = payloadBytes
-                    };
-                case EthernetFrameType.ARP:
-                    return new ARPFrame
-                    {
-                        Bytes = payloadBytes
-                    };
-                case EthernetFrameType.VLAN:
-                    return new VLANFrame
-                    {
-                        Bytes = payloadBytes
-                    };
-                case EthernetFrameType.PPPoEDiscoveryStage:
-                case EthernetFrameType.PPPoESessionStage:
-                    return new PPPoEFrame
-                    {
-                        Bytes = payloadBytes
-                    };
-                default:
-                    return new Octets
-                    {
-                        Bytes = payloadBytes
-                    };
+                return PDUCreator.Create(Type, GetBytes(Layout.HeaderLength));
             }
         }
     }

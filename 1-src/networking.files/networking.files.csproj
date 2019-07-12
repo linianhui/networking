@@ -11,7 +11,7 @@
     <Version>$(Networking_Files_Version)</Version>
     <PackageVersion>$(Networking_Files_Version)</PackageVersion>
     <InformationalVersion>$(Networking_Files_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
-    <PackageDescription>parse *.pcap file.</PackageDescription>
+    <PackageDescription>parse *.pcap *.pcapng file.</PackageDescription>
   </PropertyGroup>
 
   <ItemGroup>

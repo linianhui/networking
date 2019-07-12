@@ -36,40 +36,5 @@ namespace Networking.Files.PcapNG
         {
             get { return base.GetUInt32(Layout.TotalLengthBegin); }
         }
-
-        /// <summary>
-        /// 创建 <see cref="Block"/> 
-        /// </summary>
-        public static Block From(
-            BlockType blockType,
-            Boolean isLittleEndian,
-            Memory<Byte> blockBytes)
-        {
-            var block = BuildBlock(blockType);
-            block.IsLittleEndian = isLittleEndian;
-            block.Bytes = blockBytes;
-            return block;
-        }
-
-        private static Block BuildBlock(BlockType blockType)
-        {
-            switch (blockType)
-            {
-                case BlockType.SectionHeader:
-                    return new SectionHeaderBlock();
-                case BlockType.InterfaceDescription:
-                    return new InterfaceDescriptionBlock();
-                case BlockType.SimplePacket:
-                    return new SimplePacketBlock();
-                case BlockType.EnhancedPacket:
-                    return new EnhancedPacketBlock();
-                case BlockType.InterfaceStatistics:
-                    return new InterfaceStatisticsBlock();
-                case BlockType.NameResolution:
-                    return new NameResolutionBlock();
-                default:
-                    return new Block();
-            }
-        }
     }
 }

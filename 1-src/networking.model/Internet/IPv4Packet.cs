@@ -142,30 +142,7 @@ namespace Networking.Model.Internet
         {
             get
             {
-                var payloadBytes = GetBytes(HeaderLength * 4);
-                switch (Type)
-                {
-                    case IPPacketType.ICMPv4:
-                        return new ICMPv4Packet
-                        {
-                            Bytes = payloadBytes
-                        };
-                    case IPPacketType.TCP:
-                        return new TCPSegment
-                        {
-                            Bytes = payloadBytes
-                        };
-                    case IPPacketType.UDP:
-                        return new UDPDatagram
-                        {
-                            Bytes = payloadBytes
-                        };
-                    default:
-                        return new Octets
-                        {
-                            Bytes = payloadBytes
-                        };
-                }
+                return PDUCreator.Create(Type, GetBytes(HeaderLength * 4));
             }
         }
     }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Networking.Model.Application;
+using Networking.Model.Internet;
+using Networking.Model.Transport;
 
 namespace Networking.Model
 {
@@ -28,6 +30,16 @@ namespace Networking.Model
             [VXLAN.ServerPort] = bytes => new VXLAN { Bytes = bytes }
         };
 
+        /// <summary>
+        /// IPPacketType
+        /// </summary>
+        public static readonly IDictionary<IPPacketType, Func<Memory<Byte>, Octets>> IPPacketTypeMap = new Dictionary<IPPacketType, Func<Memory<Byte>, Octets>>
+        {
+            [IPPacketType.ICMPv4] = bytes => new ICMPv4Packet { Bytes = bytes },
+            [IPPacketType.TCP] = bytes => new TCPSegment { Bytes = bytes },
+            [IPPacketType.UDP] = bytes => new UDPDatagram { Bytes = bytes }
+        };
+
 
 
         /// <summary>
@@ -47,6 +59,22 @@ namespace Networking.Model
             if (PortMap.ContainsKey(destinationPort))
             {
                 return PortMap[destinationPort](bytes);
+            }
+
+            return Default(bytes);
+        }
+
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="ipPacketType">ipPacketType</param>
+        /// <param name="bytes">数据</param>
+        /// <returns></returns>
+        public static Octets Create(IPPacketType ipPacketType, Memory<Byte> bytes)
+        {
+            if (IPPacketTypeMap.ContainsKey(ipPacketType))
+            {
+                return IPPacketTypeMap[ipPacketType](bytes);
             }
 
             return Default(bytes);

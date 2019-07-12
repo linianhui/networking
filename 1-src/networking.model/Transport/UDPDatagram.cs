@@ -52,52 +52,7 @@ namespace Networking.Model.Transport
         {
             get
             {
-                var sourcePort = SourcePort;
-                var destinationPort = DestinationPort;
-                var payloadBytes = GetBytes(Layout.HeaderLength);
-                if (DNS.ServerPort == sourcePort
-                    || DNS.ServerPort == destinationPort)
-                {
-                    return new DNS
-                    {
-                        Bytes = payloadBytes
-                    };
-                }
-
-                if (DHCP.ServerPort == sourcePort
-                    || DHCP.ServerPort == destinationPort
-                    || DHCP.ClientPort == sourcePort
-                    || DHCP.ClientPort == destinationPort)
-                {
-                    return new DHCP
-                    {
-                        Bytes = payloadBytes
-                    };
-                }
-
-                if (VXLAN.ServerPort == sourcePort
-                    || VXLAN.ServerPort == destinationPort)
-                {
-                    return new VXLAN
-                    {
-                        Bytes = payloadBytes
-                    };
-                }
-
-                if (CoAP.ServerPort == sourcePort
-                    || CoAP.ServerPort == destinationPort)
-                {
-                    return new CoAP
-                    {
-                        Bytes = payloadBytes
-                    };
-                }
-
-
-                return new Octets
-                {
-                    Bytes = payloadBytes
-                };
+                return PDUCreator.Create(SourcePort, DestinationPort, GetBytes(Layout.HeaderLength));
             }
         }
     }

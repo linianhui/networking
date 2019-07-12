@@ -26,26 +26,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                var payloadBytes = GetBytes(Layout.HeaderLength);
-                switch (Type)
-                {
-
-                    case PPPFrameType.IPv4:
-                        return new IPv4Packet
-                        {
-                            Bytes = payloadBytes
-                        };
-                    case PPPFrameType.IPv6:
-                        return new IPv6Packet
-                        {
-                            Bytes = payloadBytes
-                        };
-                    default:
-                        return new Octets
-                        {
-                            Bytes = payloadBytes
-                        };
-                }
+                return PDUCreator.Create(Type, GetBytes(Layout.HeaderLength));
             }
         }
     }

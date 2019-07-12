@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Networking.Model.Application;
+using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Networking.Model.Transport;
 
@@ -41,6 +42,16 @@ namespace Networking.Model
         };
 
 
+        /// <summary>
+        /// PPPFrameType
+        /// </summary>
+        public static readonly IDictionary<PPPFrameType, Func<Memory<Byte>, Octets>> PPPFrameTypeMap = new Dictionary<PPPFrameType, Func<Memory<Byte>, Octets>>
+        {
+            [PPPFrameType.IPv4] = bytes => new IPv4Packet { Bytes = bytes },
+            [PPPFrameType.IPv6] = bytes => new IPv6Packet { Bytes = bytes }
+        };
+
+
 
         /// <summary>
         /// 创建
@@ -75,6 +86,22 @@ namespace Networking.Model
             if (IPPacketTypeMap.ContainsKey(ipPacketType))
             {
                 return IPPacketTypeMap[ipPacketType](bytes);
+            }
+
+            return Default(bytes);
+        }
+
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="pppFrameType">ipPacketType</param>
+        /// <param name="bytes">数据</param>
+        /// <returns></returns>
+        public static Octets Create(PPPFrameType pppFrameType, Memory<Byte> bytes)
+        {
+            if (PPPFrameTypeMap.ContainsKey(pppFrameType))
+            {
+                return PPPFrameTypeMap[pppFrameType](bytes);
             }
 
             return Default(bytes);

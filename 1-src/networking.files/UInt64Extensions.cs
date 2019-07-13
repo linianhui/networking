@@ -26,7 +26,7 @@ namespace Networking.Files
         /// <returns></returns>
         public static String ToDateTimeOffsetString(this UInt64 @this)
         {
-            return @this.ToDateTimeOffset().ToString("yyyy-MM-dd HH:mm:ss fffffff");
+            return @this.ToDateTimeOffset().ToString("yyyy-MM-dd HH:mm:ss.fffffff");
         }
     }
 }

@@ -15,5 +15,17 @@ namespace Networking.Files.PcapNG
         {
             get { return GetUInt32(Layout.InterfaceIdBegin); }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UInt64 TimestampNanosecond
+        {
+            get
+            {
+                var bytes = base[Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin];
+                return Timestamp.ToTimestampNanosecond(IsLittleEndian, false, bytes.Span);
+            }
+        }
     }
 }

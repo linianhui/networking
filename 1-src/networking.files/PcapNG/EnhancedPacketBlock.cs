@@ -54,7 +54,11 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public UInt64 TimestampNanosecond
         {
-            get { return 0; }
+            get
+            {
+                var bytes = base[Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin];
+                return Timestamp.ToTimestampNanosecond(IsLittleEndian, false, bytes.Span);
+            }
         }
 
         /// <summary>

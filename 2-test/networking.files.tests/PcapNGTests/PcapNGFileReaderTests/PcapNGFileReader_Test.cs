@@ -73,6 +73,13 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             foreach (var block in blocks)
             {
                 block.SectionHeader.Should().BeSameAs(sectionHeaderBlock);
+                if (block.Type == BlockType.InterfaceStatistics)
+                {
+                    var interfaceStatistics = (InterfaceStatisticsBlock)block;
+                    _testOutputHelper.WriteLine(
+                        $"\r\n{interfaceStatistics.InterfaceId} {interfaceStatistics.TimestampNanosecond.ToDateTimeOffsetString()}"
+                    );
+                }
                 if (block.IsPacket == false)
                 {
                     continue;

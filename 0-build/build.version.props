@@ -1,8 +1,8 @@
 <Project>
   <!--Nuget Pack的版本信息-->
   <PropertyGroup>
-    <Networking_Core_Version>1.3.0.0</Networking_Core_Version>
-    <Networking_Model_Version>1.3.0.0</Networking_Model_Version>
-    <Networking_Files_Version>1.3.0.0</Networking_Files_Version>
+    <Networking_Core_Version>1.3.1.0</Networking_Core_Version>
+    <Networking_Model_Version>1.3.1.0</Networking_Model_Version>
+    <Networking_Files_Version>1.3.1.0</Networking_Files_Version>
   </PropertyGroup>
 </Project>

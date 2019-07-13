@@ -38,13 +38,25 @@ namespace Networking.Files.PcapNG
         /// <returns></returns>
         public IEnumerable<Block> ReadBlocks()
         {
-            Block sectionHeaderBlock = null;
+            SectionHeaderBlock sectionHeaderBlock = null;
             var block = ReadBlock(null);
+            var interfaceDescriptionBlocks = new List<InterfaceDescriptionBlock>();
             while (block != null)
             {
-                if (block.Type == BlockType.SectionHeader)
+                switch (block.Type)
                 {
-                    sectionHeaderBlock = block;
+                    case BlockType.SectionHeader:
+                        sectionHeaderBlock = (SectionHeaderBlock)block;
+                        interfaceDescriptionBlocks = new List<InterfaceDescriptionBlock>();
+                        break;
+                    case BlockType.InterfaceDescription:
+                        interfaceDescriptionBlocks.Add((InterfaceDescriptionBlock)block);
+                        break;
+                }
+                block.SectionHeader = sectionHeaderBlock;
+                if (block.InterfaceId.HasValue)
+                {
+                    block.InterfaceDescription = interfaceDescriptionBlocks[(Int32)block.InterfaceId.Value];
                 }
                 yield return block;
                 block = ReadBlock(sectionHeaderBlock?.IsLittleEndian);
@@ -80,7 +92,7 @@ namespace Networking.Files.PcapNG
                 return null;
             }
 
-            return BlockCreator.Create(blockHeader.Type, blockHeader.IsLittleEndian, (Memory<Byte>) blockBytes);
+            return BlockCreator.Create(blockHeader.Type, blockHeader.IsLittleEndian, (Memory<Byte>)blockBytes);
         }
 
         private BlockHeader ReadBlockHeader(Boolean? isLittleEndian)

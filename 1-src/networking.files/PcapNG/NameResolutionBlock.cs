@@ -10,14 +10,6 @@ namespace Networking.Files.PcapNG
     public partial class NameResolutionBlock : Block
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public NameResolutionBlock() : base(isPacket: false)
-        {
-
-        }
-
-        /// <summary>
         /// 读取<see cref="Record"/>
         /// </summary>
         /// <returns></returns>

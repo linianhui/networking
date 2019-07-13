@@ -43,6 +43,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             interfaceDescriptionBlock.MaxCapturedLength.Should().Be(262144u);
 
             var enhancedPacketBlock = (EnhancedPacketBlock)blocks[12];
+            enhancedPacketBlock.InterfaceDescription.Should().BeSameAs(interfaceDescriptionBlock);
             enhancedPacketBlock.IsLittleEndian.Should().Be(true);
             enhancedPacketBlock.Type.Should().Be(BlockType.EnhancedPacket);
             enhancedPacketBlock.TotalLength.Should().Be(212);
@@ -63,6 +64,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
             nameResolutionBlockRecord.Host.Should().Be("clients.l.google.com");
 
             var interfaceStatisticsBlock = (InterfaceStatisticsBlock)blocks[77];
+            interfaceStatisticsBlock.InterfaceDescription.Should().BeSameAs(interfaceDescriptionBlock);
             interfaceStatisticsBlock.Should().NotBeAssignableTo<IPacket>();
             interfaceStatisticsBlock.IsPacket.Should().Be(false);
             interfaceStatisticsBlock.TotalLength.Should().Be(0x6c);
@@ -70,12 +72,20 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 
             foreach (var block in blocks)
             {
+                block.SectionHeader.Should().BeSameAs(sectionHeaderBlock);
                 if (block.IsPacket == false)
                 {
                     continue;
                 }
 
                 var packet = block as IPacket;
+                _testOutputHelper.WriteLine(
+                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond}"
+                );
+                if (packet.DataLinkType != PacketDataLinkType.Ethernet)
+                {
+                    continue;
+                }
                 var ethernetFrame = new EthernetFrame
                 {
                     Bytes = packet.Payload

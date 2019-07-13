@@ -11,15 +11,15 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 构造函数
         /// </summary>
-        public EnhancedPacketBlock() : base(isPacket: true)
+        public EnhancedPacketBlock()
         {
-
+            base.IsPacket = true;
         }
 
         /// <summary>
         /// Interface Id
         /// </summary>
-        public UInt32 InterfaceId
+        public override UInt32? InterfaceId
         {
             get { return GetUInt32(Layout.InterfaceIdBegin); }
         }
@@ -45,11 +45,9 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public PacketDataLinkType DataLinkType
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return InterfaceDescription.DataLinkType; }
         }
+
 
         /// <summary>
         /// <see cref="IPacket.TimestampNanosecond"/>

@@ -11,9 +11,17 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 构造函数
         /// </summary>
-        public SimplePacketBlock() : base(isPacket: true)
+        public SimplePacketBlock()
         {
+            base.IsPacket = true;
+        }
 
+        /// <summary>
+        /// Interface Id
+        /// </summary>
+        public override UInt32? InterfaceId
+        {
+            get { return 0; }
         }
 
         /// <summary>
@@ -29,10 +37,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public PacketDataLinkType DataLinkType
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return InterfaceDescription.DataLinkType; }
         }
 
         /// <summary>

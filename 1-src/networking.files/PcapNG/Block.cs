@@ -11,15 +11,22 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 是否是数据包
         /// </summary>
-        public Boolean IsPacket { get; }
+        public Boolean IsPacket { get; protected set; }
 
         /// <summary>
-        /// 构造函数
+        /// InterfaceId
         /// </summary>
-        public Block(Boolean isPacket = false)
-        {
-            IsPacket = isPacket;
-        }
+        public virtual UInt32? InterfaceId { get; } = null;
+
+        /// <summary>
+        /// Interface Description Block
+        /// </summary>
+        public InterfaceDescriptionBlock InterfaceDescription { get; set; }
+
+        /// <summary>
+        /// Section Header Block
+        /// </summary>
+        public SectionHeaderBlock SectionHeader { get; set; }
 
         /// <summary>
         /// Type

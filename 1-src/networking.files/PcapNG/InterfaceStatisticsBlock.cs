@@ -9,17 +9,9 @@ namespace Networking.Files.PcapNG
     public partial class InterfaceStatisticsBlock : Block
     {
         /// <summary>
-        /// 构造函数
-        /// </summary>
-        public InterfaceStatisticsBlock() : base(isPacket: false)
-        {
-
-        }
-
-        /// <summary>
         /// Interface Id
         /// </summary>
-        public UInt32 InterfaceId
+        public override UInt32? InterfaceId
         {
             get { return GetUInt32(Layout.InterfaceIdBegin); }
         }

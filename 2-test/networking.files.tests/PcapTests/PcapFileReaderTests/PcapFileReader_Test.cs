@@ -1,12 +1,21 @@
+using System;
 using FluentAssertions;
 using Networking.Files.Pcap;
 using Networking.Model.DataLink;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
 {
     public class PcapFileReader_Test
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public PcapFileReader_Test(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void ReadPackets()
         {
@@ -20,9 +29,11 @@ namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
             pcapFileReader.Header.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
 
             var i = 0;
-
             foreach (PcapPacket packet in pcapFileReader.ReadPackets())
             {
+                _testOutputHelper.WriteLine(
+                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}"
+                );
                 packet.Header.IsLittleEndian.Should().Be(true);
                 packet.Header.Header.IsLittleEndian.Should().Be(true);
 

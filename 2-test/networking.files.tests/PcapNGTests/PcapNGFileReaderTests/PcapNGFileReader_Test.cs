@@ -80,7 +80,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 
                 var packet = block as IPacket;
                 _testOutputHelper.WriteLine(
-                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond}"
+                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}"
                 );
                 if (packet.DataLinkType != PacketDataLinkType.Ethernet)
                 {

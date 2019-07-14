@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.core.tests", "2-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.tests.util", "2-test\networking.tests.util\networking.tests.util.csproj", "{F5FDF0F2-417E-46CC-856E-0FD6BC34541D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "networking.display", "1-src\networking.display\networking.display.csproj", "{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{F5FDF0F2-417E-46CC-856E-0FD6BC34541D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5FDF0F2-417E-46CC-856E-0FD6BC34541D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5FDF0F2-417E-46CC-856E-0FD6BC34541D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{9C234A22-1A98-4FDE-B26C-34DB911505FF} = {0F2DBF2D-242C-4699-8273-5504D8410032}
 		{8D475C57-E43C-4DC7-ABEF-8A1D7D0CB9FB} = {9310880F-0CA6-468E-B045-6094A9B3D96D}
 		{F5FDF0F2-417E-46CC-856E-0FD6BC34541D} = {9310880F-0CA6-468E-B045-6094A9B3D96D}
+		{F25B34C9-7CF9-4E0D-A339-CAFC66B9F738} = {0F2DBF2D-242C-4699-8273-5504D8410032}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {559B2883-F4BD-4EA5-9040-247AB6478B68}

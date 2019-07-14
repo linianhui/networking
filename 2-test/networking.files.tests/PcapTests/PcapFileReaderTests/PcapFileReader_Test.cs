@@ -7,13 +7,10 @@ using Xunit.Abstractions;
 
 namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
 {
-    public class PcapFileReader_Test
+    public class PcapFileReader_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public PcapFileReader_Test(ITestOutputHelper testOutputHelper)
+        public PcapFileReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -31,9 +28,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
             var i = 0;
             foreach (PcapPacket packet in pcapFileReader.ReadPackets())
             {
-                _testOutputHelper.WriteLine(
-                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}"
-                );
+                Console.WriteLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
                 packet.Header.IsLittleEndian.Should().Be(true);
                 packet.Header.Header.IsLittleEndian.Should().Be(true);
 

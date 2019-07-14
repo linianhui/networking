@@ -9,13 +9,10 @@ using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.ApplicationTests.CoAPTests
 {
-    public class CoAP_Test
+    public class CoAP_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public CoAP_Test(ITestOutputHelper testOutputHelper)
+        public CoAP_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -53,14 +50,8 @@ namespace Networking.Model.Tests.ApplicationTests.CoAPTests
                 var udpPayload = udp.Payload;
 
                 udpPayload.GetType().Should().Be(typeof(CoAP));
-
-                var coap = (CoAP)udpPayload;
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}" +
-                    $"\r\n{coap.Version}  {coap.Type} {coap.TokenLength} {coap.Code} {coap.MessageId} {coap.Token}"
-                );
+                Displayer.NewLine();
+                Displayer.Display(ethernetFrame);
             });
         }
     }

@@ -1,21 +1,18 @@
+using System;
 using System.Linq;
 using FluentAssertions;
 using Networking.Files.PcapNG;
 using Networking.Model.DataLink;
-using Networking.Model.Internet;
-using Networking.Model.Transport;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 {
-    public class PcapNGFileReader_Test
+    public class PcapNGFileReader_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public PcapNGFileReader_Test(ITestOutputHelper testOutputHelper)
+        public PcapNGFileReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -76,9 +73,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                 if (block.Type == BlockType.InterfaceStatistics)
                 {
                     var interfaceStatistics = (InterfaceStatisticsBlock)block;
-                    _testOutputHelper.WriteLine(
-                        $"\r\n{interfaceStatistics.InterfaceId} {interfaceStatistics.TimestampNanosecond.ToDateTimeOffsetString()}"
-                    );
+                    Console.WriteLine($"{interfaceStatistics.InterfaceId} {interfaceStatistics.TimestampNanosecond.ToDateTimeOffsetString()}");
                 }
                 if (block.IsPacket == false)
                 {
@@ -86,9 +81,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                 }
 
                 var packet = block as IPacket;
-                _testOutputHelper.WriteLine(
-                    $"\r\n{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}"
-                );
+                Console.WriteLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
                 if (packet.DataLinkType != PacketDataLinkType.Ethernet)
                 {
                     continue;
@@ -98,33 +91,8 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                     Bytes = packet.Payload
                 };
 
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}"
-                );
-
-                if (ethernetFrame.Type == EthernetFrameType.IPv4)
-                {
-                    var ipv4 = (IPv4Packet)ethernetFrame.Payload;
-                    if (ipv4.Type == IPPacketType.UDP)
-                    {
-                        var udp = (UDPDatagram)ipv4.Payload;
-                        _testOutputHelper.WriteLine(
-                            $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                            $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                            $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
-                        );
-                    }
-
-                    if (ipv4.Type == IPPacketType.TCP)
-                    {
-                        var tcp = (TCPSegment)ipv4.Payload;
-                        _testOutputHelper.WriteLine(
-                            $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                            $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                            $"\r\n{tcp.SourcePort} > {tcp.DestinationPort}"
-                        );
-                    }
-                }
+                Displayer.NewLine();
+                Displayer.Display(ethernetFrame);
             }
         }
     }

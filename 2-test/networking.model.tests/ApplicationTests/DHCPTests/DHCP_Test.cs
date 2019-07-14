@@ -9,13 +9,10 @@ using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.ApplicationTests.DHCPTests
 {
-    public class DHCP_Test
+    public class DHCP_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public DHCP_Test(ITestOutputHelper testOutputHelper)
+        public DHCP_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -83,11 +80,8 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
                 var udp = (UDPDatagram)ipv4.Payload;
                 var udpPayload = udp.Payload;
 
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
-                );
+                Displayer.NewLine();
+                Displayer.Display(ethernetFrame);
 
                 udpPayload.GetType().Should().Be(typeof(DHCP));
             });

@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Networking.Display</AssemblyName>
+    <RootNamespace>Networking.Display</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Networking.Display</PackageId>
+    <Version>$(Networking_Display_Version)</Version>
+    <PackageVersion>$(Networking_Display_Version)</PackageVersion>
+    <InformationalVersion>$(Networking_Display_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
+    <PackageDescription>Networking Display PDU.</PackageDescription>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\networking.model\networking.model.csproj" />
+  </ItemGroup>
+
+</Project>

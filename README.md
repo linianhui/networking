@@ -14,6 +14,7 @@
 1. [![NuGet-Networking-Core-Img]][NuGet-Networking-Core-Url]
 2. [![NuGet-Networking-Model-Img]][NuGet-Networking-Model-Url]
 3. [![NuGet-Networking-Files-Img]][NuGet-Networking-Files-Url]
+3. [![NuGet-Networking-Display-Img]][NuGet-Networking-Display-Url]
 
 # CI
 
@@ -59,6 +60,9 @@ docker run \
 
 [NuGet-Networking-Files-Img]:https://img.shields.io/nuget/v/Networking.Files.svg?label=nuget+Networking.Files
 [NuGet-Networking-Files-URL]:https://www.nuget.org/packages/Networking.Files
+
+[NuGet-Networking-Display-Img]:https://img.shields.io/nuget/v/Networking.Display.svg?label=nuget+Networking.Display
+[NuGet-Networking-Display-URL]:https://www.nuget.org/packages/Networking.Display
 
 
 

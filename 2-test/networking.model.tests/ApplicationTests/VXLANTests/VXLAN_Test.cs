@@ -9,13 +9,10 @@ using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.ApplicationTests.VXLANTests
 {
-    public class VXLAN_Test
+    public class VXLAN_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public VXLAN_Test(ITestOutputHelper testOutputHelper)
+        public VXLAN_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -45,16 +42,10 @@ namespace Networking.Model.Tests.ApplicationTests.VXLANTests
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
                 var udpPayload = udp.Payload;
-                var vxlan = (VXLAN)udp.Payload;
-
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}" +
-                    $"\r\n{vxlan.I}  {vxlan.VNI}"
-                );
-
                 udpPayload.GetType().Should().Be(typeof(VXLAN));
+
+                Displayer.NewLine();
+                Displayer.Display(ethernetFrame);
             });
         }
     }

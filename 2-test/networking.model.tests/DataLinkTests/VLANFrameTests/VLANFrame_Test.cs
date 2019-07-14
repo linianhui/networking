@@ -6,13 +6,10 @@ using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {
-    public class VLANFrame_Test
+    public class VLANFrame_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public VLANFrame_Test(ITestOutputHelper testOutputHelper)
+        public VLANFrame_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -40,17 +37,7 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
             this.GetPcapFileReader("vlan.pcap").ForEach(bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
-
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}"
-                );
-
-                if (ethernetFrame.Type == EthernetFrameType.VLAN)
-                {
-                    var vlan = (VLANFrame)ethernetFrame.Payload;
-                    vlan.GetType().Should().Be<VLANFrame>();
-                    _testOutputHelper.WriteLine($"\r\n{vlan.VID} {vlan.Type}");
-                }
+                Displayer.Display(ethernetFrame);
             });
         }
     }

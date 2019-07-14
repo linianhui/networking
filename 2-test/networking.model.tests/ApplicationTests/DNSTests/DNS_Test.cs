@@ -9,14 +9,12 @@ using Xunit.Abstractions;
 
 namespace Networking.Model.Tests.ApplicationTests.DNSTests
 {
-    public class DNS_Test
+    public class DNS_Test : BaseTest
     {
-        private readonly ITestOutputHelper _testOutputHelper;
-
-        public DNS_Test(ITestOutputHelper testOutputHelper)
+        public DNS_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
-            _testOutputHelper = testOutputHelper;
         }
+
 
         [Fact]
         public void dns_query()
@@ -58,14 +56,10 @@ namespace Networking.Model.Tests.ApplicationTests.DNSTests
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
                 var udpPayload = udp.Payload;
-
-                _testOutputHelper.WriteLine(
-                    $"\r\n{ethernetFrame.SourceMACAddress} > {ethernetFrame.DestinationMACAddress} {ethernetFrame.Type}" +
-                    $"\r\n{ipv4.SourceIPAddress} > {ipv4.DestinationIPAddress} {ipv4.Type}" +
-                    $"\r\n{udp.SourcePort} > {udp.DestinationPort}"
-                );
-
                 udpPayload.GetType().Should().Be(typeof(DNS));
+
+                Displayer.NewLine();
+                Displayer.Display(ethernetFrame);
             });
         }
     }

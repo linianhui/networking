@@ -80,8 +80,8 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
                 var udp = (UDPDatagram)ipv4.Payload;
                 var udpPayload = udp.Payload;
 
-                Displayer.NewLine();
-                Displayer.Display(ethernetFrame);
+                TestOutput.NewLine();
+                TestOutput.Display(ethernetFrame);
 
                 udpPayload.GetType().Should().Be(typeof(DHCP));
             });

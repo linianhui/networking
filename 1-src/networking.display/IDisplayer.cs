@@ -1,3 +1,4 @@
+using System;
 using Networking.Model.DataLink;
 using Networking.Model.Internet;
 using Networking.Model.Transport;
@@ -12,7 +13,7 @@ namespace Networking.Display
         /// <summary>
         /// 新行
         /// </summary>
-        void NewLine();
+        void NewLine(String message = "");
 
         /// <summary>
         /// 显示

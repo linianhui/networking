@@ -44,8 +44,8 @@ namespace Networking.Model.Tests.ApplicationTests.VXLANTests
                 var udpPayload = udp.Payload;
                 udpPayload.GetType().Should().Be(typeof(VXLAN));
 
-                Displayer.NewLine();
-                Displayer.Display(ethernetFrame);
+                TestOutput.NewLine();
+                TestOutput.Display(ethernetFrame);
             });
         }
     }

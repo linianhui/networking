@@ -37,7 +37,7 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
             this.GetPcapFileReader("vlan.pcap").ForEach(bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
-                Displayer.Display(ethernetFrame);
+                TestOutput.Display(ethernetFrame);
             });
         }
     }

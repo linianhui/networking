@@ -28,7 +28,7 @@ namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
             var i = 0;
             foreach (PcapPacket packet in pcapFileReader.ReadPackets())
             {
-                Console.WriteLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
+                TestOutput.NewLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
                 packet.Header.IsLittleEndian.Should().Be(true);
                 packet.Header.Header.IsLittleEndian.Should().Be(true);
 

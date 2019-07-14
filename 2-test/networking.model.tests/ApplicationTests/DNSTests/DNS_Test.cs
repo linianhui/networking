@@ -58,8 +58,8 @@ namespace Networking.Model.Tests.ApplicationTests.DNSTests
                 var udpPayload = udp.Payload;
                 udpPayload.GetType().Should().Be(typeof(DNS));
 
-                Displayer.NewLine();
-                Displayer.Display(ethernetFrame);
+                TestOutput.NewLine();
+                TestOutput.Display(ethernetFrame);
             });
         }
     }

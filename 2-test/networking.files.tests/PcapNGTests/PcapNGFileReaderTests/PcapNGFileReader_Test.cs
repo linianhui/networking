@@ -73,7 +73,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                 if (block.Type == BlockType.InterfaceStatistics)
                 {
                     var interfaceStatistics = (InterfaceStatisticsBlock)block;
-                    Console.WriteLine($"{interfaceStatistics.InterfaceId} {interfaceStatistics.TimestampNanosecond.ToDateTimeOffsetString()}");
+                    TestOutput.NewLine($"{interfaceStatistics.InterfaceId} {interfaceStatistics.TimestampNanosecond.ToDateTimeOffsetString()}");
                 }
                 if (block.IsPacket == false)
                 {
@@ -81,7 +81,7 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                 }
 
                 var packet = block as IPacket;
-                Console.WriteLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
+                TestOutput.NewLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
                 if (packet.DataLinkType != PacketDataLinkType.Ethernet)
                 {
                     continue;
@@ -91,8 +91,8 @@ namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
                     Bytes = packet.Payload
                 };
 
-                Displayer.NewLine();
-                Displayer.Display(ethernetFrame);
+                TestOutput.NewLine();
+                TestOutput.Display(ethernetFrame);
             }
         }
     }

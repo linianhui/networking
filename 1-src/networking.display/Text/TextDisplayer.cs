@@ -16,63 +16,63 @@ namespace Networking.Display.Text
             _textWriter = textWriter;
         }
 
-        public void NewLine()
+        public void NewLine(String message)
         {
-            WriteLine("");
+            _textWriter.WriteLine(message);
         }
 
         public void Display(EthernetFrame ethernetFrame)
         {
-            WriteLine($"ethernet : {ethernetFrame.SourceMACAddress,17} > {ethernetFrame.DestinationMACAddress,-17} type={ethernetFrame.Type}");
+            NewLine($"ethernet : {ethernetFrame.SourceMACAddress,17} > {ethernetFrame.DestinationMACAddress,-17} type={ethernetFrame.Type}");
             DisplayEthernetFramePayload(ethernetFrame.Type, ethernetFrame.Payload);
         }
 
         public void Display(IPv4Packet ipv4Packet)
         {
-            WriteLine($"ipv4     : {ipv4Packet.SourceIPAddress,17} > {ipv4Packet.DestinationIPAddress,-17} type={ipv4Packet.Type,-6} ttl={ipv4Packet.TTL,-3}");
+            NewLine($"ipv4     : {ipv4Packet.SourceIPAddress,17} > {ipv4Packet.DestinationIPAddress,-17} type={ipv4Packet.Type,-6} ttl={ipv4Packet.TTL,-3}");
             DisplayIPv4PacketPayload(ipv4Packet.Type, ipv4Packet.Payload);
         }
 
         public void Display(UDPDatagram udpDatagram)
         {
-            WriteLine($"udp      : {udpDatagram.SourcePort,17} > {udpDatagram.DestinationPort,-17}");
+            NewLine($"udp      : {udpDatagram.SourcePort,17} > {udpDatagram.DestinationPort,-17}");
         }
 
         public void Display(TCPSegment tcpSegment)
         {
-            WriteLine($"tcp      : {tcpSegment.SourcePort,17} > {tcpSegment.DestinationPort,-17} win ={tcpSegment.WindowsSize,-6} seq={tcpSegment.SequenceNumber,-10} ack={tcpSegment.AcknowledgmentNumber,-10} flags=[{BuildFlags(tcpSegment)}]");
+            NewLine($"tcp      : {tcpSegment.SourcePort,17} > {tcpSegment.DestinationPort,-17} win ={tcpSegment.WindowsSize,-6} seq={tcpSegment.SequenceNumber,-10} ack={tcpSegment.AcknowledgmentNumber,-10} flags=[{BuildFlags(tcpSegment)}]");
         }
 
         public void Display(ARPFrame arpFrame)
         {
-            WriteLine($"arp      : {arpFrame.SenderMACAddress,-17} {arpFrame.SenderIPAddress,-15} > {arpFrame.TargetMACAddress,17} {arpFrame.TargetIPAddress,-15} operation_code={arpFrame.OperationCode}");
+            NewLine($"arp      : {arpFrame.SenderMACAddress,-17} {arpFrame.SenderIPAddress,-15} > {arpFrame.TargetMACAddress,17} {arpFrame.TargetIPAddress,-15} operation_code={arpFrame.OperationCode}");
         }
 
         public void Display(VLANFrame vlanFrame)
         {
-            WriteLine($"vlan     : vid={vlanFrame.VID,-5} type={vlanFrame.Type,-20}");
+            NewLine($"vlan     : vid={vlanFrame.VID,-5} type={vlanFrame.Type,-20}");
             DisplayEthernetFramePayload(vlanFrame.Type, vlanFrame.Payload);
         }
 
         public void Display(IPv6Packet ipv6Packet)
         {
-            WriteLine($"ipv6     : {ipv6Packet.SourceIPAddress} > {ipv6Packet.DestinationIPAddress}");
+            NewLine($"ipv6     : {ipv6Packet.SourceIPAddress} > {ipv6Packet.DestinationIPAddress}");
         }
 
         public void Display(ICMPv4Packet icmpv4Packet)
         {
-            WriteLine($"icmpv4   : id={icmpv4Packet.Id,-10} seq={icmpv4Packet.Sequence,-10} type_code={icmpv4Packet.TypeCode}");
+            NewLine($"icmpv4   : id={icmpv4Packet.Id,-10} seq={icmpv4Packet.Sequence,-10} type_code={icmpv4Packet.TypeCode}");
         }
 
         public void Display(PPPoEFrame pppoeFrame)
         {
-            WriteLine($"pppoe    : version={pppoeFrame.Version,-3} type={pppoeFrame.Type,-3} code=[{pppoeFrame.Code,-4}] session_id={pppoeFrame.SessionId,-10} payload_length={pppoeFrame.PayloadLength}");
+            NewLine($"pppoe    : version={pppoeFrame.Version,-3} type={pppoeFrame.Type,-3} code=[{pppoeFrame.Code,-4}] session_id={pppoeFrame.SessionId,-10} payload_length={pppoeFrame.PayloadLength}");
             Display(pppoeFrame.Payload);
         }
 
         public void Display(PPPFrame pppFrame)
         {
-            WriteLine($"ppp      : type={pppFrame.Type}");
+            NewLine($"ppp      : type={pppFrame.Type}");
             DisplayPPPFramePayload(pppFrame.Type, pppFrame.Payload);
         }
 
@@ -177,11 +177,6 @@ namespace Networking.Display.Text
             }
 
             return String.Join(",", flagList.ToArray());
-        }
-
-        private void WriteLine(String text)
-        {
-            _textWriter.WriteLine(text);
         }
     }
 }

@@ -8,13 +8,12 @@ namespace Networking
 {
     public class BaseTest
     {
-        public IDisplayer Displayer { get; }
+        public IDisplayer TestOutput { get; }
 
         public BaseTest(ITestOutputHelper testOutputHelper)
         {
             var testOutputWriter = new TestOutputWriter(testOutputHelper);
-            Console.SetOut(testOutputWriter);
-            Displayer = DisplayerFactory.Text(testOutputWriter);
+            TestOutput = DisplayerFactory.Text(testOutputWriter);
         }
 
         private class TestOutputWriter : StringWriter

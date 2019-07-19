@@ -1,4 +1,4 @@
-# [doc](/doc/)
+# [docs](/docs/)
 
 # Networking [PDU] 
 

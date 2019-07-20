@@ -15,7 +15,7 @@ namespace Networking.Display
         /// </summary>
         public static IDisplayer Text(TextWriter textWriter)
         {
-            return new TextDisplayer(textWriter, new DisplayDispatcher(typeof(TextDisplayer)));
+            return new TextDisplayer(textWriter, TextDisplayDispatcher);
         }
     }
 }

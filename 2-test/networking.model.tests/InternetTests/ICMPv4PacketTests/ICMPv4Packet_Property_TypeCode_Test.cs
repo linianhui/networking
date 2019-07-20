@@ -53,7 +53,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv4Packet[0, 2] = input;
+            icmpv4Packet.SetBytes(0, 2, input);
 
             icmpv4Packet.TypeCode.Should().Be(expected);
         }
@@ -68,7 +68,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
             };
 
             icmpv4Packet.TypeCode = input;
-            icmpv4Packet[0, 2].ToArray().Should().Equal(expected);
+            icmpv4Packet.GetBytes(0, 2).ToArray().Should().Equal(expected);
             icmpv4Packet.TypeCode.Should().Be(input);
         }
     }

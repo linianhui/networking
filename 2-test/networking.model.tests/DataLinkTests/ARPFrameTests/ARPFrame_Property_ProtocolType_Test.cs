@@ -24,7 +24,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             };
 
 
-            arpFrame[2, 2] = input;
+            arpFrame.SetBytes(2, 2, input);
 
 
             arpFrame.ProtocolType.Should().Be(expected);
@@ -41,7 +41,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.ProtocolType = input;
 
-            arpFrame[2, 2].ToArray().Should().Equal(expected);
+            arpFrame.GetBytes(2, 2).ToArray().Should().Equal(expected);
             arpFrame.ProtocolType.Should().Be(input);
         }
     }

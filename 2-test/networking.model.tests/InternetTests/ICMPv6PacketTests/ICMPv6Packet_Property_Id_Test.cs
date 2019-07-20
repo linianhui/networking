@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv6Packet[4, 2] = new Byte[] { 0x00, 0x01};
+            icmpv6Packet.SetBytes(4, 2, new Byte[] { 0x00, 0x01});
 
             icmpv6Packet.Id.Should().Be(1);
         }

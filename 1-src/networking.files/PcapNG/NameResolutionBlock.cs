@@ -22,7 +22,7 @@ namespace Networking.Files.PcapNG
                 yield return new Record
                 {
                     IsLittleEndian = IsLittleEndian,
-                    Bytes = this[begin, recordLength]
+                    Bytes = GetBytes(begin, recordLength)
                 };
                 begin += recordLength;
                 (recordType, recordLength) = GetRecordHeader(begin);

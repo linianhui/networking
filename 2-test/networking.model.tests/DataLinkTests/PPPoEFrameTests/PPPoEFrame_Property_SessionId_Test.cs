@@ -25,7 +25,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
                 Bytes = new Byte[28]
             };
 
-            pppoeFrame[2, 2] = input;
+            pppoeFrame.SetBytes(2, 2, input);
 
             pppoeFrame.SessionId.Should().Be(expected);
         }
@@ -40,8 +40,8 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
             };
 
             pppoeFrame.SessionId = input;
-            
-            pppoeFrame[2, 2].ToArray().Should().Equal(expected);
+
+            pppoeFrame.GetBytes(2, 2).ToArray().Should().Equal(expected);
             pppoeFrame.SessionId.Should().Be(input);
         }
     }

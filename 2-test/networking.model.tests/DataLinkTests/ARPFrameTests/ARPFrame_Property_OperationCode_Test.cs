@@ -24,7 +24,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
                 Bytes = new Byte[28]
             };
 
-            arpFrame[6, 2] = input;
+            arpFrame.SetBytes(6, 2, input);
 
             arpFrame.OperationCode.Should().Be(expected);
         }
@@ -40,7 +40,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.OperationCode = input;
 
-            arpFrame[6, 2].ToArray().Should().Equal(expected);
+            arpFrame.GetBytes(6, 2).ToArray().Should().Equal(expected);
             arpFrame.OperationCode.Should().Be(input);
         }
     }

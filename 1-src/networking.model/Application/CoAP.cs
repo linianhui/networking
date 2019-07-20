@@ -87,7 +87,7 @@ namespace Networking.Model.Application
                     return null;
                 }
 
-                var tokenBytes = base[Layout.FixedHeaderLength, tokenLength];
+                var tokenBytes = GetBytes(Layout.FixedHeaderLength, tokenLength);
                 return new Octets
                 {
                     Bytes = tokenBytes

@@ -25,6 +25,16 @@ namespace Networking.Tests.OctetsTests
         }
 
         [Fact]
+        public void GetByte_out_of_range_should_return_0()
+        {
+            var octets = new Octets();
+
+            octets.GetByte(0).Should().Be(0);
+            octets.GetByte(1).Should().Be(0);
+            octets.GetByte(2).Should().Be(0);
+        }
+
+        [Fact]
         public void GetByte_With_BitIndex_And_BitLength()
         {
             var octets = new Octets

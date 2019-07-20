@@ -53,7 +53,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public Memory<Byte> Payload
         {
-            get { return base[Layout.HeaderLength, (Int32)TotalLength - Layout.HeaderTotalLength]; }
+            get { return GetBytes(Layout.HeaderLength, (Int32)TotalLength - Layout.HeaderTotalLength); }
         }
     }
 }

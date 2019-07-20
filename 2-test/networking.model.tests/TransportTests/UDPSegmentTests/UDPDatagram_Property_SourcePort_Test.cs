@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
             {
                 Bytes = new Byte[32]
             };
-            udpDatagram[0, 2] = new Byte[] {0x00, 0x50};
+
+            udpDatagram.SetBytes(0, 2, new Byte[] {0x00, 0x50});
 
             udpDatagram.SourcePort.Should().Be(80);
         }

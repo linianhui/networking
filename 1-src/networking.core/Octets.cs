@@ -39,18 +39,6 @@ namespace Networking
         }
 
         /// <summary>
-        /// 读取或写入
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <param name="length">长度</param>
-        /// <returns></returns>
-        public Memory<Byte> this[Int32 index, Int32 length]
-        {
-            get { return Bytes.Slice(index, length); }
-            set { value.CopyTo(Bytes.Slice(index, length)); }
-        }
-
-        /// <summary>
         /// 获取指定位置的bit[1=true,0=false]
         /// </summary>
         /// <param name="index">索引</param>
@@ -59,16 +47,6 @@ namespace Networking
         public Boolean GetBoolean(Int32 index, Int32 bitIndex)
         {
             return GetByte(index).GetBoolean(bitIndex);
-        }
-
-        /// <summary>
-        /// 获取<see cref="Byte"/>
-        /// </summary>
-        /// <param name="index">索引</param>
-        /// <returns></returns>
-        public Byte GetByte(Int32 index)
-        {
-            return Bytes.Span[index];
         }
 
         /// <summary>
@@ -84,13 +62,46 @@ namespace Networking
         }
 
         /// <summary>
+        /// 获取<see cref="Byte"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <returns></returns>
+        public Byte GetByte(Int32 index)
+        {
+            if (OutOfRange(index, 1))
+            {
+                return 0;
+            }
+            return Bytes.Span[index];
+        }
+
+        /// <summary>
         /// 读取Bytes
         /// </summary>
         /// <param name="index">索引</param>
         /// <returns></returns>
         public Memory<Byte> GetBytes(Int32 index)
         {
+            if (OutOfRange(index, 1))
+            {
+                return new Byte[0];
+            }
             return Bytes.Slice(index);
+        }
+
+        /// <summary>
+        /// 读取Bytes
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="length">长度</param>
+        /// <returns></returns>
+        public Memory<Byte> GetBytes(Int32 index, Int32 length)
+        {
+            if (OutOfRange(index, length))
+            {
+                return new Byte[length];
+            }
+            return Bytes.Slice(index, length);
         }
 
         /// <summary>
@@ -100,7 +111,7 @@ namespace Networking
         /// <returns></returns>
         public UInt16 GetUInt16(Int32 index)
         {
-            var span = this[index, 2].Span;
+            var span = GetBytes(index, 2).Span;
             if (IsLittleEndian)
             {
                 return BinaryPrimitives.ReadUInt16LittleEndian(span);
@@ -127,7 +138,7 @@ namespace Networking
         /// <returns></returns>
         public UInt32 GetUInt32(Int32 index)
         {
-            var span = this[index, 4].Span;
+            var span = GetBytes(index, 4).Span;
             if (IsLittleEndian)
             {
                 return BinaryPrimitives.ReadUInt32LittleEndian(span);
@@ -156,7 +167,7 @@ namespace Networking
         {
             return new MACAddress
             {
-                Bytes = this[index, MACAddress.Layout.Length]
+                Bytes = GetBytes(index, MACAddress.Layout.Length)
             };
         }
 
@@ -169,7 +180,7 @@ namespace Networking
         {
             return new IPAddress
             {
-                Bytes = this[index, IPAddress.Layout.V4Length]
+                Bytes = GetBytes(index, IPAddress.Layout.V4Length)
             };
         }
 
@@ -182,7 +193,7 @@ namespace Networking
         {
             return new IPAddress
             {
-                Bytes = this[index, IPAddress.Layout.V6Length]
+                Bytes = GetBytes(index, IPAddress.Layout.V6Length)
             };
         }
 
@@ -204,18 +215,6 @@ namespace Networking
         /// 设置<see cref="Byte"/>
         /// </summary>
         /// <param name="index">索引</param>
-        /// <param name="byteValue">byte的值</param>
-        /// <returns></returns>
-        public Byte SetByte(Int32 index, Byte byteValue)
-        {
-            Bytes.Span[index] = byteValue;
-            return byteValue;
-        }
-
-        /// <summary>
-        /// 设置<see cref="Byte"/>
-        /// </summary>
-        /// <param name="index">索引</param>
         /// <param name="bitIndex">bit的索引</param>
         /// <param name="bitLength">bit的长度</param>
         /// <param name="value">byte的值</param>
@@ -228,23 +227,15 @@ namespace Networking
         }
 
         /// <summary>
-        /// 设置<see cref="UInt16"/>
+        /// 设置<see cref="Byte"/>
         /// </summary>
         /// <param name="index">索引</param>
-        /// <param name="value">值</param>
+        /// <param name="byteValue">byte的值</param>
         /// <returns></returns>
-        public UInt16 SetUInt16(Int32 index, UInt16 value)
+        public Byte SetByte(Int32 index, Byte byteValue)
         {
-            var span = this[index, 2].Span;
-            if (IsLittleEndian)
-            {
-                BinaryPrimitives.WriteUInt16LittleEndian(span, value);
-            }
-            else
-            {
-                BinaryPrimitives.WriteUInt16BigEndian(span, value);
-            }
-            return value;
+            Bytes.Span[index] = byteValue;
+            return byteValue;
         }
 
         /// <summary>
@@ -263,21 +254,21 @@ namespace Networking
         }
 
         /// <summary>
-        /// 设置<see cref="UInt32"/>
+        /// 设置<see cref="UInt16"/>
         /// </summary>
         /// <param name="index">索引</param>
         /// <param name="value">值</param>
         /// <returns></returns>
-        public UInt32 SetUInt32(Int32 index, UInt32 value)
+        public UInt16 SetUInt16(Int32 index, UInt16 value)
         {
-            var span = this[index, 4].Span;
+            var span = GetBytes(index, 2).Span;
             if (IsLittleEndian)
             {
-                BinaryPrimitives.WriteUInt32LittleEndian(span, value);
+                BinaryPrimitives.WriteUInt16LittleEndian(span, value);
             }
             else
             {
-                BinaryPrimitives.WriteUInt32BigEndian(span, value);
+                BinaryPrimitives.WriteUInt16BigEndian(span, value);
             }
             return value;
         }
@@ -298,6 +289,26 @@ namespace Networking
         }
 
         /// <summary>
+        /// 设置<see cref="UInt32"/>
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="value">值</param>
+        /// <returns></returns>
+        public UInt32 SetUInt32(Int32 index, UInt32 value)
+        {
+            var span = GetBytes(index, 4).Span;
+            if (IsLittleEndian)
+            {
+                BinaryPrimitives.WriteUInt32LittleEndian(span, value);
+            }
+            else
+            {
+                BinaryPrimitives.WriteUInt32BigEndian(span, value);
+            }
+            return value;
+        }
+
+        /// <summary>
         /// 设置<see cref="MACAddress"/>
         /// </summary>
         /// <param name="index">索引</param>
@@ -305,7 +316,7 @@ namespace Networking
         /// <returns></returns>
         public void SetMAC(Int32 index, MACAddress value)
         {
-            this[index, MACAddress.Layout.Length] = value.Bytes;
+            SetBytes(index, MACAddress.Layout.Length, value.Bytes);
         }
 
         /// <summary>
@@ -316,9 +327,8 @@ namespace Networking
         /// <returns></returns>
         public void SetIPv4(Int32 index, IPAddress value)
         {
-            this[index, IPAddress.Layout.V4Length] = value.Bytes;
+            SetBytes(index, IPAddress.Layout.V4Length, value.Bytes);
         }
-
 
         /// <summary>
         /// 设置IPv6<see cref="IPAddress"/>
@@ -328,7 +338,19 @@ namespace Networking
         /// <returns></returns>
         public void SetIPv6(Int32 index, IPAddress value)
         {
-            this[index, IPAddress.Layout.V6Length] = value.Bytes;
+            SetBytes(index, IPAddress.Layout.V6Length, value.Bytes);
+        }
+
+        /// <summary>
+        /// 读取或写入
+        /// </summary>
+        /// <param name="index">索引</param>
+        /// <param name="length">长度</param>
+        /// <param name="bytes">bytes</param>
+        /// <returns></returns>
+        public void SetBytes(Int32 index, Int32 length, Memory<Byte> bytes)
+        {
+            bytes.CopyTo(Bytes.Slice(index, length));
         }
 
         /// <summary>
@@ -338,6 +360,11 @@ namespace Networking
         public override String ToString()
         {
             return BitConverter.ToString(Bytes.ToArray());
+        }
+
+        private Boolean OutOfRange(Int32 index, Int32 length)
+        {
+            return index + length > Length;
         }
     }
 }

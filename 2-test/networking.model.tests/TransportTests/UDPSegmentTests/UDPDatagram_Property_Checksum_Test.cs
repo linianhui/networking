@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
             {
                 Bytes = new Byte[32]
             };
-            udpDatagram[6, 2] = new Byte[] {0x12, 0x34};
+
+            udpDatagram.SetBytes(6, 2, new Byte[] {0x12, 0x34});
 
             udpDatagram.Checksum.Should().Be(4660);
         }

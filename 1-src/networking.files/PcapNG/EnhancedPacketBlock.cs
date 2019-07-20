@@ -56,7 +56,7 @@ namespace Networking.Files.PcapNG
         {
             get
             {
-                var bytes = base[Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin];
+                var bytes = GetBytes(Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin);
                 return Timestamp.ToTimestampNanosecond(IsLittleEndian, false, bytes.Span);
             }
         }
@@ -66,7 +66,7 @@ namespace Networking.Files.PcapNG
         /// </summary>
         public Memory<Byte> Payload
         {
-            get { return base[Layout.HeaderLength, (Int32)CapturedLength]; }
+            get { return GetBytes(Layout.HeaderLength, (Int32)CapturedLength); }
         }
     }
 }

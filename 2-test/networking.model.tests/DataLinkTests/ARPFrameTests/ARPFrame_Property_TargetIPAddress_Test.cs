@@ -15,8 +15,8 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             {
                 Bytes = new Byte[28]
             };
-            arpFrame[24, 4] = new Byte[] { 0xC0, 0xA8, 0x01, 0x01 };
 
+            arpFrame.SetBytes(24, 4, new Byte[] { 0xC0, 0xA8, 0x01, 0x01 });
 
             arpFrame.TargetIPAddress.ToString().Should().Be("192.168.1.1");
         }

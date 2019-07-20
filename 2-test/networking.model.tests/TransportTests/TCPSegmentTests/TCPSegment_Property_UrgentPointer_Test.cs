@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[18, 2] = new Byte[] {0x12, 0x34};
+
+            tcpSegment.SetBytes(18, 2, new Byte[] { 0x12, 0x34 });
 
             tcpSegment.UrgentPointer.Should().Be(4660);
         }

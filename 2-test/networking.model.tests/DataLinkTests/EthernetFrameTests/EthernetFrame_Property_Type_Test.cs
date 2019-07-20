@@ -28,7 +28,7 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
                 Bytes = new Byte[14]
             };
 
-            ethernetFrame[12, 2] = input;
+            ethernetFrame.SetBytes(12, 2, input);
 
             ethernetFrame.Type.Should().Be(expected);
         }
@@ -44,7 +44,7 @@ namespace Networking.Model.Tests.DataLinkTests.EthernetFrameTests
 
             ethernetFrame.Type = input;
 
-            ethernetFrame[12, 2].ToArray().Should().Equal(expected);
+            ethernetFrame.GetBytes(12, 2).ToArray().Should().Equal(expected);
             ethernetFrame.Type.Should().Be(input);
         }
     }

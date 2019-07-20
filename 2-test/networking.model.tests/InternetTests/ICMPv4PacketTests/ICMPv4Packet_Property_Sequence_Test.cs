@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv4Packet[6, 2] = new Byte[] { 0x00, 0x11};
+            icmpv4Packet.SetBytes(6, 2, new Byte[] { 0x00, 0x11});
 
             icmpv4Packet.Sequence.Should().Be(17);
         }

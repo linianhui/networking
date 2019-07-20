@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[0, 2] = new Byte[] {0x00, 0x50};
+
+            tcpSegment.SetBytes(0, 2, new Byte[] { 0x00, 0x50 });
 
             tcpSegment.SourcePort.Should().Be(80);
         }

@@ -25,7 +25,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
                 Bytes = new Byte[28]
             };
 
-            pppoeFrame[4, 2] = input;
+            pppoeFrame.SetBytes(4, 2, input);
 
             pppoeFrame.PayloadLength.Should().Be(expected);
         }
@@ -40,8 +40,8 @@ namespace Networking.Model.Tests.DataLinkTests.PPPoEFrameTests
             };
 
             pppoeFrame.PayloadLength = input;
-            
-            pppoeFrame[4, 2].ToArray().Should().Equal(expected);
+
+            pppoeFrame.GetBytes(4, 2).ToArray().Should().Equal(expected);
             pppoeFrame.PayloadLength.Should().Be(input);
         }
     }

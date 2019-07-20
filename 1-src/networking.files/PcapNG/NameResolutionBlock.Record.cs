@@ -42,7 +42,7 @@ namespace Networking.Files.PcapNG
 
                     return new IPAddress
                     {
-                        Bytes = base[Layout.RecordHeaderLength, ipAddressLength]
+                        Bytes = GetBytes(Layout.RecordHeaderLength, ipAddressLength)
                     };
                 }
             }
@@ -62,7 +62,7 @@ namespace Networking.Files.PcapNG
 
                     var hostBytesBegin = Layout.RecordHeaderLength + ipAddressLength;
                     var hostBytesEnd = ValueLength - ipAddressLength;
-                    var hostBytes = base[hostBytesBegin, hostBytesEnd].ToArray();
+                    var hostBytes = GetBytes(hostBytesBegin, hostBytesEnd).ToArray();
                     return Encoding.UTF8.GetString(hostBytes).TrimEnd('\0');
                 }
             }

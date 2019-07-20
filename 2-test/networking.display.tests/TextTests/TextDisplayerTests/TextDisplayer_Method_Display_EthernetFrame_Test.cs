@@ -24,7 +24,7 @@ namespace Networking.Display.Tests.TextTests.TextDisplayerTests
                 }
             };
 
-            _ = Assert.Throws<TargetInvocationException>(() => displayer.Display(ethernetFrame));
+            displayer.Display(ethernetFrame);
 
             mock.Verify(_ => _.WriteLine("ethernet : 21:43:65:87:A9:CB > 12:34:56:78:9A:BC type=IPv4"), Times.Once);
         }

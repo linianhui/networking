@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[14, 2] = new Byte[] {0x00, 0xFF};
+
+            tcpSegment.SetBytes(14, 2, new Byte[] { 0x00, 0xFF });
 
             tcpSegment.WindowsSize.Should().Be(255);
         }

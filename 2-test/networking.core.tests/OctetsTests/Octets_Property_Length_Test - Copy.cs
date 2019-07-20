@@ -4,10 +4,10 @@ using Xunit;
 
 namespace Networking.Tests.OctetsTests
 {
-    public class Octets_Property_Length_Test
+    public class Octets_Property_Bytes_Test
     {
         [Fact]
-        public void Length()
+        public void Bytes()
         {
             var octets = new Octets
             {
@@ -15,13 +15,13 @@ namespace Networking.Tests.OctetsTests
             };
 
 
-            octets.Length.Should().Be(3);
+            octets.Bytes.ToArray().Should().Equal(0x12, 0x34, 0x56);
         }
 
         [Fact]
-        public void Length_0()
+        public void Bytes_IsEmpty()
         {
-            new Octets().Length.Should().Be(0);
+            new Octets().Bytes.IsEmpty.Should().Be(true);
         }
     }
 }

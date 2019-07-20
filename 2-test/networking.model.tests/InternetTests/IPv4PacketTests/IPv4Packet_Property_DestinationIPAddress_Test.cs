@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
             {
                 Bytes = new Byte[32]
             };
-            ipv4Packet[16, 4] = new Byte[] {0xC0, 0xA8, 0x01, 0x02};
+
+            ipv4Packet.SetBytes(16, 4, new Byte[] {0xC0, 0xA8, 0x01, 0x02});
 
             ipv4Packet.DestinationIPAddress.ToString().Should().Be("192.168.1.2");
         }

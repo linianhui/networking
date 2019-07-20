@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[16, 2] = new Byte[] {0x12, 0x34};
+
+            tcpSegment.SetBytes(16, 2, new Byte[] { 0x12, 0x34 });
 
             tcpSegment.Checksum.Should().Be(4660);
         }

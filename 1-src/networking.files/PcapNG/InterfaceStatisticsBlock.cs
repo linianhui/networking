@@ -23,7 +23,7 @@ namespace Networking.Files.PcapNG
         {
             get
             {
-                var bytes = base[Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin];
+                var bytes = GetBytes(Layout.TimestampHighBegin, Layout.TimestampLowEnd - Layout.TimestampHighBegin);
                 return Timestamp.ToTimestampNanosecond(IsLittleEndian, false, bytes.Span);
             }
         }

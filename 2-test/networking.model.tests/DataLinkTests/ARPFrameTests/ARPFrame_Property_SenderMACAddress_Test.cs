@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             {
                 Bytes = new Byte[28]
             };
-            arpFrame[8, 6] = new Byte[] { 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC };
+            arpFrame.SetBytes(8, 6, new Byte[] { 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC });
 
 
             arpFrame.SenderMACAddress.ToString().Should().Be("12:34:56:78:9A:BC");

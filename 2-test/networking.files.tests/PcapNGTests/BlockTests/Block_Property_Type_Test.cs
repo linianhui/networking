@@ -28,7 +28,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockTests
                 Bytes = new Byte[12]
             };
 
-            block[0, 4] = input;
+            block.SetBytes(0, 4, input);
 
             block.Type.Should().Be(expected);
         }

@@ -25,7 +25,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
                 Bytes = new Byte[28]
             };
 
-            arpFrame[0, 2] = input;
+            arpFrame.SetBytes(0, 2, input);
 
 
             arpFrame.HardwareType.Should().Be(expected);
@@ -42,7 +42,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
 
             arpFrame.HardwareType = input;
 
-            arpFrame[0, 2].ToArray().Should().Equal(expected);
+            arpFrame.GetBytes(0, 2).ToArray().Should().Equal(expected);
             arpFrame.HardwareType.Should().Be(input);
         }
     }

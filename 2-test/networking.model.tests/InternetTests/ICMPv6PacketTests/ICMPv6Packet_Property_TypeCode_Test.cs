@@ -12,7 +12,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
         {
             new Object[] { new Byte[]{ 0x01, 0x00 }, ICMPv6TypeCode.DestinationUnreachableOfNoRoute },
             new Object[] { new Byte[]{ 0x03, 0x00 }, ICMPv6TypeCode.TimeExceededOfHopLimitExceededInTransit },
-            new Object[] { new Byte[]{ 0x03, 0x01 }, ICMPv6TypeCode.TimeExceededOfFragmentReassembly },   
+            new Object[] { new Byte[]{ 0x03, 0x01 }, ICMPv6TypeCode.TimeExceededOfFragmentReassembly },
         };
 
         [Theory]
@@ -24,7 +24,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv6Packet[0, 2] = input;
+            icmpv6Packet.SetBytes(0, 2, input);
 
             ((Byte)(icmpv6Packet.Type)).Should().Be(input[0]);
             icmpv6Packet.Code.Should().Be(input[1]);
@@ -41,8 +41,8 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
             };
 
             icmpv6Packet.TypeCode = input;
-            icmpv6Packet[0, 2].ToArray().Should().Equal(expected);
-             ((Byte)(icmpv6Packet.Type)).Should().Be(expected[0]);
+            icmpv6Packet.GetBytes(0, 2).ToArray().Should().Equal(expected);
+            ((Byte)(icmpv6Packet.Type)).Should().Be(expected[0]);
             icmpv6Packet.Code.Should().Be(expected[1]);
             icmpv6Packet.TypeCode.Should().Be(input);
         }

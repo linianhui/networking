@@ -24,7 +24,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPFrameTests
                 Bytes = new Byte[14]
             };
 
-            pppFrame[0, 2] = input;
+            pppFrame.SetBytes(0, 2, input);
 
             pppFrame.Type.Should().Be(expected);
         }
@@ -40,7 +40,7 @@ namespace Networking.Model.Tests.DataLinkTests.PPPFrameTests
 
             pppFrame.Type = input;
 
-            pppFrame[0, 2].ToArray().Should().Equal(expected);
+            pppFrame.GetBytes(0, 2).ToArray().Should().Equal(expected);
             pppFrame.Type.Should().Be(input);
         }
     }

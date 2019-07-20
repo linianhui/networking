@@ -14,7 +14,8 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             {
                 Bytes = new Byte[32]
             };
-            tcpSegment[4, 4] = new Byte[] { 0x01, 0x23, 0x45, 0x67 };
+
+            tcpSegment.SetBytes(4, 4, new Byte[] { 0x01, 0x23, 0x45, 0x67 });
 
             tcpSegment.SequenceNumber.Should().Be(19088743);
         }
@@ -30,7 +31,7 @@ namespace Networking.Model.Tests.TransportTests.TCPSegmentTests
             tcpSegment.SequenceNumber = 19088743;
 
             tcpSegment.SequenceNumber.Should().Be(19088743);
-            tcpSegment[4, 4].ToArray().Should().Equal(0x01, 0x23, 0x45, 0x67);
+            tcpSegment.GetBytes(4, 4).ToArray().Should().Equal(0x01, 0x23, 0x45, 0x67);
         }
     }
 }

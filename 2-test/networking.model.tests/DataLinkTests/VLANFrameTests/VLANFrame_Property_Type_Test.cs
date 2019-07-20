@@ -27,7 +27,7 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
                 Bytes = new Byte[4]
             };
 
-            vlanFrame[2, 2] = input;
+            vlanFrame.SetBytes(2, 2, input);
 
             vlanFrame.Type.Should().Be(expected);
         }
@@ -43,7 +43,7 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 
             vlanFrame.Type = input;
 
-            vlanFrame[2, 2].ToArray().Should().Equal(expected);
+            vlanFrame.GetBytes(2, 2).ToArray().Should().Equal(expected);
             vlanFrame.Type.Should().Be(input);
         }
     }

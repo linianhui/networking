@@ -11,9 +11,12 @@ namespace Networking.Display.Text
     {
         private readonly TextWriter _textWriter;
 
-        public TextDisplayer(TextWriter textWriter)
+        private readonly DisplayDispatcher _displayDispatcher;
+
+        public TextDisplayer(TextWriter textWriter, DisplayDispatcher displayDispatcher)
         {
             _textWriter = textWriter;
+            _displayDispatcher = displayDispatcher;
         }
 
         public void NewLine(String message)
@@ -21,16 +24,25 @@ namespace Networking.Display.Text
             _textWriter.WriteLine(message);
         }
 
+        public void Display(Octets octets)
+        {
+            var display = _displayDispatcher.Display(this, octets);
+            if (display == false)
+            {
+                NewLine(octets.ToString());
+            }
+        }
+
         public void Display(EthernetFrame ethernetFrame)
         {
             NewLine($"ethernet : {ethernetFrame.SourceMACAddress,17} > {ethernetFrame.DestinationMACAddress,-17} type={ethernetFrame.Type}");
-            DisplayEthernetFramePayload(ethernetFrame.Type, ethernetFrame.Payload);
+            Display(ethernetFrame.Payload);
         }
 
         public void Display(IPv4Packet ipv4Packet)
         {
             NewLine($"ipv4     : {ipv4Packet.SourceIPAddress,17} > {ipv4Packet.DestinationIPAddress,-17} type={ipv4Packet.Type,-6} ttl={ipv4Packet.TTL,-3}");
-            DisplayIPv4PacketPayload(ipv4Packet.Type, ipv4Packet.Payload);
+            Display(ipv4Packet.Payload);
         }
 
         public void Display(UDPDatagram udpDatagram)
@@ -51,7 +63,7 @@ namespace Networking.Display.Text
         public void Display(VLANFrame vlanFrame)
         {
             NewLine($"vlan     : vid={vlanFrame.VID,-5} type={vlanFrame.Type,-20}");
-            DisplayEthernetFramePayload(vlanFrame.Type, vlanFrame.Payload);
+            Display(vlanFrame.Payload);
         }
 
         public void Display(IPv6Packet ipv6Packet)
@@ -73,59 +85,7 @@ namespace Networking.Display.Text
         public void Display(PPPFrame pppFrame)
         {
             NewLine($"ppp      : type={pppFrame.Type}");
-            DisplayPPPFramePayload(pppFrame.Type, pppFrame.Payload);
-        }
-
-        private void DisplayEthernetFramePayload(EthernetFrameType ethernetFrameType, Octets ethernetFramePayload)
-        {
-            switch (ethernetFrameType)
-            {
-                case EthernetFrameType.IPv4:
-                    Display((IPv4Packet)ethernetFramePayload);
-                    break;
-                case EthernetFrameType.ARP:
-                    Display((ARPFrame)ethernetFramePayload);
-                    break;
-                case EthernetFrameType.IPv6:
-                    Display((IPv6Packet)ethernetFramePayload);
-                    break;
-                case EthernetFrameType.VLAN:
-                    Display((VLANFrame)ethernetFramePayload);
-                    break;
-                case EthernetFrameType.PPPoEDiscoveryStage:
-                case EthernetFrameType.PPPoESessionStage:
-                    Display((PPPoEFrame)ethernetFramePayload);
-                    break;
-            }
-        }
-
-        private void DisplayIPv4PacketPayload(IPPacketType ipPacketType, Octets ipPacketPayload)
-        {
-            switch (ipPacketType)
-            {
-                case IPPacketType.ICMPv4:
-                    Display((ICMPv4Packet)ipPacketPayload);
-                    break;
-                case IPPacketType.UDP:
-                    Display((UDPDatagram)ipPacketPayload);
-                    break;
-                case IPPacketType.TCP:
-                    Display((TCPSegment)ipPacketPayload);
-                    break;
-            }
-        }
-
-        private void DisplayPPPFramePayload(PPPFrameType pppFrameType, Octets pppFramePayload)
-        {
-            switch (pppFrameType)
-            {
-                case PPPFrameType.IPv4:
-                    Display((IPv4Packet)pppFramePayload);
-                    break;
-                case PPPFrameType.IPv6:
-                    Display((IPv6Packet)pppFramePayload);
-                    break;
-            }
+            Display(pppFrame.Payload);
         }
 
         private static String BuildFlags(TCPSegment tcpSegment)

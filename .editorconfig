@@ -77,6 +77,7 @@ dotnet_naming_style.private_field_style.capitalization                    = came
 dotnet_naming_rule.non_private_field_rule.symbols                         = non_private_field_symbol
 dotnet_naming_rule.non_private_field_rule.style                           = non_private_field_style
 dotnet_naming_rule.non_private_field_rule.severity                        = error
+dotnet_naming_symbols.non_private_field_symbol.required_modifiers         = const,static
 dotnet_naming_symbols.non_private_field_symbol.applicable_kinds           = field
 dotnet_naming_symbols.non_private_field_symbol.applicable_accessibilities = public,internal,protected,protected_internal
 dotnet_naming_style.non_private_field_style.capitalization                = pascal_case

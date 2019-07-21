@@ -1,5 +1,5 @@
 [string]$SCRIPT       = '0-build/build.cake'
-[string]$CAKE_VERSION = '0.33.0'
+[string]$CAKE_VERSION = '0.34.1'
 
 # git commit sha
 if (Get-Command git -ErrorAction SilentlyContinue){

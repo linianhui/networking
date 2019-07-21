@@ -3,7 +3,7 @@
 set -x
 
 SCRIPT='0-build/build.cake'
-CAKE_VERSION='0.33.0'
+CAKE_VERSION='0.34.1'
 
 # git commit sha
 if command -v git >/dev/null 2>&1; then 

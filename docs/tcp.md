@@ -92,3 +92,9 @@ Server端 (`destination_ip`, `destination_port`) 固定，最大连接数=`sourc
 # 3 TCP状态迁移图
 
 ![TCP State Diagram](img/tcp.state-diagram.svg)
+
+
+# Reference
+
+Article
+> http://www.52im.net/thread-561-1-1.html

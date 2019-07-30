@@ -29,7 +29,7 @@
 # Reference
 
 The C10K Problem
-> http://www.kegel.com/c10k.html
+> http://www.kegel.com/c10k.html  
 > http://www.52im.net/thread-566-1-1.html
 
 Select
@@ -42,10 +42,10 @@ AIO(Asynchronous Input/Output)
 > https://en.wikipedia.org/wiki/Asynchronous_I/O
 
 IOCP(Input/Output Completion Port)
-> https://en.wikipedia.org/wiki/Windows_NT_3.5
-> https://en.wikipedia.org/wiki/Input/output_completion_port
+> https://en.wikipedia.org/wiki/Windows_NT_3.5  
+> https://en.wikipedia.org/wiki/Input/output_completion_port  
 > https://docs.microsoft.com/zh-cn/windows/win32/fileio/i-o-completion-ports
 
 I/O Model Article
-> http://www.52im.net/thread-1935-1-1.html
+> http://www.52im.net/thread-1935-1-1.html  
 > https://developer.ibm.com/articles/l-async/

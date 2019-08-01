@@ -1,3 +1,11 @@
+- [0 IO 模型](#0-io-模型)
+- [1 Blocking I/O](#1-blocking-io)
+- [2 Non-Blocking I/O](#2-non-blocking-io)
+- [3 I/O Multiplexing (select, poll, epoll)](#3-io-multiplexing-select-poll-epoll)
+- [4 Signal Driven I/O (SIGIO)](#4-signal-driven-io-sigio)
+- [5 Asynchronous I/O (POSIX aio, Windows iocp)](#5-asynchronous-io-posix-aio-windows-iocp)
+- [Reference](#reference)
+
 # 0 IO 模型
 
 在I/O模型中，设想如此场景 : **`application`通过`kernel`的`read`函数读取数据，但是`kernel`还未准备好数据**。那么此时`read`函数有两种处理方式（大致的流程）：
@@ -10,7 +18,7 @@
       <br />
       对于<code>application</code>是<code>Blocking</code>的。
       <br />
-      对与<code>kernel</code>的<code>read</code>函数是<code>Synchronous</code>的。
+      对于<code>kernel</code>的<code>read</code>函数是<code>Synchronous</code>的。
     </td>
   </tr>
   <tr>
@@ -20,7 +28,7 @@
       <br />
       对于<code>application</code>是<code>Non-Blocking</code>的；
       <br />
-      对与<code>kernel</code>的<code>read</code>函数是<code>Asynchronous</code>的。
+      对于<code>kernel</code>的<code>read</code>函数是<code>Asynchronous</code>的。
       <br />
       <br />
       由于<code>read</code>函数没有返回<code>application</code>期望读到的数据，那么就必须通过另外的方式把数据给到<code>application</code>。那么此时，也有2种处理方式：

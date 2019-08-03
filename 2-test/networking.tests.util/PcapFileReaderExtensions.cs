@@ -19,7 +19,7 @@ namespace Networking
         /// <returns></returns>
         public static PcapFileReader GetPcapFileReader(this Object @this, String fileName)
         {
-            return new PcapFileReader(GetResourceStream(@this, fileName));
+            return GetPacketReader(@this, fileName) as PcapFileReader;
         }
 
         /// <summary>
@@ -30,7 +30,18 @@ namespace Networking
         /// <returns></returns>
         public static PcapNGFileReader GetPcapNGFileReader(this Object @this, String fileName)
         {
-            return new PcapNGFileReader(GetResourceStream(@this, fileName));
+            return GetPacketReader(@this, fileName) as PcapNGFileReader;
+        }
+
+        /// <summary>
+        /// 获取<see cref="PacketReader"/>
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        private static PacketReader GetPacketReader(Object @this, String fileName)
+        {
+            return PacketReader.From(GetResourceStream(@this, fileName));
         }
 
         private static Stream GetResourceStream(Object @this, String fileName)

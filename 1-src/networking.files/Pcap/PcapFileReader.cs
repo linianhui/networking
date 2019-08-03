@@ -12,6 +12,17 @@ namespace Networking.Files.Pcap
     public class PcapFileReader : PacketReader
     {
         /// <summary>
+        /// 魔数
+        /// </summary>
+        public static readonly ISet<UInt32> MagicNumbers = new HashSet<UInt32>
+        {
+           0xA1_B2_C3_D4,
+           0xD4_C3_B2_A1,
+           0xA1_B2_3C_4D,
+           0x4D_3C_B2_A1
+        };
+
+        /// <summary>
         /// 文件首部
         /// </summary>
         public PcapFileHeader Header { get; private set; }
@@ -19,7 +30,7 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 构造函数
         /// </summary>
-        public PcapFileReader(Stream stream) : base(stream)
+        internal PcapFileReader(Stream stream) : base(stream)
         {
             ReadFileHeader();
         }

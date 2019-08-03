@@ -12,9 +12,17 @@ namespace Networking.Files.PcapNG
     public class PcapNGFileReader : PacketReader
     {
         /// <summary>
+        /// 魔数
+        /// </summary>
+        public static readonly ISet<UInt32> MagicNumbers = new HashSet<UInt32>
+        {
+           0x0A_0D_0D_0A
+        };
+
+        /// <summary>
         /// 构造函数
         /// </summary>
-        public PcapNGFileReader(Stream stream) : base(stream)
+        internal PcapNGFileReader(Stream stream) : base(stream)
         {
         }
 

@@ -8,6 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="PacketReaderTests\error.pcap">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PacketReaderTests\pcap.pcap">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PacketReaderTests\pcapng.pcapng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="PcapTests\PcapFileReaderTests\pcap.pcap" />
     <EmbeddedResource Include="PcapNGTests\PcapNGFileReaderTests\1-shb.11-idb.64-epb.1-nrb.11-isb.pcapng" />
   </ItemGroup>

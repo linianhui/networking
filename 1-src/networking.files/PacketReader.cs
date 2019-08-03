@@ -19,25 +19,9 @@ namespace Networking.Files
         /// <summary>
         /// 构造函数
         /// </summary>
-        protected PacketReader(String filePath)
-        {
-            _stream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
         protected PacketReader(Stream stream)
         {
             _stream = stream;
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        protected PacketReader(Byte[] bytes)
-        {
-            _stream = new MemoryStream(bytes);
         }
 
         /// <summary>

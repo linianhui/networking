@@ -19,23 +19,7 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 构造函数
         /// </summary>
-        public PcapFileReader(String filePath) : base(filePath)
-        {
-            ReadFileHeader();
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
         public PcapFileReader(Stream stream) : base(stream)
-        {
-            ReadFileHeader();
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PcapFileReader(Byte[] bytes) : base(bytes)
         {
             ReadFileHeader();
         }

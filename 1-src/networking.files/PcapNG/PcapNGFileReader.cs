@@ -9,26 +9,12 @@ namespace Networking.Files.PcapNG
     /// <see href="https://pcapng.github.io/pcapng"/>
     /// <see href="https://wiki.wireshark.org/Development/PcapNg"/>
     /// </summary>
-    public partial class PcapNGFileReader : PacketReader
+    public class PcapNGFileReader : PacketReader
     {
         /// <summary>
         /// 构造函数
         /// </summary>
-        public PcapNGFileReader(String filePath) : base(filePath)
-        {
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
         public PcapNGFileReader(Stream stream) : base(stream)
-        {
-        }
-
-        /// <summary>
-        /// 构造函数
-        /// </summary>
-        public PcapNGFileReader(Byte[] bytes) : base(bytes)
         {
         }
 

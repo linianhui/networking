@@ -93,7 +93,7 @@ namespace Networking.Files.PcapNG
                 return null;
             }
 
-            return BlockCreator.Create(blockHeader.Type, blockHeader.IsLittleEndian, blockBytes);
+            return BlockFactory.Create(blockHeader.Type, blockHeader.IsLittleEndian, blockBytes);
         }
 
         private BlockHeader ReadBlockHeader(Boolean isLittleEndian)

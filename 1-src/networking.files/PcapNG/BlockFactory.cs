@@ -5,9 +5,8 @@ namespace Networking.Files.PcapNG
 {
     /// <summary>
     /// <see cref="Block"/>创建者
-    /// <see cref="Block"/>创建者
     /// </summary>
-    public static class BlockCreator
+    public static class BlockFactory
     {
 
         /// <summary>

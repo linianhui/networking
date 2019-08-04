@@ -4,9 +4,9 @@ using FluentAssertions;
 using Networking.Files.PcapNG;
 using Xunit;
 
-namespace Networking.Files.Tests.PcapNGTests.BlockCreatorTests
+namespace Networking.Files.Tests.PcapNGTests.BlockFactoryTests
 {
-    public class BlockCreator_Method_Create_Test
+    public class BlockFactory_Method_Create_Test
     {
 
         public static List<Object[]> Data => new List<Object[]>
@@ -23,7 +23,7 @@ namespace Networking.Files.Tests.PcapNGTests.BlockCreatorTests
         [MemberData(nameof(Data))]
         public void Create(BlockType blockType, Type excepted)
         {
-            var block = BlockCreator.Create(blockType, true, new Byte[12]);
+            var block = BlockFactory.Create(blockType, true, new Byte[12]);
             block.IsLittleEndian.Should().Be(true);
             block.GetType().Should().Be(excepted);
         }

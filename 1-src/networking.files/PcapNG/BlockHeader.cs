@@ -28,7 +28,7 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 创建
         /// </summary>
-        public static BlockHeader From(Boolean isLittleEndian, Memory<Byte> headerBytes)
+        internal static BlockHeader From(Boolean isLittleEndian, Memory<Byte> headerBytes)
         {
             var header = new BlockHeader
             {

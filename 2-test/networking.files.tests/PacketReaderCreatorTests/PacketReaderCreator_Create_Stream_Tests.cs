@@ -6,9 +6,9 @@ using Networking.Files.Pcap;
 using Networking.Files.PcapNG;
 using Xunit;
 
-namespace Networking.Files.Tests.PacketReaderTests
+namespace Networking.Files.Tests.PacketReaderCreatorTests
 {
-    public class PacketReader_From_Stream_Tests
+    public class PacketReaderCreator_Create_Stream_Tests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -22,7 +22,7 @@ namespace Networking.Files.Tests.PacketReaderTests
         [Fact]
         public void From_Null_Should_Throw_ArgumentNullException()
         {
-            Action action = () => PacketReader.From((Stream)null);
+            Action action = () => PacketReaderCreator.Create((Stream)null);
 
             action.Should().Throw<ArgumentNullException>();
         }
@@ -30,7 +30,7 @@ namespace Networking.Files.Tests.PacketReaderTests
         [Fact]
         public void From_Not_Support_Magic_Bytes_Should_Throw_NotSupportedException()
         {
-            Action action = () => PacketReader.From(new MemoryStream(new Byte[] { 1, 2, 3, 4 }));
+            Action action = () => PacketReaderCreator.Create(new MemoryStream(new Byte[] { 1, 2, 3, 4 }));
 
             action.Should().Throw<NotSupportedException>()
                 .WithMessage("not support file magic bytes 01-02-03-04.");
@@ -40,7 +40,7 @@ namespace Networking.Files.Tests.PacketReaderTests
         [MemberData(nameof(Data))]
         public void From(Byte[] input, Type expected)
         {
-            PacketReader.From(new MemoryStream(input)).GetType().Should().Be(expected);
+            PacketReaderCreator.Create(new MemoryStream(input)).GetType().Should().Be(expected);
         }
     }
 }

@@ -5,58 +5,52 @@ using Networking.Files.PcapNG;
 
 namespace Networking.Files
 {
-    public partial class PacketReader
+    /// <summary>
+    /// <see cref="PacketReader"/>
+    /// </summary>
+    public static class PacketReaderCreator
     {
         /// <summary>
-        /// From
+        /// Create
         /// </summary>
         /// <param name="filePath">绝对文件路径</param>
         /// <returns></returns>
-        public static PacketReader From(String filePath)
+        public static PacketReader Create(String filePath)
         {
             if (filePath == null)
             {
                 throw new ArgumentNullException(nameof(filePath));
             }
-            return From(new FileStream(filePath, FileMode.Open, FileAccess.Read));
+            return Create(new FileStream(filePath, FileMode.Open, FileAccess.Read));
         }
 
         /// <summary>
-        /// From
+        /// Create
         /// </summary>
         /// <param name="bytes">字节数组</param>
         /// <returns></returns>
-        public static PacketReader From(Byte[] bytes)
+        public static PacketReader Create(Byte[] bytes)
         {
             if (bytes == null)
             {
                 throw new ArgumentNullException(nameof(bytes));
             }
-            return From(new MemoryStream(bytes));
+            return Create(new MemoryStream(bytes));
         }
 
         /// <summary>
-        /// From
+        /// Create
         /// </summary>
         /// <param name="stream">流</param>
         /// <returns></returns>
-        public static PacketReader From(Stream stream)
+        public static PacketReader Create(Stream stream)
         {
             if (stream == null)
             {
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            Byte[] ReadMagicBytes()
-            {
-                var bytes = new Byte[4];
-                stream.Seek(0, SeekOrigin.Begin);
-                stream.Read(bytes, 0, 4);
-                stream.Seek(0, SeekOrigin.Begin);
-                return bytes;
-            }
-
-            var magicBytes = ReadMagicBytes();
+            var magicBytes = ReadMagicBytes(stream);
             var magicNumber = BitConverter.ToUInt32(magicBytes, 0);
             if (PcapFileReader.MagicNumbers.Contains(magicNumber))
             {
@@ -69,6 +63,15 @@ namespace Networking.Files
             }
 
             throw new NotSupportedException($"not support file magic bytes {BitConverter.ToString(magicBytes)}.");
+        }
+
+        private static Byte[] ReadMagicBytes(Stream stream)
+        {
+            var bytes = new Byte[4];
+            stream.Seek(0, SeekOrigin.Begin);
+            stream.Read(bytes, 0, 4);
+            stream.Seek(0, SeekOrigin.Begin);
+            return bytes;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Networking.Model
     /// <summary>
     /// PDU 创建者
     /// </summary>
-    public static class PDUCreator
+    public static class PDUFactory
     {
         /// <summary>
         /// 默认

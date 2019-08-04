@@ -141,7 +141,7 @@ namespace Networking.Model.Internet
         {
             get
             {
-                return PDUCreator.Create(Type, GetBytes(HeaderLength * 4));
+                return PDUFactory.Create(Type, GetBytes(HeaderLength * 4));
             }
         }
     }

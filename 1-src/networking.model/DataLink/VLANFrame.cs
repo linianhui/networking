@@ -53,7 +53,7 @@ namespace Networking.Model.DataLink
         {
             get
             {
-                return PDUCreator.Create(Type, GetBytes(Layout.HeaderLength));
+                return PDUFactory.Create(Type, GetBytes(Layout.HeaderLength));
             }
         }
     }

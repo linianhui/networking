@@ -51,7 +51,7 @@ namespace Networking.Model.Transport
         {
             get
             {
-                return PDUCreator.Create(SourcePort, DestinationPort, GetBytes(Layout.HeaderLength));
+                return PDUFactory.Create(SourcePort, DestinationPort, GetBytes(Layout.HeaderLength));
             }
         }
     }

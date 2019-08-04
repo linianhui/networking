@@ -33,7 +33,7 @@ namespace Networking.Files.PcapNG
         public IEnumerable<Block> ReadBlocks()
         {
             SectionHeaderBlock sectionHeaderBlock = null;
-            var block = ReadBlock(null);
+            var block = ReadBlock(false);
             var interfaceDescriptionBlocks = new List<InterfaceDescriptionBlock>();
             while (block != null)
             {
@@ -47,13 +47,20 @@ namespace Networking.Files.PcapNG
                         interfaceDescriptionBlocks.Add((InterfaceDescriptionBlock)block);
                         break;
                 }
+
+                if (sectionHeaderBlock == null)
+                {
+                    throw new ArgumentNullException(nameof(sectionHeaderBlock));
+                }
+
                 block.SectionHeader = sectionHeaderBlock;
+
                 if (block.InterfaceId.HasValue)
                 {
                     block.InterfaceDescription = interfaceDescriptionBlocks[(Int32)block.InterfaceId.Value];
                 }
                 yield return block;
-                block = ReadBlock(sectionHeaderBlock?.IsLittleEndian);
+                block = ReadBlock(sectionHeaderBlock.IsLittleEndian);
             }
         }
 
@@ -72,7 +79,7 @@ namespace Networking.Files.PcapNG
             }
         }
 
-        private Block ReadBlock(Boolean? isLittleEndian)
+        private Block ReadBlock(Boolean isLittleEndian)
         {
             var blockHeader = ReadBlockHeader(isLittleEndian);
             if (blockHeader == null)
@@ -86,10 +93,10 @@ namespace Networking.Files.PcapNG
                 return null;
             }
 
-            return BlockCreator.Create(blockHeader.Type, blockHeader.IsLittleEndian, (Memory<Byte>)blockBytes);
+            return BlockCreator.Create(blockHeader.Type, blockHeader.IsLittleEndian, blockBytes);
         }
 
-        private BlockHeader ReadBlockHeader(Boolean? isLittleEndian)
+        private BlockHeader ReadBlockHeader(Boolean isLittleEndian)
         {
             var headerBytes = base.ReadBytes(SectionHeaderBlock.Layout.MagicNumberEnd);
             if (headerBytes.Length == 0)
@@ -97,9 +104,9 @@ namespace Networking.Files.PcapNG
                 return null;
             }
 
-            base.Position = base.Position - SectionHeaderBlock.Layout.MagicNumberEnd;
+            base.Position -= SectionHeaderBlock.Layout.MagicNumberEnd;
 
-            return BlockHeader.From(headerBytes, isLittleEndian);
+            return BlockHeader.From(isLittleEndian, headerBytes);
         }
 
         private Byte[] ReadBlockBytes(UInt32 blockLength)

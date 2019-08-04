@@ -28,10 +28,11 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 创建
         /// </summary>
-        public static BlockHeader From(Memory<Byte> headerBytes, Boolean? isLittleEndian)
+        public static BlockHeader From(Boolean isLittleEndian, Memory<Byte> headerBytes)
         {
             var header = new BlockHeader
             {
+                IsLittleEndian = isLittleEndian,
                 Bytes = headerBytes
             };
 
@@ -39,16 +40,8 @@ namespace Networking.Files.PcapNG
             {
                 header.IsLittleEndian = header.GetByte(8) == 0x4D;
             }
-            else
-            {
-                if (isLittleEndian != null)
-                {
-                    header.IsLittleEndian = isLittleEndian.Value;
-                }
-            }
 
             return header;
         }
     }
-
 }

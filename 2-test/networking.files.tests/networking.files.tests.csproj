@@ -8,13 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="PacketReaderCreatorTests\error.pcap">
+    <Content Include="PacketReaderFactoryTests\error.pcap">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="PacketReaderCreatorTests\pcap.pcap">
+    <Content Include="PacketReaderFactoryTests\pcap.pcap">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="PacketReaderCreatorTests\pcapng.pcapng">
+    <Content Include="PacketReaderFactoryTests\pcapng.pcapng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

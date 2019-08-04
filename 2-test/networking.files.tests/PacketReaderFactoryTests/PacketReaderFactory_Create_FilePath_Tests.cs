@@ -5,9 +5,9 @@ using Networking.Files.Pcap;
 using Networking.Files.PcapNG;
 using Xunit;
 
-namespace Networking.Files.Tests.PacketReaderCreatorTests
+namespace Networking.Files.Tests.PacketReaderFactoryTests
 {
-    public class PacketReaderCreator_Create_FilePath_Tests
+    public class PacketReaderFactory_Create_FilePath_Tests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
@@ -18,7 +18,7 @@ namespace Networking.Files.Tests.PacketReaderCreatorTests
         [Fact]
         public void From_Null_Should_Throw_ArgumentNullException()
         {
-            Action action = () => PacketReaderCreator.Create((String)null);
+            Action action = () => PacketReaderFactory.Create((String)null);
 
             action.Should().Throw<ArgumentNullException>();
         }
@@ -26,7 +26,7 @@ namespace Networking.Files.Tests.PacketReaderCreatorTests
         [Fact]
         public void From_Not_Support_Magic_Bytes_Should_Throw_NotSupportedException()
         {
-            Action action = () => PacketReaderCreator.Create(BuildFilePath("error.pcap"));
+            Action action = () => PacketReaderFactory.Create(BuildFilePath("error.pcap"));
 
             action.Should().Throw<NotSupportedException>()
                 .WithMessage("not support file magic bytes 74-68-69-73.");
@@ -36,13 +36,13 @@ namespace Networking.Files.Tests.PacketReaderCreatorTests
         [MemberData(nameof(Data))]
         public void From(String input, Type expected)
         {
-            PacketReaderCreator.Create(BuildFilePath(input)).GetType().Should().Be(expected);
+            PacketReaderFactory.Create(BuildFilePath(input)).GetType().Should().Be(expected);
         }
 
         private static String BuildFilePath(String fileName)
         {
             return AppContext.BaseDirectory
-                   + "/PacketReaderCreatorTests/"
+                   + "/PacketReaderFactoryTests/"
                    + fileName;
         }
     }

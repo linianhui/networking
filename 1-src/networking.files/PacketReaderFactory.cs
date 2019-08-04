@@ -8,7 +8,7 @@ namespace Networking.Files
     /// <summary>
     /// <see cref="PacketReader"/>
     /// </summary>
-    public static class PacketReaderCreator
+    public static class PacketReaderFactory
     {
         /// <summary>
         /// Create

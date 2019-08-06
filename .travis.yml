@@ -1,12 +1,9 @@
 language: csharp
+dotnet: 2.2
 
 os:
   - linux
-
-dist: xenial
-
-mono: none
-dotnet: 2.2
+  - osx
 
 script:
   - ./cake.sh -target=test

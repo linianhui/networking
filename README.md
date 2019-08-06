@@ -21,7 +21,7 @@
 | CI Service | Build Platform | Stauts                            |
 | ---------- | -------------- | --------------------------------- |
 | AppVeyor   | Windows        | [![AppVeyor-Img]][AppVeyor-Url]   |
-| Travis     | Linux          | [![Travis-Img]][Travis-Url]       |
+| Travis     | Linux,osx      | [![Travis-Img]][Travis-Url]       |
 | Circle     | Docker         | [![Circle-Img]][Circle-Url]       |
 | Gitlab CI  | Docker         | [![Gitlab-CI-Img]][Gitlab-CI-Url] |
 

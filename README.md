@@ -18,7 +18,7 @@
 
 # CI
 
-| CI Service |  Platform      | Test Stauts                       |
+| CI Service |  Platform      | Test Status                       |
 | ---------- | -------------- | --------------------------------- |
 | AppVeyor   | windows        | [![AppVeyor-Img]][AppVeyor-Url]   |
 | Travis     | linux,osx      | [![Travis-Img]][Travis-Url]       |

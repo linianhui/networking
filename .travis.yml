@@ -7,4 +7,5 @@ os:
   - osx
 
 script:
+  - dotnet --info
   - ./cake.sh -target=test

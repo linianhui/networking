@@ -21,7 +21,7 @@
 | CI Service |  Platform      | Test Status                       |
 | ---------- | -------------- | --------------------------------- |
 | AppVeyor   | windows        | [![AppVeyor-Img]][AppVeyor-Url]   |
-| Travis     | linux,osx      | [![Travis-Img]][Travis-Url]       |
+| Travis     | linux          | [![Travis-Img]][Travis-Url]       |
 | Circle     | docker         | [![Circle-Img]][Circle-Url]       |
 | Gitlab CI  | docker         | [![Gitlab-CI-Img]][Gitlab-CI-Url] |
 

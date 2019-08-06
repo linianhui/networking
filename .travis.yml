@@ -4,7 +4,6 @@ mono: none
 
 os:
   - linux
-  - osx
 
 script:
   - dotnet --info

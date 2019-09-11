@@ -8,11 +8,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [windows-latest, ubuntu-latest, macOS-latest]
     
     steps:
     - uses: actions/checkout@v1
     - name: dotnet info
       run: dotnet --info
     - name: test
+      shell: pwsh
       run: ./cake.ps1 -target=pack

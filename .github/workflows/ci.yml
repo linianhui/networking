@@ -5,15 +5,15 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest, macOS-latest]
-    
+    container:
+      image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+
     steps:
     - uses: actions/checkout@v1
+
     - name: dotnet info
       run: dotnet --info
+
     - name: test
-      shell: pwsh
-      run: ./cake.ps1 -target=pack
+      shell: bash
+      run: ./cake.sh -target=test

@@ -5,6 +5,7 @@ on: [push]
 jobs:
   build:
 
+    runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
 

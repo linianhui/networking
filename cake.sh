@@ -2,10 +2,10 @@
 
 set -x
 
+SCRIPT='0-build/build.cake'
+
 # dotnet info
 dotnet --info
-
-SCRIPT='0-build/build.cake'
 
 # git commit sha
 if command -v git >/dev/null 2>&1; then 

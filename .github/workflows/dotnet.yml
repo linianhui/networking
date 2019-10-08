@@ -12,8 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: dotnet --info
-      run: dotnet --info
     - name: test
       shell: pwsh
       run: ./cake.ps1 -target=pack

@@ -14,5 +14,4 @@ jobs:
       - name: git checkout
         uses: actions/checkout@v1
       - name: test
-        shell: pwsh
-        run: ./cake.ps1 -target=pack
+        run: ./cake.sh -target=pack

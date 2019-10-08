@@ -8,13 +8,15 @@ jobs:
 
     container:
       # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
-      image: mcr.microsoft.com/dotnet/core/sdk:3.0-bionic
-      env:
-        DOTNET_CLI_TELEMETRY_OPTOUT: true
+      image: mcr.microsoft.com/dotnet/core/sdk:3.0-alpine
 
     steps:
       - name: git checkout
         uses: actions/checkout@v1
       - name: test
         shell: sh
-        run: ./cake.sh -target=pack
+        run: |
+          pwd
+          ls
+          dotnet tool restore
+          ./cake.sh -target=pack

@@ -1,5 +1,7 @@
 [string]$SCRIPT       = '0-build/build.cake'
 
+dotnet --info
+
 # git commit sha
 if (Get-Command git -ErrorAction SilentlyContinue){
     [string]$GIT_COMMIT_SHA = git rev-parse --short HEAD

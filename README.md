@@ -18,12 +18,11 @@
 
 # CI
 
-| CI Service |  Platform      | Test Status                       |
-| ---------- | -------------- | --------------------------------- |
-| AppVeyor   | windows        | [![AppVeyor-Img]][AppVeyor-Url]   |
-| Travis     | linux          | [![Travis-Img]][Travis-Url]       |
-| Circle     | docker         | [![Circle-Img]][Circle-Url]       |
-| Gitlab CI  | docker         | [![Gitlab-CI-Img]][Gitlab-CI-Url] |
+| CI Service     | Platform            | Test Status                                 |
+| -------------- | ------------------- | ------------------------------------------- |
+| AppVeyor       | windows             | [![AppVeyor-Img]][AppVeyor-Url]             |
+| Github Actions | linux,macos,windows | [![Github-Actions-Img]][Github-Actions-Url] |
+| Gitlab CI      | docker              | [![Gitlab-CI-Img]][Gitlab-CI-Url]           |
 
 # Docker Build
 
@@ -43,11 +42,8 @@ docker run \
 [AppVeyor-Img]:https://ci.appveyor.com/api/projects/status/1yvioftypfn3vi48?svg=true
 [AppVeyor-Url]:https://ci.appveyor.com/project/linianhui/networking
 
-[Travis-Img]:https://travis-ci.org/linianhui/networking.svg?branch=master
-[Travis-Url]:https://travis-ci.org/linianhui/networking
-
-[Circle-Img]:https://circleci.com/gh/linianhui/networking.svg?style=svg
-[Circle-Url]:https://circleci.com/gh/linianhui/networking
+[Github-Actions-Img]:https://github.com/linianhui/networking/workflows/test/badge.svg
+[Github-Actions-Url]:https://github.com/linianhui/networking/actions
 
 [Gitlab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
 [Gitlab-CI-Url]:https://gitlab.com/lnh/networking/commits/master

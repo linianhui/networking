@@ -2,6 +2,8 @@
 
 set -x
 
+dotnet --info
+
 SCRIPT='0-build/build.cake'
 
 # git commit sha

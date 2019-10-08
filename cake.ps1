@@ -1,5 +1,6 @@
 [string]$SCRIPT       = '0-build/build.cake'
 
+# dotnet info
 dotnet --info
 
 # git commit sha

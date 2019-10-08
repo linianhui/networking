@@ -4,7 +4,7 @@ set -x
 
 SCRIPT='0-build/build.cake'
 
-dotnet --info
+dotnet --version
 
 dotnet tool restore
 

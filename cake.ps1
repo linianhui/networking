@@ -6,7 +6,7 @@ if (Get-Command git -ErrorAction SilentlyContinue){
 }
 
 # Restore cake.tool
-dotnet --diagnostics tool restore --verbosity diagnostic
+dotnet tool restore
 
 # Start Cake
 [string]$CAKE_ARGS = "--verbosity=diagnostic"

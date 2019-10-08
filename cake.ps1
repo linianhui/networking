@@ -7,7 +7,7 @@ if (Get-Command git -ErrorAction SilentlyContinue){
 }
 
 # Install cake.tool
-dotnet tool install --global cake.tool --version $CAKE_VERSION
+dotnet tool install --global --version $CAKE_VERSION cake.tool
 
 # Start Cake
 [string]$CAKE_ARGS = "--verbosity=diagnostic"

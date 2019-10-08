@@ -11,7 +11,7 @@ if command -v git >/dev/null 2>&1; then
 fi
 
 # Install  cake.tool
-dotnet tool install --global cake.tool --version $CAKE_VERSION
+dotnet tool install --global --version $CAKE_VERSION cake.tool
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Start Cake

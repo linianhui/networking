@@ -18,11 +18,11 @@
 
 # CI
 
-| CI Service     | Platform            | Test Status                                 |
-| -------------- | ------------------- | ------------------------------------------- |
-| AppVeyor       | windows             | [![AppVeyor-Img]][AppVeyor-Url]             |
-| Github Actions | linux,macos,windows | [![Github-Actions-Img]][Github-Actions-Url] |
-| Gitlab CI      | docker              | [![Gitlab-CI-Img]][Gitlab-CI-Url]           |
+| CI Service     | Platform      | Test Status                                 |
+| -------------- | ------------- | ------------------------------------------- |
+| AppVeyor       | windows       | [![AppVeyor-Img]][AppVeyor-Url]             |
+| Github Actions | linux,windows | [![Github-Actions-Img]][Github-Actions-Url] |
+| Gitlab CI      | docker        | [![Gitlab-CI-Img]][Gitlab-CI-Url]           |
 
 # Docker Build
 

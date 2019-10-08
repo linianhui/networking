@@ -2,6 +2,7 @@
 
 set -x
 
+# dotnet info
 dotnet --info
 
 SCRIPT='0-build/build.cake'

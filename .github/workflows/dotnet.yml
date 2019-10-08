@@ -4,14 +4,15 @@ on: [push]
 
 jobs:
   test:
+    runs-on: ubuntu-latest
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
+    container:
+      # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
+      image: mcr.microsoft.com/dotnet/core/sdk:3.0-alpine
 
     steps:
-    - uses: actions/checkout@v1
-    - name: test
-      shell: pwsh
-      run: ./cake.ps1 -target=pack
+      - name: git checkout
+        uses: actions/checkout@v1
+      - name: test
+        shell: pwsh
+        run: ./cake.ps1 -target=pack

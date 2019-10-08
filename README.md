@@ -20,11 +20,11 @@
 
 # CI
 
-| CI Service     | Platform      | Test Status                                 |
-| -------------- | ------------- | ------------------------------------------- |
-| AppVeyor       | windows       | [![AppVeyor-Img]][AppVeyor-Url]             |
-| Github Actions | linux,windows | [![Github-Actions-Img]][Github-Actions-Url] |
-| Gitlab CI      | docker        | [![Gitlab-CI-Img]][Gitlab-CI-Url]           |
+| CI Service     | Platform | Test Status                                 |
+| -------------- | -------- | ------------------------------------------- |
+| AppVeyor       | windows  | [![AppVeyor-Img]][AppVeyor-Url]             |
+| GitHub Actions | docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
+| GitLab CI      | docker   | [![GitLab-CI-Img]][GitLab-CI-Url]           |
 
 # Docker Build
 
@@ -44,11 +44,11 @@ docker run \
 [AppVeyor-Img]:https://ci.appveyor.com/api/projects/status/1yvioftypfn3vi48?svg=true
 [AppVeyor-Url]:https://ci.appveyor.com/project/linianhui/networking
 
-[Github-Actions-Img]:https://github.com/linianhui/networking/workflows/test/badge.svg
-[Github-Actions-Url]:https://github.com/linianhui/networking/actions
+[GitHub-Actions-Img]:https://github.com/linianhui/networking/workflows/test/badge.svg
+[GitHub-Actions-Url]:https://github.com/linianhui/networking/actions
 
-[Gitlab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
-[Gitlab-CI-Url]:https://gitlab.com/lnh/networking/commits/master
+[GitLab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
+[GitLab-CI-Url]:https://gitlab.com/lnh/networking/commits/master
 
 [NuGet-Networking-Core-Img]:https://img.shields.io/nuget/v/Networking.Core.svg?label=nuget+Networking.Core
 [NuGet-Networking-Core-URL]:https://www.nuget.org/packages/Networking.Core

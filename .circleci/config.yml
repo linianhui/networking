@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.0-alpine
     steps:
       - checkout
       - run: dotnet --info

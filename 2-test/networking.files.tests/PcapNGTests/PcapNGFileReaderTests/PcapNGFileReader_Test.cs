@@ -1,11 +1,9 @@
-using System;
 using System.Linq;
 using FluentAssertions;
 using Networking.Files.PcapNG;
 using Networking.Model.DataLink;
 using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
 
 namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
 {

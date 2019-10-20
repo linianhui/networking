@@ -1,4 +1,3 @@
-using System;
 using FluentAssertions;
 using Networking.Files.Pcap;
 using Networking.Model.DataLink;

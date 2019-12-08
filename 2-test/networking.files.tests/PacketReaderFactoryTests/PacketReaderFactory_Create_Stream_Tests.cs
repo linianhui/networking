@@ -8,15 +8,15 @@ using Xunit;
 
 namespace Networking.Files.Tests.PacketReaderFactoryTests
 {
-    public class PacketReaderFactory_Create_Stream_Tests
+    public class PacketReaderFactory_Create_Stream_Tests : PacketReaderFactory_Tests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] { new Byte[] { 0xA1, 0xB2, 0xC3, 0xD4 }, typeof(PcapFileReader)},
-            new Object[] { new Byte[] { 0xD4, 0xC3, 0xB2, 0xA1 }, typeof(PcapFileReader)},
-            new Object[] { new Byte[] { 0xA1, 0xB2, 0x3C, 0x4D }, typeof(PcapFileReader)},
-            new Object[] { new Byte[] { 0x4D, 0x3C, 0xB2, 0xA1 }, typeof(PcapFileReader)},
-            new Object[] { new Byte[] { 0x0A, 0x0D, 0x0D, 0x0A }, typeof(PcapNGFileReader)},
+            new Object[] { new Byte[] { 0xA1, 0xB2, 0xC3, 0xD4 }, typeof(PcapPacketReader)},
+            new Object[] { new Byte[] { 0xD4, 0xC3, 0xB2, 0xA1 }, typeof(PcapPacketReader)},
+            new Object[] { new Byte[] { 0xA1, 0xB2, 0x3C, 0x4D }, typeof(PcapPacketReader)},
+            new Object[] { new Byte[] { 0x4D, 0x3C, 0xB2, 0xA1 }, typeof(PcapPacketReader)},
+            new Object[] { new Byte[] { 0x0A, 0x0D, 0x0D, 0x0A }, typeof(PcapNGPacketReader)},
         };
 
         [Fact]

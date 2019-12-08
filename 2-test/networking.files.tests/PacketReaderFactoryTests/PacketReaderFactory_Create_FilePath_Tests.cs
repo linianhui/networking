@@ -7,12 +7,12 @@ using Xunit;
 
 namespace Networking.Files.Tests.PacketReaderFactoryTests
 {
-    public class PacketReaderFactory_Create_FilePath_Tests
+    public class PacketReaderFactory_Create_FilePath_Tests : PacketReaderFactory_Tests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] { "pcap.pcap", typeof(PcapFileReader)},
-            new Object[] { "pcapng.pcapng", typeof(PcapNGFileReader)},
+            new Object[] { "pcap.pcap", typeof(PcapPacketReader)},
+            new Object[] { "pcapng.pcapng", typeof(PcapNGPacketReader)},
         };
 
         [Fact]

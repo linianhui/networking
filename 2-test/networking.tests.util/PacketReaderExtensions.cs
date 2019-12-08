@@ -7,30 +7,30 @@ using Networking.Files.PcapNG;
 namespace Networking
 {
     /// <summary>
-    /// <see cref="PcapFileReader"/>
+    /// <see cref="PcapPacketReader"/>
     /// </summary>
-    public static class PcapFileReaderExtensions
+    public static class PacketReaderExtensions
     {
         /// <summary>
-        /// 获取<see cref="PcapFileReader"/>
+        /// 获取<see cref="PcapPacketReader"/>
         /// </summary>
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static PcapFileReader GetPcapFileReader(this Object @this, String fileName)
+        public static PcapPacketReader GetPcapPacketReader(this Object @this, String fileName)
         {
-            return GetPacketReader(@this, fileName) as PcapFileReader;
+            return GetPacketReader(@this, fileName) as PcapPacketReader;
         }
 
         /// <summary>
-        /// 获取<see cref="PcapNGFileReader"/>
+        /// 获取<see cref="PcapNGPacketReader"/>
         /// </summary>
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static PcapNGFileReader GetPcapNGFileReader(this Object @this, String fileName)
+        public static PcapNGPacketReader GetPcapNGPacketReader(this Object @this, String fileName)
         {
-            return GetPacketReader(@this, fileName) as PcapNGFileReader;
+            return GetPacketReader(@this, fileName) as PcapNGPacketReader;
         }
 
         /// <summary>
@@ -39,9 +39,9 @@ namespace Networking
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        private static PacketReader GetPacketReader(Object @this, String fileName)
+        private static IPacketReader GetPacketReader(Object @this, String fileName)
         {
-            return PacketReaderFactory.Create(GetResourceStream(@this, fileName));
+            return (new PacketReaderFactory()).Create(GetResourceStream(@this, fileName));
         }
 
         private static Stream GetResourceStream(Object @this, String fileName)

@@ -5,20 +5,20 @@ using Networking.Model.DataLink;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Networking.Files.Tests.PcapNGTests.PcapNGFileReaderTests
+namespace Networking.Files.Tests.PcapNGTests.PcapNGPacketReaderTests
 {
-    public class PcapNGFileReader_Test : BaseTest
+    public class PcapNGPacketReader_Test : BaseTest
     {
-        public PcapNGFileReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
+        public PcapNGPacketReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
         }
 
         [Fact]
         public void ReadBlocks()
         {
-            var pcapNgFileReader = this.GetPcapNGFileReader("1-shb.11-idb.64-epb.1-nrb.11-isb.pcapng");
+            var pcapNGPacketReader = this.GetPcapNGPacketReader("1-shb.11-idb.64-epb.1-nrb.11-isb.pcapng");
 
-            var blocks = pcapNgFileReader.ReadBlocks().ToList();
+            var blocks = pcapNGPacketReader.ReadBlocks().ToList();
             blocks.Count.Should().Be(88);
 
             var sectionHeaderBlock = (SectionHeaderBlock)blocks[0];

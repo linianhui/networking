@@ -15,7 +15,7 @@ namespace Networking.Files
         /// </summary>
         /// <param name="filePath">绝对文件路径</param>
         /// <returns></returns>
-        public static PacketReader Create(String filePath)
+        public static IPacketReader Create(String filePath)
         {
             if (filePath == null)
             {
@@ -29,7 +29,7 @@ namespace Networking.Files
         /// </summary>
         /// <param name="bytes">字节数组</param>
         /// <returns></returns>
-        public static PacketReader Create(Byte[] bytes)
+        public static IPacketReader Create(Byte[] bytes)
         {
             if (bytes == null)
             {
@@ -43,7 +43,7 @@ namespace Networking.Files
         /// </summary>
         /// <param name="stream">流</param>
         /// <returns></returns>
-        public static PacketReader Create(Stream stream)
+        public static IPacketReader Create(Stream stream)
         {
             if (stream == null)
             {

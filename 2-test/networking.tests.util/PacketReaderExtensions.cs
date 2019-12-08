@@ -39,7 +39,7 @@ namespace Networking
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        private static PacketReader GetPacketReader(Object @this, String fileName)
+        private static IPacketReader GetPacketReader(Object @this, String fileName)
         {
             return PacketReaderFactory.Create(GetResourceStream(@this, fileName));
         }

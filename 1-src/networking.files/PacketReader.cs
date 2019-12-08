@@ -7,7 +7,7 @@ namespace Networking.Files
     /// <summary>
     /// Packet Reader
     /// </summary>
-    public abstract class PacketReader
+    public abstract class PacketReader : IPacketReader
     {
         private readonly Stream _stream;
 

@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Networking.Files.Tests.PacketReaderFactoryTests
 {
-    public class PacketReaderFactory_Create_FilePath_Tests
+    public class PacketReaderFactory_Create_FilePath_Tests : PacketReaderFactory_Tests
     {
         public static List<Object[]> Data => new List<Object[]>
         {

@@ -6,16 +6,16 @@ using Networking.Files.PcapNG;
 namespace Networking.Files
 {
     /// <summary>
-    /// <see cref="PacketReader"/>
+    /// <see cref="IPacketReader"/>
     /// </summary>
-    public static class PacketReaderFactory
+    public class PacketReaderFactory : IPacketReaderFactory
     {
         /// <summary>
         /// Create
         /// </summary>
         /// <param name="filePath">绝对文件路径</param>
         /// <returns></returns>
-        public static IPacketReader Create(String filePath)
+        public IPacketReader Create(String filePath)
         {
             if (filePath == null)
             {
@@ -29,7 +29,7 @@ namespace Networking.Files
         /// </summary>
         /// <param name="bytes">字节数组</param>
         /// <returns></returns>
-        public static IPacketReader Create(Byte[] bytes)
+        public IPacketReader Create(Byte[] bytes)
         {
             if (bytes == null)
             {
@@ -43,7 +43,7 @@ namespace Networking.Files
         /// </summary>
         /// <param name="stream">流</param>
         /// <returns></returns>
-        public static IPacketReader Create(Stream stream)
+        public IPacketReader Create(Stream stream)
         {
             if (stream == null)
             {

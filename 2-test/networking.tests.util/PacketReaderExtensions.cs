@@ -41,7 +41,7 @@ namespace Networking
         /// <returns></returns>
         private static IPacketReader GetPacketReader(Object @this, String fileName)
         {
-            return PacketReaderFactory.Create(GetResourceStream(@this, fileName));
+            return (new PacketReaderFactory()).Create(GetResourceStream(@this, fileName));
         }
 
         private static Stream GetResourceStream(Object @this, String fileName)

@@ -7,19 +7,19 @@ using Networking.Files.PcapNG;
 namespace Networking
 {
     /// <summary>
-    /// <see cref="PcapFileReader"/>
+    /// <see cref="PcapPacketReader"/>
     /// </summary>
-    public static class PcapFileReaderExtensions
+    public static class PacketReaderExtensions
     {
         /// <summary>
-        /// 获取<see cref="PcapFileReader"/>
+        /// 获取<see cref="PcapPacketReader"/>
         /// </summary>
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static PcapFileReader GetPcapFileReader(this Object @this, String fileName)
+        public static PcapPacketReader GetPcapPacketReader(this Object @this, String fileName)
         {
-            return GetPacketReader(@this, fileName) as PcapFileReader;
+            return GetPacketReader(@this, fileName) as PcapPacketReader;
         }
 
         /// <summary>

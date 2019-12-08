@@ -4,28 +4,28 @@ using Networking.Model.DataLink;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Networking.Files.Tests.PcapTests.PcapFileReaderTests
+namespace Networking.Files.Tests.PcapTests.PcapPacketReaderTests
 {
-    public class PcapFileReader_Test : BaseTest
+    public class PcapPacketReader_Test : BaseTest
     {
-        public PcapFileReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
+        public PcapPacketReader_Test(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
         {
         }
 
         [Fact]
         public void ReadPackets()
         {
-            var pcapFileReader = this.GetPcapFileReader("pcap.pcap");
+            var pcapPacketReader = this.GetPcapPacketReader("pcap.pcap");
 
-            pcapFileReader.Header.IsLittleEndian.Should().Be(true);
-            pcapFileReader.Header.MagicNumber.Should().Be(0xA1B2C3D4);
-            pcapFileReader.Header.MajorVersion.Should().Be(2);
-            pcapFileReader.Header.MinorVersion.Should().Be(4);
-            pcapFileReader.Header.MaxCapturedLength.Should().Be(65535);
-            pcapFileReader.Header.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
+            pcapPacketReader.Header.IsLittleEndian.Should().Be(true);
+            pcapPacketReader.Header.MagicNumber.Should().Be(0xA1B2C3D4);
+            pcapPacketReader.Header.MajorVersion.Should().Be(2);
+            pcapPacketReader.Header.MinorVersion.Should().Be(4);
+            pcapPacketReader.Header.MaxCapturedLength.Should().Be(65535);
+            pcapPacketReader.Header.DataLinkType.Should().Be(PacketDataLinkType.Ethernet);
 
             var i = 0;
-            foreach (PcapPacket packet in pcapFileReader.ReadPackets())
+            foreach (PcapPacket packet in pcapPacketReader.ReadPackets())
             {
                 TestOutput.NewLine($"{packet.DataLinkType} {packet.TimestampNanosecond.ToDateTimeOffsetString()}");
                 packet.Header.IsLittleEndian.Should().Be(true);

@@ -9,7 +9,7 @@ namespace Networking.Files.Pcap
     /// <see href="https://wiki.wireshark.org/Development/LibpcapFileFormat"/>
     /// <see href="https://wiki.wireshark.org/SampleCaptures"/>
     /// </summary>
-    public class PcapFileReader : PacketReader
+    public class PcapPacketReader : PacketReader
     {
         /// <summary>
         /// 魔数
@@ -30,7 +30,7 @@ namespace Networking.Files.Pcap
         /// <summary>
         /// 构造函数
         /// </summary>
-        internal PcapFileReader(Stream stream) : base(stream)
+        internal PcapPacketReader(Stream stream) : base(stream)
         {
             ReadFileHeader();
         }

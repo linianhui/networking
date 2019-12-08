@@ -11,7 +11,7 @@ namespace Networking.Files.Tests.PacketReaderFactoryTests
     {
         public static List<Object[]> Data => new List<Object[]>
         {
-            new Object[] { "pcap.pcap", typeof(PcapFileReader)},
+            new Object[] { "pcap.pcap", typeof(PcapPacketReader)},
             new Object[] { "pcapng.pcapng", typeof(PcapNGFileReader)},
         };
 

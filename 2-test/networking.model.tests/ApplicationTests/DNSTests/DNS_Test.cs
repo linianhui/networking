@@ -49,7 +49,7 @@ namespace Networking.Model.Tests.ApplicationTests.DNSTests
         [Fact]
         public void dns()
         {
-            this.GetPcapFileReader("dns.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("dns.pcap").ForEach(bytes =>
             {
                 var ethernetFrame = new EthernetFrame { Bytes = bytes };
 

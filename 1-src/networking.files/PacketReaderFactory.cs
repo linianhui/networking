@@ -52,9 +52,9 @@ namespace Networking.Files
 
             var magicBytes = ReadMagicBytes(stream);
             var magicNumber = BitConverter.ToUInt32(magicBytes, 0);
-            if (PcapFileReader.MagicNumbers.Contains(magicNumber))
+            if (PcapPacketReader.MagicNumbers.Contains(magicNumber))
             {
-                return new PcapFileReader(stream);
+                return new PcapPacketReader(stream);
             }
 
             if (PcapNGFileReader.MagicNumbers.Contains(magicNumber))

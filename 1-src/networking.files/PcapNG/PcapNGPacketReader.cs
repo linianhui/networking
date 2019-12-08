@@ -9,7 +9,7 @@ namespace Networking.Files.PcapNG
     /// <see href="https://pcapng.github.io/pcapng"/>
     /// <see href="https://wiki.wireshark.org/Development/PcapNg"/>
     /// </summary>
-    public class PcapNGFileReader : PacketReader
+    public class PcapNGPacketReader : PacketReader
     {
         /// <summary>
         /// 魔数
@@ -22,7 +22,7 @@ namespace Networking.Files.PcapNG
         /// <summary>
         /// 构造函数
         /// </summary>
-        internal PcapNGFileReader(Stream stream) : base(stream)
+        internal PcapNGPacketReader(Stream stream) : base(stream)
         {
         }
 

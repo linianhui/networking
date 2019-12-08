@@ -23,14 +23,14 @@ namespace Networking
         }
 
         /// <summary>
-        /// 获取<see cref="PcapNGFileReader"/>
+        /// 获取<see cref="PcapNGPacketReader"/>
         /// </summary>
         /// <param name="this"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static PcapNGFileReader GetPcapNGFileReader(this Object @this, String fileName)
+        public static PcapNGPacketReader GetPcapNGPacketReader(this Object @this, String fileName)
         {
-            return GetPacketReader(@this, fileName) as PcapNGFileReader;
+            return GetPacketReader(@this, fileName) as PcapNGPacketReader;
         }
 
         /// <summary>

@@ -57,9 +57,9 @@ namespace Networking.Files
                 return new PcapPacketReader(stream);
             }
 
-            if (PcapNGFileReader.MagicNumbers.Contains(magicNumber))
+            if (PcapNGPacketReader.MagicNumbers.Contains(magicNumber))
             {
-                return new PcapNGFileReader(stream);
+                return new PcapNGPacketReader(stream);
             }
 
             throw new NotSupportedException($"not support file magic bytes {BitConverter.ToString(magicBytes)}.");

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Networking.Model.Transport;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.TransportTests.UDPDatagramTests
                 Bytes = new Byte[32]
             };
 
-            udpDatagram.SetBytes(6, 2, new Byte[] {0x12, 0x34});
+            udpDatagram.SetBytes(6, 2, new Byte[] { 0x12, 0x34 });
 
             udpDatagram.Checksum.Should().Be(4660);
         }

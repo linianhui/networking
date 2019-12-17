@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Networking.Model.Internet
 {
@@ -31,7 +31,7 @@ namespace Networking.Model.Internet
         DestinationUnreachableOfNoRoute = 0x0100,
 
         #endregion
- 
+
 
         #region Time Exceeded
 
@@ -43,7 +43,7 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Time Exceeded : fragment reassembly time exceeded
         /// </summary>
-        TimeExceededOfFragmentReassembly  = 0x0301,
+        TimeExceededOfFragmentReassembly = 0x0301,
 
         #endregion
     }

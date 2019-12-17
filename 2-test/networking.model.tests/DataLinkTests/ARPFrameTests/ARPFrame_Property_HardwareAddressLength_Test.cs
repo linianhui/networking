@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using Networking.Model.DataLink;
@@ -38,7 +38,7 @@ namespace Networking.Model.Tests.DataLinkTests.ARPFrameTests
             };
 
             arpFrame.HardwareAddressLength = input;
-            
+
             arpFrame.GetByte(4).Should().Be(expected);
             arpFrame.HardwareAddressLength.Should().Be(expected);
         }

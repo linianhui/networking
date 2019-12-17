@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Networking.Model.Internet
 {
@@ -59,7 +59,7 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Destination Unreachable : Destination network unknown
         /// </summary>
-        DestinationUnreachableOfNetworkUnknown  = 0x0306,
+        DestinationUnreachableOfNetworkUnknown = 0x0306,
 
         /// <summary>
         /// Destination Unreachable : Destination host unknown
@@ -74,7 +74,7 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Destination Unreachable : Network administratively prohibited
         /// </summary>
-        DestinationUnreachableOfNetworkAdministrativelyProhibited  = 0x0309,
+        DestinationUnreachableOfNetworkAdministrativelyProhibited = 0x0309,
 
         /// <summary>
         /// Destination Unreachable : Host administratively prohibited
@@ -143,7 +143,7 @@ namespace Networking.Model.Internet
         /// <summary>
         /// Time Exceeded : Fragment reassembly time exceeded
         /// </summary>
-        TimeExceededOfFragmentReassemblyTimeExceeded  = 0x0B01,
+        TimeExceededOfFragmentReassemblyTimeExceeded = 0x0B01,
 
         #endregion
 
@@ -175,22 +175,22 @@ namespace Networking.Model.Internet
         /// </summary>
         ExtendedEchoResponseOfNoError = 0x2B00,
 
-         /// <summary>
+        /// <summary>
         /// Extended Echo Response : Malformed Query
         /// </summary>
         ExtendedEchoResponseOfMalformedQuery = 0x2B01,
 
-         /// <summary>
+        /// <summary>
         /// Extended Echo Response : No Such Interface
         /// </summary>
         ExtendedEchoResponseOfNoSuchInterface = 0x2B02,
 
-         /// <summary>
+        /// <summary>
         /// Extended Echo Response : No Such Table Entry
         /// </summary>
         ExtendedEchoResponseOfNoSuchTableEntry = 0x2B03,
 
-         /// <summary>
+        /// <summary>
         /// Extended Echo Response : Multiple Interfaces Satisfy Query
         /// </summary>
         ExtendedEchoResponseOfMultipleInterfacesSatisfyQuery = 0x2B04,

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;
@@ -45,7 +45,7 @@ namespace Networking.Model.Tests.InternetTests.PPPoEFrameTests
             };
             pppoeFrame.SetByte(0, 0x01);
 
-            pppoeFrame.Version =input;
+            pppoeFrame.Version = input;
 
             pppoeFrame.GetByte(0).Should().Be(0x21);
             pppoeFrame.Version.Should().Be(2);

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Xunit;
 
@@ -27,7 +27,7 @@ namespace Networking.Tests.OctetsTests
             octets.GetBoolean(0, 6).Should().Be(false);
             octets.GetBoolean(0, 7).Should().Be(true);
 
-            
+
             octets.GetBoolean(1, 0).Should().Be(true);
             octets.GetBoolean(1, 1).Should().Be(false);
             octets.GetBoolean(1, 2).Should().Be(true);

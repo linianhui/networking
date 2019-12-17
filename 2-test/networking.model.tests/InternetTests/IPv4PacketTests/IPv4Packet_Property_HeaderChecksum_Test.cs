@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Networking.Model.Internet;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            ipv4Packet.SetBytes(10, 2, new Byte[] {0x99, 0xA4});
+            ipv4Packet.SetBytes(10, 2, new Byte[] { 0x99, 0xA4 });
 
             ipv4Packet.HeaderChecksum.Should().Be(39332);
         }

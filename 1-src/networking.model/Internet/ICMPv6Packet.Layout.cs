@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Networking.Model.Internet
 {
@@ -34,7 +34,7 @@ namespace Networking.Model.Internet
             public const Int32 TypeEnd = TypeBegin + 1;
 
 
-             /// <summary>
+            /// <summary>
             /// 编号-起始位置=1
             /// </summary>
             public const Int32 CodeBegin = TypeEnd;

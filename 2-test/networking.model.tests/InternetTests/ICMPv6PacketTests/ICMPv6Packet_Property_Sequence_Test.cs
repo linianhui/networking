@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Networking.Model.Internet;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv6PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv6Packet.SetBytes(6, 2, new Byte[] { 0x00, 0x11});
+            icmpv6Packet.SetBytes(6, 2, new Byte[] { 0x00, 0x11 });
 
             icmpv6Packet.Sequence.Should().Be(17);
         }

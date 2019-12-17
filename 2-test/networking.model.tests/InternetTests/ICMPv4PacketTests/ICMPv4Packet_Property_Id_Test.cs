@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using FluentAssertions;
 using Networking.Model.Internet;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Networking.Model.Tests.InternetTests.ICMPv4PacketTests
                 Bytes = new Byte[32]
             };
 
-            icmpv4Packet.SetBytes(4, 2, new Byte[] { 0x00, 0x01});
+            icmpv4Packet.SetBytes(4, 2, new Byte[] { 0x00, 0x01 });
 
             icmpv4Packet.Id.Should().Be(1);
         }

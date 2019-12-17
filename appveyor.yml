@@ -2,7 +2,9 @@ version: 1.0.{build}
 image: Visual Studio 2019
 build: off
 test_script:
-- ps: ./cake.ps1 -target=pack
+  - ps: dotnet tool restore
+  - ps: dotnet format --check --dry-run --verbosity minimal
+  - ps: ./cake.ps1 -target=pack
 
 artifacts:
   - path: '3-dist\**.nupkg'

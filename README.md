@@ -35,7 +35,7 @@ docker run \
        --volume $(pwd):/src \
        --workdir /src \
        --env GIT_COMMIT_SHA=$(git rev-parse --short HEAD) \
-       mcr.microsoft.com/dotnet/core/sdk:3.0-alpine \
+       mcr.microsoft.com/dotnet/core/sdk:3.1-alpine \
        ./cake.sh -target=pack
 ```
 

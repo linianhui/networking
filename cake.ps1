@@ -4,6 +4,8 @@ dotnet --info
 
 dotnet tool restore
 
+dotnet format --check --dry-run --verbosity minimal
+
 if (Get-Command git -ErrorAction SilentlyContinue){
     [string]$GIT_COMMIT_SHA = git rev-parse --short HEAD
 }

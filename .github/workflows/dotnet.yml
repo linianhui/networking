@@ -8,7 +8,7 @@ jobs:
 
     container:
       # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
-      image: mcr.microsoft.com/dotnet/core/sdk:3.0-alpine
+      image: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
 
     steps:
       - name: git checkout

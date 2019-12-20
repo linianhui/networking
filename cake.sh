@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x -e
+set -euxo pipefail
 
 SCRIPT='0-build/build.cake'
 

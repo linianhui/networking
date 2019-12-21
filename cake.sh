@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eux
+set -ex
 
 SCRIPT='0-build/build.cake'
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euxo pipefail
+set -exo pipefail
 
 SCRIPT='0-build/build.cake'
 
@@ -12,8 +12,6 @@ dotnet format --check --dry-run --verbosity minimal
 
 if command -v git >/dev/null 2>&1; then 
   GIT_COMMIT_SHA=$(git rev-parse --short HEAD)
-else
-  GIT_COMMIT_SHA=''
 fi
 
 CAKE_ARGS="$SCRIPT --verbosity=verbose -git-commit-sha=$GIT_COMMIT_SHA"

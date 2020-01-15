@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
@@ -13,9 +13,5 @@
     <InformationalVersion>$(Networking_Files_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
     <PackageDescription>parse *.pcap *.pcapng file.</PackageDescription>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\networking.core\networking.core.csproj" />
-  </ItemGroup>
 
 </Project>

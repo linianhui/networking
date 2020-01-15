@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
@@ -13,9 +13,5 @@
     <InformationalVersion>$(Networking_Model_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
     <PackageDescription>Networking PDU Model : DHCP, DNS, VXLAN, MQTT, CoAP, TCP, UDP, IPv4, ICMPv4, IPv6, ICMPv6, ARP, PPP, PPPoE, VLAN.</PackageDescription>
   </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\networking.core\networking.core.csproj" />
-  </ItemGroup>
 
 </Project>

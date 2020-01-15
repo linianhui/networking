@@ -2,48 +2,34 @@
 
 # VS 2017 : 15.6+ 内置支持；Tools > Options > Text Editor > "Follow project coding conventions"
 # VS Code : (Ctrl+E) ext install editorconfig
-
+# http://editorconfig.org
 
 root = true
 
-# 所有文件
 [*]
-charset      = utf-8
-end_of_line  = crlf
-indent_style = space
-
-# C# 文件
-[*.cs]
-indent_size              = 4
+charset                  = utf-8
+end_of_line              = lf
+indent_size              = 2
+indent_style             = space
 insert_final_newline     = true
 trim_trailing_whitespace = true
 
-# Shell文件
-[*.sh]
-end_of_line = lf
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{cs,cake}]
+indent_size              = 4
+end_of_line              = crlf
 
 [*.csproj]
-charset     = utf-8-bom
+end_of_line              = crlf
+
+[*.sln]
+end_of_line              = crlf
 
 [*.ps1]
-charset     = utf-8-bom
-indent_size = 4
-
-# YAML 文件
-[*.yml]
-indent_size = 2
-
-# HTML 文件
-[*.html]
-indent_size = 2
-
-# JS 文件
-[*.{js,ts,json}]
-indent_size = 2
-
-# XML 文件
-[*.{xml,csproj,dcproj,props,targets,config,nuspec}]
-indent_size = 2
+indent_size              = 4
+end_of_line              = crlf
 
 
 # C# 命名规则

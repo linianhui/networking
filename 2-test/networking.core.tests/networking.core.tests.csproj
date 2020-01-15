@@ -7,4 +7,8 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\1-src\networking.core\networking.core.csproj" />
+  </ItemGroup>
+
 </Project>

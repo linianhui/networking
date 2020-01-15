@@ -14,4 +14,8 @@
     <PackageDescription>parse *.pcap *.pcapng file.</PackageDescription>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\networking.core\networking.core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,6 @@
 # Docs
 
-1. [/docs](/docs/)
-2. blog: https://linianhui.github.io/computer-networking/
+<https://linianhui.github.io/computer-networking>
 
 # Networking [PDU] 
 

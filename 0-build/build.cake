@@ -6,6 +6,8 @@ var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
 var testPath     = rootPath + "2-test/";
 var distPath     = rootPath + "3-dist/";
+var distTestPath = distPath + "test/";
+var distPackPath = distPath + "pack/";
 
 var solution     = rootPath + "networking.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
@@ -15,9 +17,9 @@ Task("clean")
     .Description("清理项目缓存")
     .Does(() =>
 {
-    DeleteFiles(distPath + "*.trx");
-    DeleteFiles(distPath + "*.nupkg");
-    DeleteFiles(distPath + "*.snupkg");
+    DeleteFiles(distTestPath + "*.trx");
+    DeleteFiles(distPackPath + "*.nupkg");
+    DeleteFiles(distPackPath + "*.snupkg");
     CleanDirectories(srcPath + "**/bin");
     CleanDirectories(srcPath + "**/obj");
     CleanDirectories(testPath + "**/bin");
@@ -56,7 +58,7 @@ Task("test")
         NoBuild          = true,
         Logger           = "trx",
         Verbosity        = DotNetCoreVerbosity.Normal,
-        ResultsDirectory = distPath
+        ResultsDirectory = distTestPath
     };
 
     foreach(var testProject in testProjects)
@@ -74,7 +76,7 @@ Task("pack")
         ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + versionSuffix)
                                             .Append("-property:GIT_COMMIT_SHA=" + gitCommitSha),
         Configuration         = "Release",
-        OutputDirectory       = distPath,
+        OutputDirectory       = distPackPath,
         NoBuild               = false
     };
 

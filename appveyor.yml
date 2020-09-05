@@ -7,4 +7,4 @@ test_script:
   - ps: ./cake.ps1 -target=pack
 
 artifacts:
-  - path: '3-dist\**.nupkg'
+  - path: '3-dist\pack\**'

@@ -10,12 +10,17 @@
     <IncludeSource>true</IncludeSource>
     <Authors>lnhcode</Authors>
     <Company>lnhcode</Company>
-    <Copyright>Copyright © lnhcode 2019</Copyright>
-    <RepositoryType>git</RepositoryType>
+    <Copyright>Copyright © lnhcode 2020</Copyright>
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+    <RepositoryCommit>$(GIT_COMMIT_SHA)</RepositoryCommit>
+    <IncludeSource>true</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">

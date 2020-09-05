@@ -1,5 +1,6 @@
 var target       = Argument("target", "default");
 var gitCommitSha = Argument("git-commit-sha", EnvironmentVariable("GIT_COMMIT_SHA"));
+var versionSuffix= "+git+commit+" + gitCommitSha;
 
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
@@ -9,14 +10,6 @@ var distPath     = rootPath + "3-dist/";
 var solution     = rootPath + "networking.sln";
 var srcProjects  = GetFiles(srcPath + "**/*.csproj");
 var testProjects = GetFiles(testPath + "**/*.csproj");
-
-string GetVersionSuffix(){
-    if (string.IsNullOrWhiteSpace(gitCommitSha))
-    {
-        return string.Empty;
-    }
-    return "+git+sha1+" + gitCommitSha;
-}
 
 Task("clean")
     .Description("清理项目缓存")
@@ -44,7 +37,8 @@ Task("build")
     .Does(() =>
 {
     var buildSetting = new DotNetCoreBuildSettings {
-        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + versionSuffix)
+                                            .Append("-property:GIT_COMMIT_SHA=" + gitCommitSha),
         NoRestore             = true
     };
 
@@ -76,11 +70,10 @@ Task("pack")
     .Does(() =>
 {
     var packSetting = new DotNetCorePackSettings {
-        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + GetVersionSuffix()),
+        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + versionSuffix)
+                                            .Append("-property:GIT_COMMIT_SHA=" + gitCommitSha),
         Configuration         = "Release",
         OutputDirectory       = distPath,
-        IncludeSource         = true,
-        IncludeSymbols        = true,
         NoBuild               = false
     };
 

@@ -1,6 +1,6 @@
 var target       = Argument("target", "default");
 var gitCommitSha = Argument("git-commit-sha", EnvironmentVariable("GIT_COMMIT_SHA"));
-var versionSuffix= "+git+commit+" + gitCommitSha;
+var versionSuffix= "+git+commit+" + gitCommitSha.Substring(0,7);
 
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
@@ -17,6 +17,7 @@ Task("clean")
 {
     DeleteFiles(distPath + "*.trx");
     DeleteFiles(distPath + "*.nupkg");
+    DeleteFiles(distPath + "*.snupkg");
     CleanDirectories(srcPath + "**/bin");
     CleanDirectories(srcPath + "**/obj");
     CleanDirectories(testPath + "**/bin");

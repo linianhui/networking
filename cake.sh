@@ -10,8 +10,8 @@ dotnet tool restore
 
 dotnet format --check --dry-run --verbosity minimal
 
-if command -v git >/dev/null 2>&1; then 
-  GIT_COMMIT_SHA=$(git rev-parse --short HEAD)
+if command -v git >/dev/null 2>&1; then
+  GIT_COMMIT_SHA=$(git rev-parse HEAD)
 fi
 
 CAKE_ARGS="$SCRIPT --verbosity=verbose -git-commit-sha=$GIT_COMMIT_SHA"

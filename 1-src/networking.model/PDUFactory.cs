@@ -134,5 +134,15 @@ namespace Networking.Model
 
             return Default(bytes);
         }
+
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="bytes">数据</param>
+        /// <returns></returns>
+        public static EthernetFrame CreateEthernetFrame(Memory<Byte> bytes)
+        {
+            return new EthernetFrame { Bytes = bytes };
+        }
     }
 }

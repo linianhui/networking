@@ -8,9 +8,6 @@
 
   <PropertyGroup>
     <PackageId>Networking.Core</PackageId>
-    <Version>$(Networking_Core_Version)</Version>
-    <PackageVersion>$(Networking_Core_Version)</PackageVersion>
-    <InformationalVersion>$(Networking_Core_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
     <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress.</PackageDescription>
   </PropertyGroup>
 

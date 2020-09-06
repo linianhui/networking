@@ -12,14 +12,15 @@
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryBranch>master</RepositoryBranch>
-    <RepositoryCommit>$(GIT_COMMIT_SHA)</RepositoryCommit>
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
     <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
     <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>

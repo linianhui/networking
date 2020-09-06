@@ -1,6 +1,4 @@
 var target       = Argument("target", "default");
-var gitCommitSha = Argument("git-commit-sha", EnvironmentVariable("GIT_COMMIT_SHA"));
-var versionSuffix= string.IsNullOrWhiteSpace(gitCommitSha) ? "" : "+git+commit+" + gitCommitSha.Substring(0, 7);
 
 var rootPath     = "../";
 var srcPath      = rootPath + "1-src/";
@@ -40,8 +38,6 @@ Task("build")
     .Does(() =>
 {
     var buildSetting = new DotNetCoreBuildSettings {
-        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + versionSuffix)
-                                            .Append("-property:GIT_COMMIT_SHA=" + gitCommitSha),
         NoRestore             = true
     };
 
@@ -73,8 +69,6 @@ Task("pack")
     .Does(() =>
 {
     var packSetting = new DotNetCorePackSettings {
-        ArgumentCustomization = args => args.Append("-property:CUSTOM_VERSION_SUFFIX=" + versionSuffix)
-                                            .Append("-property:GIT_COMMIT_SHA=" + gitCommitSha),
         Configuration         = "Release",
         OutputDirectory       = distPackPath,
         NoBuild               = false

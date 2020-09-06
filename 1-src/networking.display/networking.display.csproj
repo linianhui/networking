@@ -8,9 +8,6 @@
 
   <PropertyGroup>
     <PackageId>Networking.Display</PackageId>
-    <Version>$(Networking_Display_Version)</Version>
-    <PackageVersion>$(Networking_Display_Version)</PackageVersion>
-    <InformationalVersion>$(Networking_Display_Version)$(CUSTOM_VERSION_SUFFIX)</InformationalVersion>
     <PackageDescription>Networking Display PDU.</PackageDescription>
   </PropertyGroup>
 

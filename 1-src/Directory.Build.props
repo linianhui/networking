@@ -15,13 +15,21 @@
     <RepositoryCommit>$(GIT_COMMIT_SHA)</RepositoryCommit>
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
+    <DevelopmentDependency>true</DevelopmentDependency>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="System.Memory" Version="4.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- https://github.com/dotnet/sourcelink/ -->
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 </Project>

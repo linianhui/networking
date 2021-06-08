@@ -48,8 +48,8 @@ docker run \
 [GitHub-Actions-Img]:https://github.com/linianhui/networking/workflows/test/badge.svg
 [GitHub-Actions-Url]:https://github.com/linianhui/networking/actions
 
-[GitLab-CI-Img]:https://gitlab.com/lnh/networking/badges/master/pipeline.svg
-[GitLab-CI-Url]:https://gitlab.com/lnh/networking/commits/master
+[GitLab-CI-Img]:https://gitlab.com/lnh/networking/badges/main/pipeline.svg
+[GitLab-CI-Url]:https://gitlab.com/lnh/networking/commits/main
 
 [NuGet-Networking-Core-Img]:https://img.shields.io/nuget/v/Networking.Core.svg?label=nuget+Networking.Core
 [NuGet-Networking-Core-URL]:https://www.nuget.org/packages/Networking.Core

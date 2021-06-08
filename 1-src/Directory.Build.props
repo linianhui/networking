@@ -11,7 +11,7 @@
     <Copyright>Copyright © lnhcode 2020</Copyright>
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryBranch>master</RepositoryBranch>
+    <RepositoryBranch>main</RepositoryBranch>
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

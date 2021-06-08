@@ -8,7 +8,7 @@ dotnet --list-sdks
 
 dotnet tool restore
 
-dotnet format --check --verbosity diagnostic
+dotnet format --check --fix-style error --verbosity diagnostic
 
 CAKE_ARGS="$SCRIPT --verbosity=verbose"
 

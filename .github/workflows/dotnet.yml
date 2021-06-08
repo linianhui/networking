@@ -4,15 +4,15 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
 
     container:
-      # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
-      image: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+      # https://hub.docker.com/_/microsoft-dotnet-sdk
+      image: mcr.microsoft.com/dotnet/sdk:5.0
 
     steps:
       - name: git checkout
         uses: actions/checkout@v1
       - name: test
         shell: sh
-        run: ./cake.sh -target=pack
+        run: ./cake.sh --target=pack

@@ -1,10 +1,10 @@
-[string]$SCRIPT = 'build/build.cake'
+[string]$SCRIPT = 'cake/build.cake'
 
 dotnet --list-sdks
 
 dotnet tool restore
 
-dotnet format --check --dry-run --verbosity minimal
+dotnet format --check --fix-style error --verbosity diagnostic
 
 [string]$CAKE_ARGS = "--verbosity=verbose"
 

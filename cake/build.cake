@@ -52,7 +52,7 @@ Task("test")
     var testSetting = new DotNetCoreTestSettings {
         NoRestore        = true,
         NoBuild          = true,
-        Logger           = "trx",
+        Loggers          = new String[]{"trx"},
         Verbosity        = DotNetCoreVerbosity.Normal,
         ResultsDirectory = distTestPath
     };

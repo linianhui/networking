@@ -1,6 +1,6 @@
 <Project>
   <!--适用于当前文件夹下的所有项目-->
-  <Import Project="../build/build.props" />
+  <Import Project="../cake/build.props" />
 
   <!--nuget打包的共同配置-->
   <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->

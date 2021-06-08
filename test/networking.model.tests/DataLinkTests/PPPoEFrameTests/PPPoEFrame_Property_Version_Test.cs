@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using FluentAssertions;
 using Networking.Model.DataLink;
 using Xunit;

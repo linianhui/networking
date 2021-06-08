@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions;
-using Xunit;
 using Networking.Model.DataLink;
+using Xunit;
 
 namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
 {

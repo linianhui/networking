@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions;
-using Xunit;
 using Networking.Model.Internet;
+using Xunit;
 
 namespace Networking.Model.Tests.InternetTests.IPv4PacketTests
 {

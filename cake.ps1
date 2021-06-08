@@ -4,7 +4,7 @@ dotnet --list-sdks
 
 dotnet tool restore
 
-dotnet format --check --verbosity minimal
+dotnet format --check --verbosity diagnostic
 
 [string]$CAKE_ARGS = "--verbosity=verbose"
 

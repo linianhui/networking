@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
 
     container:
       # https://hub.docker.com/_/microsoft-dotnet-sdk
@@ -15,4 +15,4 @@ jobs:
         uses: actions/checkout@v1
       - name: test
         shell: sh
-        run: ./cake.sh -target=pack
+        run: ./cake.sh --target=pack

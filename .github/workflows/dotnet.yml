@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-16.04
 
     container:
-      # https://hub.docker.com/_/microsoft-dotnet-core-sdk/
-      image: mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+      # https://hub.docker.com/_/microsoft-dotnet-sdk
+      image: mcr.microsoft.com/dotnet/sdk:5.0
 
     steps:
       - name: git checkout

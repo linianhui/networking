@@ -2,13 +2,10 @@
 # binary : 原样存储.
 
 # 自动识别文件是否为text
-*          text eol=lf
+*          text=auto eol=lf
 
 # 使用 lf 存储, checkout 时替换为 crlf.
 # git add --renormalize .
 *.ps1      text eol=crlf
 *.csproj   text eol=crlf
 *.sln      text eol=crlf
-
-*.pcap binary
-*.pcapng binary

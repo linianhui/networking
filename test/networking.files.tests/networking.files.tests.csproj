@@ -25,8 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\1-src\networking.files\networking.files.csproj" />
-    <ProjectReference Include="..\..\1-src\networking.model\networking.model.csproj" />
+    <ProjectReference Include="..\..\src\networking.files\networking.files.csproj" />
+    <ProjectReference Include="..\..\src\networking.model\networking.model.csproj" />
     <ProjectReference Include="..\networking.tests.util\networking.tests.util.csproj" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 
 set -ex
 
-SCRIPT='0-build/build.cake'
+SCRIPT='build/build.cake'
 
 dotnet --list-sdks
 

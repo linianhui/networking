@@ -1,9 +1,9 @@
 var target       = Argument("target", "default");
 
 var rootPath     = "../";
-var srcPath      = rootPath + "1-src/";
-var testPath     = rootPath + "2-test/";
-var distPath     = rootPath + "3-dist/";
+var srcPath      = rootPath + "src/";
+var testPath     = rootPath + "test/";
+var distPath     = rootPath + "dist/";
 var distTestPath = distPath + "test/";
 var distPackPath = distPath + "pack/";
 

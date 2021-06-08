@@ -8,14 +8,14 @@ namespace Networking.Display
     /// </summary>
     public static class DisplayerFactory
     {
-        private static readonly DisplayDispatcher TextDisplayDispatcher = new DisplayDispatcher(typeof(TextDisplayer));
+        private static readonly DisplayDispatcher _dispatcher = new DisplayDispatcher(typeof(TextDisplayer));
 
         /// <summary>
         /// 创建
         /// </summary>
         public static IDisplayer Text(TextWriter textWriter)
         {
-            return new TextDisplayer(textWriter, TextDisplayDispatcher);
+            return new TextDisplayer(textWriter, _dispatcher);
         }
     }
 }

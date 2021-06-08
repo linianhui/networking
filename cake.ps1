@@ -1,4 +1,4 @@
-[string]$SCRIPT = '0-build/build.cake'
+[string]$SCRIPT = 'build/build.cake'
 
 dotnet --list-sdks
 

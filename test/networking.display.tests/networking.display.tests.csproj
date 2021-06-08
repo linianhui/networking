@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\1-src\networking.display\networking.display.csproj" />
+    <ProjectReference Include="..\..\src\networking.display\networking.display.csproj" />
   </ItemGroup>
 
 </Project>

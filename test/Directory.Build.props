@@ -1,6 +1,6 @@
 <Project>
   <!--适用于当前文件夹下的所有项目-->
-  <Import Project="../0-build/build.props" />
+  <Import Project="../build/build.props" />
 
   <PropertyGroup>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>

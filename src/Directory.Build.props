@@ -1,6 +1,6 @@
 <Project>
   <!--适用于当前文件夹下的所有项目-->
-  <Import Project="../0-build/build.props" />
+  <Import Project="../build/build.props" />
 
   <!--nuget打包的共同配置-->
   <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->
@@ -11,7 +11,7 @@
     <Copyright>Copyright © lnhcode 2020</Copyright>
     <RepositoryUrl>https://github.com/linianhui/networking</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryBranch>master</RepositoryBranch>
+    <RepositoryBranch>main</RepositoryBranch>
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

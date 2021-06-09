@@ -1,7 +1,7 @@
 <Project>
   <!--语言版本和视为错误的编译警告-->
   <PropertyGroup>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <CodePage>65001</CodePage>
     <!-- https://docs.microsoft.com/zh-cn/dotnet/csharp/whats-new/csharp-7-3 -->
     <LangVersion>8.0</LangVersion>

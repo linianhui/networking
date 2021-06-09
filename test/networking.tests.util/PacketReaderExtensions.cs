@@ -3,6 +3,7 @@ using System.IO;
 using Networking.Files;
 using Networking.Files.Pcap;
 using Networking.Files.PcapNG;
+using Networking.Model;
 
 namespace Networking
 {
@@ -57,11 +58,11 @@ namespace Networking
         /// <param name="this"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static void ForEach(this PacketReader @this, Action<Memory<Byte>> action)
+        public static void ForEach(this PacketReader @this, Action<Octets> action)
         {
             foreach (var packet in @this.ReadPackets())
             {
-                action(packet.Payload);
+                action(packet.ToPDU());
             }
         }
     }

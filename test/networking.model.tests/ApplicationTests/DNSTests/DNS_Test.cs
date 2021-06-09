@@ -49,9 +49,9 @@ namespace Networking.Model.Tests.ApplicationTests.DNSTests
         [Fact]
         public void dns()
         {
-            this.GetPcapPacketReader("dns.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("dns.pcap").ForEach(octets =>
             {
-                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+                var ethernetFrame = (EthernetFrame)octets;
 
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
@@ -60,6 +60,7 @@ namespace Networking.Model.Tests.ApplicationTests.DNSTests
 
                 TestOutput.NewLine();
                 TestOutput.Display(ethernetFrame);
+                Assert.True(true);
             });
         }
     }

@@ -72,9 +72,9 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
         [Fact]
         public void dhcp()
         {
-            this.GetPcapPacketReader("dhcp.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("dhcp.pcap").ForEach(octets =>
             {
-                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+                var ethernetFrame = (EthernetFrame)octets;
 
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
@@ -84,6 +84,7 @@ namespace Networking.Model.Tests.ApplicationTests.DHCPTests
                 TestOutput.Display(ethernetFrame);
 
                 udpPayload.GetType().Should().Be(typeof(DHCP));
+                Assert.True(true);
             });
         }
     }

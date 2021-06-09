@@ -35,9 +35,9 @@ namespace Networking.Model.Tests.ApplicationTests.VXLANTests
         [Fact]
         public void vxlan()
         {
-            this.GetPcapPacketReader("vxlan.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("vxlan.pcap").ForEach(octets =>
             {
-                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+                var ethernetFrame = (EthernetFrame)octets;
 
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
@@ -46,6 +46,7 @@ namespace Networking.Model.Tests.ApplicationTests.VXLANTests
 
                 TestOutput.NewLine();
                 TestOutput.Display(ethernetFrame);
+                Assert.True(true);
             });
         }
     }

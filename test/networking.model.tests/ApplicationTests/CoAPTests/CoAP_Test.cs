@@ -41,9 +41,9 @@ namespace Networking.Model.Tests.ApplicationTests.CoAPTests
         [Fact]
         public void coap()
         {
-            this.GetPcapPacketReader("coap.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("coap.pcap").ForEach(octets =>
             {
-                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+                var ethernetFrame = (EthernetFrame)octets;
 
                 var ipv4 = (IPv4Packet)ethernetFrame.Payload;
                 var udp = (UDPDatagram)ipv4.Payload;
@@ -52,6 +52,7 @@ namespace Networking.Model.Tests.ApplicationTests.CoAPTests
                 udpPayload.GetType().Should().Be(typeof(CoAP));
                 TestOutput.NewLine();
                 TestOutput.Display(ethernetFrame);
+                Assert.True(true);
             });
         }
     }

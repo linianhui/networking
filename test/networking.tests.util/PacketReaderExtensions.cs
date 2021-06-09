@@ -62,7 +62,7 @@ namespace Networking
         {
             foreach (var packet in @this.ReadPackets())
             {
-                action(PDUFactory.Create(packet.DataLinkType,packet.Payload));
+                action(packet.ToPDU());
             }
         }
     }

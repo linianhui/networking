@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\networking.display\networking.display.csproj" />
     <ProjectReference Include="..\..\src\networking.files\networking.files.csproj" />
+    <ProjectReference Include="..\..\src\networking.model\networking.model.csproj" />
   </ItemGroup>
 
 </Project>

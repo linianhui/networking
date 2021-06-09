@@ -144,5 +144,26 @@ namespace Networking.Model
         {
             return new EthernetFrame { Bytes = bytes };
         }
+
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="packetDataLinkType">链路层类型</param>
+        /// <param name="bytes">数据</param>
+        /// <returns></returns>
+        public static Octets Create(PacketDataLinkType packetDataLinkType, Memory<Byte> bytes)
+        {
+            switch (packetDataLinkType)
+            {
+                case PacketDataLinkType.Null:
+                    return Default(bytes);
+                case PacketDataLinkType.Ethernet:
+                    return CreateEthernetFrame(bytes);
+                case PacketDataLinkType.PPP:
+                    return new PPPoEFrame { Bytes = bytes };
+                default:
+                    throw new NotSupportedException(packetDataLinkType.ToString());
+            }
+        }
     }
 }

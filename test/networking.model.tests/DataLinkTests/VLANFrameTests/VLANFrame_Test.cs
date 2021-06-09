@@ -34,10 +34,11 @@ namespace Networking.Model.Tests.DataLinkTests.VLANFrameTests
         [Fact]
         public void vlan()
         {
-            this.GetPcapPacketReader("vlan.pcap").ForEach(bytes =>
+            this.GetPcapPacketReader("vlan.pcap").ForEach(octets =>
             {
-                var ethernetFrame = new EthernetFrame { Bytes = bytes };
+                var ethernetFrame = (EthernetFrame)octets;
                 TestOutput.Display(ethernetFrame);
+                Assert.True(true);
             });
         }
     }

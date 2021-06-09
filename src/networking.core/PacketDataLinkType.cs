@@ -1,6 +1,6 @@
 using System;
 
-namespace Networking.Files
+namespace Networking
 {
     /// <summary>
     /// 数据链路的类型

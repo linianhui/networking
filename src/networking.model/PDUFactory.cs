@@ -138,16 +138,6 @@ namespace Networking.Model
         /// <summary>
         /// 创建
         /// </summary>
-        /// <param name="bytes">数据</param>
-        /// <returns></returns>
-        public static EthernetFrame CreateEthernetFrame(Memory<Byte> bytes)
-        {
-            return new EthernetFrame { Bytes = bytes };
-        }
-
-        /// <summary>
-        /// 创建
-        /// </summary>
         /// <param name="packetDataLinkType">链路层类型</param>
         /// <param name="bytes">数据</param>
         /// <returns></returns>
@@ -158,7 +148,7 @@ namespace Networking.Model
                 case PacketDataLinkType.Null:
                     return Default(bytes);
                 case PacketDataLinkType.Ethernet:
-                    return CreateEthernetFrame(bytes);
+                    return new EthernetFrame { Bytes = bytes };
                 case PacketDataLinkType.PPP:
                     return new PPPoEFrame { Bytes = bytes };
                 default:

@@ -26,7 +26,7 @@
     <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
     <DevelopmentDependency>false</DevelopmentDependency>
     <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile -->
-    <!-- 和snupkg冲突-->
+    <!-- https://github.com/NuGet/Home/issues/10791 -->
     <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
   </PropertyGroup>
 

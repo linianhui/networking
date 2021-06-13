@@ -27,7 +27,7 @@
     <DevelopmentDependency>false</DevelopmentDependency>
     <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile -->
     <!-- https://github.com/NuGet/Home/issues/10791 -->
-    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -37,6 +37,6 @@
   <ItemGroup>
     <!-- https://github.com/dotnet/sourcelink/ -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-    <!--<None Include="README.md" Pack="true" PackagePath="/"/>-->
+    <None Include="README.md" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>

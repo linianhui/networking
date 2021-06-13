@@ -63,22 +63,49 @@ Task("test")
     }
 });
 
-Task("pack")
+Task("pack-snupkg")
     .Description("nuget打包")
-    .IsDependentOn("test")
     .Does(() =>
 {
     var packSetting = new DotNetCorePackSettings {
         Configuration         = "Release",
         OutputDirectory       = distPackPath,
-        NoBuild               = false
+        NoBuild               = false,
+        ArgumentCustomization = args => args.Append("-p:PackageReadmeFile=")
     };
 
     foreach(var srcProject in srcProjects)
     {
         DotNetCorePack(srcProject.FullPath, packSetting);
     }
+
+    DeleteFiles(distPackPath + "*.nupkg");
 });
+
+Task("pack-nupkg")
+    .Description("nuget打包")
+    .Does(() =>
+{
+    var packSetting = new DotNetCorePackSettings {
+        Configuration         = "Release",
+        OutputDirectory       = distPackPath,
+        NoBuild               = false,
+        ArgumentCustomization = args => args.Append("-p:SymbolPackageFormat=symbols.nupkg")
+    };
+
+    foreach(var srcProject in srcProjects)
+    {
+        DotNetCorePack(srcProject.FullPath, packSetting);
+    }
+
+    DeleteFiles(distPackPath + "*.symbols.nupkg");
+});
+
+Task("pack")
+    .Description("nuget打包")
+    .IsDependentOn("test")
+    .IsDependentOn("pack-snupkg")
+    .IsDependentOn("pack-nupkg");
 
 Task("default")
     .Description("默认-运行测试(-target test)")

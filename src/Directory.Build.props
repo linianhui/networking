@@ -17,7 +17,7 @@
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <!-- https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg -->
-    <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -25,7 +25,8 @@
     <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
     <DevelopmentDependency>false</DevelopmentDependency>
     <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile -->
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <!-- 和snupkg冲突-->
+    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -35,6 +36,6 @@
   <ItemGroup>
     <!-- https://github.com/dotnet/sourcelink/ -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-    <None Include="README.md" Pack="true" PackagePath="/"/>
+    <!--<None Include="README.md" Pack="true" PackagePath="/"/>-->
   </ItemGroup>
 </Project>

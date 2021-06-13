@@ -15,9 +15,7 @@ Task("clean")
     .Description("清理项目缓存")
     .Does(() =>
 {
-    DeleteFiles(distTestPath + "*.trx");
-    DeleteFiles(distPackPath + "*.nupkg");
-    DeleteFiles(distPackPath + "*.snupkg");
+    CleanDirectories(distPath);
     CleanDirectories(srcPath + "**/bin");
     CleanDirectories(srcPath + "**/obj");
     CleanDirectories(testPath + "**/bin");
@@ -69,7 +67,7 @@ Task("pack-snupkg")
 {
     var packSetting = new DotNetCorePackSettings {
         Configuration         = "Release",
-        OutputDirectory       = distPackPath,
+        OutputDirectory       = distPath + "snupkg",
         NoBuild               = false,
         ArgumentCustomization = args => args.Append("-p:PackageReadmeFile=")
     };
@@ -79,7 +77,7 @@ Task("pack-snupkg")
         DotNetCorePack(srcProject.FullPath, packSetting);
     }
 
-    DeleteFiles(distPackPath + "*.nupkg");
+    CopyFiles(distPath + "snupkg/*.snupkg", distPackPath);
 });
 
 Task("pack-nupkg")
@@ -104,8 +102,8 @@ Task("pack-nupkg")
 Task("pack")
     .Description("nuget打包")
     .IsDependentOn("test")
-    .IsDependentOn("pack-snupkg")
-    .IsDependentOn("pack-nupkg");
+    .IsDependentOn("pack-nupkg")
+    .IsDependentOn("pack-snupkg");
 
 Task("default")
     .Description("默认-运行测试(-target test)")

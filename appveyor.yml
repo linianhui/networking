@@ -1,6 +1,9 @@
 version: 1.0.{build}
 image: Visual Studio 2019
 build: off
+install:
+  # https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile
+  - choco install dotnet --version 5.0.7
 test_script:
   - ps: ./cake.ps1 --target=pack
 

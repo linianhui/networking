@@ -5,6 +5,7 @@
   <!--nuget打包的共同配置-->
   <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->
   <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <Authors>lnhcode</Authors>
     <Company>lnhcode</Company>
@@ -16,6 +17,7 @@
     <IncludeSymbols>true</IncludeSymbols>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg -->
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -23,6 +25,9 @@
     <IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
     <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
     <DevelopmentDependency>false</DevelopmentDependency>
+    <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile -->
+    <!-- 和snupkg冲突-->
+    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
@@ -32,5 +37,6 @@
   <ItemGroup>
     <!-- https://github.com/dotnet/sourcelink/ -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    <!--<None Include="README.md" Pack="true" PackagePath="/"/>-->
   </ItemGroup>
 </Project>

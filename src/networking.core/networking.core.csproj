@@ -1,14 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <AssemblyName>Networking.Core</AssemblyName>
     <RootNamespace>Networking</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageId>Networking.Core</PackageId>
-    <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress.</PackageDescription>
+    <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress, PacketDataLinkType.</PackageDescription>
   </PropertyGroup>
 
 </Project>

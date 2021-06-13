@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>Networking.Core</PackageId>
-    <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress.</PackageDescription>
+    <PackageDescription>Networking : Bits, Octets, MACAddress, IPAddress, PacketDataLinkType.</PackageDescription>
   </PropertyGroup>
 
 </Project>

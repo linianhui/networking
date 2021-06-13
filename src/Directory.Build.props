@@ -23,6 +23,7 @@
     <IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
     <!-- https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference -->
     <DevelopmentDependency>false</DevelopmentDependency>
+    <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile -->
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -33,7 +34,6 @@
   <ItemGroup>
     <!-- https://github.com/dotnet/sourcelink/ -->
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
-    <!-- https://docs.microsoft.com/zh-cn/nuget/reference/msbuild-targets#packagereadmefile-->
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>

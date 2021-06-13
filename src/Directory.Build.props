@@ -5,6 +5,7 @@
   <!--nuget打包的共同配置-->
   <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->
   <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <Authors>lnhcode</Authors>
     <Company>lnhcode</Company>

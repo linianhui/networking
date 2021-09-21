@@ -3,4 +3,4 @@ image: mcr.microsoft.com/dotnet/sdk:5.0
 test:
   stage: test
   script:
-    - ./cake.sh --target=test
+    - ./cake.sh --target pack

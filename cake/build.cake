@@ -38,7 +38,7 @@ Task("build")
     .Does(() =>
 {
     var buildSetting = new DotNetCoreBuildSettings {
-        NoRestore             = true
+        NoRestore = true
     };
 
     DotNetCoreBuild(solution, buildSetting);
@@ -108,7 +108,7 @@ Task("pack")
     .IsDependentOn("pack-nupkg");
 
 Task("default")
-    .Description("默认-运行测试(-target test)")
-    .IsDependentOn("test");
+    .Description("默认-运行测试(-target pack)")
+    .IsDependentOn("pack");
 
 RunTarget(target);

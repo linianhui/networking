@@ -22,7 +22,7 @@ jobs:
       - name: push to nuget
         if: ${{ contains(github.event.head_commit.message,'--push') }}
         shell: sh
-        run: dotnet nuget push dist/pack/** --api-key ${{ secrets.NUGET_TOKEN }} --source "https://api.nuget.org/v3/index.json"
+        run: dotnet nuget push dist/pack/** --skip-duplicate --api-key ${{ secrets.NUGET_TOKEN }} --source "https://api.nuget.org/v3/index.json"
 
       - name: push to github
         if: ${{ contains(github.event.head_commit.message,'--push') }}

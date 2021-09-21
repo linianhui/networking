@@ -22,7 +22,6 @@
 
 | CI Service     | Platform | Test Status                                 |
 | -------------- | -------- | ------------------------------------------- |
-| AppVeyor       | windows  | [![AppVeyor-Img]][AppVeyor-Url]             |
 | GitHub Actions | docker   | [![GitHub-Actions-Img]][GitHub-Actions-Url] |
 | GitLab CI      | docker   | [![GitLab-CI-Img]][GitLab-CI-Url]           |
 
@@ -41,9 +40,6 @@ docker run \
 
 
 [PDU]:https://en.wikipedia.org/wiki/protocol_data_unit
-
-[AppVeyor-Img]:https://ci.appveyor.com/api/projects/status/1yvioftypfn3vi48?svg=true
-[AppVeyor-Url]:https://ci.appveyor.com/project/linianhui/networking
 
 [GitHub-Actions-Img]:https://github.com/linianhui/networking/workflows/test/badge.svg
 [GitHub-Actions-Url]:https://github.com/linianhui/networking/actions

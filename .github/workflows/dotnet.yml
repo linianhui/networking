@@ -18,12 +18,13 @@ jobs:
         shell: sh
         run: ./cake.sh --target pack
 
-      - name: push to github
-        if: ${{ contains(github.event.head_commit.message,'--push') }}
-        shell: sh
-        run: dotnet nuget push dist/pack/** --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/linianhui/index.json"
 
       - name: push to nuget
         if: ${{ contains(github.event.head_commit.message,'--push') }}
         shell: sh
-        run: dotnet nuget push dist/pack/** --api-key ${{ secrets.TOKEN_TOKEN }}
+        run: dotnet nuget push dist/pack/** --api-key ${{ secrets.NUGET_TOKEN }}
+
+      - name: push to github
+        if: ${{ contains(github.event.head_commit.message,'--push') }}
+        shell: sh
+        run: dotnet nuget push dist/pack/** --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/linianhui/index.json"
